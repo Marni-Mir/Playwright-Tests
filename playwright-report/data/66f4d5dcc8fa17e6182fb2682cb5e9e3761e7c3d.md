@@ -1,0 +1,1072 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e7] [cursor=pointer]: "76"
+    - generic "Search employees and chats" [ref=e8] [cursor=pointer]
+    - generic [ref=e13]:
+      - generic "CID chat Messages Notification" [ref=e17] [cursor=pointer]:
+        - img "CID chat Messages Notification" [ref=e18]
+      - generic "Oleksandr Pozhylenkov" [ref=e22] [cursor=pointer]:
+        - generic [ref=e23]: OP
+      - generic "Leyla Mustafayeva" [ref=e27] [cursor=pointer]:
+        - generic [ref=e28]: LM
+      - generic "Oleksii Skirko" [ref=e32] [cursor=pointer]:
+        - generic [ref=e33]: OS
+      - generic "Jack Bargery" [ref=e37] [cursor=pointer]:
+        - generic [ref=e38]: JB
+      - generic "Olha Plokhotiuk" [ref=e42] [cursor=pointer]:
+        - img "Olha Plokhotiuk" [ref=e43]
+      - generic "Kateryna Osinska" [ref=e47] [cursor=pointer]:
+        - img "Kateryna Osinska" [ref=e48]
+      - generic "Mariia Malhinova" [ref=e52] [cursor=pointer]:
+        - img "Mariia Malhinova" [ref=e53]
+      - generic "Dmitriy Shypilov" [ref=e57] [cursor=pointer]:
+        - generic [ref=e58]: DS
+      - generic "Stanislav Tokarskyi" [ref=e62] [cursor=pointer]:
+        - generic [ref=e63]: ST
+      - generic "Mikita Bondarau" [ref=e67] [cursor=pointer]:
+        - generic [ref=e68]: MB
+      - generic "Bugs and notes" [ref=e72] [cursor=pointer]
+      - generic "Hrach Pilosian" [ref=e77] [cursor=pointer]:
+        - generic [ref=e78]: HP
+      - generic "Michael Sizonenko" [ref=e82] [cursor=pointer]:
+        - generic [ref=e83]: MS
+      - generic "Danylo Samborskyi" [ref=e87] [cursor=pointer]:
+        - generic [ref=e88]: DS
+      - generic "Ilona Sheviaka" [ref=e92] [cursor=pointer]:
+        - generic [ref=e93]: IS
+      - generic "Zulfiyya Abdullayeva" [ref=e97] [cursor=pointer]:
+        - generic [ref=e98]: ZA
+      - generic "Ihor Ostiak" [ref=e102] [cursor=pointer]:
+        - generic [ref=e103]: IO
+      - generic "Denis Bezruchkin" [ref=e107] [cursor=pointer]:
+        - generic [ref=e108]: DB
+      - generic "Zhasmena Asoyan" [ref=e112] [cursor=pointer]:
+        - generic [ref=e113]: ZA
+      - generic "Maximo Barbieri" [ref=e117] [cursor=pointer]:
+        - generic [ref=e118]: MB
+      - generic "Bautista Gavenda" [ref=e126] [cursor=pointer]:
+        - generic [ref=e127]: BG
+      - generic "Oksana Ulianovska" [ref=e131] [cursor=pointer]:
+        - img "Oksana Ulianovska" [ref=e132]
+      - generic "Vlad Moskovskyi" [ref=e136] [cursor=pointer]:
+        - generic [ref=e137]: VM
+      - generic "Alexandra Haas" [ref=e141] [cursor=pointer]:
+        - generic [ref=e142]: AH
+      - generic "Bayim Guluzade" [ref=e146] [cursor=pointer]:
+        - generic [ref=e147]: BG
+      - generic "Olexander Babich" [ref=e151] [cursor=pointer]:
+        - img "Olexander Babich" [ref=e152]
+      - generic "Christy Gordon" [ref=e156] [cursor=pointer]:
+        - generic [ref=e157]: CG
+      - generic "Irakli Skhiladze" [ref=e161] [cursor=pointer]:
+        - generic [ref=e162]: IS
+      - generic "Diana Dvalishvili" [ref=e166] [cursor=pointer]:
+        - generic [ref=e167]: DD
+      - generic "Yurii Koren" [ref=e171] [cursor=pointer]:
+        - generic [ref=e172]: YK
+      - generic "Luka Mihajlovic" [ref=e176] [cursor=pointer]:
+        - img "Luka Mihajlovic" [ref=e177]
+      - 'generic "Deal: TesT - 1 Test-Test" [ref=e181] [cursor=pointer]'
+      - generic "Patricia Ansong" [ref=e186] [cursor=pointer]:
+        - img "Patricia Ansong" [ref=e187]
+      - generic "[#3216]Clock out problem" [ref=e191] [cursor=pointer]
+      - generic "Reinhardt Swanepoel" [ref=e196] [cursor=pointer]:
+        - img "Reinhardt Swanepoel" [ref=e197]
+      - generic "Milena Terteryan" [ref=e201] [cursor=pointer]:
+        - generic [ref=e202]: MT
+      - generic "Balzhan Absattar" [ref=e206] [cursor=pointer]:
+        - generic [ref=e207]: BA
+      - generic "Hiyasmin Tutay Lugtu" [ref=e211] [cursor=pointer]:
+        - generic [ref=e212]: HT
+      - generic "Test Teams" [ref=e216] [cursor=pointer]:
+        - generic [ref=e217]: TT
+      - generic "Priyanjali Khandve" [ref=e221] [cursor=pointer]:
+        - generic [ref=e222]: PK
+      - generic "Veronika Sakal" [ref=e226] [cursor=pointer]:
+        - img "Veronika Sakal" [ref=e227]
+    - img
+  - table [ref=e229]:
+    - rowgroup [ref=e230]:
+      - 'row "Menu Control Panel 3 Refresh Cache Marina Smirnova Logout Edit Mode OFF Show 12 : 22 AM Clock in Marina Smirnova Company Pulse Loading..." [ref=e231]':
+        - 'cell "Menu Control Panel 3 Refresh Cache Marina Smirnova Logout Edit Mode OFF Show 12 : 22 AM Clock in Marina Smirnova Company Pulse Loading..." [ref=e232]':
+          - generic [ref=e235]:
+            - generic [ref=e237]:
+              - link "Menu" [ref=e238] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e240]: Menu
+              - link "Control Panel" [ref=e242] [cursor=pointer]:
+                - /url: /bitrix/admin/index.php?lang=en&back_url_pub=%2Fstream%2Findex.php
+                - generic [ref=e243]: Control Panel
+              - link "3" [ref=e244] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e246]: "3"
+              - link "Refresh Cache" [ref=e247] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e249]: Refresh Cache
+            - generic [ref=e250]:
+              - link "Marina Smirnova" [ref=e251] [cursor=pointer]:
+                - /url: /bitrix/admin/user_edit.php?lang=en&ID=746
+                - generic [ref=e253]: Marina Smirnova
+              - link "Logout" [ref=e254] [cursor=pointer]:
+                - /url: /stream/index.php?logout=yes
+              - link "Edit Mode OFF" [ref=e255] [cursor=pointer]:
+                - /url: /stream/index.php?bitrix_include_areas=Y
+                - generic [ref=e260]: Edit Mode
+                - generic [ref=e262]: "OFF"
+              - link "Show" [ref=e264] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e265]: Show
+              - link [ref=e267] [cursor=pointer]:
+                - /url: javascript:void(0)
+          - generic [ref=e269]:
+            - generic [ref=e272] [cursor=pointer]:
+              - generic [ref=e273]:
+                - generic [ref=e274]: "12"
+                - generic [ref=e275]: ":"
+                - generic [ref=e276]: "22"
+                - generic [ref=e277]: AM
+              - generic [ref=e281]: Clock in
+            - textbox "find people, documents, and more" [ref=e287]
+            - generic [ref=e294] [cursor=pointer]: Marina Smirnova
+          - generic [ref=e297]:
+            - generic [ref=e298]: Company Pulse
+            - generic [ref=e302]: Loading...
+      - row [ref=e303]:
+        - cell [ref=e304]:
+          - table [ref=e305]:
+            - rowgroup [ref=e306]:
+              - row [ref=e307]:
+                - cell "Feed CRM 5 PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects 8 W Worktime B BP TT Time Tracking BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu" [ref=e308]:
+                  - generic [ref=e309]:
+                    - link "Home" [ref=e314] [cursor=pointer]:
+                      - /url: /
+                      - img [ref=e316]
+                    - generic [ref=e320]:
+                      - list [ref=e321]:
+                        - listitem [ref=e322]
+                        - listitem [ref=e323]:
+                          - link "Feed" [ref=e324] [cursor=pointer]:
+                            - /url: /stream/
+                            - generic [ref=e327]: Feed
+                        - listitem [ref=e330]:
+                          - link "CRM 5" [ref=e331] [cursor=pointer]:
+                            - /url: /crm/deal/?redirect_to
+                            - generic [ref=e334]: CRM
+                            - generic [ref=e336]: "5"
+                        - listitem [ref=e339]:
+                          - link "PL Pipe Line" [ref=e340] [cursor=pointer]:
+                            - /url: /crm/type/177/list/category/17/
+                            - generic [ref=e342]: PL
+                            - generic [ref=e343]: Pipe Line
+                        - listitem [ref=e346]:
+                          - link "C CID" [ref=e347] [cursor=pointer]:
+                            - /url: /crm/deal/category/4/
+                            - generic [ref=e349]: C
+                            - generic [ref=e350]: CID
+                        - listitem [ref=e353]:
+                          - link "C CW" [ref=e354] [cursor=pointer]:
+                            - /url: /workgroups/group/37/tasks/
+                            - generic [ref=e356]: C
+                            - generic [ref=e357]: CW
+                        - listitem [ref=e360]:
+                          - link "D DES" [ref=e361] [cursor=pointer]:
+                            - /url: /workgroups/group/38/tasks/
+                            - generic [ref=e363]: D
+                            - generic [ref=e364]: DES
+                        - listitem [ref=e367]:
+                          - link "D DES-custom" [ref=e368] [cursor=pointer]:
+                            - /url: /dashboard/des/index.php?login=yes
+                            - generic [ref=e370]: D
+                            - generic [ref=e371]: DES-custom
+                        - listitem [ref=e374]:
+                          - link "C CDT" [ref=e375] [cursor=pointer]:
+                            - /url: /dashboard/cdt/
+                            - generic [ref=e377]: C
+                            - generic [ref=e378]: CDT
+                        - listitem [ref=e381]:
+                          - link [ref=e382] [cursor=pointer]:
+                            - /url: /company/personal/user/746/tasks/task/edit/0/?ta_sec=left_menu&ta_el=create_button
+                          - link "Tasks and Projects 8" [ref=e384] [cursor=pointer]:
+                            - /url: /company/personal/user/746/tasks/
+                            - generic [ref=e387]: Tasks and Projects
+                            - generic [ref=e389]: "8"
+                        - listitem [ref=e392]:
+                          - link "W Worktime" [ref=e393] [cursor=pointer]:
+                            - /url: /timeman/timeman.php
+                            - generic [ref=e395]: W
+                            - generic [ref=e396]: Worktime
+                        - listitem [ref=e399]:
+                          - link "B BP" [ref=e400] [cursor=pointer]:
+                            - /url: /crm/configs/bp/
+                            - generic [ref=e402]: B
+                            - generic [ref=e403]: BP
+                        - listitem [ref=e406]:
+                          - link "TT Time Tracking BP" [ref=e407] [cursor=pointer]:
+                            - /url: /bizproc/processes/?livefeed=y&list_id=18&element_id=0
+                            - generic [ref=e409]: TT
+                            - generic [ref=e410]: Time Tracking BP
+                        - listitem [ref=e413]:
+                          - link "TM Team Members" [ref=e414] [cursor=pointer]:
+                            - /url: /crm/deal/category/8/
+                            - generic [ref=e416]: TM
+                            - generic [ref=e417]: Team Members
+                        - listitem [ref=e420]:
+                          - link "E Employees" [ref=e421] [cursor=pointer]:
+                            - /url: /company/
+                            - generic [ref=e423]: E
+                            - generic [ref=e424]: Employees
+                        - listitem [ref=e427]:
+                          - link "H Helpdesk" [ref=e428] [cursor=pointer]:
+                            - /url: /crm/deal/category/9/
+                            - generic [ref=e430]: H
+                            - generic [ref=e431]: Helpdesk
+                        - listitem [ref=e434]:
+                          - link "T Tasks" [ref=e435] [cursor=pointer]:
+                            - /url: /workgroups/group/43/tasks/?F_CANCEL=Y&F_STATE=sR
+                            - generic [ref=e437]: T
+                            - generic [ref=e438]: Tasks
+                        - listitem [ref=e441]:
+                          - link "S Support" [ref=e442] [cursor=pointer]:
+                            - /url: /crm/type/138/kanban/category/0/
+                            - generic [ref=e444]: S
+                            - generic [ref=e445]: Support
+                        - listitem [ref=e448]:
+                          - link "T TimetrackingINF" [ref=e449] [cursor=pointer]:
+                            - /url: /timetrack/index.php?login=yes
+                            - generic [ref=e451]: T
+                            - generic [ref=e452]: TimetrackingINF
+                        - listitem [ref=e455]:
+                          - link "MT MY TEST MEMBER" [ref=e456] [cursor=pointer]:
+                            - /url: /crm/deal/details/90363/
+                            - generic [ref=e458]: MT
+                            - generic [ref=e459]: MY TEST MEMBER
+                        - listitem [ref=e462]:
+                          - link "TT TEST TEAMS TM" [ref=e463] [cursor=pointer]:
+                            - /url: /crm/deal/details/90356/
+                            - generic [ref=e465]: TT
+                            - generic [ref=e466]: TEST TEAMS TM
+                        - listitem [ref=e469]:
+                          - link "TD Timeline Dash" [ref=e470] [cursor=pointer]:
+                            - /url: /report/timeline/
+                            - generic [ref=e472]: TD
+                            - generic [ref=e473]: Timeline Dash
+                        - listitem [ref=e476]:
+                          - link "Booking" [ref=e477] [cursor=pointer]:
+                            - /url: /booking/
+                            - generic [ref=e480]: Booking
+                        - listitem [ref=e483]:
+                          - link "Collabs" [ref=e484] [cursor=pointer]:
+                            - /url: /online/?IM_COLLAB
+                            - generic [ref=e487]: Collabs
+                        - listitem [ref=e490]:
+                          - link "BI Builder" [ref=e491] [cursor=pointer]:
+                            - /url: /bi/dashboard/
+                            - generic [ref=e494]: BI Builder
+                        - listitem [ref=e497]:
+                          - link "LD LV Dash" [ref=e498] [cursor=pointer]:
+                            - /url: /lv/
+                            - generic [ref=e500]: LD
+                            - generic [ref=e501]: LV Dash
+                        - listitem [ref=e504]:
+                          - link "Employees" [ref=e505] [cursor=pointer]:
+                            - /url: /company/
+                            - generic [ref=e508]: Employees
+                        - listitem [ref=e511]:
+                          - link "L LMS" [ref=e512] [cursor=pointer]:
+                            - /url: /lms/
+                            - generic [ref=e514]: L
+                            - generic [ref=e515]: LMS
+                        - listitem [ref=e518]:
+                          - link "TC Time-off calendar" [ref=e519] [cursor=pointer]:
+                            - /url: /time-off-calendar/
+                            - generic [ref=e521]: TC
+                            - generic [ref=e522]: Time-off calendar
+                        - listitem [ref=e525]:
+                          - link "LD LG dashboard" [ref=e526] [cursor=pointer]:
+                            - /url: /dashboard/listgen/
+                            - generic [ref=e528]: LD
+                            - generic [ref=e529]: LG dashboard
+                        - listitem [ref=e532]:
+                          - link "IF INFUSE Flow" [ref=e533] [cursor=pointer]:
+                            - /url: https://dev2.togetdone.com/
+                            - generic [ref=e535]: IF
+                            - generic [ref=e536]: INFUSE Flow
+                      - list [ref=e539]:
+                        - listitem [ref=e540] [cursor=pointer]:
+                          - generic [ref=e542]: Hidden
+                        - listitem [ref=e544]:
+                          - link [ref=e545] [cursor=pointer]:
+                            - /url: /company/personal/user/746/groups/create/
+                          - link "Workgroups" [ref=e547] [cursor=pointer]:
+                            - /url: /workgroups/
+                            - generic [ref=e550]: Workgroups
+                        - listitem [ref=e551]:
+                          - link "Inventory management" [ref=e552] [cursor=pointer]:
+                            - /url: /shop/documents/inventory/
+                            - generic [ref=e555]: Inventory management
+                        - listitem [ref=e558]:
+                          - link "Developer resources" [ref=e559] [cursor=pointer]:
+                            - /url: /devops/
+                            - generic [ref=e562]: Developer resources
+                        - listitem [ref=e565]:
+                          - link "Automation" [ref=e566] [cursor=pointer]:
+                            - /url: /bizproc/userprocesses/
+                            - generic [ref=e569]: Automation
+                        - listitem [ref=e572]:
+                          - link "Messenger" [ref=e573] [cursor=pointer]:
+                            - /url: /online/
+                            - generic [ref=e576]: Messenger
+                        - listitem [ref=e579]:
+                          - link "Mail" [ref=e580] [cursor=pointer]:
+                            - /url: /mail/
+                            - generic [ref=e583]: Mail
+                        - listitem [ref=e586]:
+                          - link "MR Main report by time" [ref=e587] [cursor=pointer]:
+                            - /url: /company/spent-time-report.php
+                            - generic [ref=e589]: MR
+                            - generic [ref=e590]: Main report by time
+                        - listitem [ref=e593]:
+                          - link [ref=e594] [cursor=pointer]:
+                            - /url: /company/personal/user/746/calendar/?EVENT_ID=NEW
+                          - link "Calendar" [ref=e596] [cursor=pointer]:
+                            - /url: /company/personal/user/746/calendar/
+                            - generic [ref=e599]: Calendar
+                        - listitem [ref=e602]:
+                          - link "Drive" [ref=e603] [cursor=pointer]:
+                            - /url: /company/personal/user/746/disk/path/
+                            - generic [ref=e606]: Drive
+                        - listitem [ref=e609]:
+                          - link "Services" [ref=e610] [cursor=pointer]:
+                            - /url: /services/
+                            - generic [ref=e613]: Services
+                        - listitem [ref=e616]:
+                          - link "Market" [ref=e617] [cursor=pointer]:
+                            - /url: /market/
+                            - generic [ref=e620]: Market
+                        - listitem [ref=e623]:
+                          - link "Sites and stores" [ref=e624] [cursor=pointer]:
+                            - /url: /sites/
+                            - generic [ref=e627]: Sites and stores
+                        - listitem [ref=e630]:
+                          - link "Marketing" [ref=e631] [cursor=pointer]:
+                            - /url: /marketing/
+                            - generic [ref=e634]: Marketing
+                        - listitem [ref=e637]:
+                          - link "Settings" [ref=e638] [cursor=pointer]:
+                            - /url: /configs/?analyticContext=left_menu_main
+                            - generic [ref=e641]: Settings
+                      - generic [ref=e648] [cursor=pointer]: More...
+                      - generic [ref=e654] [cursor=pointer]: Configure menu
+                - cell [ref=e657]:
+                  - table [ref=e658]:
+                    - rowgroup [ref=e661]:
+                      - row [ref=e662]:
+                        - cell [ref=e663]:
+                          - generic [ref=e664]:
+                            - generic [ref=e665]:
+                              - generic [ref=e666]:
+                                - generic [ref=e667]: live
+                                - generic [ref=e674]: "1"
+                                - generic [ref=e680]:
+                                  - generic [ref=e681]:
+                                    - generic [ref=e682]: Clocked in
+                                    - generic [ref=e683]: "0"
+                                  - generic [ref=e684]:
+                                    - generic [ref=e685]: Clocked out
+                                    - generic [ref=e686]: "0"
+                              - generic [ref=e688] [cursor=pointer]:
+                                - generic [ref=e690]: Company Pulse
+                                - generic [ref=e692]:
+                                  - generic "Current company activity level (composite of all users in the last hour)" [ref=e693]: "0"
+                                  - generic "Current engagement of users. This shows the percentage of all users today who have used at least four different tools in the intranet." [ref=e694]: 0%
+                              - generic [ref=e695]:
+                                - generic [ref=e696]:
+                                  - link "My Tasks" [ref=e698] [cursor=pointer]:
+                                    - /url: /company/personal/user/746/tasks/
+                                  - link [ref=e699] [cursor=pointer]:
+                                    - /url: /company/personal/user/0/tasks/task/edit/0/?ta_sec=tasks&ta_el=widget_menu
+                                - generic [ref=e700]:
+                                  - link "Ongoing 8 2" [ref=e702] [cursor=pointer]:
+                                    - /url: /company/personal/user/746/tasks/?F_CANCEL=Y&F_STATE=sR400
+                                    - generic [ref=e703]: Ongoing
+                                    - generic [ref=e704]:
+                                      - generic [ref=e705]: "8"
+                                      - generic [ref=e707]: "2"
+                                  - link "Assisting 0 0" [ref=e709] [cursor=pointer]:
+                                    - /url: /company/personal/user/746/tasks/?F_CANCEL=Y&F_STATE=sR800
+                                    - generic [ref=e710]: Assisting
+                                    - generic [ref=e711]:
+                                      - generic [ref=e712]: "0"
+                                      - generic [ref=e714]: "0"
+                                  - link "Set by me 0 0" [ref=e716] [cursor=pointer]:
+                                    - /url: /company/personal/user/746/tasks/?F_CANCEL=Y&F_STATE=sRg00
+                                    - generic [ref=e717]: Set by me
+                                    - generic [ref=e718]:
+                                      - generic [ref=e719]: "0"
+                                      - generic [ref=e721]: "0"
+                                  - link "Following 17 7" [ref=e723] [cursor=pointer]:
+                                    - /url: /company/personal/user/746/tasks/?F_CANCEL=Y&F_STATE=sRc00
+                                    - generic [ref=e724]: Following
+                                    - generic [ref=e725]:
+                                      - generic [ref=e726]: "17"
+                                      - generic [ref=e728]: "7"
+                              - generic [ref=e729]:
+                                - generic [ref=e731]: Birthdays
+                                - generic [ref=e732]:
+                                  - link "Anastasiia Panchenko December 3" [ref=e733] [cursor=pointer]:
+                                    - /url: /company/personal/user/320/
+                                    - generic [ref=e735]:
+                                      - generic [ref=e736]: Anastasiia Panchenko
+                                      - generic [ref=e737]: December 3
+                                  - link "Alex Khizhnyak December 3" [ref=e738] [cursor=pointer]:
+                                    - /url: /company/personal/user/62/
+                                    - generic [ref=e740]:
+                                      - generic [ref=e741]: Alex Khizhnyak
+                                      - generic [ref=e742]: December 3
+                                  - link "Elman Safarov January 1" [ref=e743] [cursor=pointer]:
+                                    - /url: /company/personal/user/378/
+                                    - generic [ref=e745]:
+                                      - generic [ref=e746]: Elman Safarov
+                                      - generic [ref=e747]: January 1
+                                  - link "Oleksandra Shtei January 15" [ref=e748] [cursor=pointer]:
+                                    - /url: /company/personal/user/360/
+                                    - generic [ref=e750]:
+                                      - generic [ref=e751]: Oleksandra Shtei
+                                      - generic [ref=e752]: January 15
+                              - generic:
+                                - generic: Desktop app
+                                - generic:
+                                  - link "Mac OS":
+                                    - /url: https://dl.bitrix24.com/b24/bitrix24_desktop.dmg
+                                    - generic: Mac OS
+                                  - link "Windows":
+                                    - /url: https://dl.bitrix24.com/b24/bitrix24_desktop.exe
+                                    - generic: Windows
+                                  - link "Linux":
+                                    - /url: https://dl.bitrix24.com/b24/bitrix24_desktop.deb
+                                    - generic: Linux
+                              - generic:
+                                - generic: Mobile app
+                                - generic:
+                                  - link "App Store":
+                                    - /url: javascript:void(0)
+                                    - generic: App Store
+                                  - link "Google Play":
+                                    - /url: javascript:void(0)
+                                    - generic: Google Play
+                            - generic [ref=e754]:
+                              - generic [ref=e757]:
+                                - generic [ref=e759]:
+                                  - generic [ref=e760] [cursor=pointer]: Message
+                                  - generic [ref=e761] [cursor=pointer]: Task
+                                  - generic [ref=e762] [cursor=pointer]: Event
+                                  - generic [ref=e763] [cursor=pointer]: Poll
+                                  - generic [ref=e764] [cursor=pointer]: More
+                                - generic [ref=e767]: Send message …
+                                - generic:
+                                  - generic: ↑ ↓ ⇊ ⇈
+                              - generic [ref=e769]:
+                                - generic [ref=e770]: Feed
+                                - textbox "Filter and search" [ref=e774]
+                                - button [ref=e779] [cursor=pointer]
+                              - generic [ref=e781]:
+                                - generic [ref=e783]:
+                                  - generic [ref=e784]:
+                                    - generic [ref=e787]:
+                                      - link "Marina Smirnova" [ref=e788] [cursor=pointer]:
+                                        - /url: /company/personal/user/746/
+                                      - link "July 1 9:34 am" [ref=e790] [cursor=pointer]:
+                                        - /url: /timeman/worktime/records/16299/report/
+                                        - generic [ref=e791]: July 1 9:34 am
+                                      - generic [ref=e793]:
+                                        - text: has changed the workday parameters for June 30.
+                                        - link "Confirmation is required" [ref=e794] [cursor=pointer]:
+                                          - /url: /timeman/worktime/records/16299/report/
+                                        - link "Working Time Management" [ref=e795] [cursor=pointer]:
+                                          - /url: /timeman/timeman.php
+                                          - text: Working Time Management
+                                    - generic [ref=e798]:
+                                      - generic [ref=e799]:
+                                        - generic [ref=e800]: "From:"
+                                        - generic [ref=e802]:
+                                          - link "Marina Smirnova" [ref=e803] [cursor=pointer]:
+                                            - /url: /company/personal/user/746/
+                                          - generic [ref=e804]: Manual QA
+                                      - generic [ref=e805]:
+                                        - generic [ref=e806]: "To:"
+                                        - generic [ref=e808]:
+                                          - link "Yevgen Chernousov" [ref=e809] [cursor=pointer]:
+                                            - /url: /company/personal/user/8/
+                                          - generic [ref=e810]: Head of Department
+                                    - generic [ref=e812]:
+                                      - link "Comment" [ref=e814] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e816] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e817] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e820] [cursor=pointer]: "1"
+                                  - link "Add comment" [ref=e830] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e835]:
+                                  - generic [ref=e836]:
+                                    - generic [ref=e839]:
+                                      - link "Marina Smirnova" [ref=e840] [cursor=pointer]:
+                                        - /url: /company/personal/user/746/
+                                      - link "June 3 12:32 pm" [ref=e842] [cursor=pointer]:
+                                        - /url: /timeman/worktime/records/14878/report/
+                                        - generic [ref=e843]: June 3 12:32 pm
+                                      - generic [ref=e845]:
+                                        - text: has changed the workday parameters for June 3.
+                                        - link "Confirmation is required" [ref=e846] [cursor=pointer]:
+                                          - /url: /timeman/worktime/records/14878/report/
+                                        - link "Working Time Management" [ref=e847] [cursor=pointer]:
+                                          - /url: /timeman/timeman.php
+                                          - text: Working Time Management
+                                    - generic [ref=e850]:
+                                      - generic [ref=e851]:
+                                        - generic [ref=e852]: "From:"
+                                        - generic [ref=e854]:
+                                          - link "Marina Smirnova" [ref=e855] [cursor=pointer]:
+                                            - /url: /company/personal/user/746/
+                                          - generic [ref=e856]: Manual QA
+                                      - generic [ref=e857]:
+                                        - generic [ref=e858]: "To:"
+                                        - generic [ref=e860]:
+                                          - link "Yevgen Chernousov" [ref=e861] [cursor=pointer]:
+                                            - /url: /company/personal/user/8/
+                                          - generic [ref=e862]: Head of Department
+                                    - generic [ref=e864]:
+                                      - link "Comment" [ref=e866] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e868] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e869] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e872] [cursor=pointer]: "1"
+                                  - link "Add comment" [ref=e882] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e887]:
+                                  - generic [ref=e888]:
+                                    - generic [ref=e891]:
+                                      - link "Oleh Lytvynets" [ref=e892] [cursor=pointer]:
+                                        - /url: /company/personal/user/273/?entityType=LOG_ENTRY&entityId=670042
+                                      - generic [ref=e893]:
+                                        - generic [ref=e895]: "->"
+                                        - generic [ref=e896]: To all employees
+                                      - link "Edit":
+                                        - /url: /company/personal/user/273/blog/edit/85/
+                                      - link "March 6 3:11 pm" [ref=e898] [cursor=pointer]:
+                                        - /url: /company/personal/user/273/blog/85/
+                                        - generic [ref=e899]: March 6 3:11 pm
+                                    - generic [ref=e902]:
+                                      - generic [ref=e904]:
+                                        - paragraph [ref=e905]: Dear colleagues,
+                                        - paragraph
+                                        - paragraph [ref=e906]: Please be advised that login and password-based authorization will no longer be supported starting from [03.10.2025].
+                                        - paragraph
+                                        - paragraph [ref=e907]: "All INFlow users will need to use the \"INFUSE\" button for authentication after that, as shown in the example below:"
+                                        - paragraph
+                                        - img "зображення.jpeg" [ref=e910] [cursor=pointer]
+                                        - paragraph [ref=e911]:
+                                          - text: If you have any issues, try clearing your browser’s cache and cookies.
+                                          - text: "If that doesn’t help, contact us via the form here:"
+                                          - link "https://inflow.infuse.com/forms/166/" [ref=e912] [cursor=pointer]:
+                                            - /url: https://inflow.infuse.com/forms/166/
+                                          - text: .
+                                      - generic [ref=e913]:
+                                        - button "Mark as read" [ref=e916] [cursor=pointer]
+                                        - generic "read by 38 users" [ref=e917]:
+                                          - text: read by
+                                          - link "38 users" [ref=e918] [cursor=pointer]:
+                                            - /url: javascript:void(0);
+                                    - generic [ref=e921]:
+                                      - img "зображення.jpeg" [ref=e925]
+                                      - link "Show as grid" [ref=e926] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                    - generic [ref=e928]:
+                                      - link "LIKE" [ref=e931] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e933] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e935] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e936] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e939] [cursor=pointer]: "369"
+                                      - generic [ref=e942]:
+                                        - generic "LIKE" [ref=e945] [cursor=pointer]:
+                                          - img [ref=e946]
+                                        - generic [ref=e954] [cursor=pointer]: Mykhailo Dodukalo, Maria Bondar and 7 more
+                                  - link "Add comment" [ref=e964] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                  - generic "Pin" [ref=e967] [cursor=pointer]
+                                - generic [ref=e969]:
+                                  - generic [ref=e970]:
+                                    - generic [ref=e973]:
+                                      - link "Copywriting Team" [ref=e975] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=46
+                                      - generic [ref=e977]: January 22, 2024 11:00 am
+                                      - generic [ref=e979]: A new Team member has been added
+                                    - generic [ref=e987]:
+                                      - link "Julia Figueroa" [ref=e988] [cursor=pointer]:
+                                        - /url: /company/personal/user/706/
+                                      - generic [ref=e989]: Copywriter
+                                    - generic [ref=e991]:
+                                      - link "LIKE" [ref=e994] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e996] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e998] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e999] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1002] [cursor=pointer]: "577"
+                                      - generic [ref=e1005]:
+                                        - generic "LIKE" [ref=e1008] [cursor=pointer]:
+                                          - img [ref=e1009]
+                                        - generic [ref=e1017] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1027] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1032]:
+                                  - generic [ref=e1033]:
+                                    - generic [ref=e1036]:
+                                      - link "Special Projects" [ref=e1038] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=128
+                                      - generic [ref=e1040]: January 17, 2024 1:07 pm
+                                      - generic [ref=e1042]: A new Team member has been added
+                                    - generic [ref=e1050]:
+                                      - link "Mikita Valkunovich" [ref=e1051] [cursor=pointer]:
+                                        - /url: /company/personal/user/705/
+                                      - generic [ref=e1052]: Project Manager
+                                    - generic [ref=e1054]:
+                                      - link "LIKE" [ref=e1057] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1059] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1061] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1062] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1065] [cursor=pointer]: "577"
+                                      - generic [ref=e1068]:
+                                        - generic "LIKE" [ref=e1071] [cursor=pointer]:
+                                          - img [ref=e1072]
+                                        - generic [ref=e1080] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1090] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1095]:
+                                  - generic [ref=e1096]:
+                                    - generic [ref=e1099]:
+                                      - link "Content Curation" [ref=e1101] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=73
+                                      - generic [ref=e1103]: January 16, 2024 10:00 am
+                                      - generic [ref=e1105]: A new Team member has been added
+                                    - generic [ref=e1113]:
+                                      - link "Anna Lysak" [ref=e1114] [cursor=pointer]:
+                                        - /url: /company/personal/user/704/
+                                      - generic [ref=e1115]: Travel Coordinator
+                                    - generic [ref=e1117]:
+                                      - link "LIKE" [ref=e1120] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1122] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1124] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1125] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1128] [cursor=pointer]: "577"
+                                      - generic [ref=e1131]:
+                                        - generic "LIKE" [ref=e1134] [cursor=pointer]:
+                                          - img [ref=e1135]
+                                        - generic [ref=e1143] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1153] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1158]:
+                                  - generic [ref=e1159]:
+                                    - generic [ref=e1162]:
+                                      - link "2:30 PM to 11:00 PM" [ref=e1164] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=168
+                                      - generic [ref=e1166]: January 16, 2024 9:49 am
+                                      - generic [ref=e1168]: A new Team member has been added
+                                    - generic [ref=e1176]:
+                                      - link "Mykola Shcherbyna" [ref=e1177] [cursor=pointer]:
+                                        - /url: /company/personal/user/703/
+                                      - generic [ref=e1178]: Senior QC Specialist
+                                    - generic [ref=e1180]:
+                                      - link "LIKE" [ref=e1183] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1185] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1187] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1188] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1191] [cursor=pointer]: "577"
+                                      - generic [ref=e1194]:
+                                        - generic "LIKE" [ref=e1197] [cursor=pointer]:
+                                          - img [ref=e1198]
+                                        - generic [ref=e1206] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1216] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1221]:
+                                  - generic [ref=e1222]:
+                                    - generic [ref=e1225]:
+                                      - link "2:30 PM to 11:00 PM" [ref=e1227] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=168
+                                      - generic [ref=e1229]: January 16, 2024 9:48 am
+                                      - generic [ref=e1231]: A new Team member has been added
+                                    - generic [ref=e1239]:
+                                      - link "Dmytro Verkholantsev" [ref=e1240] [cursor=pointer]:
+                                        - /url: /company/personal/user/702/
+                                      - generic [ref=e1241]: QC
+                                    - generic [ref=e1243]:
+                                      - link "LIKE" [ref=e1246] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1248] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1250] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1251] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1254] [cursor=pointer]: "577"
+                                      - generic [ref=e1257]:
+                                        - generic "LIKE" [ref=e1260] [cursor=pointer]:
+                                          - img [ref=e1261]
+                                        - generic [ref=e1269] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1279] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1284]:
+                                  - generic [ref=e1285]:
+                                    - generic [ref=e1288]:
+                                      - link "2:30 PM to 11:00 PM" [ref=e1290] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=168
+                                      - generic [ref=e1292]: January 16, 2024 9:46 am
+                                      - generic [ref=e1294]: A new Team member has been added
+                                    - generic [ref=e1302]:
+                                      - link "Serhii Dubchak" [ref=e1303] [cursor=pointer]:
+                                        - /url: /company/personal/user/701/
+                                      - generic [ref=e1304]: QC Team Lead
+                                    - generic [ref=e1306]:
+                                      - link "LIKE" [ref=e1309] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1311] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1313] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1314] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1317] [cursor=pointer]: "577"
+                                      - generic [ref=e1320]:
+                                        - generic "LIKE" [ref=e1323] [cursor=pointer]:
+                                          - img [ref=e1324]
+                                        - generic [ref=e1332] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1342] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1347]:
+                                  - generic [ref=e1348]:
+                                    - generic [ref=e1351]:
+                                      - link "Copywriting Team" [ref=e1353] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=46
+                                      - generic [ref=e1355]: January 16, 2024 9:39 am
+                                      - generic [ref=e1357]: A new Team member has been added
+                                    - generic [ref=e1365]:
+                                      - link "Razia Moosa" [ref=e1366] [cursor=pointer]:
+                                        - /url: /company/personal/user/700/
+                                      - generic [ref=e1367]: Proofreader
+                                    - generic [ref=e1369]:
+                                      - link "LIKE" [ref=e1372] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1374] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1376] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1377] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1380] [cursor=pointer]: "577"
+                                      - generic [ref=e1383]:
+                                        - generic "LIKE" [ref=e1386] [cursor=pointer]:
+                                          - img [ref=e1387]
+                                        - generic [ref=e1395] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1405] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1410]:
+                                  - generic [ref=e1411]:
+                                    - generic [ref=e1414]:
+                                      - link "WEB Design" [ref=e1416] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=48
+                                      - generic [ref=e1418]: January 12, 2024 2:14 pm
+                                      - generic [ref=e1420]: A new Team member has been added
+                                    - generic [ref=e1428]:
+                                      - link "Anastasiia Sharapova" [ref=e1429] [cursor=pointer]:
+                                        - /url: /company/personal/user/699/
+                                      - generic [ref=e1430]: WEB Designer
+                                    - generic [ref=e1432]:
+                                      - link "LIKE" [ref=e1435] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1437] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1439] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1440] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1443] [cursor=pointer]: "577"
+                                      - generic [ref=e1446]:
+                                        - generic "LIKE" [ref=e1449] [cursor=pointer]:
+                                          - img [ref=e1450]
+                                        - generic [ref=e1458] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1468] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1473]:
+                                  - generic [ref=e1474]:
+                                    - generic [ref=e1477]:
+                                      - link "DBI" [ref=e1479] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=53
+                                      - generic [ref=e1481]: January 11, 2024 12:45 pm
+                                      - generic [ref=e1483]: A new Team member has been added
+                                    - generic [ref=e1491]:
+                                      - link "Volodymyr Antonov" [ref=e1492] [cursor=pointer]:
+                                        - /url: /company/personal/user/698/
+                                      - generic [ref=e1493]: DB specialist
+                                    - generic [ref=e1495]:
+                                      - link "LIKE" [ref=e1498] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1500] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1502] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1503] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1506] [cursor=pointer]: "577"
+                                      - generic [ref=e1509]:
+                                        - generic "LIKE" [ref=e1512] [cursor=pointer]:
+                                          - img [ref=e1513]
+                                        - generic [ref=e1521] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1531] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1536]:
+                                  - generic [ref=e1537]:
+                                    - generic [ref=e1540]:
+                                      - link "Copywriting Team" [ref=e1542] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=46
+                                      - generic [ref=e1544]: January 8, 2024 12:17 pm
+                                      - generic [ref=e1546]: A new Team member has been added
+                                    - generic [ref=e1554]:
+                                      - link "Keletso Baas" [ref=e1555] [cursor=pointer]:
+                                        - /url: /company/personal/user/695/
+                                      - generic [ref=e1556]: Copywriter
+                                    - generic [ref=e1558]:
+                                      - link "LIKE" [ref=e1561] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1563] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1565] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1566] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1569] [cursor=pointer]: "577"
+                                      - generic [ref=e1572]:
+                                        - generic "LIKE" [ref=e1575] [cursor=pointer]:
+                                          - img [ref=e1576]
+                                        - generic [ref=e1584] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1594] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1599]:
+                                  - generic [ref=e1600]:
+                                    - generic [ref=e1603]:
+                                      - link "CM Management and Coordination" [ref=e1605] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=72
+                                      - generic [ref=e1607]: December 29, 2023 7:42 am
+                                      - generic [ref=e1609]: A new Team member has been added
+                                    - generic [ref=e1617]:
+                                      - link "Yuliia Bykova" [ref=e1618] [cursor=pointer]:
+                                        - /url: /company/personal/user/694/
+                                      - generic [ref=e1619]: Campaign Coordinator
+                                    - generic [ref=e1621]:
+                                      - link "LIKE" [ref=e1624] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1626] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1628] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1629] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1632] [cursor=pointer]: "577"
+                                      - generic [ref=e1635]:
+                                        - generic "LIKE" [ref=e1638] [cursor=pointer]:
+                                          - img [ref=e1639]
+                                        - generic [ref=e1647] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1657] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1662]:
+                                  - generic [ref=e1663]:
+                                    - generic [ref=e1666]:
+                                      - link "INFUSE Flow Support" [ref=e1668] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=59
+                                      - generic [ref=e1670]: December 27, 2023 12:56 pm
+                                      - generic [ref=e1672]: A new Team member has been added
+                                    - generic [ref=e1680]:
+                                      - link "Ivan Karpovets" [ref=e1681] [cursor=pointer]:
+                                        - /url: /company/personal/user/693/
+                                      - generic [ref=e1682]: Software Developer
+                                    - generic [ref=e1684]:
+                                      - link "LIKE" [ref=e1687] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1689] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1691] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1692] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1695] [cursor=pointer]: "577"
+                                      - generic [ref=e1698]:
+                                        - generic "LIKE" [ref=e1701] [cursor=pointer]:
+                                          - img [ref=e1702]
+                                        - generic [ref=e1710] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1720] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1725]:
+                                  - generic [ref=e1726]:
+                                    - generic [ref=e1729]:
+                                      - link "INFUSE Flow Support" [ref=e1731] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=59
+                                      - generic [ref=e1733]: December 21, 2023 12:25 pm
+                                      - generic [ref=e1735]: A new Team member has been added
+                                    - generic [ref=e1743]:
+                                      - link "Volodymyr Zamelan" [ref=e1744] [cursor=pointer]:
+                                        - /url: /company/personal/user/692/
+                                      - generic [ref=e1745]: System Administrator
+                                    - generic [ref=e1747]:
+                                      - link "LIKE" [ref=e1750] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1752] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1754] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1755] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1758] [cursor=pointer]: "577"
+                                      - generic [ref=e1761]:
+                                        - generic "LIKE" [ref=e1764] [cursor=pointer]:
+                                          - img [ref=e1765]
+                                        - generic [ref=e1773] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1783] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1788]:
+                                  - generic [ref=e1789]:
+                                    - generic [ref=e1792]:
+                                      - link "INFUSE Flow Support" [ref=e1794] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=59
+                                      - generic [ref=e1796]: December 15, 2023 1:14 pm
+                                      - generic [ref=e1798]: A new Team member has been added
+                                    - generic [ref=e1806]:
+                                      - link "Volodymyr Chukhlov" [ref=e1807] [cursor=pointer]:
+                                        - /url: /company/personal/user/691/
+                                      - generic [ref=e1808]: QA Specialist
+                                    - generic [ref=e1810]:
+                                      - link "LIKE" [ref=e1813] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1815] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1817] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1818] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1821] [cursor=pointer]: "577"
+                                      - generic [ref=e1824]:
+                                        - generic "LIKE" [ref=e1827] [cursor=pointer]:
+                                          - img [ref=e1828]
+                                        - generic [ref=e1836] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1846] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1851]:
+                                  - generic [ref=e1852]:
+                                    - generic [ref=e1855]:
+                                      - link "QA" [ref=e1857] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=67
+                                      - generic [ref=e1859]: December 12, 2023 7:45 pm
+                                      - generic [ref=e1861]: A new Team member has been added
+                                    - generic [ref=e1869]:
+                                      - link "Lana Aghjo" [ref=e1870] [cursor=pointer]:
+                                        - /url: /company/personal/user/690/
+                                      - generic [ref=e1871]: Project Coordinator
+                                    - generic [ref=e1873]:
+                                      - link "LIKE" [ref=e1876] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1878] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1880] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1881] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1884] [cursor=pointer]: "577"
+                                      - generic [ref=e1887]:
+                                        - generic "LIKE" [ref=e1890] [cursor=pointer]:
+                                          - img [ref=e1891]
+                                        - generic [ref=e1899] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1909] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1914]:
+                                  - generic [ref=e1915]:
+                                    - generic [ref=e1918]:
+                                      - link "Graphic Designers" [ref=e1920] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=19
+                                      - generic [ref=e1922]: December 11, 2023 12:37 pm
+                                      - generic [ref=e1924]: A new Team member has been added
+                                    - generic [ref=e1932]:
+                                      - link "Oleksandr Lisovenko" [ref=e1933] [cursor=pointer]:
+                                        - /url: /company/personal/user/689/
+                                      - generic [ref=e1934]: Graphic/WEB Designer
+                                    - generic [ref=e1936]:
+                                      - link "LIKE" [ref=e1939] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e1941] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e1943] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e1944] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e1947] [cursor=pointer]: "577"
+                                      - generic [ref=e1950]:
+                                        - generic "LIKE" [ref=e1953] [cursor=pointer]:
+                                          - img [ref=e1954]
+                                        - generic [ref=e1962] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e1972] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+                                - generic [ref=e1977]:
+                                  - generic [ref=e1978]:
+                                    - generic [ref=e1981]:
+                                      - link "Software development" [ref=e1983] [cursor=pointer]:
+                                        - /url: /company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=2
+                                      - generic [ref=e1985]: November 22, 2023 9:59 am
+                                      - generic [ref=e1987]: A new Team member has been added
+                                    - generic [ref=e1995]:
+                                      - link "Dmitrii Minchenkov" [ref=e1996] [cursor=pointer]:
+                                        - /url: /company/personal/user/687/
+                                      - generic [ref=e1997]: IT Project Coordinator
+                                    - generic [ref=e1999]:
+                                      - link "LIKE" [ref=e2002] [cursor=pointer]:
+                                        - /url: "#like"
+                                      - link "Comment" [ref=e2004] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "Unfollow" [ref=e2006] [cursor=pointer]:
+                                        - /url: javascript:void(0);
+                                      - link "More" [ref=e2007] [cursor=pointer]:
+                                        - /url: "#"
+                                      - generic [ref=e2010] [cursor=pointer]: "577"
+                                      - generic [ref=e2013]:
+                                        - generic "LIKE" [ref=e2016] [cursor=pointer]:
+                                          - img [ref=e2017]
+                                        - generic [ref=e2025] [cursor=pointer]: Anna Zelianeuskaya
+                                  - link "Add comment" [ref=e2035] [cursor=pointer]:
+                                    - /url: javascript:void(0);
+              - row "Themes Print" [ref=e2039]:
+                - cell [ref=e2040]
+                - cell "Themes Print" [ref=e2041]:
+                  - generic [ref=e2043]:
+                    - generic [ref=e2044] [cursor=pointer]: Themes
+                    - generic [ref=e2045] [cursor=pointer]: Print
+```
