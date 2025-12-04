@@ -3,14 +3,14 @@ const { test, expect } = require('@playwright/test');
 const path = require('path');
 const { loginToSite } = require('../../helpers/devlogin.auth');
 const fs = require('fs');
+const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
+const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
 
 // 2. === ХРАНИЛИЩЕ СЕЛЕКТОРОВ ===
 // Все DOM-селекторы собраны в одном месте.
 // Если что-то в верстке поменяется, ты чинишь это только здесь.
 const SELECTORS = {
-    // Общие
-    teamMembersButton: '#bx_left_menu_4129730737 > a',
-    createButton: '#uiToolbarContainer > div.ui-toolbar-after-title-buttons > div > a',
+    // Общие   
     iframe: '.side-panel-content-container iframe',
     
     // Селекторы полей в iframe
@@ -35,10 +35,6 @@ const SELECTORS = {
     budgetSelect: 'select[name="UF_CRM_1642787098616"]',
     contractTypeSelect: 'select[name="UF_CRM_1657021210993"]',
     saveButton: 'body > div.ui-entity-wrap.crm-section-control-active > div > div.ui-entity-section.ui-entity-section-control-edit-mode > button',
-
-    // Селекторы на новой странице
-    newIframe: '.side-panel-iframe',
-    generalCheckButton: '.main-buttons-item-text-box'
 };
 
 // 3. === ХРАНИЛИЩЕ ТЕСТОВЫХ ДАННЫХ ===
@@ -62,24 +58,18 @@ const TEST_DATA = {
     contractTypeValue: '2736'    // US Contractor
 };
 
-// 4. === КОНСТАНТЫ ===
-// Пути к файлам и другие неизменяемые строки
-const FILE_PATHS = {
-    linksJson: 'PW/helpers/Links.json'
-};
-
 // 5. 'describe' из Jest меняется на 'test.describe'
-test.describe('Dev Website Tests', () => {
+test.describe('Ticket New TM test', () => {
 
     test('create team member test', async ({ page }) => {
         test.setTimeout(120000);
         await loginToSite(page); 
 
-        const teamMembersButton = page.locator(SELECTORS.teamMembersButton);
+        const teamMembersButton = page.locator(SELECTORS_CATALOG.CRM.teamMembersButton);
         await expect(teamMembersButton).toBeVisible();
         await teamMembersButton.click();
               
-        const createButton = page.locator(SELECTORS.createButton);
+        const createButton = page.locator(SELECTORS_CATALOG.CRM.createButton);
         await expect(createButton).toBeVisible();
         await createButton.click();
 
@@ -174,8 +164,8 @@ test.describe('Dev Website Tests', () => {
         console.log('Навигация завершена!');
 
         // Ждем новую карточку (новый iframe)
-        const newFrame = page.frameLocator(SELECTORS.newIframe);
-        await newFrame.locator(SELECTORS.generalCheckButton).first().click();
+        const newFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe);
+        await newFrame.locator(SELECTORS_CATALOG.TeamMemberCard.generalCheckButton).first().click();
         
         console.log ( 'General check done');
 
@@ -190,7 +180,7 @@ test.describe('Dev Website Tests', () => {
         links['NewTM'] = usersUrl;
         fs.writeFileSync(FILE_PATHS.linksJson, JSON.stringify(links, null, 2));
             
-        // Скриншот
-        await page.screenshot({ path: 'PW/test-results/goodtest/New_TM_BP/Create_TM.png' });
+        // Скриншот успеха
+        await ScreenshotSuccess(page, 'New_TM', 'New_TM_BP'); 
     });
 });

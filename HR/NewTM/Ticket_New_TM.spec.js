@@ -3,81 +3,21 @@ const { test, expect } = require('@playwright/test');
 const path = require('path');
 const { loginToSite } = require('../../helpers/devlogin.auth');
 const fs = require('fs');
+const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
+const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
 
-// --- ОБЪЕКТ СЕЛЕКТОРОВ ---
-const SELECTORS = {
-    // Общие
-    sidePanelIframe: '.side-panel-iframe',
-    
-    // Страница Юзера (Внутри первого фрейма)
-    userPanel: {
-        commentWithTicket: 'text=Created onboarding ticket for Helpdesk.',
-    },
-
-    // Helpdesk (Основная страница)
-    helpdesk: {
-        searchFilterBar: 'input[placeholder = "Filter and search"]',
-        addField: '.main-ui-filter-field-add-item',
-        findField: 'input[placeholder = "Find field"]',
-        idLabel: 'label[title="ID"] input[type="checkbox"]',
-        //idCheckboxInput: 'input[id*="ID"]', // Частичное совпадение ID
-        applyButton: 'button[class = "ui-btn ui-btn-primary"]',
-        typeID: 'input[name="ID"]',
-        searchFilterButton: 'button[class = "ui-btn ui-btn-primary ui-btn-icon-search main-ui-filter-field-button main-ui-filter-find"]', 
-        gridOpenButton: 'a.main-grid-row-action-button',
-        viewDealOption: 'span[title = "View deal"]'
-    },
-
-    // Тикет (Внутри фрейма тикета)
-    ticketPanel: {
-        stageAssignee: 'div[data-id="C9:UC_MS1A7D"]',
-        addUserLink: 'a[id^="add_user_UF_CRM_1631802843"]', // id кнопки начинается с...
-        userSearchBar: '.feed-add-destination-inp', 
-        saveUserButton: 'span[class= "ui-btn ui-btn-primary"]',
-        taskLink: 'a[href*="/workgroups/group/86/tasks/task/view"]', // Ссылка на задачу
-
-        // Тестовые данные
-        testData: 'm.smirnova',
-        dataGoogleAcc: 'Test@test.com',
-        
-        // Поля редактирования
-        googleAccountField: 'div[data-cid= "UF_CRM_1675742937161"] [class= "ui-entity-editor-content-block"]',
-        googleAccount: 'input[name="UF_CRM_1675742937161"]',
-        saveFieldButton: 'button[title="[Ctrl+Enter]"]',
-
-        // Лицензии
-        licensesTab: '#crm_scope_detail_custom_deal_9_2_tab_licenses',
-        licensesTabContent: 'div[data-id="tab_licenses"]',
-        licenseCheckbox: 'div[data-tab-id="tab_licenses"]  .ui-form-row input[type="checkbox"]',
-
-        // Закрытие сделки
-        notification: '.ui-notification-manager-browser-content',
-        stageClose: 'div[data-id="C9:WON"]',
-        completePopupBtn: 'div[id="entity_progress_TERMINATION"] .webform-small-button-text', // Кнопка Complete
-        
-        // Тайм трекер
-        hoursInput: '.time-tracker-row input[name="hours"]',
-        timeInput: '.time-tracker-row input[name="time"]',
-        commentTextarea: '.time-tracker-row textarea[name="comment"]',
-        saveTimeButton: 'span.ui-btn.ui-btn-primary'
-    },
-
-    // Чек-лист (Внутри второго фрейма)
-    checklistPanel: {
-        checklistFlag: '.tasks-checklist-item-flag',
-        finishButton: 'span[data-action="COMPLETE"]'
-    }
-};
-
-// Пути к файлам и другие неизменяемые строки
-const FILE_PATHS = {
-    linksJson: 'PW/helpers/Links.json'
-};
+// --- ОБЪЕКТ ДАННЫХ ---
+const TEST_DATA = {
+    assigneeName: 'm.smirnova',
+    dataGoogleAcc: 'Test@test.com',
+    wonColor: '#7bd500',      // Ожидаемый цвет
+    colorAttribute: 'data-base-color' // Имя атрибута (техническая константа)
+}
 
 test.describe('Ticket New TM test', () => {
     
     // Увеличиваем таймаут для всего теста, так как сценарий длинный
-    test.setTimeout(120000);
+    test.setTimeout(150000);
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
@@ -91,11 +31,11 @@ test.describe('Ticket New TM test', () => {
         await page.goto(links['NewTM']);
         
         // 3. Работа с ПЕРВЫМ фреймом (User Side Panel)
-        const userFrame = page.frameLocator(SELECTORS.sidePanelIframe).first();
+        const userFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
         // Ждем, пока фрейм появится (проверка любого элемента внутри)
         await expect(userFrame.locator('body')).toBeVisible();
         // Скролл и поиск
-        const commentLocator = userFrame.locator(SELECTORS.userPanel.commentWithTicket);
+        const commentLocator = userFrame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket);
 
         let found = false;
         for (let i = 0; i < 15; i++) {
@@ -126,32 +66,32 @@ test.describe('Ticket New TM test', () => {
         await page.goto(links['Helpdesk']); 
         
         // В Playwright клик и заполнение полей
-        await page.locator(SELECTORS.helpdesk.searchFilterBar).click();
-        await page.locator(SELECTORS.helpdesk.addField).click(); 
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
         
         // Заполняем фильтр
-        const findField = page.locator(SELECTORS.helpdesk.findField);
+        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.findField);
         await findField.fill('id');     
 
         // Чекбокс ID
         //const idCheckbox = page.locator(SELECTORS.idLabel);
         // Проверяем класс или состояние checked
-        const isChecked = await page.locator(SELECTORS.helpdesk.idLabel).isChecked().catch(() => false); 
+        const isChecked = await page.locator(SELECTORS_CATALOG.Helpdesk.idLabel).isChecked().catch(() => false); 
         
         if (!isChecked) {
             await isChecked.click();
         }
 
         // Кнопка APPLY в фильтре
-        await page.locator(SELECTORS.helpdesk.applyButton).first().click(); 
+        await page.locator(SELECTORS_CATALOG.Helpdesk.applyButton).first().click(); 
         
         // Ввод ID тикета
-        await page.locator(SELECTORS.helpdesk.typeID).fill(ticketId);
-        await page.locator(SELECTORS.helpdesk.searchFilterButton).click(); 
+        await page.locator(SELECTORS_CATALOG.Helpdesk.typeID).fill(ticketId);
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterButton).click(); 
 
         // Открываем тикет (grid button -> view)
-        await page.locator(SELECTORS.helpdesk.gridOpenButton).first().click();
-        await page.locator(SELECTORS.helpdesk.viewDealOption).click(); 
+        await page.locator(SELECTORS_CATALOG.Helpdesk.gridOpenButton).first().click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.viewDealOption).click(); 
 
 /*        // Вариант открытия через ссылку (Direct URL navigation)
           const idMatch = commentText.match(/ID:\s*(\d+)/);
@@ -184,11 +124,11 @@ test.describe('Ticket New TM test', () => {
         // 7. Работа со ВТОРЫМ фреймом (Ticket Frame)
         // Здесь мы ищем фрейм заново. 
         // Если это слайдер, он снова будет .side-panel-iframe, но скорее всего последний в DOM.
-        // Используем .last() или .nth(1)
-        const ticketFrame = page.frameLocator(SELECTORS.sidePanelIframe).first(); // добавляем first() чтобы пользоваться этой инструкцией после открытия чек-листа
+        // Используем .last() или .nth(1). Так как в последствии придётся опять к нему обращаться тут используем first().
+        const ticketFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first(); // добавляем first() чтобы пользоваться этой инструкцией после открытия чек-листа
 
         // Ждем загрузки содержимого тикета
-        await expect(ticketFrame.locator(SELECTORS.ticketPanel.stageAssignee)).toContainText('Assigned', { timeout: 15000 });
+        await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee)).toContainText('Assigned', { timeout: 15000 });
         await page.waitForTimeout(5000);
        
         // Сохраняем URL
@@ -201,37 +141,42 @@ test.describe('Ticket New TM test', () => {
         }
         links['TicketNewTM'] = usersUrl;
         fs.writeFileSync(FILE_PATHS.linksJson, JSON.stringify(links, null, 2));
+        await page.waitForTimeout(15000);
 
         // 8. Assignee (Назначение ответственного)
-        await ticketFrame.locator(SELECTORS.ticketPanel.stageAssignee).click();
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee).click();
         await page.waitForTimeout(2000);
         // Ждем появления поля ввода/выбора юзера
-        await ticketFrame.locator(SELECTORS.ticketPanel.addUserLink).click();
-        const userInput = ticketFrame.locator(SELECTORS.ticketPanel.userSearchBar); 
+        // Сначала наводим мышь
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.addUserLink).hover();
+        await page.waitForTimeout(300);
+        // И только теперь кликаем  
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.addUserLink).click();
+        const userInput = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.userSearchBar); 
         await expect(userInput).toBeVisible({ timeout: 30000 });
-        await userInput.fill(SELECTORS.ticketPanel.testData, { delay: 100 });
+        await userInput.fill(TEST_DATA.assigneeName, { delay: 100 });
         await userInput.press('Enter');
 
-        await ticketFrame.locator(SELECTORS.ticketPanel.saveUserButton).click(); // Save
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveUserButton).click(); // Save
         // Ждем, пока поле выбора юзера исчезнет !!!
         // Это гарантирует, что поп-ап закрылся и можно кликать дальше
         await expect(userInput).toBeHidden();
         
         // 9. Открытие Task (внутри тикета)
-        await ticketFrame.locator(SELECTORS.ticketPanel.taskLink).click();
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.taskLink).click();
 
 
         // 10. Работа с ТРЕТЬИМ фреймом (Checklist)
         // Теперь у нас открыто 2 слайдера. Нам нужен последний (второй)
         // nth(1) берет второй элемент (индекс с 0)
-        const checkListFrame = page.frameLocator(SELECTORS.sidePanelIframe).nth(1);
+        const checkListFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1);
 
         // Ждем загрузки списка !!!
         // Ждем, пока появится ПЕРВЫЙ чекбокс. Только после этого делаем .all()
-        await expect(checkListFrame.locator(SELECTORS.checklistPanel.checklistFlag).first()).toBeVisible({ timeout: 15000 });
+        await expect(checkListFrame.locator(SELECTORS_CATALOG.TicketPanel.checklistPanel.checklistFlag).first()).toBeVisible({ timeout: 15000 });
 
         // .all() возвращает массив локаторов 
-        const checkboxes = await checkListFrame.locator(SELECTORS.checklistPanel.checklistFlag).all();
+        const checkboxes = await checkListFrame.locator(SELECTORS_CATALOG.TicketPanel.checklistPanel.checklistFlag).all();
        
         console.log('Checkboxes found:', checkboxes.length);
 
@@ -241,7 +186,7 @@ test.describe('Ticket New TM test', () => {
         }
 
         // Finish checklist
-        await checkListFrame.locator(SELECTORS.checklistPanel.finishButton).click();;
+        await checkListFrame.locator(SELECTORS_CATALOG.TicketPanel.checklistPanel.finishButton).click();;
         
         // Закрываем слайдер чек-листа (Esc работает отлично в Playwright)
         await page.keyboard.press('Escape');
@@ -251,24 +196,25 @@ test.describe('Ticket New TM test', () => {
 
         // Сначала ждем, пока фрейм чек-листа реально исчезнет из кода страницы
         // Мы ищем iframe с индексом 1 (второй) и ждем, пока он пропадет
-        await expect(page.locator(SELECTORS.sidePanelIframe).nth(1)).toBeHidden();
+        await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden();
 
         // 11. Возвращаемся к Ticket Frame (переменная ticketFrame все еще валидна)
         // Google / Azure account
-        await ticketFrame.locator(SELECTORS.ticketPanel.googleAccountField).click();
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccountField).click();
 
-        await ticketFrame.locator(SELECTORS.ticketPanel.googleAccount).fill(SELECTORS.ticketPanel.dataGoogleAcc);
-        await ticketFrame.locator(SELECTORS.ticketPanel.saveFieldButton).click();
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccount).fill(TEST_DATA.dataGoogleAcc);
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveFieldButton).click();
 
         // Лицензии
-        await ticketFrame.locator(SELECTORS.ticketPanel.licensesTab).click();
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click();
         
         // Чекбоксы лицензий
         // 1. Важный момент: нужно ждать, пока таб прогрузится.
-        await expect(ticketFrame.locator(SELECTORS.ticketPanel.licensesTabContent)).toBeVisible();
+        //await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTabContent)).toBeVisible();
+        await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseCheckbox).first()).toBeEnabled();
 
         // 2. ОПРЕДЕЛЯЕМ ЛОКАТОР ЧЕКБОКСОВ
-        const checkboxLocator = ticketFrame.locator(SELECTORS.ticketPanel.licenseCheckbox);
+        const checkboxLocator = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseCheckbox);
 
         // Ждем, пока появится ПЕРВЫЙ чекбокс.
         // Это гарантирует, что список загрузился.
@@ -293,45 +239,43 @@ test.describe('Ticket New TM test', () => {
 
         // 12. Закрытие сделки (Close Deal)
         // Ждём исчезновения нотификации
-        const notifications = page.locator(SELECTORS.ticketPanel.notification);
+        const notifications = page.locator(SELECTORS_CATALOG.TicketPanel.notification);
         //const notification = page.locator('.main-ui-loader'); 
         // "Жди, пока количество видимых нотификаций станет равно 0"
         // Это работает и для 1, и для 10 сообщений.
         await expect(notifications).toHaveCount(0, { timeout: 15000 });
 
         // Закрытие сделки   
-        await ticketFrame.locator(SELECTORS.ticketPanel.stageClose).click();
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).click();
 
         // Pop-up 1: Complete
         // Используем getByText для надежности
-        const completeBtn = ticketFrame.locator(SELECTORS.ticketPanel.completePopupBtn).getByText('Complete');
+        const completeBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.completePopupBtn).getByText('Complete');
         await completeBtn.click();
         console.log('Clicked Complete');
 
         // Pop-up 2: Time tracking
-        await ticketFrame.locator(SELECTORS.ticketPanel.hoursInput).fill('1');
-        await ticketFrame.locator(SELECTORS.ticketPanel.timeInput).fill('1');
-        await ticketFrame.locator(SELECTORS.ticketPanel.commentTextarea).fill('TEST');
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput).fill('1');
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.timeInput).fill('1');
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.commentTextarea).fill('TEST');
         
-        await ticketFrame.locator(SELECTORS.ticketPanel.saveTimeButton).click();
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveTimeButton).click();
 
         // Ждем, пока окно тайм-трекера исчезнет
-        const timeTrackerRow = ticketFrame.locator(SELECTORS.ticketPanel.hoursInput); 
+        const timeTrackerRow = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput); 
         await expect(timeTrackerRow).toBeHidden({ timeout: 15000 });
 
          // Ждем завершения (исчезновения окна или появления статуса)
          await page.waitForTimeout(3000);
 
         // ПРОВЕРКА ПО АТРИБУТУ.
-        const closeStageBtn = ticketFrame.locator(SELECTORS.ticketPanel.stageClose);
-        const colorElement = closeStageBtn.locator('div[data-base-color]');
-        await expect(colorElement).toHaveAttribute('data-base-color', '#7bd500'); 
+        const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
+        const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.TicketPanel.colorIndicator);
+        // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
+        await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
         console.log('Test Passed: Deal is in closed stage with correct color');
 
-        // Скриншот
-        await page.screenshot({ 
-            path: 'PW/test-results/goodtest/New_TM_BP/Ticket_New_TM.png',
-            fullPage: true
-        });        
+        // Скриншот успеха
+        await ScreenshotSuccess(page, 'Ticket_New_TM', 'New_TM_BP'); 
       });
     });
