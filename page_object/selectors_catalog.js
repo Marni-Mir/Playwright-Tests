@@ -18,6 +18,8 @@ const SELECTORS_CATALOG = {
      menuPopupItems: 'div[class = "menu-popup-items"]',
      deleteItem: 'text="Delete"',
      continueItem: 'text="Continue"',
+     buttonBP: 'button[title="Run Workflow"]',
+     colorIndicator: 'div[data-base-color]', // Для проверки стейджа сделки
     }
     },
 
@@ -26,6 +28,7 @@ const SELECTORS_CATALOG = {
         addField: '.main-ui-filter-field-add-item',
         findField: 'input[placeholder = "Find field"]',
         idLabel: 'label[title="ID"] input[type="checkbox"]',
+        idLabelClick: 'label[title="ID"]', // Для клика на label
         //idCheckboxInput: 'input[id*="ID"]', // Частичное совпадение ID
         applyButton: 'button[class = "ui-btn ui-btn-primary"]',
         typeID: 'input[name="ID"]',
@@ -49,13 +52,12 @@ const SELECTORS_CATALOG = {
 
         // Лицензии
         licensesTab: '#crm_scope_detail_custom_deal_9_2_tab_licenses',
-        licensesTabContent: 'div[data-id="tab_licenses"]',
+        licensesTabContent: 'div[data-tab-id="tab_licenses"]',
         licenseCheckbox: 'div[data-tab-id="tab_licenses"]  .ui-form-row input[type="checkbox"]',
 
         // Закрытие сделки
         notification: '.ui-notification-manager-browser-content',
         stageClose: 'div[data-id="C9:WON"]',
-        colorIndicator: 'div[data-base-color]', // Для проверки закрытия тикета
         completePopupBtn: 'div[id="entity_progress_TERMINATION"] .webform-small-button-text', // Кнопка Complete
         
         // Тайм трекер
@@ -73,7 +75,80 @@ const SELECTORS_CATALOG = {
 
     TeamMemberCard:{
     generalCheckButton: '.main-buttons-item-text-box',
-    commentWithTicket: 'text=Created onboarding ticket for Helpdesk.',
+    stagePause: 'div[data-id="C8:WON"]',
+    
+    commentWithTicket: (text) => `text=/${text}/i`, // стрелочная функция для поиска комментария
+    // commentWithTicket: (text) => `.crm-timeline__editable-text_text:has-text("${text}")`,
+    //commentWithTicket: 'text=Created onboarding ticket for Helpdesk.',
+
+    BP:{
+    // Бизнесс Процесс общее
+    runButton: '.ui-btn-text:has-text("RUN")',
+    dropdownBP: '.ui-selector-item',
+    errorBox: 'span.ui-alert-message',
+
+    // Dismiss BP
+    dismissBtn: '.ui-selector-item:has-text("[HR] Dismiss")',
+    dismissalDate: 'input[name="Parameter1"]',
+    accessDeactivationDate: 'input[name="Parameter10"]',
+    dismissalReason: 'select[id="id_Parameter2"]',
+    transferFiles: 'select[id="id_Parameter6"]', // Обязательное поле
+    forwardEmails: 'select[id="id_Parameter8"]', // Обязательное поле
+
+    //Rehire
+    rehireBtn: '.ui-selector-item:has-text("[HR] Rehire")',
+    gender: 'select[id="id_Gender"]',
+    officeType: 'select[id="id_OfficeType"]',
+    cityStateCurrent: 'input[name="CityStateofCurrentLocation"]',
+    currentCountry: 'select[id="id_CountryofCurrentLocation"]',
+    startDateRehire: 'input[name="Startdate"]',
+    jobLevel: 'select[id="id_JobLevel"]',
+    workschedule: 'select[id="id_Workschedule"]',
+    position: 'select[id="id_Position"]',
+    ptoFieldBPRehire: 'select[id="id_PTO"]',
+    timezone: 'select[id="id_Timezone"]',
+    probationperiod: 'input[name="Probationperiod"]',
+    budget: 'select[id="id_Budget"]',
+    paymentType: 'select[id="id_Paymenttype"]',
+    typeOfContract: 'select[id="id_TypeofContract"]',
+    recruitingSource: 'select[id="id_Recruiting_Source"]',
+    businessEntity: 'select[name="UF_CRM_1657638652136"]',
+    departments: 'select[name="UF_DEPARTMENTS"]',
+    
+    // Rehire BP - поля с тегами (tag selectors)
+    recruiterAddButton: 'div[id="id_Recruiter"] .ui-tag-selector-add-button-caption',
+    recruiterInput: 'div[id="id_Recruiter"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
+    managerAddButton: 'div[id="id_manager"] .ui-tag-selector-add-button-caption',
+    managerInput: 'div[id="id_manager"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
+    teamLeadAddButton: 'div[id="id_Team_Lead"] .ui-tag-selector-add-button-caption',
+    teamLeadInput: 'div[id="id_Team_Lead"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
+    mainTeamLeadAddButton: 'div[id="id_Main_Team_Lead"] .ui-tag-selector-add-button-caption',
+    mainTeamLeadInput: 'div[id="id_Main_Team_Lead"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
+    hrAddButton: 'div[id="id_HR"] .ui-tag-selector-add-button-caption',
+    hrInput: 'div[id="id_HR"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
+    
+    // Общий селектор для tag input (если используется без специфичного id)
+    tagSelectorInput: 'input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
+    
+    // Комментарии для поиска
+    rehireCommentText: 'Created rehire ticket for Helpdesk.',
+
+    // Request Access
+    requestAccessBtn: '.ui-selector-item:has-text("[HR] Request Access")',
+    urgency: 'select[id="id_Urgency"]',
+    region: 'select[id="id_Region"]',
+    accesslevel:'select[id="id_Accesslevel"]',
+    description: 'textarea[name="Description"]',
+
+    // On Hold
+    onHoldBtn: '.ui-selector-item:has-text("[HR] On Hold")',
+    onHoldReason: 'select[id="id_OnHoldReason"]',
+    suspendOtherAccess: 'select[name="NeedToSuspendOtherAccess"]',
+    suspendAzureGoogle: 'select[name="NeedToSuspendAzureGoogle"]',
+    onHoldStartDate: 'input[name="OnHoldStartDate"]',
+    expectedReturn: 'input[name="ExpectedReturn"]',
+    },
+
     }
 };
 
