@@ -145,7 +145,7 @@ test.describe('Ticket Dismiss TM test', () => {
          fs.writeFileSync(FILE_PATHS.linksJson, JSON.stringify(links, null, 2));
          await page.waitForTimeout(15000);
 
-    /*        // 8. Assignee (Назначение ответственного)
+            // 8. Assignee (Назначение ответственного)
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee).click();
         await page.waitForTimeout(2000);
         // Ждем появления поля ввода/выбора юзера
@@ -205,7 +205,7 @@ test.describe('Ticket Dismiss TM test', () => {
 
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccount).fill(TEST_DATA.dataGoogleAcc);
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveFieldButton).click();
-*/ 
+ 
         // Лицензии
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click();
         
@@ -269,7 +269,7 @@ test.describe('Ticket Dismiss TM test', () => {
 
         // ПРОВЕРКА ПО АТРИБУТУ.
         const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
-        const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.TicketPanel.colorIndicator);
+        const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
         // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
         await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
         console.log('Test Passed: Deal is in closed stage with correct color');

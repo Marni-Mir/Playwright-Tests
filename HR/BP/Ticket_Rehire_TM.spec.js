@@ -143,7 +143,7 @@ test.describe('Ticket Rehire TM test', () => {
             // Это гарантирует, что поп-ап закрылся и можно кликать дальше
             await expect(userInput).toBeHidden();
 
-/*            // Открытие Task (внутри тикета)
+            // Открытие Task (внутри тикета)
             const Tasck = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.taskLink);
             await Tasck.scrollIntoViewIfNeeded();
             await Tasck.click();
@@ -176,7 +176,7 @@ test.describe('Ticket Rehire TM test', () => {
             // Сначала ждем, пока фрейм чек-листа реально исчезнет из кода страницы
             // Мы ищем iframe с индексом 1 (второй) и ждем, пока он пропадет
             await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden();
-*/
+
             // Возвращаемся к Ticket Frame (переменная ticketFrame все еще валидна)
             // Google / Azure account
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccountField).click();
@@ -234,12 +234,11 @@ test.describe('Ticket Rehire TM test', () => {
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput).fill('1');
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.timeInput).fill('1');
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.commentTextarea).fill('TEST');
-            await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveTimeButton).click();
-            await ticketFrame.waitForTimeout(5000);
+            await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveTimeButton).click({ timeout: 5000 });
 
             // ПРОВЕРКА ПО АТРИБУТУ.
             const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
-            const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.TicketPanel.colorIndicator);
+            const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
             // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
             await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
             console.log('Test Passed: Deal is in closed stage with correct color');

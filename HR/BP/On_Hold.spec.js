@@ -45,8 +45,8 @@ test.describe('On Hold TM test', () => {
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.onHoldReason).selectOption('Family reason');
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.suspendOtherAccess).selectOption('No');
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.suspendAzureGoogle).selectOption('No');
-        await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.onHoldStartDate).fill('03/25/2025');
-        await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.expectedReturn).fill('04/20/2025');
+        await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.onHoldStartDate).fill('03/25/2025'); // формат по спеке mm.dd.yyyy
+        await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.expectedReturn).fill('04/20/2025'); // формат по спеке mm.dd.yyyy
 
         // Нажимаем на кнопку Run
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.runButton).click();
@@ -56,7 +56,7 @@ test.describe('On Hold TM test', () => {
 
         //Проверка что On Hold отработал
         const pauseStageBtn = bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.stagePause);
-        const colorElement = pauseStageBtn.locator(SELECTORS_CATALOG.CRM.colorIndicator);
+        const colorElement = pauseStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
         // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
         await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
         console.log('Test Passed: Deal is in Paused stage with correct color');

@@ -13,11 +13,11 @@ const TEST_DATA = {
     colorAttribute: 'data-base-color' // Имя атрибута (техническая константа)
 }
 
-test.describe('Ticket Rehire TM test', () => {
+test.describe('Ticket Request Access test', () => {
     
     test.setTimeout(150000);
 
-    test('Ticket Rehire test', async ({ page }) => {
+    test('Ticket Request Access test', async ({ page }) => {
             await loginToSite(page);
 
             // Читаем ссылки
@@ -169,7 +169,7 @@ test.describe('Ticket Rehire TM test', () => {
 
             // ПРОВЕРКА ПО АТРИБУТУ.
             const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
-            const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.TicketPanel.colorIndicator);
+            const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
             // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
             await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
             console.log('Test Passed: Deal is in closed stage with correct color');
