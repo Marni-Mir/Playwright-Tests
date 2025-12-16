@@ -43,8 +43,8 @@ test.describe('On Hold TM test', () => {
         let bpFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).last();
         // Заполняем поля 
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.onHoldReason).selectOption('Family reason');
-        await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.suspendOtherAccess).selectOption('No');
-        await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.suspendAzureGoogle).selectOption('No');
+        await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.suspendOtherAccess).selectOption('No'); // No - без создания тикета
+        await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.suspendAzureGoogle).selectOption('No'); // No - без создания тикета
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.onHoldStartDate).fill('03/25/2025'); // формат по спеке mm.dd.yyyy
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.expectedReturn).fill('04/20/2025'); // формат по спеке mm.dd.yyyy
 
@@ -54,148 +54,155 @@ test.describe('On Hold TM test', () => {
         await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden();
         await page.reload();
 
-        //Проверка что On Hold отработал
-        const pauseStageBtn = bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.stagePause);
-        const colorElement = pauseStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
-        // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
-        await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
-        console.log('Test Passed: Deal is in Paused stage with correct color');
+        // 5. Возвращаемся к первому фрейму после перезагрузки
+        frame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
+        await expect(frame.locator('body')).toBeVisible({ timeout: 10000 });
+        // Небольшая пауза для полной загрузки страницы после перезагрузки
+        await page.waitForTimeout(2000);
 
-        
-/*        // 5. Проверяем комментарий с тикетом
-        // Возвращаемся к первому фрейму
-         frame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
-         console.log('Основной фрейм переопределен.');
-         // Ждем, пока фрейм появится (проверка любого элемента внутри)
-         await expect(frame.locator('body')).toBeVisible({ timeout: 10000 });
-      // Скролл и поиск
-        //const commentLocator = userFrame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket);
-        // Мы передаем конкретный текст ('Hello World') внутрь
-        // Изучаем как устроен селектор в selectors_catalog.js:
-        // commentWithTicket: (text) => `text=/${text}/i`
-        // Это формирует селектор Playwright вида: text=/.../i (регулярка как строка)
-
-        // Проблема: сюда нужно передавать именно строку, либо RegExp.toString(), а не сам объект RegExp.
-        // Ещё важно: если там "текст=..." — Playwright ищет текст целиком или по паттерну без экранирования.
-        // Если в вызов передать commentWithTicket(/ID bla bla/), получится селектор:
-        //   text=/ID bla bla/i
-        // Если же передаём RegExp как аргумент, внутри шаблонной строки это приведёт к виду text=/.../, но без кавычек.
-
-        // Чтобы не было багов, нужно передать просто строку без регулярных выражений:
-        const commentSearchText = 'Offboarding access';
-        const commentLocator = frame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket(commentSearchText));
+        // 6. Проверка что On Hold отработал
+        const pauseStageBtn = frame.locator(SELECTORS_CATALOG.TeamMemberCard.stagePause);
+        // Ждем, пока кнопка станет видимой
+        await expect(pauseStageBtn).toBeVisible({ timeout: 10000 });
+        const stageText = (await pauseStageBtn.innerText()).trim(); 
+        expect(stageText).toBe('Paused');
+        console.log('Deal is in On Hold stage with name:', stageText);
 
 
-        let found = false;
-        for (let i = 0; i < 15; i++) {
-            if (await commentLocator.isVisible()) {
-                found = true;
-                break;
-            }
-            await page.keyboard.press('PageDown');
-            // Здесь маленькая техническая пауза нужна именно для движка браузера,
-            // чтобы он успел отрендерить новый контент после нажатия клавиши.
-            // Это не "ожидание", это "троттлинг". Но можно попробовать ждать появления любого нового текста.
-            await page.waitForTimeout(500); 
+        // 7. Получение значения из поля UF_CRM_NEW_POSITION_FIRST_DAY
+        const firstDayInputLocator = frame.locator('div[data-cid="UF_CRM_NEW_POSITION_FIRST_DAY"] span[class="fields date field-item"]');
+        await expect(firstDayInputLocator).toBeVisible({ timeout: 20000 });
+        // Чтобы получить текст из span, используем innerText():
+        const firstDayValue = (await firstDayInputLocator.innerText()).trim();
+        console.log('First Day on Current Position in card TM:', firstDayValue);
+
+        // 8. Функция для преобразования даты из формата MM/DD/YYYY в объект Date
+        const parseDate = (dateString) => {
+            const [month, day, year] = dateString.split('/').map(Number);
+            return new Date(year, month - 1, day); // month - 1, т.к. в Date месяцы начинаются с 0
+        };
+
+
+
+        // 9. Проверка исторической записи. Period, Work record, On Hold Reason
+        const HistoryRecBlock = frame.locator(SELECTORS_CATALOG.TeamMemberCard.historyRecordBlock).first();
+        // Используем ":has-text()" для поиска нужной строки, а затем CSS-селектор для значения.
+        const periodValueLocator = HistoryRecBlock.locator(
+            // Ищем элемент-строку, который содержит лейбл "Period"
+            `${SELECTORS_CATALOG.TeamMemberCard.historyRecordLine}:has-text("Period")`
+            ).locator(
+            // Внутри найденной строки ищем само значение
+            SELECTORS_CATALOG.TeamMemberCard.historyRecordValue);
+        // Получаем текст (обязательно с await!)
+        const PeriodDate = (await periodValueLocator.innerText()).trim();
+        console.log('PeriodDate:', PeriodDate);
+
+        // Историческая запись "Work record"
+        const WorkRecordValueLocator = HistoryRecBlock.locator(
+            // Ищем элемент-строку, который содержит лейбл "Work record"
+            `${SELECTORS_CATALOG.TeamMemberCard.historyRecordLine}:has-text("Work record")`
+            ).locator(
+            // Внутри найденной строки ищем само значение
+            SELECTORS_CATALOG.TeamMemberCard.historyRecordValue);
+        // Получаем текст (обязательно с await!)
+        const WorkRecord = (await WorkRecordValueLocator.innerText()).trim();
+        console.log('Work Record:', WorkRecord);
+
+         // Историческая запись "On Hold Reason"
+        const OnHoldReasonValueLocator = HistoryRecBlock.locator(
+            // Ищем элемент-строку, который содержит лейбл "Period"
+            `${SELECTORS_CATALOG.TeamMemberCard.historyRecordLine}:has-text("On Hold Reason")`
+            ).locator(
+            // Внутри найденной строки ищем само значение
+            SELECTORS_CATALOG.TeamMemberCard.historyRecordValue);
+        // Получаем текст (обязательно с await!)
+        const OnHoldReasonHistory = (await OnHoldReasonValueLocator.innerText()).trim();
+        console.log('On Hold Reason:', OnHoldReasonHistory);
+
+        // 10. Извлечение даты First Day on Current Position из PeriodDate
+        // Регулярное выражение для захвата двух дат в формате MM/DD/YYYY
+        const dateMatch = PeriodDate.match(/(\d{2}\/\d{2}\/\d{4})\s*-\s*(\d{2}\/\d{2}\/\d{4})/);
+        let OnHoldStartDate;
+        // Проверяем, удалось ли найти совпадение
+        if (dateMatch) {
+        // dateMatch[0] - это вся найденная строка ("04/10/2024 - 03/24/2025")
+        // dateMatch[1] - это первая захваченная группа (Первая дата)
+            const FirstDateCurrent = dateMatch[1];
+        // dateMatch[2] - это вторая захваченная группа (Вторая дата)
+            OnHoldStartDate = dateMatch[2]; 
+        console.log('First Day on Current Position:', FirstDateCurrent); // Выведет: 04/10/2024
+        console.log('On Hold Start Date - 1 day:', OnHoldStartDate);     // Выведет: 03/24/2025
+        } else {
+        // Обработка ошибки, если формат даты не совпал
+            console.log(`Не удалось извлечь даты из строки: ${PeriodDate}`);
+            throw new Error('Date format in Period field is incorrect!');
         }
-        
-        if (!found) throw new Error('Ticket comment not found');
 
-        // Извлекаем текст
-        const commentText = await commentLocator.innerText();
-        console.log('Comment:', commentText);
-        
-         // Извлечение ID из комментария
-         const ticketIdMatch = commentText.match(/\s*(\d+)/);
-         const ticketId = ticketIdMatch ? ticketIdMatch[1] : null;
-         if (!ticketId) {
-             console.log('Ticket ID not found');
-             throw new Error('Ticket ID not found in comment!');
-         }
-         console.log('Extracted Ticket ID:', ticketId);
- 
-         // 6. Переход в Helpdesk и поиск
-         await page.goto(links['Helpdesk']); 
-         
-         // В Playwright клик и заполнение полей
-         await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
-         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
-         
-         // Заполняем фильтр
-         const findField = page.locator(SELECTORS_CATALOG.Helpdesk.findField);
-         await findField.fill('id');     
- 
-         // Чекбокс ID
-         //const idCheckbox = page.locator(SELECTORS.idLabel);
-         // Проверяем класс или состояние checked
-         const isChecked = await page.locator(SELECTORS_CATALOG.Helpdesk.idLabel).isChecked().catch(() => false); 
-         
-         if (!isChecked) {
-             await isChecked.click();
-         }
- 
-         // Кнопка APPLY в фильтре
-         await page.locator(SELECTORS_CATALOG.Helpdesk.applyButton).first().click(); 
-         
-         // Ввод ID тикета
-         await page.locator(SELECTORS_CATALOG.Helpdesk.typeID).fill(ticketId);
-         await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterButton).click(); 
- 
-         // Открываем тикет (grid button -> view)
-         await page.locator(SELECTORS_CATALOG.Helpdesk.gridOpenButton).first().click();
-         await page.locator(SELECTORS_CATALOG.Helpdesk.viewDealOption).click(); 
- 
- /*        // Вариант открытия через ссылку (Direct URL navigation)
-           const idMatch = commentText.match(/ID:\s*(\d+)/);
- 
-         if (idMatch) {
-           const ticketId = idMatch[1];
-           console.log('Extracted Ticket ID:', ticketId);
- 
-         // Получаем текущий URL
-         let currentUrl = page.url();
- 
-         // Заменяем последнее числовое значение в URL на ticketId
-         // ВАЖНО: Убедись, что URL действительно заканчивается на /число/, иначе replace не сработает
-         const newUrl = currentUrl.replace(/\/(\d+)\/?$/, `/${ticketId}/`);
- 
-         console.log(`Navigating to new URL: ${newUrl}`);
-     
-         // Переходим по новому URL
-         await page.goto(newUrl);
- 
-         // ВМЕСТО ПАУЗЫ: Ждем, пока появится фрейм тикета или любой элемент загруженной страницы
-         // Например, ждем появления слайдера с тикетом
-         await expect(page.locator('.side-panel-iframe').last()).toBeVisible({ timeout: 15000 });
- 
-         } else {
-         // В тестах лучше выбрасывать ошибку, чтобы тест упал, а не просто написал в лог
-         throw new Error('Ticket ID not found in comment, cannot navigate via newURL');
-         }
- */  
-         // 7. Работа со ВТОРЫМ фреймом (Ticket Frame)
-         // Здесь мы ищем фрейм заново. 
-         // Если это слайдер, он снова будет .side-panel-iframe, но скорее всего последний в DOM.
-         // Используем .last() или .nth(1). Так как в последствии придётся опять к нему обращаться тут используем first().
- /*        const ticketFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first(); // добавляем first() чтобы пользоваться этой инструкцией после открытия чек-листа
- 
-         // Ждем загрузки содержимого тикета
-         await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee)).toContainText('Assigned', { timeout: 15000 });
-         await page.waitForTimeout(5000);
-        
-         // Сохраняем URL
-         const usersUrl = page.url();
-         console.log('Link for ticket:', usersUrl);
-         
-         // Обновляем JSON (синхронно, безопасно)
-         if (fs.existsSync(FILE_PATHS.linksJson)) {
-             links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
-         }
-         links['TicketDismissTM'] = usersUrl;
-         fs.writeFileSync(FILE_PATHS.linksJson, JSON.stringify(links, null, 2));
-         await page.waitForTimeout(15000);
-*/
-        // 6. Скриншот успеха
+       
+
+        // 11. Преобразуем даты в объекты Date
+        // Ошибка в именовании: далее по коду используется OnHoldStartDateObj с большой буквы,
+        // а здесь присваивается переменной onHoldStartDateObj (с маленькой буквы).
+        // Нужно использовать одинаковое имя (лучше: OnHoldStartDateObj), чтобы не было ReferenceError.
+        const OnHoldStartDateObj = parseDate(OnHoldStartDate);
+        const firstDayDateObj = parseDate(firstDayValue);
+
+        // 12. Вычисляем разницу в миллисекундах, затем в днях
+        const differenceMs = Math.abs(OnHoldStartDateObj - firstDayDateObj);
+        const differenceDays = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+
+        console.log('On Hold Start Date:', OnHoldStartDateObj);
+        console.log('First Day on Current Position:', firstDayValue);
+        console.log('Разница в днях:', differenceDays);
+
+        // 13. Функция для преобразования Work Record в количество дней
+        // Формат Work Record: "X months Y days" или "X month Y day"
+        const parseToDays = (workRecordString) => {
+            // Регулярное выражение для извлечения месяцев и дней
+            // Поддерживает как "months" так и "month", "days" и "day"
+            // Причина NaN: если какая-то группа (например, месяцев нет в строке) — match[2] будет undefined, а parseInt(undefined, 10) возвращает NaN.
+            // Нужно подставлять 0 если группа отсутствует.
+            // Еще: исходная регулярка не требовала хотя бы одного числа, так что match всегда не null (пустое), но все группы undefined.
+            // ПРИМЕР: '6 months 2 days' => match[1]=undefined, match[2]='6', match[3]='2'
+            // Исправленный подход:
+            // Исправленная регулярка требует хотя бы одно число дней, месяцев или лет (группы не "разрежены" между числами):
+            // Дополняет: если "6 days" — будет найдено (0 лет, 0 мес, 6 дней)
+            // А если только "2 months" — (0 лет, 2 мес, 0 дней)
+            // Парсит и когда дней нет, и когда есть
+            const match = workRecordString.match(/^(?:(\d+)\s+(?:year|years)\s*)?(?:(\d+)\s+(?:month|months)\s*)?(?:(\d+)\s+(?:day|days)\s*)?$/i);
+            
+            if (!match) {
+                throw new Error(`Не удалось распарсить Work Record: ${workRecordString}`);
+            }
+            
+            const years = parseInt(match[1], 10);
+            const months = parseInt(match[2], 10);
+            const days = parseInt(match[3], 10);
+            const x = parseInt(match[0], 10);
+            const y = parseInt(match[4], 10);
+            const z = parseInt(match[5], 10);
+            
+            // Преобразуем месяцы в дни, используя среднее количество дней в месяце (30.44)
+            // Это более точное значение, чем просто 30
+            const averageDaysInMonth = 30.44;
+            const totalDays = Math.round(years * 365 + months * averageDaysInMonth + days);
+            
+            return { years, months, days, totalDays, x, y, z };
+        };
+
+        // 14. Преобразуем Work Record в дни
+        const workRecordDays = parseToDays(WorkRecord);
+        console.log('Work Record - года:', workRecordDays.years, 'месяцы:', workRecordDays.months, 'дни:', workRecordDays.days);
+        console.log('Work Record в днях:', workRecordDays.totalDays);
+        console.log('Вычисленная разница в днях:', differenceDays);
+        console.log('x:', workRecordDays.x, 'y:', workRecordDays.y, 'z:', workRecordDays.z);
+        const differenceDays1 = differenceDays + 1;
+
+        // 15. Проверяем, что значения равны
+        expect(workRecordDays.totalDays).toBe(differenceDays1);
+        console.log('✓ Проверка пройдена: Work Record в днях равно вычисленной разнице - On Hold Start Date - First Day on Current Position + 1 день');
+
+        // 16. Скриншот успеха
         await ScreenshotSuccess(page, 'On_Hold_TM', 'On_Hold_TM_BP');
     });
 });
