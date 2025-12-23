@@ -75,11 +75,54 @@ const SELECTORS_CATALOG = {
 
     TeamMemberCard:{
     generalCheckButton: '.main-buttons-item-text-box',
-    stagePause: 'div[data-id="C8:WON"]',
+    stagePause: 'div[data-id="C8:WON"]', //  C8:UC_MMVAE0
     
     commentWithTicket: (text) => `text=/${text}/i`, // стрелочная функция для поиска комментария
     // commentWithTicket: (text) => `.crm-timeline__editable-text_text:has-text("${text}")`,
     //commentWithTicket: 'text=Created onboarding ticket for Helpdesk.',
+    historyRecordBlock: '.ui-entity-editor-content-block-text',
+    historyRecordLine: '.history-field--entity-record',
+    historyRecordLabel: '.history-field--entity-record--field-label',
+    historyRecordValue: '.history-field--entity-record--field-value',
+
+    // PTO - General Info
+    startDateGeneral: 'div[data-cid="UF_CRM_1631800544"] span[class="fields date field-item"]',
+    ptoGeneral: '//div[contains(@class, "ui-entity-editor-block-title") and contains(., "PTO")]/following-sibling::div[contains(@class, "ui-entity-editor-content-block")]',
+    
+    PTO:{ 
+    // PTO - Time Off Requests
+    timeOffRequestsTab: '#crm_scope_detail_custom_deal_8_24_tab_relation_dynamic_188',
+    newItemButton: 'a[title="New item"]',
+    typeOfTimeOffField: 'div[data-name="UF_CRM_28_TYPE_OF_TIME_OFF"]',
+    typeOfTimeOffSelect: 'span[id^=UF_CRM_28_TYPE_OF_TIME_OFF_value]',  // id начинается с ...
+    timeOffStageClose: 'div[data-stage-id="final"]',
+    timeOffApprove: '.popup-window-buttons button[class="ui-btn ui-btn-success"]',
+    
+    // PTO - Time Monitoring
+    timeMonitoringTab: '#crm_scope_detail_custom_deal_8_24_tab_time_monitoring',
+    startDateToM: 'div.col-md-2 .employee_general_info',
+    balanceDate: '#date',
+    allowedSince: '.allowed_since',
+    ptoToM: 'div.col-md-2:nth-of-type(4) .employee_general_info',
+    inCompany: 'div.col-md-2:nth-of-type(3) .employee_general_info',
+    
+    // PTO - Dashboard Fields (Paid Days)
+    defaultDaysPaid: '.text_widget',
+    previousPeriod: '.block_text_widget .text_widget:nth-of-type(2)',
+    allowedPaidDays: '.allowed_paid_days .text_widget',
+    availablePaid: '.dashboard-info-1 .av',
+    usedPaid: '.dashboard-info-1 .us',
+    
+    // PTO - Dashboard Fields (Sick Days)
+    defaultDaysSick: '.col-md-3 .text_widget',
+    availableSick: '.dashboard-info-2 .av',
+    usedSick: '.dashboard-info-2 .us',
+    
+    // PTO - Dashboard Fields (Unpaid Days)
+    defaultDaysUnpaid: '.col-md-3:nth-of-type(3) .text_widget',
+    availableUnpaid: '.dashboard-info-3 .av',
+    usedUnpaid: '.dashboard-info-3 .us',
+    },
 
     BP:{
     // Бизнесс Процесс общее
