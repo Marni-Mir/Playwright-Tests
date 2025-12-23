@@ -89,7 +89,7 @@ test.describe('Rehire TM test', () => {
             await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.runButton).click({ timeout: 2000 });
 
              // Проверяем закрытие фрейма БП
-            await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden();
+            await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden({ timeout: 3000 });
             await page.reload();
             
             // Проверяем комментарий с тикетом

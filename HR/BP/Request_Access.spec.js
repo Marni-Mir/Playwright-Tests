@@ -43,8 +43,15 @@ test.describe('Request Access BP test', () => {
 
             // Нажимаем на кнопку Run
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.runButton).click();
-        // Проверяем закрытие фрейма БП
-        await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden();
+        // Ждем, пока фрейм БП закроется - проверяем через waitForFunction, что количество фреймов уменьшилось до 1
+        // Это более надежный способ, чем проверка toBeHidden, так как проверяет реальное состояние DOM
+        await page.waitForFunction(
+            () => {
+                const iframes = document.querySelectorAll('.side-panel-iframe');
+                return iframes.length === 1;
+            },
+            { timeout: 20000 }
+        ); 
         await page.reload();
 
            // 5. Проверяем комментарий с тикетом
@@ -56,7 +63,7 @@ test.describe('Request Access BP test', () => {
 
             // Чтобы не было багов, нужно передать просто строку без регулярных выражений:
         const commentSearchText = 'Access Request ticket successfully created.';
-        const commentLocator = frame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket(commentSearchText));
+        const commentLocator = frame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket(commentSearchText)).first();
 
 
         let found = false;

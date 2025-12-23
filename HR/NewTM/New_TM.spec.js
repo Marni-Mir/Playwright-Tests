@@ -48,7 +48,7 @@ const TEST_DATA = {
     country: 'Zimbabwe',
     date: '01/03/2023',
     businessEntityValue: '2832', // INFUSE
-    departmentValue: '4062',     // CAT
+    departmentValue: '4079',     // 4062 - CAT, 4079 - LV
     jobLevel: 'Jr Specialist',
     positionValue: '4092',       // QA Automation Engineer
     ptoType: 'PTO',

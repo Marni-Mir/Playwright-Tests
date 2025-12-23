@@ -27,7 +27,7 @@ test.describe('Ticket Dismiss TM test', () => {
         // Ждем, пока фрейм появится (проверка любого элемента внутри)
         await expect(frame.locator('body')).toBeVisible({ timeout: 10000 });
 
-/*        // 4. Запускаем БП 
+        // 4. Запускаем БП 
         // Выбираем БП Dismiss
         await frame.locator(SELECTORS_CATALOG.CRM.Deal.buttonBP).click();
         await frame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.dismissBtn).click();
@@ -51,7 +51,7 @@ test.describe('Ticket Dismiss TM test', () => {
          console.log('Основной фрейм переопределен.');
          // Ждем, пока фрейм появится (проверка любого элемента внутри)
          await expect(frame.locator('body')).toBeVisible({ timeout: 10000 });
-*/      // Скролл и поиск
+      // Скролл и поиск
         //const commentLocator = userFrame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket);
         // Мы передаем конкретный текст ('Hello World') внутрь
         // Изучаем как устроен селектор в selectors_catalog.js:

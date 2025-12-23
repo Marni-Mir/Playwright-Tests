@@ -35,7 +35,10 @@ test.describe('Ticket New TM test', () => {
         // Ждем, пока фрейм появится (проверка любого элемента внутри)
         await expect(userFrame.locator('body')).toBeVisible();
         // Скролл и поиск
-        const commentLocator = userFrame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket);
+        //const commentLocator = userFrame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket);
+        // Мы передаем конкретный текст ('Hello World') внутрь
+        const commentLocator = userFrame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket('Created onboarding ticket for Helpdesk.'));
+
 
         let found = false;
         for (let i = 0; i < 15; i++) {
@@ -80,6 +83,8 @@ test.describe('Ticket New TM test', () => {
         
         if (!isChecked) {
             await isChecked.click();
+        } else {
+            console.log('The checkbox ID is already selected, no click required');
         }
 
         // Кнопка APPLY в фильтре
@@ -201,7 +206,6 @@ test.describe('Ticket New TM test', () => {
         // 11. Возвращаемся к Ticket Frame (переменная ticketFrame все еще валидна)
         // Google / Azure account
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccountField).click();
-
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccount).fill(TEST_DATA.dataGoogleAcc);
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveFieldButton).click();
 
@@ -270,7 +274,7 @@ test.describe('Ticket New TM test', () => {
 
         // ПРОВЕРКА ПО АТРИБУТУ.
         const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
-        const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.TicketPanel.colorIndicator);
+        const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
         // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
         await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
         console.log('Test Passed: Deal is in closed stage with correct color');

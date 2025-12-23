@@ -21,7 +21,7 @@ The 'Type of Contract' field is required.
 The 'Recruiter' field is required.
 The 'Manager' field is required.
 The 'HR' field is required.
-1111The 'Recruiting Source' field is required.
+The 'Recruiting Source' field is required.
 The 'Department Block' field is required.`.trim()
      },
 

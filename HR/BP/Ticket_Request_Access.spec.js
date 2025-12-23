@@ -30,7 +30,7 @@ test.describe('Ticket Request Access test', () => {
             await expect(frame.locator('body')).toBeVisible({ timeout: 10000 });
 
             // Скролл и поиск
-            const commentLocator = frame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket('Access Request ticket successfully created.'));
+            const commentLocator = frame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket('Access Request ticket successfully created.')).first();
 
             let found = false;
             for (let i = 0; i < 15; i++) {
@@ -114,6 +114,7 @@ test.describe('Ticket Request Access test', () => {
             // Работа с фреймом тикета
             const ticketFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
             await expect(ticketFrame.locator('body')).toBeVisible({ timeout: 10000 });
+            await page.waitForTimeout(10000);
 
             // Сохранение ссылки тикета в файл Links
             const UsersUrl = page.url();
@@ -147,11 +148,29 @@ test.describe('Ticket Request Access test', () => {
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click({ timeout: 15000 });
 
             // Ждём исчезновения нотификации
-            const notifications = page.locator(SELECTORS_CATALOG.TicketPanel.notification);
-            // "Жди, пока количество видимых нотификаций станет равно 0"
-            // Это работает и для 1, и для 10 сообщений.
-            await expect(notifications).toHaveCount(0, { timeout: 15000 });    
+            // Используем waitForFunction для проверки, что все нотификации скрыты или отсутствуют
+            const notificationSelector = SELECTORS_CATALOG.TicketPanel.notification;
+            await page.waitForFunction(
+                (selector) => {
+                    const notificationElements = document.querySelectorAll(selector);
+                    // Если элементов нет, возвращаем true
+                    if (notificationElements.length === 0) return true;
+                    // Проверяем, что все элементы скрыты (через computed style)
+                    return Array.from(notificationElements).every(el => {
+                        const style = window.getComputedStyle(el);
+                        return style.display === 'none' || 
+                               style.visibility === 'hidden' || 
+                               style.opacity === '0' ||
+                               !el.offsetParent; // offsetParent === null означает, что элемент скрыт
+                    });
+                },
+                notificationSelector,
+                { timeout: 15000 }
+            );    
             // Закрываем тикет кликаем стейдж - Close Deal
+            // Наводим мышь на стейдж Close Deal, чтобы она стала видимой
+            await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).hover();
+            await page.waitForTimeout(300);
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).click({ timeout: 15000 });
 
             // Прокликиваем всё для закрытия

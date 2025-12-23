@@ -8,9 +8,9 @@ const SELECTORS = {
 };
 
 const TEST_DATA = {
-    url: 'https://dev2.togetdone.com',
+    url: 'https://dev3.togetdone.com',
     login: 'm.smirnova@infuseua.com',
-    password: '~6Lup5pmVhdf_G!'
+    password: 'V2*zp4Q5*n7~'
 };
 
 // 2. Сама функция
@@ -30,11 +30,10 @@ async function loginToSite(page) {
     const loginButton = page.locator(SELECTORS.loginButton);
     await expect(loginButton).toBeEnabled(); // Проверяем, что кнопка не выключена (доступна для клика)
 
+    await loginButton.click();
     // ждем НАВИГАЦИИ (загрузки новой страницы)
-    await Promise.all([
-        page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }), // Ждем загрузки HTML
-        loginButton.click() // И ТОЛЬКО ПОТОМ кликаем
-    ]);
+    // пока в адресной строке не появится '/stream/'
+    await expect(page).toHaveURL(/.*stream/);
 }
 
 module.exports = { loginToSite };
