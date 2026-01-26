@@ -47,11 +47,11 @@ test.describe('PTO Write-off of vacation days Tests', () => {
         console.log('Allowed Date преобразовали в объект Date:Локальное время:', allowedDateType.toLocaleString());
         
         const allowedDatePlus1 = addWorkingDays(allowedDateType, 2); // ставим 2 так как учитывается и текущая дата
-        const allowedDatePlus11 = addWorkingDays(allowedDateType, 12); // ставим 12 так как учитывается и текущая дата
+        const allowedDatePlus9 = addWorkingDays(allowedDateType, 10); // ставим 12 так как учитывается и текущая дата
         const allowedDateMinus1 = new Date(allowedDateType);
         allowedDateMinus1.setDate(allowedDateMinus1.getDate() - 1);
         console.log('Allowed Date + 1 рабочий день:', allowedDatePlus1.toLocaleString()); // Start date
-        console.log('Allowed Date + 11 рабочих дней:', allowedDatePlus11.toLocaleString()); // End date
+        console.log('Allowed Date + 11 рабочих дней:', allowedDatePlus9.toLocaleString()); // End date
         console.log('Allowed Date - 1 рабочий день:', allowedDateMinus1.toLocaleString()); // Для проверки
 
         // 6. Открываем вкладку Time Off Requests
@@ -104,7 +104,7 @@ test.describe('PTO Write-off of vacation days Tests', () => {
         await TimeoffEndDate.click();
         await TimeoffEndDate.press('Control+A');
         await TimeoffEndDate.press('Backspace');
-        await TimeoffEndDate.fill(formatDate(allowedDatePlus11));
+        await TimeoffEndDate.fill(formatDate(allowedDatePlus9));
         await TimeoffEndDate.click();
         await page.waitForTimeout(3000)
 
@@ -165,7 +165,7 @@ test.describe('PTO Write-off of vacation days Tests', () => {
             await balanceDateSel.fill(formatDate(date));
             await balanceDateSel.click();
             await page.waitForTimeout(3000);
-            console.log(`Balances as of: ${label} = ${formatDate(date)}`);
+            console.log(`🔵 Balances as of: ${label} = ${formatDate(date)}`);
         };
 
         const checkPaidValues = async (label, expectedPaid) => {
@@ -177,7 +177,7 @@ test.describe('PTO Write-off of vacation days Tests', () => {
                 console.error(msg1);
                 allErrors.push(msg1);
             } else {
-                console.log(`✅ Проверка поля Used Paid (${label}) прошла успешно!`);
+                console.log(`Проверка поля Used Paid (${label}) прошла успешно!`);
             }
 
             const AvailablePaid = await frame.locator(SELECTORS_CATALOG.TeamMemberCard.PTO.availablePaid).first().evaluate(div => div.firstChild.textContent.trim());
@@ -188,15 +188,15 @@ test.describe('PTO Write-off of vacation days Tests', () => {
                 console.error(msg2);
                 allErrors.push(msg2);
             } else {
-                console.log(`✅ Проверка поля Available Paid (${label}) прошла успешно!`);
+                console.log(`Проверка поля Available Paid (${label}) прошла успешно!`);
             }
         };
 
         const balanceDates = [
-            { date: allowedDateMinus1, label: 'ALLOWED SINCE - 1 день', expectedPaid: { usedPaid: '11', availablePaid: '-11' } },
-            { date: allowedDateType, label: 'ALLOWED SINCE', expectedPaid: { usedPaid: '11', availablePaid: '-6' } },
-            { date: StartDateToM11Month, label: 'Start date  + 11 месяцев + 25 дней', expectedPaid: { usedPaid: '11', availablePaid: '4' } },
-            { date: StartDateToM1Year, label: 'Start date  + 1 год', expectedPaid: { usedPaid: '0', availablePaid: '4' } },
+            { date: allowedDateMinus1, label: 'ALLOWED SINCE - 1 день', expectedPaid: { usedPaid: '9', availablePaid: '-9' } },
+            { date: allowedDateType, label: 'ALLOWED SINCE', expectedPaid: { usedPaid: '9', availablePaid: '-4' } },
+            { date: StartDateToM11Month, label: 'Start date  + 11 месяцев + 25 дней', expectedPaid: { usedPaid: '9', availablePaid: '6' } },
+            { date: StartDateToM1Year, label: 'Start date  + 1 год', expectedPaid: { usedPaid: '0', availablePaid: '5' } },
         ];
 
         for (const { date, label, expectedPaid } of balanceDates) {
