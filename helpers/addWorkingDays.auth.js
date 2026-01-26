@@ -8,10 +8,12 @@ const holidays = [
   '2023-05-09', // Пример: День Победы
 ];
 
+/*
  @param {Date} startDate // Дата, с которой начинается отсчет (объект Date).
  @param {number} workingDaysToAdd  // Количество рабочих дней, которое нужно добавить.
  @param {string[]} [holidays=[]] // Массив дат-праздников в формате 'YYYY-MM-DD'.
  @returns {Date}  // Рассчитанная дата окончания.
+*/
  
 // Список праздников, которые нужно пропустить.
 // Формат 'YYYY-MM-DD' (Год-Месяц-День) ОБЯЗАТЕЛЕН для работы функции.
@@ -37,6 +39,7 @@ function addWorkingDays(startDate, workingDaysToAdd, holidays = []) {
   };
 
   const startDayOfWeek = currentDate.getDay(); // 0 = Вс, 6 = Сб
+  console.log('день переданный в счетчик' , currentDate.getDay() );
   const isStartWeekend = (startDayOfWeek === 0 || startDayOfWeek === 6);
   const isStartHoliday = isHoliday(currentDate); // (Новое) Проверяем, не праздник ли
 

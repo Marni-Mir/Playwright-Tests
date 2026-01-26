@@ -10,7 +10,7 @@ const SELECTORS = {
 const TEST_DATA = {
     url: 'https://dev3.togetdone.com',
     login: 'm.smirnova@infuseua.com',
-    password: 'V2*zp4Q5*n7~'
+    password: 'MR2Jvd9o$B'
 };
 
 // 2. Сама функция
