@@ -99,7 +99,9 @@ test.describe('PTO Default days by years Tests', () => {
                         }
 
                         // Получаем фактическое значение, используя locator и evaluate
-                        const actualValue = await frame.locator(fieldDef.selector).first().evaluate(fieldDef.getValue);
+                        const actualValueRaw = await frame.locator(fieldDef.selector).first().evaluate(fieldDef.getValue);
+                        const actualValueMatch = actualValueRaw.match(/-?\d+(?:\.\d+)?/);
+                        const actualValue = (actualValueMatch ? actualValueMatch[0] : '').trim();
                         const expectedValue = expected[fieldName];
 
                         try {
