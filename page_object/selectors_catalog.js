@@ -56,7 +56,7 @@ const SELECTORS_CATALOG = {
         licenseCheckbox: 'div[data-tab-id="tab_licenses"]  .ui-form-row input[type="checkbox"]',
 
         // Закрытие сделки
-        notification: '.ui-notification-manager-browser-content',
+        notification: '.ui-notification-manager-browser-button-close', //'.ui-notification-manager-browser-content', 
         stageClose: 'div[data-id="C9:WON"]',
         completePopupBtn: 'div[id="entity_progress_TERMINATION"] .webform-small-button-text', // Кнопка Complete
         
@@ -76,6 +76,7 @@ const SELECTORS_CATALOG = {
     TeamMemberCard:{
     generalCheckButton: '.main-buttons-item-text-box',
     stagePause: 'div[data-id="C8:WON"]', //  C8:UC_MMVAE0
+    workingStage: 'div[data-id="C8:EXECUTING"]',
     
     commentWithTicket: (text) => `text=/${text}/i`, // стрелочная функция для поиска комментария
     // commentWithTicket: (text) => `.crm-timeline__editable-text_text:has-text("${text}")`,
@@ -94,6 +95,8 @@ const SELECTORS_CATALOG = {
     timeOffRequestsTab: '#crm_scope_detail_custom_deal_8_24_tab_relation_dynamic_188',
     newItemButton: 'a[title="New item"]',
     typeOfTimeOffField: 'div[data-name="UF_CRM_28_TYPE_OF_TIME_OFF"]',
+    timeOffStartDate: 'input[name=UF_CRM_28_START_DATE]',
+    timeOffEndDate: 'input[name=UF_CRM_28_END_DATE]',
     typeOfTimeOffSelect: 'span[id^=UF_CRM_28_TYPE_OF_TIME_OFF_value]',  // id начинается с ...
     timeOffStageClose: 'div[data-stage-id="final"]',
     timeOffApprove: '.popup-window-buttons button[class="ui-btn ui-btn-success"]',
@@ -138,7 +141,15 @@ const SELECTORS_CATALOG = {
     transferFiles: 'select[id="id_Parameter6"]', // Обязательное поле
     forwardEmails: 'select[id="id_Parameter8"]', // Обязательное поле
 
-    //Rehire
+    // On Hold
+    onHoldBtn: '.ui-selector-item:has-text("[HR] On Hold")',
+    onHoldReason: 'select[id="id_OnHoldReason"]',
+    suspendOtherAccess: 'select[name="NeedToSuspendOtherAccess"]',
+    suspendAzureGoogle: 'select[name="NeedToSuspendAzureGoogle"]',
+    onHoldStartDate: 'input[name="OnHoldStartDate"]',
+    expectedReturn: 'input[name="ExpectedReturn"]',
+
+    //Rehire 
     rehireBtn: '.ui-selector-item:has-text("[HR] Rehire")',
     gender: 'select[id="id_Gender"]',
     officeType: 'select[id="id_OfficeType"]',
@@ -146,8 +157,7 @@ const SELECTORS_CATALOG = {
     currentCountry: 'select[id="id_CountryofCurrentLocation"]',
     startDateRehire: 'input[name="Startdate"]',
     jobLevel: 'select[id="id_JobLevel"]',
-    workschedule: 'select[id="id_Workschedule"]',
-    position: 'select[id="id_Position"]',
+    workschedule: 'select[id="id_Workschedule"]', // старый. новый смотри в return
     ptoFieldBPRehire: 'select[id="id_PTO"]',
     timezone: 'select[id="id_Timezone"]',
     probationperiod: 'input[name="Probationperiod"]',
@@ -155,16 +165,34 @@ const SELECTORS_CATALOG = {
     paymentType: 'select[id="id_Paymenttype"]',
     typeOfContract: 'select[id="id_TypeofContract"]',
     recruitingSource: 'select[id="id_Recruiting_Source"]',
+
+    // Return (On Hold)
+    returnBtn: '.ui-selector-item:has-text("[HR] Return")',
+    workSchedule: 'select[name="UF_CRM_1643136181515"]', // новый
+    workHours: 'select[name="UF_CRM_1655908849923"]', // новый
+    returnDate: 'input[name="ReturnDate"]', 
+
+    //Rehire and Return (On Hold)
     businessEntity: 'select[name="UF_CRM_1657638652136"]',
     departments: 'select[name="UF_DEPARTMENTS"]',
+    position: 'select[id="id_Position"]',
     
-    // Rehire BP - поля с тегами (tag selectors)
+    // Rehire BP and Return (On Hold) - поля с тегами (tag selectors)
     recruiterAddButton: 'div[id="id_Recruiter"] .ui-tag-selector-add-button-caption',
     recruiterInput: 'div[id="id_Recruiter"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
-    managerAddButton: 'div[id="id_manager"] .ui-tag-selector-add-button-caption',
-    managerInput: 'div[id="id_manager"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
-    teamLeadAddButton: 'div[id="id_Team_Lead"] .ui-tag-selector-add-button-caption',
-    teamLeadInput: 'div[id="id_Team_Lead"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
+
+    managerAddButton: 'div[id="id_manager"] .ui-tag-selector-add-button-caption', // для Rehire
+    managerInput: 'div[id="id_manager"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]', // для Rehire
+
+    managerAddButtonReturn: 'div[id="id_Manager"] .ui-tag-selector-add-button-caption', // для Return
+    managerInputReturn: 'div[id="id_Manager"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]', // для Return
+
+    teamLeadAddButton: 'div[id="id_Team_Lead"] .ui-tag-selector-add-button-caption', // для Rehire
+    teamLeadInput: 'div[id="id_Team_Lead"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]', // для Rehire
+
+    teamLeadAddButtonReturn: 'div[id="id_TeamLead"] .ui-tag-selector-add-button-caption', // для Return
+    teamLeadInputReturn: 'div[id="id_TeamLead"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]', // для Return
+
     mainTeamLeadAddButton: 'div[id="id_Main_Team_Lead"] .ui-tag-selector-add-button-caption',
     mainTeamLeadInput: 'div[id="id_Main_Team_Lead"] input[class="ui-tag-selector-item ui-tag-selector-text-box"]',
     hrAddButton: 'div[id="id_HR"] .ui-tag-selector-add-button-caption',
@@ -183,13 +211,6 @@ const SELECTORS_CATALOG = {
     accesslevel:'select[id="id_Accesslevel"]',
     description: 'textarea[name="Description"]',
 
-    // On Hold
-    onHoldBtn: '.ui-selector-item:has-text("[HR] On Hold")',
-    onHoldReason: 'select[id="id_OnHoldReason"]',
-    suspendOtherAccess: 'select[name="NeedToSuspendOtherAccess"]',
-    suspendAzureGoogle: 'select[name="NeedToSuspendAzureGoogle"]',
-    onHoldStartDate: 'input[name="OnHoldStartDate"]',
-    expectedReturn: 'input[name="ExpectedReturn"]',
     },
 
     }

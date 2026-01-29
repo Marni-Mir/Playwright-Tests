@@ -1,9 +1,14 @@
-const { test, expect } = require('@playwright/test');
-const path = require('path');
-const { loginToSite } = require('../../helpers/devlogin.auth');
+const { test: base, expect } = require('@playwright/test');
+const { loginFixtures } = require('../../fixtures/login.fixture');
+const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
+
+const test = base.extend({
+    ...loginFixtures,
+    ...linksFixtures,
+});
 
 // --- ОБЪЕКТ ДАННЫХ ---
 const TEST_DATA = {
@@ -17,11 +22,7 @@ test.describe('Ticket Request Access test', () => {
     
     test.setTimeout(150000);
 
-    test('Ticket Request Access test', async ({ page }) => {
-            await loginToSite(page);
-
-            // Читаем ссылки
-            let links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
+    test('Ticket Request Access test', async ({ loggedInPage: page, links }) => {
             console.log('Target Link:', links['NewTM']);
             await page.goto(links['NewTM']);
 
@@ -144,29 +145,16 @@ test.describe('Ticket Request Access test', () => {
             // Это гарантирует, что поп-ап закрылся и можно кликать дальше
             await expect(userInput).toBeHidden();
 
-            // Переходим в Лицензии
+            // Если есть нотификация, то закрываем. (Если будет больше двух нотификашек - сделать цикл) 
+            const notifications = page.locator(SELECTORS_CATALOG.TicketPanel.notification);
+            if (notifications) {
+                await notifications.first().click();
+            } else {
+                console.log('The notifications is already closed');
+            }
+            
+             // Переходим в Лицензии
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click({ timeout: 15000 });
-
-            // Ждём исчезновения нотификации
-            // Используем waitForFunction для проверки, что все нотификации скрыты или отсутствуют
-            const notificationSelector = SELECTORS_CATALOG.TicketPanel.notification;
-            await page.waitForFunction(
-                (selector) => {
-                    const notificationElements = document.querySelectorAll(selector);
-                    // Если элементов нет, возвращаем true
-                    if (notificationElements.length === 0) return true;
-                    // Проверяем, что все элементы скрыты (через computed style)
-                    return Array.from(notificationElements).every(el => {
-                        const style = window.getComputedStyle(el);
-                        return style.display === 'none' || 
-                               style.visibility === 'hidden' || 
-                               style.opacity === '0' ||
-                               !el.offsetParent; // offsetParent === null означает, что элемент скрыт
-                    });
-                },
-                notificationSelector,
-                { timeout: 15000 }
-            );    
             // Закрываем тикет кликаем стейдж - Close Deal
             // Наводим мышь на стейдж Close Deal, чтобы она стала видимой
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).hover();

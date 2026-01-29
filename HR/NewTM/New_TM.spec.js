@@ -1,10 +1,13 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
-const { test, expect } = require('@playwright/test');
-const path = require('path');
-const { loginToSite } = require('../../helpers/devlogin.auth');
+const { test: base, expect } = require('@playwright/test');
+const { loginFixtures } = require('../../fixtures/login.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
+
+const test = base.extend({
+    ...loginFixtures,
+});
 
 // 2. === ХРАНИЛИЩЕ СЕЛЕКТОРОВ ===
 // Все DOM-селекторы собраны в одном месте.
@@ -61,9 +64,8 @@ const TEST_DATA = {
 // 5. 'describe' из Jest меняется на 'test.describe'
 test.describe('Ticket New TM test', () => {
 
-    test('create team member test', async ({ page }) => {
+    test('create team member test', async ({ loggedInPage: page }) => {
         test.setTimeout(120000);
-        await loginToSite(page); 
 
         const teamMembersButton = page.locator(SELECTORS_CATALOG.CRM.teamMembersButton);
         await expect(teamMembersButton).toBeVisible();

@@ -1,11 +1,17 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
-const { test, expect } = require('@playwright/test');
+const { test: base, expect } = require('@playwright/test');
 const path = require('path');
-const { loginToSite } = require('../../helpers/devlogin.auth');
+const { loginFixtures } = require('../../fixtures/login.fixture');
+const { linksFixtures } = require('../../fixtures/links.fixture');
 const { bpTestCases } = require('../../helpers/test-data');
 const fs = require('fs');
-const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
+const { SELECTORS_CATALOG } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
+
+const test = base.extend({
+    ...loginFixtures,
+    ...linksFixtures,
+});
 
 test.describe('Required Fields BP test', () => {
     
@@ -13,17 +19,15 @@ test.describe('Required Fields BP test', () => {
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test.beforeEach(async ({ page }) => { // Перед каждым БП из списка bpTestCases
-        await loginToSite(page);
+    test.beforeEach(async ({ loggedInPage: page, links }) => { // Перед каждым БП из списка bpTestCases
         // Заходим на Юзера
-        let links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
         console.log('Target Link:', links['NewTM']);
         await page.goto(links['NewTM']);
     });
 
     // Используем test.each для запуска теста с каждым набором данных из файла
     for (const testCase of bpTestCases) {
-        test(`Check required fields ${testCase.testName}`, async ({ page }) => {
+        test(`Check required fields ${testCase.testName}`, async ({ loggedInPage: page }) => {
 
                 // Работа с фреймом юзера
                 let frame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();

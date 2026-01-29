@@ -1,10 +1,14 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
-const { test, expect } = require('@playwright/test');
-const path = require('path');
-const { loginToSite } = require('../../helpers/devlogin.auth');
-const fs = require('fs');
-const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
+const { test: base, expect } = require('@playwright/test');
+const { loginFixtures } = require('../../fixtures/login.fixture');
+const { linksFixtures } = require('../../fixtures/links.fixture');
+const { SELECTORS_CATALOG } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
+
+const test = base.extend({
+    ...loginFixtures,
+    ...linksFixtures,
+});
 
 // --- ОБЪЕКТ ДАННЫХ ---
 const TEST_DATA = {
@@ -21,10 +25,7 @@ test.describe('On Hold TM test', () => {
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test('On Hold TM test', async ({ page }) => {
-        await loginToSite(page);
-        // 1. Читаем ссылки
-        let links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
+    test('On Hold TM test', async ({ loggedInPage: page, links }) => {
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке

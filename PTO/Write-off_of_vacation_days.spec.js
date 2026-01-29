@@ -1,25 +1,25 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
-const { test, expect } = require('@playwright/test');
-const path = require('path');
-const { loginToSite } = require('../helpers/devlogin.auth');
-const fs = require('fs');
-const { SELECTORS_CATALOG, FILE_PATHS } = require('../page_object/selectors_catalog');
+const { test: base, expect } = require('@playwright/test');
+const { loginFixtures } = require('../fixtures/login.fixture');
+const { linksFixtures } = require('../fixtures/links.fixture');
+const { SELECTORS_CATALOG } = require('../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../helpers/screenshotSuccess');
 const { addWorkingDays } = require('../helpers/addWorkingDays.auth');
 const { formatDate } = require('../helpers/formatDate');
 const { escape } = require('querystring');
+
+const test = base.extend({
+    ...loginFixtures,
+    ...linksFixtures,
+});
 
 test.describe('PTO Write-off of vacation days Tests', () => {
     
     // Таймаут для всего теста
     test.setTimeout(900000);
 
-    test('Write-off of vacation days', async ({ page }) => {
+    test('Write-off of vacation days', async ({ loggedInPage: page, links }) => {
         let allErrors = []; // Массив для сбора ошибок
-        await loginToSite(page);
-        
-        // 1. Читаем ссылки
-        let links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке
@@ -165,7 +165,7 @@ test.describe('PTO Write-off of vacation days Tests', () => {
             await balanceDateSel.fill(formatDate(date));
             await balanceDateSel.click();
             await page.waitForTimeout(3000);
-            console.log(`🔵 Balances as of: ${label} = ${formatDate(date)}`);
+            console.log(`🔹 Balances as of: ${label} = ${formatDate(date)}`);
         };
 
         const checkPaidValues = async (label, expectedPaid) => {

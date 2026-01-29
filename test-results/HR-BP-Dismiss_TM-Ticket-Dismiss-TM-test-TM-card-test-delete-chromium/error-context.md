@@ -1,0 +1,1091 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e7] [cursor=pointer]: 99+
+    - generic "Search employees and chats" [ref=e8] [cursor=pointer]
+    - generic [ref=e13]:
+      - generic "Maksym Norchenko" [ref=e17] [cursor=pointer]:
+        - generic [ref=e18]: MN
+      - generic "Company News" [ref=e22] [cursor=pointer]
+      - generic "Alim Asgarov" [ref=e27] [cursor=pointer]:
+        - generic [ref=e28]: AA
+      - generic "CID chat Messages Notification" [ref=e32] [cursor=pointer]:
+        - generic [ref=e33]: Cc
+      - generic "Platon Heivan" [ref=e41] [cursor=pointer]:
+        - generic [ref=e42]: PH
+      - generic "Yevhen Titishev" [ref=e46] [cursor=pointer]:
+        - generic [ref=e47]: YT
+      - generic "Yuliia Kaidashova" [ref=e55] [cursor=pointer]:
+        - generic [ref=e56]: YK
+      - generic "Anton Khudyk" [ref=e60] [cursor=pointer]:
+        - generic [ref=e61]: AK
+      - generic "Sergey Khartakhai" [ref=e65] [cursor=pointer]:
+        - generic [ref=e66]: SK
+      - generic "Nazarii Mateichuk" [ref=e70] [cursor=pointer]:
+        - generic [ref=e71]: NM
+      - generic "Bohdan Kucherenko" [ref=e75] [cursor=pointer]:
+        - generic [ref=e76]: BK
+      - generic "Leyla Mustafayeva" [ref=e80] [cursor=pointer]:
+        - generic [ref=e81]: LM
+      - generic "Gvantsa Iremashvili" [ref=e85] [cursor=pointer]:
+        - generic [ref=e86]: GI
+      - generic "Oleksandr Pozhylenkov" [ref=e90] [cursor=pointer]:
+        - generic [ref=e91]: OP
+      - generic "Oleksii Skirko" [ref=e95] [cursor=pointer]:
+        - generic [ref=e96]: OS
+      - generic "Jack Bargery" [ref=e100] [cursor=pointer]:
+        - generic [ref=e101]: JB
+      - generic "Olha Plokhotiuk" [ref=e105] [cursor=pointer]:
+        - generic [ref=e106]: OP
+      - generic "Kateryna Osinska" [ref=e110] [cursor=pointer]:
+        - generic [ref=e111]: KO
+      - generic "Mariia Malhinova" [ref=e115] [cursor=pointer]:
+        - generic [ref=e116]: MM
+      - generic "Dmitriy Shypilov" [ref=e120] [cursor=pointer]:
+        - generic [ref=e121]: DS
+      - generic "Stanislav Tokarskyi" [ref=e125] [cursor=pointer]:
+        - generic [ref=e126]: ST
+      - generic "Mikita Bondarau" [ref=e130] [cursor=pointer]:
+        - generic [ref=e131]: MB
+      - generic "Bugs and notes" [ref=e135] [cursor=pointer]
+      - generic "Hrach Pilosian" [ref=e140] [cursor=pointer]:
+        - generic [ref=e141]: HP
+      - generic "Michael Sizonenko" [ref=e145] [cursor=pointer]:
+        - generic [ref=e146]: MS
+      - generic "Danylo Samborskyi" [ref=e150] [cursor=pointer]:
+        - generic [ref=e151]: DS
+      - generic "Ilona Sheviaka" [ref=e155] [cursor=pointer]:
+        - generic [ref=e156]: IS
+      - generic "Zulfiyya Abdullayeva" [ref=e160] [cursor=pointer]:
+        - generic [ref=e161]: ZA
+      - generic "Ihor Ostiak" [ref=e165] [cursor=pointer]:
+        - generic [ref=e166]: IO
+      - generic "Denis Bezruchkin" [ref=e170] [cursor=pointer]:
+        - generic [ref=e171]: DB
+      - generic "Zhasmena Asoyan" [ref=e175] [cursor=pointer]:
+        - generic [ref=e176]: ZA
+      - generic "Maximo Barbieri" [ref=e180] [cursor=pointer]:
+        - generic [ref=e181]: MB
+      - generic "Bautista Gavenda" [ref=e189] [cursor=pointer]:
+        - generic [ref=e190]: BG
+      - generic "Oksana Ulianovska" [ref=e194] [cursor=pointer]:
+        - generic [ref=e195]: OU
+      - generic "Vlad Moskovskyi" [ref=e199] [cursor=pointer]:
+        - generic [ref=e200]: VM
+      - generic "Alexandra Haas" [ref=e204] [cursor=pointer]:
+        - generic [ref=e205]: AH
+      - generic "Bayim Guluzade" [ref=e209] [cursor=pointer]:
+        - generic [ref=e210]: BG
+      - generic "Olexander Babich" [ref=e214] [cursor=pointer]:
+        - generic [ref=e215]: OB
+      - generic "Christy Gordon" [ref=e219] [cursor=pointer]:
+        - generic [ref=e220]: CG
+      - generic "Irakli Skhiladze" [ref=e224] [cursor=pointer]:
+        - generic [ref=e225]: IS
+      - generic "Diana Dvalishvili" [ref=e229] [cursor=pointer]:
+        - generic [ref=e230]: DD
+      - generic "Yurii Koren" [ref=e234] [cursor=pointer]:
+        - generic [ref=e235]: YK
+      - generic "Luka Mihajlovic" [ref=e239] [cursor=pointer]:
+        - generic [ref=e240]: LM
+      - 'generic "Deal: TesT - 1 Test-Test" [ref=e244] [cursor=pointer]'
+    - img
+  - table [ref=e247]:
+    - rowgroup [ref=e248]:
+      - 'row "Menu Control Panel 3 Refresh Cache Marina Smirnova Logout Edit Mode OFF Show 9 : 17 PM Clock in Marina Smirnova" [ref=e249]':
+        - 'cell "Menu Control Panel 3 Refresh Cache Marina Smirnova Logout Edit Mode OFF Show 9 : 17 PM Clock in Marina Smirnova" [ref=e250]':
+          - generic [ref=e253]:
+            - generic [ref=e255]:
+              - link "Menu" [ref=e256] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e258]: Menu
+              - link "Control Panel" [ref=e260] [cursor=pointer]:
+                - /url: /bitrix/admin/index.php?lang=en&back_url_pub=%2Fcrm%2Fdeal%2Fdetails%2F91882%2Findex.php
+                - generic [ref=e261]: Control Panel
+              - link "3" [ref=e262] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e264]: "3"
+              - link "Refresh Cache" [ref=e265] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e267]: Refresh Cache
+            - generic [ref=e268]:
+              - link "Marina Smirnova" [ref=e269] [cursor=pointer]:
+                - /url: /bitrix/admin/user_edit.php?lang=en&ID=746
+                - generic [ref=e271]: Marina Smirnova
+              - link "Logout" [ref=e272] [cursor=pointer]:
+                - /url: /crm/deal/details/91882/index.php?logout=yes
+              - link "Edit Mode OFF" [ref=e273] [cursor=pointer]:
+                - /url: /crm/deal/details/91882/index.php?bitrix_include_areas=Y
+                - generic [ref=e278]: Edit Mode
+                - generic [ref=e280]: "OFF"
+              - link "Show" [ref=e282] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e283]: Show
+              - link [ref=e285] [cursor=pointer]:
+                - /url: javascript:void(0)
+          - generic [ref=e287]:
+            - generic [ref=e290] [cursor=pointer]:
+              - generic [ref=e291]:
+                - generic [ref=e292]: "9"
+                - generic [ref=e293]: ":"
+                - generic [ref=e294]: "17"
+                - generic [ref=e295]: PM
+              - generic [ref=e299]: Clock in
+            - textbox "find people, documents, and more" [ref=e305]
+            - generic [ref=e312] [cursor=pointer]: Marina Smirnova
+      - row "Feed CRM PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects W Worktime B BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu Deals Add current page to left menu Themes Print" [ref=e313]:
+        - cell "Feed CRM PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects W Worktime B BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu Deals Add current page to left menu Themes Print" [ref=e314]:
+          - table [ref=e315]:
+            - rowgroup [ref=e316]:
+              - row "Feed CRM PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects W Worktime B BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu Deals Add current page to left menu" [ref=e317]:
+                - cell "Feed CRM PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects W Worktime B BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu" [ref=e318]:
+                  - generic [ref=e319]:
+                    - link "Home" [ref=e324] [cursor=pointer]:
+                      - /url: /
+                      - img [ref=e326]
+                    - generic [ref=e330]:
+                      - list [ref=e331]:
+                        - listitem [ref=e332]
+                        - listitem [ref=e333]:
+                          - link "Feed" [ref=e334] [cursor=pointer]:
+                            - /url: /stream/
+                            - generic [ref=e337]: Feed
+                        - listitem [ref=e340]:
+                          - link "CRM" [ref=e341] [cursor=pointer]:
+                            - /url: /crm/deal/?redirect_to
+                            - generic [ref=e344]: CRM
+                        - listitem [ref=e347]:
+                          - link "PL Pipe Line" [ref=e348] [cursor=pointer]:
+                            - /url: /crm/type/177/list/category/17/
+                            - generic [ref=e350]: PL
+                            - generic [ref=e351]: Pipe Line
+                        - listitem [ref=e354]:
+                          - link "C CID" [ref=e355] [cursor=pointer]:
+                            - /url: /crm/deal/category/4/
+                            - generic [ref=e357]: C
+                            - generic [ref=e358]: CID
+                        - listitem [ref=e361]:
+                          - link "C CW" [ref=e362] [cursor=pointer]:
+                            - /url: /workgroups/group/37/tasks/
+                            - generic [ref=e364]: C
+                            - generic [ref=e365]: CW
+                        - listitem [ref=e368]:
+                          - link "D DES" [ref=e369] [cursor=pointer]:
+                            - /url: /workgroups/group/38/tasks/
+                            - generic [ref=e371]: D
+                            - generic [ref=e372]: DES
+                        - listitem [ref=e375]:
+                          - link "D DES-custom" [ref=e376] [cursor=pointer]:
+                            - /url: /dashboard/des/index.php?login=yes
+                            - generic [ref=e378]: D
+                            - generic [ref=e379]: DES-custom
+                        - listitem [ref=e382]:
+                          - link "C CDT" [ref=e383] [cursor=pointer]:
+                            - /url: /dashboard/cdt/
+                            - generic [ref=e385]: C
+                            - generic [ref=e386]: CDT
+                        - listitem [ref=e389]:
+                          - link [ref=e390] [cursor=pointer]:
+                            - /url: /company/personal/user/746/tasks/task/edit/0/?ta_sec=left_menu&ta_el=create_button
+                          - link "Tasks and Projects" [ref=e392] [cursor=pointer]:
+                            - /url: /company/personal/user/746/tasks/
+                            - generic [ref=e395]: Tasks and Projects
+                        - listitem [ref=e398]:
+                          - link "W Worktime" [ref=e399] [cursor=pointer]:
+                            - /url: /timeman/timeman.php
+                            - generic [ref=e401]: W
+                            - generic [ref=e402]: Worktime
+                        - listitem [ref=e405]:
+                          - link "B BP" [ref=e406] [cursor=pointer]:
+                            - /url: /crm/configs/bp/
+                            - generic [ref=e408]: B
+                            - generic [ref=e409]: BP
+                        - listitem [ref=e412]:
+                          - link "TM Team Members" [ref=e413] [cursor=pointer]:
+                            - /url: /crm/deal/category/8/
+                            - generic [ref=e415]: TM
+                            - generic [ref=e416]: Team Members
+                        - listitem [ref=e419]:
+                          - link "E Employees" [ref=e420] [cursor=pointer]:
+                            - /url: /company/
+                            - generic [ref=e422]: E
+                            - generic [ref=e423]: Employees
+                        - listitem [ref=e426]:
+                          - link "H Helpdesk" [ref=e427] [cursor=pointer]:
+                            - /url: /crm/deal/category/9/
+                            - generic [ref=e429]: H
+                            - generic [ref=e430]: Helpdesk
+                        - listitem [ref=e433]:
+                          - link "T Tasks" [ref=e434] [cursor=pointer]:
+                            - /url: /workgroups/group/43/tasks/?F_CANCEL=Y&F_STATE=sR
+                            - generic [ref=e436]: T
+                            - generic [ref=e437]: Tasks
+                        - listitem [ref=e440]:
+                          - link "S Support" [ref=e441] [cursor=pointer]:
+                            - /url: /crm/type/138/kanban/category/0/
+                            - generic [ref=e443]: S
+                            - generic [ref=e444]: Support
+                        - listitem [ref=e447]:
+                          - link "T TimetrackingINF" [ref=e448] [cursor=pointer]:
+                            - /url: /timetrack/index.php?login=yes
+                            - generic [ref=e450]: T
+                            - generic [ref=e451]: TimetrackingINF
+                        - listitem [ref=e454]:
+                          - link "MT MY TEST MEMBER" [ref=e455] [cursor=pointer]:
+                            - /url: /crm/deal/details/91692/
+                            - generic [ref=e457]: MT
+                            - generic [ref=e458]: MY TEST MEMBER
+                        - listitem [ref=e461]:
+                          - link "TT TEST TEAMS TM" [ref=e462] [cursor=pointer]:
+                            - /url: /crm/deal/details/90356/
+                            - generic [ref=e464]: TT
+                            - generic [ref=e465]: TEST TEAMS TM
+                        - listitem [ref=e468]:
+                          - link "TD Timeline Dash" [ref=e469] [cursor=pointer]:
+                            - /url: /report/timeline/
+                            - generic [ref=e471]: TD
+                            - generic [ref=e472]: Timeline Dash
+                        - listitem [ref=e475]:
+                          - link "Booking" [ref=e476] [cursor=pointer]:
+                            - /url: /booking/
+                            - generic [ref=e479]: Booking
+                        - listitem [ref=e482]:
+                          - link "Collabs" [ref=e483] [cursor=pointer]:
+                            - /url: /online/?IM_COLLAB
+                            - generic [ref=e486]: Collabs
+                        - listitem [ref=e489]:
+                          - link "BI Builder" [ref=e490] [cursor=pointer]:
+                            - /url: /bi/dashboard/
+                            - generic [ref=e493]: BI Builder
+                        - listitem [ref=e496]:
+                          - link "LD LV Dash" [ref=e497] [cursor=pointer]:
+                            - /url: /lv/
+                            - generic [ref=e499]: LD
+                            - generic [ref=e500]: LV Dash
+                        - listitem [ref=e503]:
+                          - link "Employees" [ref=e504] [cursor=pointer]:
+                            - /url: /company/
+                            - generic [ref=e507]: Employees
+                        - listitem [ref=e510]:
+                          - link "L LMS" [ref=e511] [cursor=pointer]:
+                            - /url: /lms/
+                            - generic [ref=e513]: L
+                            - generic [ref=e514]: LMS
+                        - listitem [ref=e517]:
+                          - link "TC Time-off calendar" [ref=e518] [cursor=pointer]:
+                            - /url: /time-off-calendar/
+                            - generic [ref=e520]: TC
+                            - generic [ref=e521]: Time-off calendar
+                        - listitem [ref=e524]:
+                          - link "LD LG dashboard" [ref=e525] [cursor=pointer]:
+                            - /url: /dashboard/listgen/
+                            - generic [ref=e527]: LD
+                            - generic [ref=e528]: LG dashboard
+                        - listitem [ref=e531]:
+                          - link "IF INFUSE Flow" [ref=e532] [cursor=pointer]:
+                            - /url: https://infusemedia-bitrix-ec2/
+                            - generic [ref=e534]: IF
+                            - generic [ref=e535]: INFUSE Flow
+                      - list [ref=e538]:
+                        - listitem [ref=e539] [cursor=pointer]:
+                          - generic [ref=e541]: Hidden
+                        - listitem [ref=e543]:
+                          - link [ref=e544] [cursor=pointer]:
+                            - /url: /company/personal/user/746/groups/create/
+                          - link "Workgroups" [ref=e546] [cursor=pointer]:
+                            - /url: /workgroups/
+                            - generic [ref=e549]: Workgroups
+                        - listitem [ref=e550]:
+                          - link "Inventory management" [ref=e551] [cursor=pointer]:
+                            - /url: /shop/documents/inventory/
+                            - generic [ref=e554]: Inventory management
+                        - listitem [ref=e557]:
+                          - link "Developer resources" [ref=e558] [cursor=pointer]:
+                            - /url: /devops/
+                            - generic [ref=e561]: Developer resources
+                        - listitem [ref=e564]:
+                          - link "Automation" [ref=e565] [cursor=pointer]:
+                            - /url: /bizproc/userprocesses/
+                            - generic [ref=e568]: Automation
+                        - listitem [ref=e571]:
+                          - link "Messenger" [ref=e572] [cursor=pointer]:
+                            - /url: /online/
+                            - generic [ref=e575]: Messenger
+                        - listitem [ref=e578]:
+                          - link "Mail" [ref=e579] [cursor=pointer]:
+                            - /url: /mail/
+                            - generic [ref=e582]: Mail
+                        - listitem [ref=e585]:
+                          - link "MR Main report by time" [ref=e586] [cursor=pointer]:
+                            - /url: /company/spent-time-report.php
+                            - generic [ref=e588]: MR
+                            - generic [ref=e589]: Main report by time
+                        - listitem [ref=e592]:
+                          - link [ref=e593] [cursor=pointer]:
+                            - /url: /company/personal/user/746/calendar/?EVENT_ID=NEW
+                          - link "Calendar" [ref=e595] [cursor=pointer]:
+                            - /url: /company/personal/user/746/calendar/
+                            - generic [ref=e598]: Calendar
+                        - listitem [ref=e601]:
+                          - link "Drive" [ref=e602] [cursor=pointer]:
+                            - /url: /company/personal/user/746/disk/path/
+                            - generic [ref=e605]: Drive
+                        - listitem [ref=e608]:
+                          - link "Services" [ref=e609] [cursor=pointer]:
+                            - /url: /services/
+                            - generic [ref=e612]: Services
+                        - listitem [ref=e615]:
+                          - link "Market" [ref=e616] [cursor=pointer]:
+                            - /url: /market/
+                            - generic [ref=e619]: Market
+                        - listitem [ref=e622]:
+                          - link "Sites and stores" [ref=e623] [cursor=pointer]:
+                            - /url: /sites/
+                            - generic [ref=e626]: Sites and stores
+                        - listitem [ref=e629]:
+                          - link "Marketing" [ref=e630] [cursor=pointer]:
+                            - /url: /marketing/
+                            - generic [ref=e633]: Marketing
+                        - listitem [ref=e636]:
+                          - link "Settings" [ref=e637] [cursor=pointer]:
+                            - /url: /configs/?analyticContext=left_menu_main
+                            - generic [ref=e640]: Settings
+                      - generic [ref=e647] [cursor=pointer]: More...
+                      - generic [ref=e653] [cursor=pointer]: Configure menu
+                - cell "Deals Add current page to left menu" [ref=e656]:
+                  - table [ref=e657]:
+                    - rowgroup [ref=e660]:
+                      - row "Deals Add current page to left menu" [ref=e661]:
+                        - cell "Deals Add current page to left menu" [ref=e662]:
+                          - generic [ref=e669]:
+                            - generic [ref=e670]: Deals
+                            - generic "Add current page to left menu" [ref=e671] [cursor=pointer]
+                      - row [ref=e672]:
+                        - cell [ref=e673]
+              - row "Themes Print" [ref=e677]:
+                - cell [ref=e678]
+                - cell "Themes Print" [ref=e679]:
+                  - generic [ref=e681]:
+                    - generic [ref=e682] [cursor=pointer]: Themes
+                    - generic [ref=e683] [cursor=pointer]: Print
+  - generic [ref=e687]:
+    - iframe [ref=e689]:
+      - generic [active] [ref=f1e1]:
+        - generic [ref=f1e4]:
+          - generic [ref=f1e6]:
+            - link "Extensions" [ref=f1e8] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=f1e9]: Extensions
+            - generic "Add a customer and their phone number to the deal to make a call" [ref=f1e12]
+            - button [ref=f1e15] [cursor=pointer]
+            - button "Document" [ref=f1e16] [cursor=pointer]
+            - button "Run Workflow" [ref=f1e17] [cursor=pointer]
+            - generic [ref=f1e18]:
+              - button "Estimate" [ref=f1e19] [cursor=pointer]
+              - button [ref=f1e20] [cursor=pointer]
+          - generic [ref=f1e21]:
+            - text: Test FName
+            - generic [ref=f1e22]:
+              - text: LName
+              - generic "Copy deal link to the Clipboard" [ref=f1e24] [cursor=pointer]
+            - link "HR (Team member)" [ref=f1e26] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=f1e29]:
+          - generic [ref=f1e31]:
+            - generic [ref=f1e34] [cursor=pointer]: New
+            - generic [ref=f1e37] [cursor=pointer]: Rehired
+            - generic [ref=f1e40] [cursor=pointer]: On probation
+            - generic [ref=f1e43] [cursor=pointer]: Working
+            - generic [ref=f1e46] [cursor=pointer]: Close deal
+          - generic [ref=f1e49]:
+            - generic [ref=f1e50]:
+              - generic [ref=f1e55] [cursor=pointer]: General
+              - generic [ref=f1e60] [cursor=pointer]: Products
+              - generic [ref=f1e65] [cursor=pointer]: History
+              - generic [ref=f1e70] [cursor=pointer]: Emails of Team members (HR)
+              - generic [ref=f1e75] [cursor=pointer]: Time off Requests
+              - generic [ref=f1e80] [cursor=pointer]: Time off Monitoring
+              - generic [ref=f1e85] [cursor=pointer]: Warnings
+              - generic [ref=f1e90] [cursor=pointer]: Gifts
+              - generic [ref=f1e95] [cursor=pointer]: Performance Review
+              - generic [ref=f1e100] [cursor=pointer]: Field Work
+              - generic [ref=f1e105] [cursor=pointer]: One-On-One
+            - generic [ref=f1e110] [cursor=pointer]: More
+          - generic [ref=f1e113]:
+            - generic [ref=f1e114]:
+              - generic [ref=f1e117]:
+                - generic [ref=f1e118]:
+                  - generic [ref=f1e119]:
+                    - generic [ref=f1e122]: Basic InformatIon
+                    - generic [ref=f1e124] [cursor=pointer]: Edit
+                  - generic [ref=f1e125]:
+                    - generic [ref=f1e126]:
+                      - generic [ref=f1e130]: Onboarding approved by HR Generalist
+                      - generic [ref=f1e133]: "no"
+                    - generic [ref=f1e135]:
+                      - generic [ref=f1e139]: Full Name
+                      - generic [ref=f1e142]: Test FName LName
+                    - generic [ref=f1e144]:
+                      - generic [ref=f1e148]: First Name
+                      - generic [ref=f1e151]: Test FName
+                    - generic [ref=f1e153]:
+                      - generic [ref=f1e157]: Last Name
+                      - generic [ref=f1e160]: LName
+                    - generic [ref=f1e162]:
+                      - generic [ref=f1e166]: Preferred First Name
+                      - generic [ref=f1e167]: field is empty
+                    - generic [ref=f1e169]:
+                      - generic [ref=f1e173]: Preferred Last Name
+                      - generic [ref=f1e174]: field is empty
+                    - generic [ref=f1e176]:
+                      - generic [ref=f1e180]: Profile Picture (jpg, png)
+                      - generic [ref=f1e181]: field is empty
+                    - generic [ref=f1e183]:
+                      - generic [ref=f1e187]: Corporate Email
+                      - link "Test@test.com" [ref=f1e191] [cursor=pointer]:
+                        - /url: http://Test@test.com/
+                    - generic [ref=f1e193]:
+                      - generic [ref=f1e197]: Email Domain
+                      - generic [ref=f1e200]: test@test.test
+                    - generic [ref=f1e202]:
+                      - generic [ref=f1e206]: Gender
+                      - generic [ref=f1e209]: Other
+                    - generic [ref=f1e211]:
+                      - generic [ref=f1e215]: Office Type
+                      - generic [ref=f1e218]: Remote
+                    - generic [ref=f1e220]:
+                      - generic [ref=f1e224]: Language Spoken Fluently
+                      - generic [ref=f1e225]: field is empty
+                    - generic [ref=f1e227]:
+                      - generic [ref=f1e231]: Preferred Language of Communication
+                      - generic [ref=f1e232]: field is empty
+                    - generic [ref=f1e234]:
+                      - generic [ref=f1e238]: Virtual Machine
+                      - generic [ref=f1e241]: "no"
+                    - generic [ref=f1e243]:
+                      - generic [ref=f1e244]:
+                        - generic [ref=f1e245] [cursor=pointer]: Select field
+                        - generic [ref=f1e246] [cursor=pointer]: Create field
+                      - generic [ref=f1e248] [cursor=pointer]: Delete section
+                - generic [ref=f1e249]:
+                  - generic [ref=f1e250]:
+                    - generic [ref=f1e253]: PERSONAL INFORMATION
+                    - generic [ref=f1e255] [cursor=pointer]: Edit
+                  - generic [ref=f1e256]:
+                    - generic [ref=f1e257]:
+                      - generic [ref=f1e261]: Date of Birth
+                      - generic [ref=f1e262]: field is empty
+                    - generic [ref=f1e264]:
+                      - generic [ref=f1e268]: Phone
+                      - generic [ref=f1e269]: field is empty
+                    - generic [ref=f1e271]:
+                      - generic [ref=f1e275]: Personal Email
+                      - link "ptest@test" [ref=f1e279] [cursor=pointer]:
+                        - /url: http://ptest@test/
+                    - generic [ref=f1e281]:
+                      - generic [ref=f1e285]: City/State of Current Location
+                      - generic [ref=f1e288]: TEST
+                    - generic [ref=f1e290]:
+                      - generic [ref=f1e294]: Country of Current Location
+                      - generic [ref=f1e297]: Afghanistan
+                    - generic [ref=f1e299]:
+                      - generic [ref=f1e303]: Address
+                      - generic [ref=f1e304]: field is empty
+                    - generic [ref=f1e306]:
+                      - generic [ref=f1e310]: Zip
+                      - generic [ref=f1e311]: field is empty
+                    - generic [ref=f1e313]:
+                      - generic [ref=f1e317]: Extra information
+                      - generic [ref=f1e318]: field is empty
+                    - generic [ref=f1e320]:
+                      - generic [ref=f1e324]: Citizenship
+                      - generic [ref=f1e325]: field is empty
+                    - generic [ref=f1e327]:
+                      - generic [ref=f1e331]: Children
+                      - generic [ref=f1e334]: "no"
+                    - generic [ref=f1e336]:
+                      - generic [ref=f1e337]:
+                        - generic [ref=f1e338] [cursor=pointer]: Select field
+                        - generic [ref=f1e339] [cursor=pointer]: Create field
+                      - generic [ref=f1e341] [cursor=pointer]: Delete section
+                - generic [ref=f1e342]:
+                  - generic [ref=f1e343]:
+                    - generic [ref=f1e346]: Work information
+                    - generic [ref=f1e348] [cursor=pointer]: Edit
+                  - generic [ref=f1e349]:
+                    - generic [ref=f1e350]:
+                      - generic [ref=f1e354]: Start Date (HR)
+                      - generic [ref=f1e357]: 01/10/2024
+                    - generic [ref=f1e359]:
+                      - generic [ref=f1e363]: First Day on Current Position
+                      - generic [ref=f1e366]: 01/10/2024
+                    - generic [ref=f1e371]:
+                      - generic [ref=f1e373]: Business Entity
+                      - generic [ref=f1e376]: INFUSE
+                      - generic [ref=f1e378]: Department (HR)
+                      - generic [ref=f1e381]: CAT
+                      - generic [ref=f1e383]: Sub-Department
+                      - generic [ref=f1e385]: Teams/Specialties
+                    - generic [ref=f1e387]:
+                      - generic [ref=f1e391]: Job Level
+                      - generic [ref=f1e394]: Manager
+                    - generic [ref=f1e396]:
+                      - generic [ref=f1e400]: Position
+                      - generic [ref=f1e403]: Assistant
+                    - generic [ref=f1e405]:
+                      - generic [ref=f1e409]: Add new position
+                      - generic [ref=f1e410]: field is empty
+                    - generic [ref=f1e412]:
+                      - generic [ref=f1e416]: PTO
+                      - generic [ref=f1e419]: PTO
+                    - generic [ref=f1e421]:
+                      - generic [ref=f1e425]: Time zone
+                      - generic [ref=f1e428]: EST
+                    - generic [ref=f1e430]:
+                      - generic [ref=f1e434]: Shift
+                      - generic [ref=f1e435]: field is empty
+                    - generic [ref=f1e437]:
+                      - generic [ref=f1e441]: Schedule Type
+                      - generic [ref=f1e442]: field is empty
+                    - generic [ref=f1e444]:
+                      - generic [ref=f1e448]: Probation Period (Months)
+                      - generic [ref=f1e451]: "1"
+                    - generic [ref=f1e453]:
+                      - generic [ref=f1e457]: Expected End of Probation
+                      - generic [ref=f1e458]: field is empty
+                    - generic [ref=f1e460]:
+                      - generic [ref=f1e464]: End of Probation Period
+                      - generic [ref=f1e465]: field is empty
+                    - generic [ref=f1e467]:
+                      - generic [ref=f1e471]: Team Lead
+                      - generic [ref=f1e474]:
+                        - generic [ref=f1e475] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e476] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e478]:
+                            - generic [ref=f1e479]: Marina Smirnova
+                            - generic [ref=f1e480]: Manual QA
+                    - generic [ref=f1e482]:
+                      - generic [ref=f1e486]: Manager (HR)
+                      - generic [ref=f1e489]:
+                        - generic [ref=f1e490] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e491] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e493]:
+                            - generic [ref=f1e494]: Marina Smirnova
+                            - generic [ref=f1e495]: Manual QA
+                    - generic [ref=f1e497]:
+                      - generic [ref=f1e501]: HR
+                      - generic [ref=f1e504]:
+                        - generic [ref=f1e505] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e506] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e508]:
+                            - generic [ref=f1e509]: Marina Smirnova
+                            - generic [ref=f1e510]: Manual QA
+                    - generic [ref=f1e512]:
+                      - generic [ref=f1e516]: Townhall Invitee (to use by management only)
+                      - generic [ref=f1e519]: "no"
+                    - generic [ref=f1e521]:
+                      - generic [ref=f1e525]: Budget
+                      - generic [ref=f1e528]: US
+                    - generic [ref=f1e530]:
+                      - generic [ref=f1e534]: Security Level
+                      - generic [ref=f1e535]: field is empty
+                    - generic [ref=f1e537]:
+                      - generic [ref=f1e541]: HR ID
+                      - generic [ref=f1e544]: "1001369"
+                    - generic [ref=f1e546]:
+                      - generic [ref=f1e550]: Application ID (Greenhouse)
+                      - generic [ref=f1e551]: field is empty
+                    - generic [ref=f1e553]:
+                      - generic [ref=f1e557]: Vendor’s Company Name
+                      - generic [ref=f1e558]: field is empty
+                    - generic [ref=f1e560]:
+                      - generic [ref=f1e564]: History
+                      - generic [ref=f1e567]: field is empty
+                    - generic [ref=f1e569]:
+                      - generic [ref=f1e573]: Prevent History Record Creation
+                      - generic [ref=f1e576]: "No"
+                    - generic [ref=f1e578]:
+                      - generic [ref=f1e582]: It's a test, should not be reflected in reports
+                      - generic [ref=f1e585]: "No"
+                    - generic [ref=f1e587]:
+                      - generic [ref=f1e591]: Main Team Lead (Team Manager)
+                      - generic [ref=f1e594]:
+                        - generic [ref=f1e595] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e596] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e598]:
+                            - generic [ref=f1e599]: Marina Smirnova
+                            - generic [ref=f1e600]: Manual QA
+                    - generic [ref=f1e602]:
+                      - generic [ref=f1e603]:
+                        - generic [ref=f1e604] [cursor=pointer]: Select field
+                        - generic [ref=f1e605] [cursor=pointer]: Create field
+                      - generic [ref=f1e607] [cursor=pointer]: Delete section
+                - generic [ref=f1e608]:
+                  - generic [ref=f1e609]:
+                    - generic [ref=f1e612]: Lifecycle
+                    - generic [ref=f1e614] [cursor=pointer]: Edit
+                  - generic [ref=f1e615]:
+                    - generic [ref=f1e616]:
+                      - generic [ref=f1e620]: Dismissal Date
+                      - generic [ref=f1e621]: field is empty
+                    - generic [ref=f1e623]:
+                      - generic [ref=f1e627]: Reason for Dismissal (in detail)
+                      - generic [ref=f1e628]: field is empty
+                    - generic [ref=f1e630]:
+                      - generic [ref=f1e631]:
+                        - generic [ref=f1e632] [cursor=pointer]: Select field
+                        - generic [ref=f1e633] [cursor=pointer]: Create field
+                      - generic [ref=f1e635] [cursor=pointer]: Delete section
+                - generic [ref=f1e636]:
+                  - generic [ref=f1e637]:
+                    - generic [ref=f1e640]: PAYROLL
+                    - generic [ref=f1e642] [cursor=pointer]: Edit
+                  - generic [ref=f1e643]:
+                    - generic [ref=f1e644]:
+                      - generic [ref=f1e648]: Last Evaluation Date
+                      - generic [ref=f1e649]: field is empty
+                    - generic [ref=f1e651]:
+                      - generic [ref=f1e655]: Next Evaluation Date
+                      - generic [ref=f1e656]: field is empty
+                    - generic [ref=f1e658]:
+                      - generic [ref=f1e662]: Payment Type
+                      - generic [ref=f1e665]: Payoneer
+                    - generic [ref=f1e667]:
+                      - generic [ref=f1e671]: Type of Contract
+                      - generic [ref=f1e674]: US Contractor
+                    - generic [ref=f1e676]:
+                      - generic [ref=f1e677]:
+                        - generic [ref=f1e678] [cursor=pointer]: Select field
+                        - generic [ref=f1e679] [cursor=pointer]: Create field
+                      - generic [ref=f1e681] [cursor=pointer]: Delete section
+                - generic [ref=f1e682]:
+                  - generic [ref=f1e683]:
+                    - generic [ref=f1e686]: RECRUITMENT
+                    - generic [ref=f1e688] [cursor=pointer]: Edit
+                  - generic [ref=f1e689]:
+                    - generic [ref=f1e690]:
+                      - generic [ref=f1e694]: Recruiter
+                      - generic [ref=f1e697]:
+                        - generic [ref=f1e698] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e699] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e701]:
+                            - generic [ref=f1e702]: Marina Smirnova
+                            - generic [ref=f1e703]: Manual QA
+                    - generic [ref=f1e705]:
+                      - generic [ref=f1e709]: CV
+                      - generic [ref=f1e710]: field is empty
+                    - generic [ref=f1e712]:
+                      - generic [ref=f1e716]: Reference (Recommender’s Name)
+                      - generic [ref=f1e717]: field is empty
+                    - generic [ref=f1e719]:
+                      - generic [ref=f1e723]: Recruiting Source
+                      - generic [ref=f1e726]: Arc
+                    - generic [ref=f1e728]:
+                      - generic [ref=f1e732]: Behavioral Assessments
+                      - generic [ref=f1e733]: field is empty
+                    - generic [ref=f1e735]:
+                      - generic [ref=f1e739]: Cognitive Assessments
+                      - generic [ref=f1e740]: field is empty
+                    - generic [ref=f1e742]:
+                      - generic [ref=f1e746]: Department (Technical)
+                      - generic [ref=f1e749]: CAT
+                    - generic [ref=f1e751]:
+                      - generic [ref=f1e752]:
+                        - generic [ref=f1e753] [cursor=pointer]: Select field
+                        - generic [ref=f1e754] [cursor=pointer]: Create field
+                      - generic [ref=f1e756] [cursor=pointer]: Delete section
+                - generic [ref=f1e757]:
+                  - generic [ref=f1e758]:
+                    - generic [ref=f1e761]: Trainings
+                    - generic [ref=f1e763] [cursor=pointer]: Edit
+                  - generic [ref=f1e764]:
+                    - generic [ref=f1e765]:
+                      - generic [ref=f1e769]: Trainer
+                      - generic [ref=f1e770]: field is empty
+                    - generic [ref=f1e772]:
+                      - generic [ref=f1e776]: Training Status
+                      - generic [ref=f1e777]: field is empty
+                    - generic [ref=f1e779]:
+                      - generic [ref=f1e783]: Training Result
+                      - generic [ref=f1e784]: field is empty
+                    - generic [ref=f1e786]:
+                      - generic [ref=f1e790]: GDPR
+                      - generic [ref=f1e793]: "No"
+                    - generic [ref=f1e795]:
+                      - generic [ref=f1e799]: Retraining
+                      - generic [ref=f1e800]: field is empty
+                    - generic [ref=f1e802]:
+                      - generic [ref=f1e806]: Additional Trainings
+                      - generic [ref=f1e807]: field is empty
+                    - generic [ref=f1e809]:
+                      - generic [ref=f1e810]:
+                        - generic [ref=f1e811] [cursor=pointer]: Select field
+                        - generic [ref=f1e812] [cursor=pointer]: Create field
+                      - generic [ref=f1e814] [cursor=pointer]: Delete section
+                - generic [ref=f1e815]:
+                  - generic [ref=f1e816]:
+                    - generic [ref=f1e819]: Social
+                    - generic [ref=f1e821] [cursor=pointer]: Edit
+                  - generic [ref=f1e822]:
+                    - generic [ref=f1e823]:
+                      - generic [ref=f1e827]: Linkedin
+                      - generic [ref=f1e828]: field is empty
+                    - generic [ref=f1e830]:
+                      - generic [ref=f1e831]:
+                        - generic [ref=f1e832] [cursor=pointer]: Select field
+                        - generic [ref=f1e833] [cursor=pointer]: Create field
+                      - generic [ref=f1e835] [cursor=pointer]: Delete section
+                - generic [ref=f1e836]:
+                  - generic [ref=f1e837]:
+                    - generic [ref=f1e840]: dismiss
+                    - generic [ref=f1e842] [cursor=pointer]: Edit
+                  - generic [ref=f1e843]:
+                    - generic [ref=f1e844]:
+                      - generic [ref=f1e848]: In order to dismiss the Team Member - use the "Dismiss" business process
+                      - generic [ref=f1e851]: bp "Dismiss"
+                    - generic [ref=f1e853]:
+                      - generic [ref=f1e857]: LMS User ID
+                      - generic [ref=f1e858]: field is empty
+                    - generic [ref=f1e860]:
+                      - generic [ref=f1e864]: LMS Date for next sync
+                      - generic [ref=f1e865]: field is empty
+                    - generic [ref=f1e867]:
+                      - generic [ref=f1e871]: LMS_CONFIG
+                      - generic [ref=f1e872]: field is empty
+                    - generic [ref=f1e874]:
+                      - generic [ref=f1e878]: ID of EQUIPMENT TICKET after probation
+                      - generic [ref=f1e881]: "91896"
+                    - generic [ref=f1e883]:
+                      - generic [ref=f1e887]: Onboarding tasks created (tech)
+                      - generic [ref=f1e890]: "no"
+                    - generic [ref=f1e892]:
+                      - generic [ref=f1e896]: Need to launch Onboarding (tech)
+                      - generic [ref=f1e899]: "no"
+                    - generic [ref=f1e901]:
+                      - generic [ref=f1e905]: UF_CRM_EARLY_ON_TICKET_TECH
+                      - generic [ref=f1e906]: field is empty
+                    - generic [ref=f1e908]:
+                      - generic [ref=f1e912]: Task for Add new position - created! (tech)
+                      - generic [ref=f1e913]: field is empty
+                    - generic [ref=f1e915]:
+                      - generic [ref=f1e916]:
+                        - generic [ref=f1e917] [cursor=pointer]: Select field
+                        - generic [ref=f1e918] [cursor=pointer]: Create field
+                      - generic [ref=f1e920] [cursor=pointer]: Delete section
+                - generic [ref=f1e921]:
+                  - generic [ref=f1e922]:
+                    - generic [ref=f1e925]: on hold
+                    - generic [ref=f1e927] [cursor=pointer]: Edit
+                  - generic [ref=f1e928]:
+                    - generic [ref=f1e929]:
+                      - generic [ref=f1e933]: Need to suspend other access?
+                      - generic [ref=f1e936]: "no"
+                    - generic [ref=f1e938]:
+                      - generic [ref=f1e942]: Need to suspend Azure/Google?
+                      - generic [ref=f1e945]: "no"
+                    - generic [ref=f1e947]:
+                      - generic [ref=f1e951]: Expected return
+                      - generic [ref=f1e954]: 04/20/2025
+                    - generic [ref=f1e956]:
+                      - generic [ref=f1e960]: In Company (tech)
+                      - generic [ref=f1e963]: 1 year 8 month
+                    - generic [ref=f1e965]:
+                      - generic [ref=f1e969]: Changing stage from Paused to Working
+                      - generic [ref=f1e972]: "yes"
+                    - generic [ref=f1e974]:
+                      - generic [ref=f1e975]:
+                        - generic [ref=f1e976] [cursor=pointer]: Select field
+                        - generic [ref=f1e977] [cursor=pointer]: Create field
+                      - generic [ref=f1e979] [cursor=pointer]: Delete section
+              - generic [ref=f1e980]:
+                - generic [ref=f1e981] [cursor=pointer]: Add section
+                - generic [ref=f1e982] [cursor=pointer]: Market
+                - generic "HR" [ref=f1e983]
+                - generic [ref=f1e984] [cursor=pointer]: HR
+            - generic [ref=f1e987]:
+              - generic [ref=f1e990]:
+                - generic [ref=f1e993]:
+                  - generic [ref=f1e994]:
+                    - generic "Comment" [ref=f1e995]:
+                      - generic [ref=f1e999] [cursor=pointer]: Comment
+                    - generic "Booking" [ref=f1e1000]:
+                      - generic [ref=f1e1002] [cursor=pointer]:
+                        - generic [ref=f1e1003]: New
+                        - generic [ref=f1e1005]: Booking
+                    - generic "Task" [ref=f1e1006]:
+                      - generic [ref=f1e1010] [cursor=pointer]: Task
+                    - generic "Slots" [ref=f1e1011]:
+                      - generic [ref=f1e1015] [cursor=pointer]: Slots
+                    - generic "E-mail" [ref=f1e1016]:
+                      - generic [ref=f1e1020] [cursor=pointer]: E-mail
+                    - generic "WhatsApp" [ref=f1e1021]:
+                      - generic [ref=f1e1025] [cursor=pointer]: WhatsApp
+                    - generic "Wait" [ref=f1e1026]:
+                      - generic [ref=f1e1030] [cursor=pointer]: Wait
+                    - generic "Invite to chat" [ref=f1e1031]:
+                      - generic [ref=f1e1035] [cursor=pointer]: Invite to chat
+                    - generic "Meeting" [ref=f1e1036]:
+                      - generic [ref=f1e1040] [cursor=pointer]: Meeting
+                    - generic "Call" [ref=f1e1041]:
+                      - generic [ref=f1e1045] [cursor=pointer]: Call
+                    - generic "MSTeams" [ref=f1e1046]:
+                      - generic [ref=f1e1050] [cursor=pointer]: MSTeams
+                  - generic [ref=f1e1055] [cursor=pointer]: More
+                - generic [ref=f1e1058]:
+                  - generic [ref=f1e1061]:
+                    - button "actions" [ref=f1e1062] [cursor=pointer]: actions
+                    - generic [ref=f1e1066]:
+                      - paragraph [ref=f1e1068]
+                      - generic: Things to do
+                  - generic [ref=f1e1069]:
+                    - button "Save" [ref=f1e1070] [cursor=pointer]
+                    - generic [ref=f1e1071] [cursor=pointer]: Cancel
+              - generic [ref=f1e1086] [cursor=pointer]: Invite to chat
+              - generic [ref=f1e1087]:
+                - generic [ref=f1e1090]: Things to do
+                - generic [ref=f1e1094] [cursor=pointer]:
+                  - generic [ref=f1e1095]: Add a new activity
+                  - generic [ref=f1e1096]: Plan your next action in the deal to never forget about the customer
+              - generic [ref=f1e1097]:
+                - textbox "Filter and search" [ref=f1e1100]
+                - generic [ref=f1e1105]:
+                  - generic [ref=f1e1106]: Today
+                  - button "Filter" [ref=f1e1107] [cursor=pointer]
+                - generic [ref=f1e1113]:
+                  - generic [ref=f1e1114]:
+                    - generic [ref=f1e1115]:
+                      - generic "Workflow started" [ref=f1e1117]
+                      - generic [ref=f1e1119]: 9:14 pm
+                    - link "Marina Smirnova" [ref=f1e1121] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1129]:
+                    - generic [ref=f1e1131]:
+                      - generic [ref=f1e1132]: "Workflow:"
+                      - generic [ref=f1e1134] [cursor=pointer]: "[HR] LMS Exchange"
+                    - generic [ref=f1e1136]:
+                      - generic [ref=f1e1137]: "Start-up time:"
+                      - generic [ref=f1e1138]: Instant
+                  - generic [ref=f1e1139]:
+                    - generic "Comment" [ref=f1e1142] [cursor=pointer]
+                    - button "Open" [ref=f1e1147] [cursor=pointer]:
+                      - generic [ref=f1e1148]: Open
+                - generic [ref=f1e1154]:
+                  - generic [ref=f1e1155]:
+                    - generic [ref=f1e1156]:
+                      - generic "Workflow" [ref=f1e1158]
+                      - generic [ref=f1e1159]:
+                        - generic [ref=f1e1162]: COMPLETED
+                        - generic [ref=f1e1163]: 9:14 pm
+                    - link "Marina Smirnova" [ref=f1e1165] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1175]:
+                    - generic [ref=f1e1177]:
+                      - generic [ref=f1e1178]: "Workflow:"
+                      - generic [ref=f1e1180] [cursor=pointer]: "[HR] Send message to DevOps about new hire"
+                    - generic [ref=f1e1182]:
+                      - generic [ref=f1e1186]: No result available
+                      - generic [ref=f1e1190]:
+                        - generic [ref=f1e1191]: Requires attention
+                        - generic [ref=f1e1192]:
+                          - generic [ref=f1e1193]: "Workflow execution time:"
+                          - generic [ref=f1e1194]: 5 hours
+                        - generic [ref=f1e1195]:
+                          - generic [ref=f1e1196]: Average processing time
+                          - generic [ref=f1e1197]: Instantly
+                  - generic [ref=f1e1199]:
+                    - generic "Comment" [ref=f1e1202] [cursor=pointer]
+                    - generic [ref=f1e1205]:
+                      - button "Open" [ref=f1e1207] [cursor=pointer]:
+                        - generic [ref=f1e1208]: Open
+                      - button "Journal" [ref=f1e1210] [cursor=pointer]:
+                        - generic [ref=f1e1211]: Journal
+                - generic [ref=f1e1217]:
+                  - generic [ref=f1e1218]:
+                    - generic [ref=f1e1219]:
+                      - generic "Workflow started" [ref=f1e1221]
+                      - generic [ref=f1e1223]: 9:14 pm
+                    - link "Marina Smirnova" [ref=f1e1225] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1233]:
+                    - generic [ref=f1e1235]:
+                      - generic [ref=f1e1236]: "Workflow:"
+                      - generic [ref=f1e1238] [cursor=pointer]: "[HR] Send message to DevOps about new hire"
+                    - generic [ref=f1e1240]:
+                      - generic [ref=f1e1241]: "Start-up time:"
+                      - generic [ref=f1e1242]: Instant
+                  - generic [ref=f1e1243]:
+                    - generic "Comment" [ref=f1e1246] [cursor=pointer]
+                    - button "Open" [ref=f1e1251] [cursor=pointer]:
+                      - generic [ref=f1e1252]: Open
+                - generic [ref=f1e1258]:
+                  - generic [ref=f1e1259]:
+                    - generic [ref=f1e1260]:
+                      - generic "Workflow" [ref=f1e1262]
+                      - generic [ref=f1e1263]:
+                        - generic [ref=f1e1266]: STOPPED
+                        - generic [ref=f1e1267]: 9:02 pm
+                    - link "Marina Smirnova" [ref=f1e1269] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1279]:
+                    - generic [ref=f1e1280]: "Workflow:"
+                    - generic [ref=f1e1282] [cursor=pointer]: "[HR] Rehire"
+                  - generic [ref=f1e1283]:
+                    - generic "Comment" [ref=f1e1286] [cursor=pointer]
+                    - button "Open" [ref=f1e1291] [cursor=pointer]:
+                      - generic [ref=f1e1292]: Open
+                - generic [ref=f1e1298]:
+                  - generic [ref=f1e1299]:
+                    - generic [ref=f1e1300]:
+                      - generic "Stage changed" [ref=f1e1302]
+                      - generic [ref=f1e1304]: 9:02 pm
+                    - link "Bot Admin" [ref=f1e1306] [cursor=pointer]:
+                      - /url: /company/personal/user/25/
+                  - generic [ref=f1e1311]:
+                    - generic [ref=f1e1313]: Rehired
+                    - generic [ref=f1e1316]: On probation
+                - generic [ref=f1e1322]:
+                  - generic [ref=f1e1323]:
+                    - generic [ref=f1e1324]:
+                      - generic "Workflow" [ref=f1e1326]
+                      - generic [ref=f1e1327]:
+                        - generic [ref=f1e1330]: COMPLETED
+                        - generic [ref=f1e1331]: 9:02 pm
+                    - link "Marina Smirnova" [ref=f1e1333] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1343]:
+                    - generic [ref=f1e1345]:
+                      - generic [ref=f1e1346]: "Workflow:"
+                      - generic [ref=f1e1348] [cursor=pointer]: "[HR] EQUIPMENT REQUEST (US/UK Employee)"
+                    - generic [ref=f1e1350]:
+                      - generic [ref=f1e1354]: No result available
+                      - generic [ref=f1e1358]:
+                        - generic [ref=f1e1359]: Good
+                        - generic [ref=f1e1360]:
+                          - generic [ref=f1e1361]: "Workflow execution time:"
+                          - generic [ref=f1e1362]: 5 hours
+                        - generic [ref=f1e1363]:
+                          - generic [ref=f1e1364]: Average processing time
+                          - generic [ref=f1e1365]: 17 hours
+                  - generic [ref=f1e1367]:
+                    - generic "Comment" [ref=f1e1370] [cursor=pointer]
+                    - generic [ref=f1e1373]:
+                      - button "Open" [ref=f1e1375] [cursor=pointer]:
+                        - generic [ref=f1e1376]: Open
+                      - button "Journal" [ref=f1e1378] [cursor=pointer]:
+                        - generic [ref=f1e1379]: Journal
+                - generic [ref=f1e1385]:
+                  - generic [ref=f1e1386]:
+                    - generic [ref=f1e1387]:
+                      - generic "Workflow started" [ref=f1e1389]
+                      - generic [ref=f1e1391]: 9:02 pm
+                    - link "Marina Smirnova" [ref=f1e1393] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1401]:
+                    - generic [ref=f1e1403]:
+                      - generic [ref=f1e1404]: "Workflow:"
+                      - generic [ref=f1e1406] [cursor=pointer]: "[HR] EQUIPMENT REQUEST (US/UK Employee)"
+                    - generic [ref=f1e1408]:
+                      - generic [ref=f1e1409]: "Start-up time:"
+                      - generic [ref=f1e1410]: Instant
+                  - generic [ref=f1e1411]:
+                    - generic "Comment" [ref=f1e1414] [cursor=pointer]
+                    - button "Open" [ref=f1e1419] [cursor=pointer]:
+                      - generic [ref=f1e1420]: Open
+                - generic [ref=f1e1426]:
+                  - generic [ref=f1e1427]:
+                    - generic [ref=f1e1428]:
+                      - generic "Workflow" [ref=f1e1430]
+                      - generic [ref=f1e1431]:
+                        - generic [ref=f1e1434]: COMPLETED
+                        - generic [ref=f1e1435]: 9:02 pm
+                    - link "Marina Smirnova" [ref=f1e1437] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1447]:
+                    - generic [ref=f1e1449]:
+                      - generic [ref=f1e1450]: "Workflow:"
+                      - generic [ref=f1e1452] [cursor=pointer]: "[HR] ONBOARDING TICKET HELPDESK"
+                    - generic [ref=f1e1454]:
+                      - generic [ref=f1e1458]:
+                        - generic [ref=f1e1459]: Workflow result
+                        - 'link "Deals: 91899" [ref=f1e1461] [cursor=pointer]':
+                          - /url: /crm/deal/details/91899/
+                      - generic [ref=f1e1465]:
+                        - generic [ref=f1e1466]: Requires attention
+                        - generic [ref=f1e1467]:
+                          - generic [ref=f1e1468]: "Workflow execution time:"
+                          - generic [ref=f1e1469]: 5 hours
+                        - generic [ref=f1e1470]:
+                          - generic [ref=f1e1471]: Average processing time
+                          - generic [ref=f1e1472]: 5 hours
+                  - generic [ref=f1e1474]:
+                    - generic "Comment" [ref=f1e1477] [cursor=pointer]
+                    - generic [ref=f1e1480]:
+                      - button "Open" [ref=f1e1482] [cursor=pointer]:
+                        - generic [ref=f1e1483]: Open
+                      - button "Journal" [ref=f1e1485] [cursor=pointer]:
+                        - generic [ref=f1e1486]: Journal
+                - generic [ref=f1e1492]:
+                  - generic [ref=f1e1493]:
+                    - generic [ref=f1e1494]:
+                      - generic "Comment" [ref=f1e1496]
+                      - generic [ref=f1e1498]: 9:02 pm
+                    - link "Marina Smirnova" [ref=f1e1500] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1513]: "Created rehire ticket for Helpdesk. ID: 91899"
+                  - generic [ref=f1e1516]:
+                    - generic "Comment" [ref=f1e1519] [cursor=pointer]
+                    - button "Pin" [ref=f1e1524] [cursor=pointer]:
+                      - generic [ref=f1e1525]: Pin
+                - generic [ref=f1e1531]:
+                  - generic [ref=f1e1532]:
+                    - generic [ref=f1e1533]:
+                      - generic "Workflow started" [ref=f1e1535]
+                      - generic [ref=f1e1537]: 9:02 pm
+                    - link "Marina Smirnova" [ref=f1e1539] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1547]:
+                    - generic [ref=f1e1549]:
+                      - generic [ref=f1e1550]: "Workflow:"
+                      - generic [ref=f1e1552] [cursor=pointer]: "[HR] ONBOARDING TICKET HELPDESK"
+                    - generic [ref=f1e1554]:
+                      - generic [ref=f1e1555]: "Start-up time:"
+                      - generic [ref=f1e1556]: Instant
+                  - generic [ref=f1e1557]:
+                    - generic "Comment" [ref=f1e1560] [cursor=pointer]
+                    - button "Open" [ref=f1e1565] [cursor=pointer]:
+                      - generic [ref=f1e1566]: Open
+            - generic [ref=f1e1568]:
+              - generic [ref=f1e1569]: Sales Intelligence
+              - generic [ref=f1e1570]:
+                - generic [ref=f1e1571]:
+                  - generic [ref=f1e1572]: Connect Sales Intelligence
+                  - generic [ref=f1e1573]: Rate the quality of ad traffic.
+                - generic [ref=f1e1574]:
+                  - button "Configure" [ref=f1e1575] [cursor=pointer]
+                  - button "Hide" [ref=f1e1576] [cursor=pointer]
+              - generic "Hide" [ref=f1e1577] [cursor=pointer]
+        - generic [ref=f1e1579]:
+          - button "Save" [ref=f1e1580] [cursor=pointer]
+          - link "Cancel" [ref=f1e1581] [cursor=pointer]:
+            - /url: "#"
+    - generic "Close" [ref=e692] [cursor=pointer]
+  - generic [ref=e695]:
+    - iframe [active] [ref=e697]:
+      - generic [ref=f2e6]:
+        - generic [ref=f2e10]:
+          - generic [ref=f2e11]: Workflows
+          - generic [ref=f2e12]: Automate your workflows, control every stage and manage workflows from your mobile.
+        - generic [ref=f2e13]:
+          - generic [ref=f2e14]:
+            - generic [ref=f2e16]: Start workflow
+            - generic [ref=f2e19]: Workflow status
+          - generic [ref=f2e27]: Workflow started
+    - generic "Close" [ref=e700] [cursor=pointer]
+```

@@ -1,0 +1,2194 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e7] [cursor=pointer]: 99+
+    - generic "Search employees and chats" [ref=e8] [cursor=pointer]
+    - generic [ref=e13]:
+      - generic "Maksym Norchenko" [ref=e17] [cursor=pointer]:
+        - generic [ref=e18]: MN
+      - generic "Company News" [ref=e22] [cursor=pointer]
+      - generic "Alim Asgarov" [ref=e27] [cursor=pointer]:
+        - generic [ref=e28]: AA
+      - generic "CID chat Messages Notification" [ref=e32] [cursor=pointer]:
+        - generic [ref=e33]: Cc
+      - generic "Platon Heivan" [ref=e41] [cursor=pointer]:
+        - generic [ref=e42]: PH
+      - generic "Yevhen Titishev" [ref=e46] [cursor=pointer]:
+        - generic [ref=e47]: YT
+      - generic "Yuliia Kaidashova" [ref=e55] [cursor=pointer]:
+        - generic [ref=e56]: YK
+      - generic "Anton Khudyk" [ref=e60] [cursor=pointer]:
+        - generic [ref=e61]: AK
+      - generic "Sergey Khartakhai" [ref=e65] [cursor=pointer]:
+        - generic [ref=e66]: SK
+      - generic "Nazarii Mateichuk" [ref=e70] [cursor=pointer]:
+        - generic [ref=e71]: NM
+      - generic "Bohdan Kucherenko" [ref=e75] [cursor=pointer]:
+        - generic [ref=e76]: BK
+      - generic "Leyla Mustafayeva" [ref=e80] [cursor=pointer]:
+        - generic [ref=e81]: LM
+      - generic "Gvantsa Iremashvili" [ref=e85] [cursor=pointer]:
+        - generic [ref=e86]: GI
+      - generic "Oleksandr Pozhylenkov" [ref=e90] [cursor=pointer]:
+        - generic [ref=e91]: OP
+      - generic "Oleksii Skirko" [ref=e95] [cursor=pointer]:
+        - generic [ref=e96]: OS
+      - generic "Jack Bargery" [ref=e100] [cursor=pointer]:
+        - generic [ref=e101]: JB
+      - generic "Olha Plokhotiuk" [ref=e105] [cursor=pointer]:
+        - generic [ref=e106]: OP
+      - generic "Kateryna Osinska" [ref=e110] [cursor=pointer]:
+        - generic [ref=e111]: KO
+      - generic "Mariia Malhinova" [ref=e115] [cursor=pointer]:
+        - generic [ref=e116]: MM
+      - generic "Dmitriy Shypilov" [ref=e120] [cursor=pointer]:
+        - generic [ref=e121]: DS
+      - generic "Stanislav Tokarskyi" [ref=e125] [cursor=pointer]:
+        - generic [ref=e126]: ST
+      - generic "Mikita Bondarau" [ref=e130] [cursor=pointer]:
+        - generic [ref=e131]: MB
+      - generic "Bugs and notes" [ref=e135] [cursor=pointer]
+      - generic "Hrach Pilosian" [ref=e140] [cursor=pointer]:
+        - generic [ref=e141]: HP
+      - generic "Michael Sizonenko" [ref=e145] [cursor=pointer]:
+        - generic [ref=e146]: MS
+      - generic "Danylo Samborskyi" [ref=e150] [cursor=pointer]:
+        - generic [ref=e151]: DS
+      - generic "Ilona Sheviaka" [ref=e155] [cursor=pointer]:
+        - generic [ref=e156]: IS
+      - generic "Zulfiyya Abdullayeva" [ref=e160] [cursor=pointer]:
+        - generic [ref=e161]: ZA
+      - generic "Ihor Ostiak" [ref=e165] [cursor=pointer]:
+        - generic [ref=e166]: IO
+      - generic "Denis Bezruchkin" [ref=e170] [cursor=pointer]:
+        - generic [ref=e171]: DB
+      - generic "Zhasmena Asoyan" [ref=e175] [cursor=pointer]:
+        - generic [ref=e176]: ZA
+      - generic "Maximo Barbieri" [ref=e180] [cursor=pointer]:
+        - generic [ref=e181]: MB
+      - generic "Bautista Gavenda" [ref=e189] [cursor=pointer]:
+        - generic [ref=e190]: BG
+      - generic "Oksana Ulianovska" [ref=e194] [cursor=pointer]:
+        - generic [ref=e195]: OU
+      - generic "Vlad Moskovskyi" [ref=e199] [cursor=pointer]:
+        - generic [ref=e200]: VM
+      - generic "Alexandra Haas" [ref=e204] [cursor=pointer]:
+        - generic [ref=e205]: AH
+      - generic "Bayim Guluzade" [ref=e209] [cursor=pointer]:
+        - generic [ref=e210]: BG
+      - generic "Olexander Babich" [ref=e214] [cursor=pointer]:
+        - generic [ref=e215]: OB
+      - generic "Christy Gordon" [ref=e219] [cursor=pointer]:
+        - generic [ref=e220]: CG
+      - generic "Irakli Skhiladze" [ref=e224] [cursor=pointer]:
+        - generic [ref=e225]: IS
+      - generic "Diana Dvalishvili" [ref=e229] [cursor=pointer]:
+        - generic [ref=e230]: DD
+      - generic "Yurii Koren" [ref=e234] [cursor=pointer]:
+        - generic [ref=e235]: YK
+      - generic "Luka Mihajlovic" [ref=e239] [cursor=pointer]:
+        - generic [ref=e240]: LM
+      - 'generic "Deal: TesT - 1 Test-Test" [ref=e244] [cursor=pointer]'
+    - img
+  - table [ref=e247]:
+    - rowgroup [ref=e248]:
+      - 'row "Menu Control Panel 3 Refresh Cache Marina Smirnova Logout Edit Mode OFF Show 9 : 45 PM Clock in Marina Smirnova" [ref=e249]':
+        - 'cell "Menu Control Panel 3 Refresh Cache Marina Smirnova Logout Edit Mode OFF Show 9 : 45 PM Clock in Marina Smirnova" [ref=e250]':
+          - generic [ref=e253]:
+            - generic [ref=e255]:
+              - link "Menu" [ref=e256] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e258]: Menu
+              - link "Control Panel" [ref=e260] [cursor=pointer]:
+                - /url: /bitrix/admin/index.php?lang=en&back_url_pub=%2Fcrm%2Fdeal%2Fdetails%2F91882%2Findex.php
+                - generic [ref=e261]: Control Panel
+              - link "3" [ref=e262] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e264]: "3"
+              - link "Refresh Cache" [ref=e265] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e267]: Refresh Cache
+            - generic [ref=e268]:
+              - link "Marina Smirnova" [ref=e269] [cursor=pointer]:
+                - /url: /bitrix/admin/user_edit.php?lang=en&ID=746
+                - generic [ref=e271]: Marina Smirnova
+              - link "Logout" [ref=e272] [cursor=pointer]:
+                - /url: /crm/deal/details/91882/index.php?logout=yes
+              - link "Edit Mode OFF" [ref=e273] [cursor=pointer]:
+                - /url: /crm/deal/details/91882/index.php?bitrix_include_areas=Y
+                - generic [ref=e278]: Edit Mode
+                - generic [ref=e280]: "OFF"
+              - link "Show" [ref=e282] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e283]: Show
+              - link [ref=e285] [cursor=pointer]:
+                - /url: javascript:void(0)
+          - generic [ref=e287]:
+            - generic [ref=e290] [cursor=pointer]:
+              - generic [ref=e291]:
+                - generic [ref=e292]: "9"
+                - generic [ref=e293]: ":"
+                - generic [ref=e294]: "45"
+                - generic [ref=e295]: PM
+              - generic [ref=e299]: Clock in
+            - textbox "find people, documents, and more" [ref=e305]
+            - generic [ref=e312] [cursor=pointer]: Marina Smirnova
+      - row "Feed CRM PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects W Worktime B BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu Deals Add current page to left menu Themes Print" [ref=e313]:
+        - cell "Feed CRM PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects W Worktime B BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu Deals Add current page to left menu Themes Print" [ref=e314]:
+          - table [ref=e315]:
+            - rowgroup [ref=e316]:
+              - row "Feed CRM PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects W Worktime B BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu Deals Add current page to left menu" [ref=e317]:
+                - cell "Feed CRM PL Pipe Line C CID C CW D DES D DES-custom C CDT Tasks and Projects W Worktime B BP TM Team Members E Employees H Helpdesk T Tasks S Support T TimetrackingINF MT MY TEST MEMBER TT TEST TEAMS TM TD Timeline Dash Booking Collabs BI Builder LD LV Dash Employees L LMS TC Time-off calendar LD LG dashboard IF INFUSE Flow Hidden Workgroups Inventory management Developer resources Automation Messenger Mail MR Main report by time Calendar Drive Services Market Sites and stores Marketing Settings More... Configure menu" [ref=e318]:
+                  - generic [ref=e319]:
+                    - link "Home" [ref=e324] [cursor=pointer]:
+                      - /url: /
+                      - img [ref=e326]
+                    - generic [ref=e330]:
+                      - list [ref=e331]:
+                        - listitem [ref=e332]
+                        - listitem [ref=e333]:
+                          - link "Feed" [ref=e334] [cursor=pointer]:
+                            - /url: /stream/
+                            - generic [ref=e337]: Feed
+                        - listitem [ref=e340]:
+                          - link "CRM" [ref=e341] [cursor=pointer]:
+                            - /url: /crm/deal/?redirect_to
+                            - generic [ref=e344]: CRM
+                        - listitem [ref=e347]:
+                          - link "PL Pipe Line" [ref=e348] [cursor=pointer]:
+                            - /url: /crm/type/177/list/category/17/
+                            - generic [ref=e350]: PL
+                            - generic [ref=e351]: Pipe Line
+                        - listitem [ref=e354]:
+                          - link "C CID" [ref=e355] [cursor=pointer]:
+                            - /url: /crm/deal/category/4/
+                            - generic [ref=e357]: C
+                            - generic [ref=e358]: CID
+                        - listitem [ref=e361]:
+                          - link "C CW" [ref=e362] [cursor=pointer]:
+                            - /url: /workgroups/group/37/tasks/
+                            - generic [ref=e364]: C
+                            - generic [ref=e365]: CW
+                        - listitem [ref=e368]:
+                          - link "D DES" [ref=e369] [cursor=pointer]:
+                            - /url: /workgroups/group/38/tasks/
+                            - generic [ref=e371]: D
+                            - generic [ref=e372]: DES
+                        - listitem [ref=e375]:
+                          - link "D DES-custom" [ref=e376] [cursor=pointer]:
+                            - /url: /dashboard/des/index.php?login=yes
+                            - generic [ref=e378]: D
+                            - generic [ref=e379]: DES-custom
+                        - listitem [ref=e382]:
+                          - link "C CDT" [ref=e383] [cursor=pointer]:
+                            - /url: /dashboard/cdt/
+                            - generic [ref=e385]: C
+                            - generic [ref=e386]: CDT
+                        - listitem [ref=e389]:
+                          - link [ref=e390] [cursor=pointer]:
+                            - /url: /company/personal/user/746/tasks/task/edit/0/?ta_sec=left_menu&ta_el=create_button
+                          - link "Tasks and Projects" [ref=e392] [cursor=pointer]:
+                            - /url: /company/personal/user/746/tasks/
+                            - generic [ref=e395]: Tasks and Projects
+                        - listitem [ref=e398]:
+                          - link "W Worktime" [ref=e399] [cursor=pointer]:
+                            - /url: /timeman/timeman.php
+                            - generic [ref=e401]: W
+                            - generic [ref=e402]: Worktime
+                        - listitem [ref=e405]:
+                          - link "B BP" [ref=e406] [cursor=pointer]:
+                            - /url: /crm/configs/bp/
+                            - generic [ref=e408]: B
+                            - generic [ref=e409]: BP
+                        - listitem [ref=e412]:
+                          - link "TM Team Members" [ref=e413] [cursor=pointer]:
+                            - /url: /crm/deal/category/8/
+                            - generic [ref=e415]: TM
+                            - generic [ref=e416]: Team Members
+                        - listitem [ref=e419]:
+                          - link "E Employees" [ref=e420] [cursor=pointer]:
+                            - /url: /company/
+                            - generic [ref=e422]: E
+                            - generic [ref=e423]: Employees
+                        - listitem [ref=e426]:
+                          - link "H Helpdesk" [ref=e427] [cursor=pointer]:
+                            - /url: /crm/deal/category/9/
+                            - generic [ref=e429]: H
+                            - generic [ref=e430]: Helpdesk
+                        - listitem [ref=e433]:
+                          - link "T Tasks" [ref=e434] [cursor=pointer]:
+                            - /url: /workgroups/group/43/tasks/?F_CANCEL=Y&F_STATE=sR
+                            - generic [ref=e436]: T
+                            - generic [ref=e437]: Tasks
+                        - listitem [ref=e440]:
+                          - link "S Support" [ref=e441] [cursor=pointer]:
+                            - /url: /crm/type/138/kanban/category/0/
+                            - generic [ref=e443]: S
+                            - generic [ref=e444]: Support
+                        - listitem [ref=e447]:
+                          - link "T TimetrackingINF" [ref=e448] [cursor=pointer]:
+                            - /url: /timetrack/index.php?login=yes
+                            - generic [ref=e450]: T
+                            - generic [ref=e451]: TimetrackingINF
+                        - listitem [ref=e454]:
+                          - link "MT MY TEST MEMBER" [ref=e455] [cursor=pointer]:
+                            - /url: /crm/deal/details/91692/
+                            - generic [ref=e457]: MT
+                            - generic [ref=e458]: MY TEST MEMBER
+                        - listitem [ref=e461]:
+                          - link "TT TEST TEAMS TM" [ref=e462] [cursor=pointer]:
+                            - /url: /crm/deal/details/90356/
+                            - generic [ref=e464]: TT
+                            - generic [ref=e465]: TEST TEAMS TM
+                        - listitem [ref=e468]:
+                          - link "TD Timeline Dash" [ref=e469] [cursor=pointer]:
+                            - /url: /report/timeline/
+                            - generic [ref=e471]: TD
+                            - generic [ref=e472]: Timeline Dash
+                        - listitem [ref=e475]:
+                          - link "Booking" [ref=e476] [cursor=pointer]:
+                            - /url: /booking/
+                            - generic [ref=e479]: Booking
+                        - listitem [ref=e482]:
+                          - link "Collabs" [ref=e483] [cursor=pointer]:
+                            - /url: /online/?IM_COLLAB
+                            - generic [ref=e486]: Collabs
+                        - listitem [ref=e489]:
+                          - link "BI Builder" [ref=e490] [cursor=pointer]:
+                            - /url: /bi/dashboard/
+                            - generic [ref=e493]: BI Builder
+                        - listitem [ref=e496]:
+                          - link "LD LV Dash" [ref=e497] [cursor=pointer]:
+                            - /url: /lv/
+                            - generic [ref=e499]: LD
+                            - generic [ref=e500]: LV Dash
+                        - listitem [ref=e503]:
+                          - link "Employees" [ref=e504] [cursor=pointer]:
+                            - /url: /company/
+                            - generic [ref=e507]: Employees
+                        - listitem [ref=e510]:
+                          - link "L LMS" [ref=e511] [cursor=pointer]:
+                            - /url: /lms/
+                            - generic [ref=e513]: L
+                            - generic [ref=e514]: LMS
+                        - listitem [ref=e517]:
+                          - link "TC Time-off calendar" [ref=e518] [cursor=pointer]:
+                            - /url: /time-off-calendar/
+                            - generic [ref=e520]: TC
+                            - generic [ref=e521]: Time-off calendar
+                        - listitem [ref=e524]:
+                          - link "LD LG dashboard" [ref=e525] [cursor=pointer]:
+                            - /url: /dashboard/listgen/
+                            - generic [ref=e527]: LD
+                            - generic [ref=e528]: LG dashboard
+                        - listitem [ref=e531]:
+                          - link "IF INFUSE Flow" [ref=e532] [cursor=pointer]:
+                            - /url: https://infusemedia-bitrix-ec2/
+                            - generic [ref=e534]: IF
+                            - generic [ref=e535]: INFUSE Flow
+                      - list [ref=e538]:
+                        - listitem [ref=e539] [cursor=pointer]:
+                          - generic [ref=e541]: Hidden
+                        - listitem [ref=e543]:
+                          - link [ref=e544] [cursor=pointer]:
+                            - /url: /company/personal/user/746/groups/create/
+                          - link "Workgroups" [ref=e546] [cursor=pointer]:
+                            - /url: /workgroups/
+                            - generic [ref=e549]: Workgroups
+                        - listitem [ref=e550]:
+                          - link "Inventory management" [ref=e551] [cursor=pointer]:
+                            - /url: /shop/documents/inventory/
+                            - generic [ref=e554]: Inventory management
+                        - listitem [ref=e557]:
+                          - link "Developer resources" [ref=e558] [cursor=pointer]:
+                            - /url: /devops/
+                            - generic [ref=e561]: Developer resources
+                        - listitem [ref=e564]:
+                          - link "Automation" [ref=e565] [cursor=pointer]:
+                            - /url: /bizproc/userprocesses/
+                            - generic [ref=e568]: Automation
+                        - listitem [ref=e571]:
+                          - link "Messenger" [ref=e572] [cursor=pointer]:
+                            - /url: /online/
+                            - generic [ref=e575]: Messenger
+                        - listitem [ref=e578]:
+                          - link "Mail" [ref=e579] [cursor=pointer]:
+                            - /url: /mail/
+                            - generic [ref=e582]: Mail
+                        - listitem [ref=e585]:
+                          - link "MR Main report by time" [ref=e586] [cursor=pointer]:
+                            - /url: /company/spent-time-report.php
+                            - generic [ref=e588]: MR
+                            - generic [ref=e589]: Main report by time
+                        - listitem [ref=e592]:
+                          - link [ref=e593] [cursor=pointer]:
+                            - /url: /company/personal/user/746/calendar/?EVENT_ID=NEW
+                          - link "Calendar" [ref=e595] [cursor=pointer]:
+                            - /url: /company/personal/user/746/calendar/
+                            - generic [ref=e598]: Calendar
+                        - listitem [ref=e601]:
+                          - link "Drive" [ref=e602] [cursor=pointer]:
+                            - /url: /company/personal/user/746/disk/path/
+                            - generic [ref=e605]: Drive
+                        - listitem [ref=e608]:
+                          - link "Services" [ref=e609] [cursor=pointer]:
+                            - /url: /services/
+                            - generic [ref=e612]: Services
+                        - listitem [ref=e615]:
+                          - link "Market" [ref=e616] [cursor=pointer]:
+                            - /url: /market/
+                            - generic [ref=e619]: Market
+                        - listitem [ref=e622]:
+                          - link "Sites and stores" [ref=e623] [cursor=pointer]:
+                            - /url: /sites/
+                            - generic [ref=e626]: Sites and stores
+                        - listitem [ref=e629]:
+                          - link "Marketing" [ref=e630] [cursor=pointer]:
+                            - /url: /marketing/
+                            - generic [ref=e633]: Marketing
+                        - listitem [ref=e636]:
+                          - link "Settings" [ref=e637] [cursor=pointer]:
+                            - /url: /configs/?analyticContext=left_menu_main
+                            - generic [ref=e640]: Settings
+                      - generic [ref=e647] [cursor=pointer]: More...
+                      - generic [ref=e653] [cursor=pointer]: Configure menu
+                - cell "Deals Add current page to left menu" [ref=e656]:
+                  - table [ref=e657]:
+                    - rowgroup [ref=e660]:
+                      - row "Deals Add current page to left menu" [ref=e661]:
+                        - cell "Deals Add current page to left menu" [ref=e662]:
+                          - generic [ref=e669]:
+                            - generic [ref=e670]: Deals
+                            - generic "Add current page to left menu" [ref=e671] [cursor=pointer]
+                      - row [ref=e672]:
+                        - cell [ref=e673]
+              - row "Themes Print" [ref=e677]:
+                - cell [ref=e678]
+                - cell "Themes Print" [ref=e679]:
+                  - generic [ref=e681]:
+                    - generic [ref=e682] [cursor=pointer]: Themes
+                    - generic [ref=e683] [cursor=pointer]: Print
+  - generic [ref=e687]:
+    - iframe [ref=e689]:
+      - generic [active] [ref=f1e1]:
+        - generic [ref=f1e4]:
+          - generic [ref=f1e6]:
+            - link "Extensions" [ref=f1e8] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=f1e9]: Extensions
+            - generic [ref=f1e11]:
+              - generic "Add a customer and their phone number to the deal to make a call" [ref=f1e12]
+              - generic "Add a customer and their email address to the deal to send an email message" [ref=f1e13]
+            - button [ref=f1e15] [cursor=pointer]
+            - button "Document" [ref=f1e16] [cursor=pointer]
+            - button "Run Workflow" [ref=f1e17] [cursor=pointer]
+            - generic [ref=f1e18]:
+              - button "Estimate" [ref=f1e19] [cursor=pointer]
+              - button [ref=f1e20] [cursor=pointer]
+          - generic [ref=f1e21]:
+            - text: Test FName
+            - generic [ref=f1e22]:
+              - text: LName
+              - generic "Copy deal link to the Clipboard" [ref=f1e24] [cursor=pointer]
+            - link "HR (Team member)" [ref=f1e26] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=f1e29]:
+          - generic [ref=f1e31]:
+            - generic [ref=f1e34] [cursor=pointer]: New
+            - generic [ref=f1e37] [cursor=pointer]: Rehired
+            - generic [ref=f1e40] [cursor=pointer]: On probation
+            - generic [ref=f1e43] [cursor=pointer]: Working
+            - generic [ref=f1e46] [cursor=pointer]: Dismissed
+          - generic [ref=f1e49]:
+            - generic [ref=f1e50]:
+              - generic [ref=f1e55] [cursor=pointer]: General
+              - generic [ref=f1e60] [cursor=pointer]: Products
+              - generic [ref=f1e65] [cursor=pointer]: History
+              - generic [ref=f1e70] [cursor=pointer]: Emails of Team members (HR)
+              - generic [ref=f1e75] [cursor=pointer]: Time off Requests
+              - generic [ref=f1e80] [cursor=pointer]: Time off Monitoring
+              - generic [ref=f1e85] [cursor=pointer]: Warnings
+              - generic [ref=f1e90] [cursor=pointer]: Gifts
+              - generic [ref=f1e95] [cursor=pointer]: Performance Review
+              - generic [ref=f1e100] [cursor=pointer]: Field Work
+              - generic [ref=f1e105] [cursor=pointer]: One-On-One
+            - generic [ref=f1e110] [cursor=pointer]: More
+          - generic [ref=f1e113]:
+            - generic [ref=f1e114]:
+              - generic [ref=f1e117]:
+                - generic [ref=f1e118]:
+                  - generic [ref=f1e119]:
+                    - generic [ref=f1e122]: Basic InformatIon
+                    - generic [ref=f1e124] [cursor=pointer]: Edit
+                  - generic [ref=f1e125]:
+                    - generic [ref=f1e126]:
+                      - generic [ref=f1e130]: Onboarding approved by HR Generalist
+                      - generic [ref=f1e133]: "no"
+                    - generic [ref=f1e135]:
+                      - generic [ref=f1e139]: Full Name
+                      - generic [ref=f1e142]: Test FName LName
+                    - generic [ref=f1e144]:
+                      - generic [ref=f1e148]: First Name
+                      - generic [ref=f1e151]: Test FName
+                    - generic [ref=f1e153]:
+                      - generic [ref=f1e157]: Last Name
+                      - generic [ref=f1e160]: LName
+                    - generic [ref=f1e162]:
+                      - generic [ref=f1e166]: Preferred First Name
+                      - generic [ref=f1e167]: field is empty
+                    - generic [ref=f1e169]:
+                      - generic [ref=f1e173]: Preferred Last Name
+                      - generic [ref=f1e174]: field is empty
+                    - generic [ref=f1e176]:
+                      - generic [ref=f1e180]: Profile Picture (jpg, png)
+                      - generic [ref=f1e181]: field is empty
+                    - generic [ref=f1e183]:
+                      - generic [ref=f1e187]: Corporate Email
+                      - link "Test@test.com" [ref=f1e191] [cursor=pointer]:
+                        - /url: http://Test@test.com/
+                    - generic [ref=f1e193]:
+                      - generic [ref=f1e197]: Email Domain
+                      - generic [ref=f1e200]: test@test.test
+                    - generic [ref=f1e202]:
+                      - generic [ref=f1e206]: Gender
+                      - generic [ref=f1e209]: Other
+                    - generic [ref=f1e211]:
+                      - generic [ref=f1e215]: Office Type
+                      - generic [ref=f1e218]: Remote
+                    - generic [ref=f1e220]:
+                      - generic [ref=f1e224]: Language Spoken Fluently
+                      - generic [ref=f1e225]: field is empty
+                    - generic [ref=f1e227]:
+                      - generic [ref=f1e231]: Preferred Language of Communication
+                      - generic [ref=f1e232]: field is empty
+                    - generic [ref=f1e234]:
+                      - generic [ref=f1e238]: Virtual Machine
+                      - generic [ref=f1e241]: "no"
+                    - generic [ref=f1e243]:
+                      - generic [ref=f1e244]:
+                        - generic [ref=f1e245] [cursor=pointer]: Select field
+                        - generic [ref=f1e246] [cursor=pointer]: Create field
+                      - generic [ref=f1e248] [cursor=pointer]: Delete section
+                - generic [ref=f1e249]:
+                  - generic [ref=f1e250]:
+                    - generic [ref=f1e253]: PERSONAL INFORMATION
+                    - generic [ref=f1e255] [cursor=pointer]: Edit
+                  - generic [ref=f1e256]:
+                    - generic [ref=f1e257]:
+                      - generic [ref=f1e261]: Date of Birth
+                      - generic [ref=f1e262]: field is empty
+                    - generic [ref=f1e264]:
+                      - generic [ref=f1e268]: Phone
+                      - generic [ref=f1e269]: field is empty
+                    - generic [ref=f1e271]:
+                      - generic [ref=f1e275]: Personal Email
+                      - link "ptest@test" [ref=f1e279] [cursor=pointer]:
+                        - /url: http://ptest@test/
+                    - generic [ref=f1e281]:
+                      - generic [ref=f1e285]: City/State of Current Location
+                      - generic [ref=f1e288]: TEST
+                    - generic [ref=f1e290]:
+                      - generic [ref=f1e294]: Country of Current Location
+                      - generic [ref=f1e297]: Afghanistan
+                    - generic [ref=f1e299]:
+                      - generic [ref=f1e303]: Address
+                      - generic [ref=f1e304]: field is empty
+                    - generic [ref=f1e306]:
+                      - generic [ref=f1e310]: Zip
+                      - generic [ref=f1e311]: field is empty
+                    - generic [ref=f1e313]:
+                      - generic [ref=f1e317]: Extra information
+                      - generic [ref=f1e318]: field is empty
+                    - generic [ref=f1e320]:
+                      - generic [ref=f1e324]: Citizenship
+                      - generic [ref=f1e325]: field is empty
+                    - generic [ref=f1e327]:
+                      - generic [ref=f1e331]: Children
+                      - generic [ref=f1e334]: "no"
+                    - generic [ref=f1e336]:
+                      - generic [ref=f1e337]:
+                        - generic [ref=f1e338] [cursor=pointer]: Select field
+                        - generic [ref=f1e339] [cursor=pointer]: Create field
+                      - generic [ref=f1e341] [cursor=pointer]: Delete section
+                - generic [ref=f1e342]:
+                  - generic [ref=f1e343]:
+                    - generic [ref=f1e346]: Work information
+                    - generic [ref=f1e348] [cursor=pointer]: Edit
+                  - generic [ref=f1e349]:
+                    - generic [ref=f1e350]:
+                      - generic [ref=f1e354]: Start Date (HR)
+                      - generic [ref=f1e357]: 01/10/2024
+                    - generic [ref=f1e359]:
+                      - generic [ref=f1e363]: First Day on Current Position
+                      - generic [ref=f1e366]: 01/10/2024
+                    - generic [ref=f1e371]:
+                      - generic [ref=f1e373]: Business Entity
+                      - generic [ref=f1e376]: INFUSE
+                      - generic [ref=f1e378]: Department (HR)
+                      - generic [ref=f1e381]: CAT
+                      - generic [ref=f1e383]: Sub-Department
+                      - generic [ref=f1e385]: Teams/Specialties
+                    - generic [ref=f1e387]:
+                      - generic [ref=f1e391]: Job Level
+                      - generic [ref=f1e394]: Manager
+                    - generic [ref=f1e396]:
+                      - generic [ref=f1e400]: Position
+                      - generic [ref=f1e403]: Assistant
+                    - generic [ref=f1e405]:
+                      - generic [ref=f1e409]: Add new position
+                      - generic [ref=f1e410]: field is empty
+                    - generic [ref=f1e412]:
+                      - generic [ref=f1e416]: PTO
+                      - generic [ref=f1e419]: PTO
+                    - generic [ref=f1e421]:
+                      - generic [ref=f1e425]: Time zone
+                      - generic [ref=f1e428]: EST
+                    - generic [ref=f1e430]:
+                      - generic [ref=f1e434]: Shift
+                      - generic [ref=f1e435]: field is empty
+                    - generic [ref=f1e437]:
+                      - generic [ref=f1e441]: Schedule Type
+                      - generic [ref=f1e442]: field is empty
+                    - generic [ref=f1e444]:
+                      - generic [ref=f1e448]: Probation Period (Months)
+                      - generic [ref=f1e451]: "1"
+                    - generic [ref=f1e453]:
+                      - generic [ref=f1e457]: Expected End of Probation
+                      - generic [ref=f1e458]: field is empty
+                    - generic [ref=f1e460]:
+                      - generic [ref=f1e464]: End of Probation Period
+                      - generic [ref=f1e465]: field is empty
+                    - generic [ref=f1e467]:
+                      - generic [ref=f1e471]: Team Lead
+                      - generic [ref=f1e474]:
+                        - generic [ref=f1e475] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e476] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e478]:
+                            - generic [ref=f1e479]: Marina Smirnova
+                            - generic [ref=f1e480]: Manual QA
+                    - generic [ref=f1e482]:
+                      - generic [ref=f1e486]: Manager (HR)
+                      - generic [ref=f1e489]:
+                        - generic [ref=f1e490] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e491] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e493]:
+                            - generic [ref=f1e494]: Marina Smirnova
+                            - generic [ref=f1e495]: Manual QA
+                    - generic [ref=f1e497]:
+                      - generic [ref=f1e501]: HR
+                      - generic [ref=f1e504]:
+                        - generic [ref=f1e505] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e506] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e508]:
+                            - generic [ref=f1e509]: Marina Smirnova
+                            - generic [ref=f1e510]: Manual QA
+                    - generic [ref=f1e512]:
+                      - generic [ref=f1e516]: Townhall Invitee (to use by management only)
+                      - generic [ref=f1e519]: "no"
+                    - generic [ref=f1e521]:
+                      - generic [ref=f1e525]: Budget
+                      - generic [ref=f1e528]: US
+                    - generic [ref=f1e530]:
+                      - generic [ref=f1e534]: Security Level
+                      - generic [ref=f1e535]: field is empty
+                    - generic [ref=f1e537]:
+                      - generic [ref=f1e541]: HR ID
+                      - generic [ref=f1e544]: "1001369"
+                    - generic [ref=f1e546]:
+                      - generic [ref=f1e550]: Application ID (Greenhouse)
+                      - generic [ref=f1e551]: field is empty
+                    - generic [ref=f1e553]:
+                      - generic [ref=f1e557]: Vendor’s Company Name
+                      - generic [ref=f1e558]: field is empty
+                    - generic [ref=f1e560]:
+                      - generic [ref=f1e564]: History
+                      - generic [ref=f1e569]:
+                        - generic [ref=f1e571]: Data
+                        - generic [ref=f1e573]:
+                          - generic [ref=f1e574]: "Department (HR): CAT"
+                          - generic [ref=f1e575]: "Teams/Specialties:"
+                          - generic [ref=f1e576]: "Position: Assistant"
+                          - generic [ref=f1e577]: "Job Level: Manager"
+                          - generic [ref=f1e578]: "Type of Contract: US Contractor"
+                          - generic [ref=f1e579]: "Manager (HR): Marina Smirnova"
+                          - generic [ref=f1e580]: "PTO: PTO"
+                          - generic [ref=f1e581]: "Budget: US"
+                          - generic [ref=f1e582]: "Business Entity: INFUSE"
+                          - generic [ref=f1e583]: "Period: 01/10/2024 - 03/25/2025"
+                          - generic [ref=f1e584]: "Work record: 1 year 2 months 15 days"
+                          - generic [ref=f1e585]: "Dismissal Date: 03/25/2025"
+                          - generic [ref=f1e586]: "Reason for Dismissal: Fired"
+                          - generic [ref=f1e587]: "On Hold Start Date:"
+                    - generic [ref=f1e589]:
+                      - generic [ref=f1e593]: Prevent History Record Creation
+                      - generic [ref=f1e596]: "No"
+                    - generic [ref=f1e598]:
+                      - generic [ref=f1e602]: It's a test, should not be reflected in reports
+                      - generic [ref=f1e605]: "No"
+                    - generic [ref=f1e607]:
+                      - generic [ref=f1e611]: Main Team Lead (Team Manager)
+                      - generic [ref=f1e614]:
+                        - generic [ref=f1e615] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e616] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e618]:
+                            - generic [ref=f1e619]: Marina Smirnova
+                            - generic [ref=f1e620]: Manual QA
+                    - generic [ref=f1e622]:
+                      - generic [ref=f1e623]:
+                        - generic [ref=f1e624] [cursor=pointer]: Select field
+                        - generic [ref=f1e625] [cursor=pointer]: Create field
+                      - generic [ref=f1e627] [cursor=pointer]: Delete section
+                - generic [ref=f1e628]:
+                  - generic [ref=f1e629]:
+                    - generic [ref=f1e632]: Lifecycle
+                    - generic [ref=f1e634] [cursor=pointer]: Edit
+                  - generic [ref=f1e635]:
+                    - generic [ref=f1e636]:
+                      - generic [ref=f1e640]: Dismissal Date
+                      - generic [ref=f1e643]: 03/25/2025
+                    - generic [ref=f1e645]:
+                      - generic [ref=f1e649]: Reason for Dismissal
+                      - generic [ref=f1e652]: Fired
+                    - generic [ref=f1e654]:
+                      - generic [ref=f1e658]: Access Deactivation Date and Time
+                      - generic [ref=f1e661]: 03/27/2025 11:41:00 pm
+                    - generic [ref=f1e663]:
+                      - generic [ref=f1e667]: Reason for Dismissal (in detail)
+                      - generic [ref=f1e668]: field is empty
+                    - generic [ref=f1e670]:
+                      - generic [ref=f1e671]:
+                        - generic [ref=f1e672] [cursor=pointer]: Select field
+                        - generic [ref=f1e673] [cursor=pointer]: Create field
+                      - generic [ref=f1e675] [cursor=pointer]: Delete section
+                - generic [ref=f1e676]:
+                  - generic [ref=f1e677]:
+                    - generic [ref=f1e680]: PAYROLL
+                    - generic [ref=f1e682] [cursor=pointer]: Edit
+                  - generic [ref=f1e683]:
+                    - generic [ref=f1e684]:
+                      - generic [ref=f1e688]: Last Evaluation Date
+                      - generic [ref=f1e689]: field is empty
+                    - generic [ref=f1e691]:
+                      - generic [ref=f1e695]: Next Evaluation Date
+                      - generic [ref=f1e696]: field is empty
+                    - generic [ref=f1e698]:
+                      - generic [ref=f1e702]: Payment Type
+                      - generic [ref=f1e705]: Payoneer
+                    - generic [ref=f1e707]:
+                      - generic [ref=f1e711]: Type of Contract
+                      - generic [ref=f1e714]: US Contractor
+                    - generic [ref=f1e716]:
+                      - generic [ref=f1e717]:
+                        - generic [ref=f1e718] [cursor=pointer]: Select field
+                        - generic [ref=f1e719] [cursor=pointer]: Create field
+                      - generic [ref=f1e721] [cursor=pointer]: Delete section
+                - generic [ref=f1e722]:
+                  - generic [ref=f1e723]:
+                    - generic [ref=f1e726]: RECRUITMENT
+                    - generic [ref=f1e728] [cursor=pointer]: Edit
+                  - generic [ref=f1e729]:
+                    - generic [ref=f1e730]:
+                      - generic [ref=f1e734]: Recruiter
+                      - generic [ref=f1e737]:
+                        - generic [ref=f1e738] [cursor=pointer]: Change
+                        - link "Marina Smirnova Manual QA" [ref=f1e739] [cursor=pointer]:
+                          - /url: /company/personal/user/746/
+                          - generic [ref=f1e741]:
+                            - generic [ref=f1e742]: Marina Smirnova
+                            - generic [ref=f1e743]: Manual QA
+                    - generic [ref=f1e745]:
+                      - generic [ref=f1e749]: CV
+                      - generic [ref=f1e750]: field is empty
+                    - generic [ref=f1e752]:
+                      - generic [ref=f1e756]: Reference (Recommender’s Name)
+                      - generic [ref=f1e757]: field is empty
+                    - generic [ref=f1e759]:
+                      - generic [ref=f1e763]: Recruiting Source
+                      - generic [ref=f1e766]: Arc
+                    - generic [ref=f1e768]:
+                      - generic [ref=f1e772]: Behavioral Assessments
+                      - generic [ref=f1e773]: field is empty
+                    - generic [ref=f1e775]:
+                      - generic [ref=f1e779]: Cognitive Assessments
+                      - generic [ref=f1e780]: field is empty
+                    - generic [ref=f1e782]:
+                      - generic [ref=f1e786]: Department (Technical)
+                      - generic [ref=f1e789]: CAT
+                    - generic [ref=f1e791]:
+                      - generic [ref=f1e792]:
+                        - generic [ref=f1e793] [cursor=pointer]: Select field
+                        - generic [ref=f1e794] [cursor=pointer]: Create field
+                      - generic [ref=f1e796] [cursor=pointer]: Delete section
+                - generic [ref=f1e797]:
+                  - generic [ref=f1e798]:
+                    - generic [ref=f1e801]: Trainings
+                    - generic [ref=f1e803] [cursor=pointer]: Edit
+                  - generic [ref=f1e804]:
+                    - generic [ref=f1e805]:
+                      - generic [ref=f1e809]: Trainer
+                      - generic [ref=f1e810]: field is empty
+                    - generic [ref=f1e812]:
+                      - generic [ref=f1e816]: Training Status
+                      - generic [ref=f1e817]: field is empty
+                    - generic [ref=f1e819]:
+                      - generic [ref=f1e823]: Training Result
+                      - generic [ref=f1e824]: field is empty
+                    - generic [ref=f1e826]:
+                      - generic [ref=f1e830]: GDPR
+                      - generic [ref=f1e833]: "No"
+                    - generic [ref=f1e835]:
+                      - generic [ref=f1e839]: Retraining
+                      - generic [ref=f1e840]: field is empty
+                    - generic [ref=f1e842]:
+                      - generic [ref=f1e846]: Additional Trainings
+                      - generic [ref=f1e847]: field is empty
+                    - generic [ref=f1e849]:
+                      - generic [ref=f1e850]:
+                        - generic [ref=f1e851] [cursor=pointer]: Select field
+                        - generic [ref=f1e852] [cursor=pointer]: Create field
+                      - generic [ref=f1e854] [cursor=pointer]: Delete section
+                - generic [ref=f1e855]:
+                  - generic [ref=f1e856]:
+                    - generic [ref=f1e859]: Social
+                    - generic [ref=f1e861] [cursor=pointer]: Edit
+                  - generic [ref=f1e862]:
+                    - generic [ref=f1e863]:
+                      - generic [ref=f1e867]: Linkedin
+                      - generic [ref=f1e868]: field is empty
+                    - generic [ref=f1e870]:
+                      - generic [ref=f1e871]:
+                        - generic [ref=f1e872] [cursor=pointer]: Select field
+                        - generic [ref=f1e873] [cursor=pointer]: Create field
+                      - generic [ref=f1e875] [cursor=pointer]: Delete section
+                - generic [ref=f1e876]:
+                  - generic [ref=f1e877]:
+                    - generic [ref=f1e880]: dismiss
+                    - generic [ref=f1e882] [cursor=pointer]: Edit
+                  - generic [ref=f1e883]:
+                    - generic [ref=f1e884]:
+                      - generic [ref=f1e888]: In order to dismiss the Team Member - use the "Dismiss" business process
+                      - generic [ref=f1e891]: bp "Dismiss"
+                    - generic [ref=f1e893]:
+                      - generic [ref=f1e897]: LMS User ID
+                      - generic [ref=f1e898]: field is empty
+                    - generic [ref=f1e900]:
+                      - generic [ref=f1e904]: LMS Date for next sync
+                      - generic [ref=f1e905]: field is empty
+                    - generic [ref=f1e907]:
+                      - generic [ref=f1e911]: LMS_CONFIG
+                      - generic [ref=f1e912]: field is empty
+                    - generic [ref=f1e914]:
+                      - generic [ref=f1e918]: ID of EQUIPMENT TICKET after probation
+                      - generic [ref=f1e921]: "91896"
+                    - generic [ref=f1e923]:
+                      - generic [ref=f1e927]: Onboarding tasks created (tech)
+                      - generic [ref=f1e930]: "no"
+                    - generic [ref=f1e932]:
+                      - generic [ref=f1e936]: Need to launch Onboarding (tech)
+                      - generic [ref=f1e939]: "no"
+                    - generic [ref=f1e941]:
+                      - generic [ref=f1e945]: UF_CRM_EARLY_ON_TICKET_TECH
+                      - generic [ref=f1e946]: field is empty
+                    - generic [ref=f1e948]:
+                      - generic [ref=f1e952]: Task for Add new position - created! (tech)
+                      - generic [ref=f1e953]: field is empty
+                    - generic [ref=f1e955]:
+                      - generic [ref=f1e956]:
+                        - generic [ref=f1e957] [cursor=pointer]: Select field
+                        - generic [ref=f1e958] [cursor=pointer]: Create field
+                      - generic [ref=f1e960] [cursor=pointer]: Delete section
+                - generic [ref=f1e961]:
+                  - generic [ref=f1e962]:
+                    - generic [ref=f1e965]: on hold
+                    - generic [ref=f1e967] [cursor=pointer]: Edit
+                  - generic [ref=f1e968]:
+                    - generic [ref=f1e969]:
+                      - generic [ref=f1e973]: Need to suspend other access?
+                      - generic [ref=f1e976]: "no"
+                    - generic [ref=f1e978]:
+                      - generic [ref=f1e982]: Need to suspend Azure/Google?
+                      - generic [ref=f1e985]: "no"
+                    - generic [ref=f1e987]:
+                      - generic [ref=f1e991]: Expected return
+                      - generic [ref=f1e994]: 04/20/2025
+                    - generic [ref=f1e996]:
+                      - generic [ref=f1e1000]: In Company (tech)
+                      - generic [ref=f1e1003]: 1 year 8 month
+                    - generic [ref=f1e1005]:
+                      - generic [ref=f1e1009]: Changing stage from Paused to Working
+                      - generic [ref=f1e1012]: "yes"
+                    - generic [ref=f1e1014]:
+                      - generic [ref=f1e1015]:
+                        - generic [ref=f1e1016] [cursor=pointer]: Select field
+                        - generic [ref=f1e1017] [cursor=pointer]: Create field
+                      - generic [ref=f1e1019] [cursor=pointer]: Delete section
+              - generic [ref=f1e1020]:
+                - generic [ref=f1e1021] [cursor=pointer]: Add section
+                - generic [ref=f1e1022] [cursor=pointer]: Market
+                - generic "HR" [ref=f1e1023]
+                - generic [ref=f1e1024] [cursor=pointer]: HR
+            - generic [ref=f1e1027]:
+              - generic [ref=f1e1030]:
+                - generic [ref=f1e1033]:
+                  - generic [ref=f1e1034]:
+                    - generic "Comment" [ref=f1e1035]:
+                      - generic [ref=f1e1039] [cursor=pointer]: Comment
+                    - generic "Booking" [ref=f1e1040]:
+                      - generic [ref=f1e1042] [cursor=pointer]:
+                        - generic [ref=f1e1043]: New
+                        - generic [ref=f1e1045]: Booking
+                    - generic "Task" [ref=f1e1046]:
+                      - generic [ref=f1e1050] [cursor=pointer]: Task
+                    - generic "Slots" [ref=f1e1051]:
+                      - generic [ref=f1e1055] [cursor=pointer]: Slots
+                    - generic "E-mail" [ref=f1e1056]:
+                      - generic [ref=f1e1060] [cursor=pointer]: E-mail
+                    - generic "WhatsApp" [ref=f1e1061]:
+                      - generic [ref=f1e1065] [cursor=pointer]: WhatsApp
+                    - generic "Wait" [ref=f1e1066]:
+                      - generic [ref=f1e1070] [cursor=pointer]: Wait
+                    - generic "Invite to chat" [ref=f1e1071]:
+                      - generic [ref=f1e1075] [cursor=pointer]: Invite to chat
+                    - generic "Meeting" [ref=f1e1076]:
+                      - generic [ref=f1e1080] [cursor=pointer]: Meeting
+                    - generic "Call" [ref=f1e1081]:
+                      - generic [ref=f1e1085] [cursor=pointer]: Call
+                    - generic "MSTeams" [ref=f1e1086]:
+                      - generic [ref=f1e1090] [cursor=pointer]: MSTeams
+                  - generic [ref=f1e1095] [cursor=pointer]: More
+                - generic [ref=f1e1098]:
+                  - generic [ref=f1e1101]:
+                    - button "actions" [ref=f1e1102] [cursor=pointer]: actions
+                    - generic [ref=f1e1106]:
+                      - paragraph [ref=f1e1108]
+                      - generic: Things to do
+                  - generic [ref=f1e1109]:
+                    - button "Save" [ref=f1e1110] [cursor=pointer]
+                    - generic [ref=f1e1111] [cursor=pointer]: Cancel
+              - generic [ref=f1e1126] [cursor=pointer]: Invite to chat
+              - generic [ref=f1e1127]:
+                - generic [ref=f1e1130]: Things to do
+                - generic [ref=f1e1134] [cursor=pointer]:
+                  - generic [ref=f1e1135]: Add a new activity
+                  - generic [ref=f1e1136]: Plan your next action in the deal to never forget about the customer
+              - generic [ref=f1e1137]:
+                - textbox "Filter and search" [ref=f1e1140]
+                - generic [ref=f1e1145]:
+                  - generic [ref=f1e1146]: Today
+                  - button "Filter" [ref=f1e1147] [cursor=pointer]
+                - generic [ref=f1e1153]:
+                  - generic [ref=f1e1154]:
+                    - generic [ref=f1e1155]:
+                      - generic "Workflow" [ref=f1e1157]
+                      - generic [ref=f1e1158]:
+                        - generic [ref=f1e1161]: STOPPED
+                        - generic [ref=f1e1162]: 9:17 pm
+                    - link "Marina Smirnova" [ref=f1e1164] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1174]:
+                    - generic [ref=f1e1175]: "Workflow:"
+                    - generic [ref=f1e1177] [cursor=pointer]: "[HR] Dismiss"
+                  - generic [ref=f1e1178]:
+                    - generic "Comment" [ref=f1e1181] [cursor=pointer]
+                    - button "Open" [ref=f1e1186] [cursor=pointer]:
+                      - generic [ref=f1e1187]: Open
+                - generic [ref=f1e1193]:
+                  - generic [ref=f1e1194]:
+                    - generic [ref=f1e1195]:
+                      - generic "Workflow" [ref=f1e1197]
+                      - generic [ref=f1e1198]:
+                        - generic [ref=f1e1201]: COMPLETED
+                        - generic [ref=f1e1202]: 9:17 pm
+                    - link "Marina Smirnova" [ref=f1e1204] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1214]:
+                    - generic [ref=f1e1216]:
+                      - generic [ref=f1e1217]: "Workflow:"
+                      - generic [ref=f1e1219] [cursor=pointer]: "[HR] OFFBOARDING TICKET HELPDESK"
+                    - generic [ref=f1e1221]:
+                      - generic [ref=f1e1225]:
+                        - generic [ref=f1e1226]: Workflow result
+                        - 'link "Deals: 91900" [ref=f1e1228] [cursor=pointer]':
+                          - /url: /crm/deal/details/91900/
+                      - generic [ref=f1e1232]:
+                        - generic [ref=f1e1233]: Requires attention
+                        - generic [ref=f1e1234]:
+                          - generic [ref=f1e1235]: "Workflow execution time:"
+                          - generic [ref=f1e1236]: 5 hours
+                        - generic [ref=f1e1237]:
+                          - generic [ref=f1e1238]: Average processing time
+                          - generic [ref=f1e1239]: 15 seconds
+                  - generic [ref=f1e1241]:
+                    - generic "Comment" [ref=f1e1244] [cursor=pointer]
+                    - generic [ref=f1e1247]:
+                      - button "Open" [ref=f1e1249] [cursor=pointer]:
+                        - generic [ref=f1e1250]: Open
+                      - button "Journal" [ref=f1e1252] [cursor=pointer]:
+                        - generic [ref=f1e1253]: Journal
+                - generic [ref=f1e1259]:
+                  - generic [ref=f1e1260]:
+                    - generic [ref=f1e1261]:
+                      - generic "Comment" [ref=f1e1263]
+                      - generic [ref=f1e1265]: 9:17 pm
+                    - link "Marina Smirnova" [ref=f1e1267] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1280]: "ID of Helpdesk ticket (Offboarding access): 91900"
+                  - generic [ref=f1e1283]:
+                    - generic "Comment" [ref=f1e1286] [cursor=pointer]
+                    - button "Pin" [ref=f1e1291] [cursor=pointer]:
+                      - generic [ref=f1e1292]: Pin
+                - generic [ref=f1e1298]:
+                  - generic [ref=f1e1299]:
+                    - generic [ref=f1e1300]:
+                      - generic "Workflow started" [ref=f1e1302]
+                      - generic [ref=f1e1304]: 9:16 pm
+                    - link "Marina Smirnova" [ref=f1e1306] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1314]:
+                    - generic [ref=f1e1316]:
+                      - generic [ref=f1e1317]: "Workflow:"
+                      - generic [ref=f1e1319] [cursor=pointer]: "[HR] OFFBOARDING TICKET HELPDESK"
+                    - generic [ref=f1e1321]:
+                      - generic [ref=f1e1322]: "Start-up time:"
+                      - generic [ref=f1e1323]: Instant
+                  - generic [ref=f1e1324]:
+                    - generic "Comment" [ref=f1e1327] [cursor=pointer]
+                    - button "Open" [ref=f1e1332] [cursor=pointer]:
+                      - generic [ref=f1e1333]: Open
+                - generic [ref=f1e1339]:
+                  - generic [ref=f1e1340]:
+                    - generic [ref=f1e1341]:
+                      - generic "Workflow" [ref=f1e1343]
+                      - generic [ref=f1e1344]:
+                        - generic [ref=f1e1347]: STOPPED
+                        - generic [ref=f1e1348]: 9:16 pm
+                    - link "Marina Smirnova" [ref=f1e1350] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1360]:
+                    - generic [ref=f1e1361]: "Workflow:"
+                    - generic [ref=f1e1363] [cursor=pointer]: "[HR] LMS Exchange"
+                  - generic [ref=f1e1364]:
+                    - generic "Comment" [ref=f1e1367] [cursor=pointer]
+                    - button "Open" [ref=f1e1372] [cursor=pointer]:
+                      - generic [ref=f1e1373]: Open
+                - generic [ref=f1e1379]:
+                  - generic [ref=f1e1380]:
+                    - generic [ref=f1e1381]:
+                      - generic "Workflow started" [ref=f1e1383]
+                      - generic [ref=f1e1385]: 9:16 pm
+                    - link "Marina Smirnova" [ref=f1e1387] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1395]:
+                    - generic [ref=f1e1397]:
+                      - generic [ref=f1e1398]: "Workflow:"
+                      - generic [ref=f1e1400] [cursor=pointer]: "[HR] LMS Exchange"
+                    - generic [ref=f1e1402]:
+                      - generic [ref=f1e1403]: "Start-up time:"
+                      - generic [ref=f1e1404]: Instant
+                  - generic [ref=f1e1405]:
+                    - generic "Comment" [ref=f1e1408] [cursor=pointer]
+                    - button "Open" [ref=f1e1413] [cursor=pointer]:
+                      - generic [ref=f1e1414]: Open
+                - generic [ref=f1e1420]:
+                  - generic [ref=f1e1421]:
+                    - generic [ref=f1e1422]:
+                      - generic "Deal completed" [ref=f1e1424]
+                      - generic [ref=f1e1425]:
+                        - generic [ref=f1e1428]: DISMISSED
+                        - generic [ref=f1e1429]: 9:16 pm
+                    - link "Marina Smirnova" [ref=f1e1431] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1435]: Test FName LName
+                - generic [ref=f1e1441]:
+                  - generic [ref=f1e1442]:
+                    - generic [ref=f1e1443]:
+                      - generic "Stage changed" [ref=f1e1445]
+                      - generic [ref=f1e1447]: 9:16 pm
+                    - link "InFlow Support" [ref=f1e1449] [cursor=pointer]:
+                      - /url: /company/personal/user/1/
+                  - generic [ref=f1e1454]:
+                    - generic [ref=f1e1456]: On probation
+                    - generic [ref=f1e1459]: Dismissed
+                - generic [ref=f1e1465]:
+                  - generic [ref=f1e1466]:
+                    - generic [ref=f1e1467]:
+                      - generic "Workflow started" [ref=f1e1469]
+                      - generic [ref=f1e1471]: 9:16 pm
+                    - link "Marina Smirnova" [ref=f1e1473] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1481]:
+                    - generic [ref=f1e1483]:
+                      - generic [ref=f1e1484]: "Workflow:"
+                      - generic [ref=f1e1486] [cursor=pointer]: "[HR] Dismiss"
+                    - generic [ref=f1e1488]:
+                      - generic [ref=f1e1489]: "Start-up time:"
+                      - generic [ref=f1e1490]: Instant
+                  - generic [ref=f1e1491]:
+                    - generic "Comment" [ref=f1e1494] [cursor=pointer]
+                    - button "Open" [ref=f1e1499] [cursor=pointer]:
+                      - generic [ref=f1e1500]: Open
+                - generic [ref=f1e1506]:
+                  - generic [ref=f1e1507]:
+                    - generic [ref=f1e1508]:
+                      - generic "Workflow started" [ref=f1e1510]
+                      - generic [ref=f1e1512]: 9:14 pm
+                    - link "Marina Smirnova" [ref=f1e1514] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                  - generic [ref=f1e1522]:
+                    - generic [ref=f1e1524]:
+                      - generic [ref=f1e1525]: "Workflow:"
+                      - generic [ref=f1e1527] [cursor=pointer]: "[HR] LMS Exchange"
+                    - generic [ref=f1e1529]:
+                      - generic [ref=f1e1530]: "Start-up time:"
+                      - generic [ref=f1e1531]: Instant
+                  - generic [ref=f1e1532]:
+                    - generic "Comment" [ref=f1e1535] [cursor=pointer]
+                    - button "Open" [ref=f1e1540] [cursor=pointer]:
+                      - generic [ref=f1e1541]: Open
+            - generic [ref=f1e1543]:
+              - generic [ref=f1e1544]: Sales Intelligence
+              - generic [ref=f1e1545]:
+                - generic [ref=f1e1546]:
+                  - generic [ref=f1e1547]: Connect Sales Intelligence
+                  - generic [ref=f1e1548]: Rate the quality of ad traffic.
+                - generic [ref=f1e1549]:
+                  - button "Configure" [ref=f1e1550] [cursor=pointer]
+                  - button "Hide" [ref=f1e1551] [cursor=pointer]
+              - generic "Hide" [ref=f1e1552] [cursor=pointer]
+        - generic [ref=f1e1554]:
+          - button "Save" [ref=f1e1555] [cursor=pointer]
+          - link "Cancel" [ref=f1e1556] [cursor=pointer]:
+            - /url: "#"
+    - generic "Close" [ref=e692] [cursor=pointer]
+  - generic [ref=e695]:
+    - iframe [active] [ref=e697]:
+      - generic [ref=f2e5]:
+        - generic [ref=f2e6]:
+          - generic [ref=f2e10]:
+            - generic [ref=f2e11]: Workflows
+            - generic [ref=f2e12]: Automate your workflows, control every stage and manage workflows from your mobile.
+          - generic [ref=f2e13]:
+            - generic [ref=f2e14]:
+              - generic [ref=f2e16]: Start workflow
+              - generic [ref=f2e19]: Workflow status
+            - generic [ref=f2e21]:
+              - generic [ref=f2e23]: "[HR] Rehire"
+              - generic [ref=f2e26]:
+                - generic [ref=f2e28]: Workflow parameters
+                - generic [ref=f2e29]:
+                  - generic [ref=f2e30]: Gender*
+                  - combobox [ref=f2e32] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "Male"
+                    - option "Female"
+                    - option "Other" [selected]
+                - generic [ref=f2e33]:
+                  - generic [ref=f2e34]: Office Type*
+                  - combobox [ref=f2e36] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "Remote" [selected]
+                    - option "Office US"
+                    - option "Office Israel"
+                    - option "Office Kharkiv"
+                    - option "Office Poltava"
+                    - option "Office Florida"
+                    - option "Office Ghana"
+                    - option "Office Romania"
+                    - option "Office the Philippines"
+                    - option "Hybrid"
+                    - option "Office India"
+                - generic [ref=f2e37]:
+                  - generic [ref=f2e38]: City/State of Current Location*
+                  - textbox [ref=f2e40]: TEST
+                - generic [ref=f2e41]:
+                  - generic [ref=f2e42]: Country of Current Location*
+                  - combobox [ref=f2e44] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "Afghanistan" [selected]
+                    - option "Åland Islands"
+                    - option "Albania"
+                    - option "Algeria"
+                    - option "American Samoa"
+                    - option "Andorra"
+                    - option "Angola"
+                    - option "Anguilla"
+                    - option "Antarctica"
+                    - option "Antigua & Barbuda"
+                    - option "Argentina"
+                    - option "Armenia"
+                    - option "Aruba"
+                    - option "Australia"
+                    - option "Austria"
+                    - option "Azerbaijan"
+                    - option "Bahamas"
+                    - option "Bahrain"
+                    - option "Bangladesh"
+                    - option "Barbados"
+                    - option "Belarus"
+                    - option "Belgium"
+                    - option "Belize"
+                    - option "Benin"
+                    - option "Bermuda"
+                    - option "Bhutan"
+                    - option "Bolivia"
+                    - option "Bosnia & Herzegovina"
+                    - option "Botswana"
+                    - option "Bouvet Island"
+                    - option "Brazil"
+                    - option "British Indian Ocean Territory"
+                    - option "British Virgin Islands"
+                    - option "Brunei"
+                    - option "Bulgaria"
+                    - option "Burkina Faso"
+                    - option "Burundi"
+                    - option "Cambodia"
+                    - option "Cameroon"
+                    - option "Canada"
+                    - option "Cape Verde"
+                    - option "Caribbean Netherlands"
+                    - option "Cayman Islands"
+                    - option "Central African Republic"
+                    - option "Chad"
+                    - option "Chile"
+                    - option "China"
+                    - option "Christmas Island"
+                    - option "Cocos (Keeling) Islands"
+                    - option "Colombia"
+                    - option "Comoros"
+                    - option "Congo - Brazzaville"
+                    - option "Congo - Kinshasa"
+                    - option "Cook Islands"
+                    - option "Costa Rica"
+                    - option "Côte d’Ivoire"
+                    - option "Croatia"
+                    - option "Cuba"
+                    - option "Curaçao"
+                    - option "Cyprus"
+                    - option "Czechia"
+                    - option "Denmark"
+                    - option "Djibouti"
+                    - option "Dominica"
+                    - option "Dominican Republic"
+                    - option "Ecuador"
+                    - option "Egypt"
+                    - option "El Salvador"
+                    - option "Equatorial Guinea"
+                    - option "Eritrea"
+                    - option "Estonia"
+                    - option "Eswatini"
+                    - option "Ethiopia"
+                    - option "Falkland Islands"
+                    - option "Faroe Islands"
+                    - option "Fiji"
+                    - option "Finland"
+                    - option "France"
+                    - option "French Guiana"
+                    - option "French Polynesia"
+                    - option "French Southern Territories"
+                    - option "Gabon"
+                    - option "Gambia"
+                    - option "Georgia"
+                    - option "Germany"
+                    - option "Ghana"
+                    - option "Gibraltar"
+                    - option "Greece"
+                    - option "Greenland"
+                    - option "Grenada"
+                    - option "Guadeloupe"
+                    - option "Guam"
+                    - option "Guatemala"
+                    - option "Guernsey"
+                    - option "Guinea"
+                    - option "Guinea-Bissau"
+                    - option "Guyana"
+                    - option "Haiti"
+                    - option "Heard & McDonald Islands"
+                    - option "Honduras"
+                    - option "Hong Kong SAR China"
+                    - option "Hungary"
+                    - option "Iceland"
+                    - option "India"
+                    - option "Indonesia"
+                    - option "Iran"
+                    - option "Iraq"
+                    - option "Ireland"
+                    - option "Isle of Man"
+                    - option "Israel"
+                    - option "Italy"
+                    - option "Jamaica"
+                    - option "Japan"
+                    - option "Jersey"
+                    - option "Jordan"
+                    - option "Kazakhstan"
+                    - option "Kenya"
+                    - option "Kiribati"
+                    - option "Kuwait"
+                    - option "Kyrgyzstan"
+                    - option "Laos"
+                    - option "Latvia"
+                    - option "Lebanon"
+                    - option "Lesotho"
+                    - option "Liberia"
+                    - option "Libya"
+                    - option "Liechtenstein"
+                    - option "Lithuania"
+                    - option "Luxembourg"
+                    - option "Macao SAR China"
+                    - option "Madagascar"
+                    - option "Malawi"
+                    - option "Malaysia"
+                    - option "Maldives"
+                    - option "Mali"
+                    - option "Malta"
+                    - option "Marshall Islands"
+                    - option "Martinique"
+                    - option "Mauritania"
+                    - option "Mauritius"
+                    - option "Mayotte"
+                    - option "Mexico"
+                    - option "Micronesia"
+                    - option "Moldova"
+                    - option "Monaco"
+                    - option "Mongolia"
+                    - option "Montenegro"
+                    - option "Montserrat"
+                    - option "Morocco"
+                    - option "Mozambique"
+                    - option "Myanmar (Burma)"
+                    - option "Namibia"
+                    - option "Nauru"
+                    - option "Nepal"
+                    - option "Netherlands"
+                    - option "New Caledonia"
+                    - option "New Zealand"
+                    - option "Nicaragua"
+                    - option "Niger"
+                    - option "Nigeria"
+                    - option "Niue"
+                    - option "Norfolk Island"
+                    - option "North Korea"
+                    - option "North Macedonia"
+                    - option "Northern Mariana Islands"
+                    - option "Norway"
+                    - option "Oman"
+                    - option "Pakistan"
+                    - option "Palau"
+                    - option "Palestinian Territories"
+                    - option "Panama"
+                    - option "Papua New Guinea"
+                    - option "Paraguay"
+                    - option "Peru"
+                    - option "Philippines"
+                    - option "Pitcairn Islands"
+                    - option "Poland"
+                    - option "Portugal"
+                    - option "Puerto Rico"
+                    - option "Qatar"
+                    - option "Réunion"
+                    - option "Romania"
+                    - option "Russia"
+                    - option "Rwanda"
+                    - option "Samoa"
+                    - option "San Marino"
+                    - option "São Tomé & Príncipe"
+                    - option "Saudi Arabia"
+                    - option "Senegal"
+                    - option "Serbia"
+                    - option "Seychelles"
+                    - option "Sierra Leone"
+                    - option "Singapore"
+                    - option "Sint Maarten"
+                    - option "Slovakia"
+                    - option "Slovenia"
+                    - option "Solomon Islands"
+                    - option "Somalia"
+                    - option "South Africa"
+                    - option "South Georgia & South Sandwich Islands"
+                    - option "South Korea"
+                    - option "South Sudan"
+                    - option "Spain"
+                    - option "Sri Lanka"
+                    - option "St. Barthélemy"
+                    - option "St. Helena"
+                    - option "St. Kitts & Nevis"
+                    - option "St. Lucia"
+                    - option "St. Martin"
+                    - option "St. Pierre & Miquelon"
+                    - option "St. Vincent & Grenadines"
+                    - option "Sudan"
+                    - option "Suriname"
+                    - option "Svalbard & Jan Mayen"
+                    - option "Sweden"
+                    - option "Switzerland"
+                    - option "Syria"
+                    - option "Taiwan"
+                    - option "Tajikistan"
+                    - option "Tanzania"
+                    - option "Thailand"
+                    - option "Timor-Leste"
+                    - option "Togo"
+                    - option "Tokelau"
+                    - option "Tonga"
+                    - option "Trinidad & Tobago"
+                    - option "Tunisia"
+                    - option "Turkey"
+                    - option "Turkmenistan"
+                    - option "Turks & Caicos Islands"
+                    - option "Tuvalu"
+                    - option "U.S. Outlying Islands"
+                    - option "U.S. Virgin Islands"
+                    - option "Uganda"
+                    - option "Ukraine"
+                    - option "United Arab Emirates"
+                    - option "United Kingdom"
+                    - option "United States"
+                    - option "Uruguay"
+                    - option "Uzbekistan"
+                    - option "Vanuatu"
+                    - option "Vatican City"
+                    - option "Venezuela"
+                    - option "Vietnam"
+                    - option "Wallis & Futuna"
+                    - option "Western Sahara"
+                    - option "Yemen"
+                    - option "Zambia"
+                    - option "Zimbabwe"
+                - generic [ref=f2e45]:
+                  - generic [ref=f2e46]: Start date*
+                  - generic [ref=f2e48]:
+                    - textbox [ref=f2e49]: 05/25/2025 06:41:00 pm
+                    - img [ref=f2e50] [cursor=pointer]
+                - generic [ref=f2e51]:
+                  - generic [ref=f2e52]: Job Level*
+                  - combobox [ref=f2e54] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "Top Manager"
+                    - option "Sr Manager"
+                    - option "Manager" [selected]
+                    - option "Team Lead"
+                    - option "Sr Specialist"
+                    - option "Specialist"
+                    - option "Jr Specialist"
+                    - option "Trainee"
+                    - option "Outsource"
+                - generic [ref=f2e55]:
+                  - generic [ref=f2e56]: Work schedule*
+                  - combobox [ref=f2e58] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "12:30 AM to 9:30 AM (1 hour break)"
+                    - option "2:00 AM to 11:00 AM (1 hour break)"
+                    - option "2:30 AM to 11:30 AM (1 hour break)"
+                    - option "3:00 AM to 1:00 PM (2 hours break)"
+                    - option "5:00 AM to 1:00 PM"
+                    - option "6:00 AM to 2:00 PM"
+                    - option "7:00 AM to 3:00 PM"
+                    - option "7:00 AM to 3:30 PM (30 minutes break)"
+                    - option "7:00 AM - 4:00 PM (1 hour break)"
+                    - option "7:30 AM to 4:00 PM (30 minutes break)"
+                    - option "7:30 AM to 4:30 PM (1 hour break)"
+                    - option "8:00 AM to 5:00 PM (1 hour break)"
+                    - option "8:00 AM to 1:00 PM"
+                    - option "8:00 AM to 4:30 PM (30 min break)" [selected]
+                    - option "8:30 AM to 5:30 PM (1 hour break)"
+                    - option "8:00 AM to 12:00 PM"
+                    - option "8:30 AM to 6:30 PM (2 hours break)"
+                    - option "9:00 AM to 5:30 PM (30 minutes break)"
+                    - option "9:00 AM to 6:00 PM (1 hour break)"
+                    - option "9:00 AM to 7:00 PM (2 hours break)"
+                    - option "9:30 AM to 4:00 PM (30 min break)"
+                    - option "9:30 AM to 4:30 PM (1 hour break)"
+                    - option "9:30 AM to 6:00 PM (30 minutes break)"
+                    - option "10:00 AM to 2:00 PM"
+                    - option "10:00 AM to 3:00 PM"
+                    - option "10:00 AM to 5:00 PM (30-minute break)"
+                    - option "10:00 AM to 5:30 PM"
+                    - option "10:00 AM to 6:30 PM (30 minutes break)"
+                    - option "10:00 AM to 7:00 PM (1 hour break)"
+                    - option "10:30 AM to 7:00 PM (30 minutes break)"
+                    - option "10:30 AM to 5:00 PM (30 minutes break)"
+                    - option "11:00 AM to 7:30 PM (30 minutes break)"
+                    - option "11:00 AM to 8:00 PM (1 hour break)"
+                    - option "11:00 AM to 9:00 PM (1 hour break)"
+                    - option "11:00 AM to 9:00 PM (2 hours break)"
+                    - option "11:30 AM to 8:00 PM (30 minutes break)"
+                    - option "12:00 PM to 5:00 PM (1 hour break)"
+                    - option "12:00 PM to 5:30 PM (30 minutes break)"
+                    - option "12:00 PM to 8:30 PM (30 minutes break)"
+                    - option "12:30 PM to 7:00 PM (30 minutes break)"
+                    - option "12:30 PM to 8:30 PM (1 hour break)"
+                    - option "12:30 PM to 9:00 PM (30 minutes break)"
+                    - option "1:00 PM to 9:30 PM (30 minutes break)"
+                    - option "1:00 PM to 10:00 PM (1 hour break)"
+                    - option "1:30 PM to 10:00 PM (30 minutes break)"
+                    - option "2:00 PM to 8:30 PM (30 minutes break)"
+                    - option "2:00 PM to 10:00 PM"
+                    - option "2:00 PM to 11:00 PM (1 hour break)"
+                    - option "2:30 PM to 11:00 PM (30 minutes break)"
+                    - option "3:00 PM to 11:00 PM"
+                    - option "3:00 PM to 11:00 PM (30 minutes break)"
+                    - option "3:00 PM to 12:00 AM (1 hour break)"
+                    - option "3:30 PM to 8:00 PM (30 minutes break)"
+                    - option "3:30 PM to 11:00 PM (30 minutes break)"
+                    - option "3:30 PM to 12:00 AM (30 minutes break)"
+                    - option "4:00 PM to 12:00 AM"
+                    - option "4:00 PM to 01:00 AM (1 hour break)"
+                    - option "4:00 PM to 11:00 PM (30 minutes break)"
+                    - option "4:30 PM to 11:00 PM (30 minutes break)"
+                    - option "4:30 PM to 1:00 AM (30 minute break)"
+                    - option "6:00 PM to 11:00 PM"
+                    - option "7:00 PM to 11:00 PM"
+                    - option "7:00 PM to 12:00 AM"
+                    - option "8:00 PM to 12:00 AM"
+                    - option "12:00 PM to 9:00 PM (1 hour break)"
+                    - option "12:00 PM to 4:00 PM"
+                    - option "Individual"
+                    - option "Flexible"
+                - generic [ref=f2e59]:
+                  - generic [ref=f2e60]: Position
+                  - combobox [ref=f2e62] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "Accountant Assistant"
+                    - option "Associate Service Delivery Manager"
+                    - option "Assistant" [selected]
+                    - option "Business Analyst"
+                    - option "Campaign Analysis Coordinator"
+                    - option "Campaign Analysis Specialist"
+                    - option "Content Curator"
+                    - option "Campaign Coordinator"
+                    - option "Content Marketing Associate"
+                    - option "Coach LV"
+                    - option "Campaign Assessor"
+                    - option "CW Coordinator"
+                    - option "Content Writer"
+                    - option "Copywriter"
+                    - option "DB specialist"
+                    - option "Deputy Manager of Creative Teams"
+                    - option "Digital Marketing Assistant"
+                    - option "Digital Marketing Specialist"
+                    - option "Deputy Head of Department"
+                    - option "Design Coordinator"
+                    - option "Developer"
+                    - option "eLearning developer"
+                    - option "Events Coordinator"
+                    - option "Freelance Writer"
+                    - option "Graphic Designer"
+                    - option "Graphic/WEB Designer"
+                    - option "Head of HR"
+                    - option "HR specialist"
+                    - option "Head of Department"
+                    - option "Hardware Verification Engineer"
+                    - option "Internal Academy Team Lead"
+                    - option "IT Business Analyst"
+                    - option "IT Project Coordinator"
+                    - option "Junior Business Analyst"
+                    - option "LG specialist"
+                    - option "Lead Verification Specialist"
+                    - option "Lead Generation Specialist"
+                    - option "Manager"
+                    - option "Office administrator"
+                    - option "Online Verification Specialist"
+                    - option "Process Coordinator"
+                    - option "Project Coordinator"
+                    - option "Phone Verification Specialist"
+                    - option "Pipeline Assistant"
+                    - option "Pipeline Coordinator"
+                    - option "Project Manager"
+                    - option "PHP Developer"
+                    - option "QC"
+                    - option "QA Automation Engineer"
+                    - option "QA manual Engineer"
+                    - option "IT Infrastructure Specialist"
+                    - option "Recruiter"
+                    - option "SMM"
+                    - option "System Administrator"
+                    - option "Senior Content Curator"
+                    - option "Sales Support Manager"
+                    - option "Sales Support Associate, Lead Verification"
+                    - option "Sales Support Associate, Data Research"
+                    - option "Data Analyst"
+                    - option "Director of Technology"
+                    - option "Designer"
+                    - option "Instructional Designer"
+                    - option "Administrator"
+                    - option "eLearning Designer"
+                    - option "Sales Support Senior Specialist, Data Research"
+                    - option "Junior instructional designer"
+                    - option "Mid-level Instructional Designer"
+                    - option "Sales Support Specialist, Data Research"
+                    - option "Sales Support Specialist, Lead Verification"
+                    - option "Senior Instructional Designer"
+                    - option "Team Lead"
+                    - option "Technical Writer"
+                    - option "TL Assistant"
+                    - option "Translation Pipeline Assistant"
+                    - option "Training Specialist"
+                    - option "WEB Designer"
+                    - option "DevOps"
+                    - option "(over 30 Developers)"
+                    - option "APAC Senior Account Manager"
+                    - option "Accountant"
+                    - option "Account Director"
+                    - option "Account Executive"
+                    - option "Actress"
+                    - option "Algorithm Engineer"
+                    - option "Assistant Manager - Sales Enablement & Marketing"
+                    - option "Assistant Manager - Training"
+                    - option "BDR"
+                    - option "BDR Lead"
+                    - option "BDR Team Lead"
+                    - option "BI Analyst, Project Coordinator"
+                    - option "Block Team Lead"
+                    - option "Business Development Executive"
+                    - option "Business Intelligence Analyst"
+                    - option "Business Intelligence Team Lead"
+                    - option "CEO"
+                    - option "CFO"
+                    - option "CIO"
+                    - option "Campaign Success Manager"
+                    - option "Chief Revenue Officer"
+                    - option "Client Success Associate"
+                    - option "Client Success Expert"
+                    - option "Client Success Ops Associate"
+                    - option "Client Success Representative"
+                    - option "Consulting Development"
+                    - option "Content Marketing Manager"
+                    - option "Controller"
+                    - option "Creative Teams Manager"
+                    - option "Customer Success Representative"
+                    - option "Data Science"
+                    - option "Database Engineer"
+                    - option "DealDesk Associate"
+                    - option "Demand Generation Executive"
+                    - option "Department Manager"
+                    - option "DevOps (3-4 people)"
+                    - option "Developers"
+                    - option "Developers (3 people)"
+                    - option "Development"
+                    - option "Director of Client Success"
+                    - option "Director of Sales APAC"
+                    - option "Director of Strategic Accounts"
+                    - option "Director, Market Development & Stragetic Initiatives - APAC"
+                    - option "Director, Sales – Growth Business"
+                    - option "EMEA Agency Director"
+                    - option "EMEA Agency Manager"
+                    - option "EMEA Channel Growth Director"
+                    - option "EMEA Client Strategy"
+                    - option "EMEA Head of Strategic Growth"
+                    - option "EMEA Senior Account Manager"
+                    - option "EMEA Senior Demand Strategist"
+                    - option "English Speaking Club"
+                    - option "EMEA Strategic Accounts Director"
+                    - option "Front-end Developer"
+                    - option "Full-Stack Software Developer"
+                    - option "HR Executive"
+                    - option "HR Intern"
+                    - option "HR Recruiter"
+                    - option "Head of INFUSE Academy"
+                    - option "Head of Inside Sales at INFUSEmedia"
+                    - option "Head of Sales Development"
+                    - option "IT Consultant"
+                    - option "Infrastructure manager"
+                    - option "Instructional Designer for Strategic Projects"
+                    - option "Intern"
+                    - option "International Marketing & Sales Enablement Manager"
+                    - option "Junior Recruiter"
+                    - option "Manager - HR Ops & Office Administration"
+                    - option "Manager - Quality"
+                    - option "Manager Administration"
+                    - option "Manager Operations"
+                    - option "Manager, Strategic Projects"
+                    - option "Market Research Analyst"
+                    - option "Marketing Associate"
+                    - option "Marketing Coordinator"
+                    - option "Marketing Specialist"
+                    - option "Middle Web Project Manager"
+                    - option "National Sales Director - India"
+                    - option "Planning Coordinator for the ID Unit"
+                    - option "Product Owner"
+                    - option "Programmer"
+                    - option "Project Administrator"
+                    - option "Promotions"
+                    - option "Proofreader"
+                    - option "QA Specialist"
+                    - option "QA Trainer"
+                    - option "QA/Lead Delivery Specialist"
+                    - option "Research Executive"
+                    - option "SDR"
+                    - option "SDR Manager"
+                    - option "SDR/BDR Manager"
+                    - option "Sales Account Manager"
+                    - option "Sales Operations Associate"
+                    - option "Salesforce Admin"
+                    - option "Salesforce Developer"
+                    - option "Sendings/Infrastructure Manager"
+                    - option "Senior Account Executive"
+                    - option "Senior Account Manager APAC"
+                    - option "Senior Algorithm Engineer"
+                    - option "Senior BDR"
+                    - option "Senior Business Development Manager"
+                    - option "Sr. Client Success Expert"
+                    - option "Sr. Client Success Expert, Online Display Advertising"
+                    - option "Senior EMEA Account Manager"
+                    - option "Senior Full-Stack / Backend Engineer"
+                    - option "Senior SDR"
+                    - option "Senior Vice President"
+                    - option "Senior Vice-President of Sales, Americas"
+                    - option "Sr. Account Growth Director"
+                    - option "Sr. BDR"
+                    - option "Sr. Demand Generation Executive"
+                    - option "Sr. Director, Sales"
+                    - option "Sr. Executive, Sales & Strategy"
+                    - option "Sr. Quality Analyst"
+                    - option "Sr. Team Leader"
+                    - option "TA Executive"
+                    - option "Talent Acquisition Lead"
+                    - option "Team Leader"
+                    - option "Team Manager, Client Success"
+                    - option "Transport Executive"
+                    - option "UI/UX Designer"
+                    - option "VP, Global Client Success & Strategy"
+                    - option "VP Marketing"
+                    - option "VP of Display Advertising"
+                    - option "VP of Strategic Accounts"
+                    - option "VP Security Research and Product"
+                    - option "Vice President EMEA"
+                    - option "Vice President of Sales APAC"
+                    - option "Vice President of Strategic Accounts"
+                    - option "Vice President, HR & Operations"
+                    - option "Video Editor and eLearning Administrator"
+                    - option "Quality Analyst"
+                    - option "Sr. Client Success Associate"
+                    - option "Sr. Client Success Ops Associate"
+                    - option "Hardware Logic Designer"
+                    - option "Internal Communications Coordinator"
+                    - option "Manager, Agency Growth Team"
+                    - option "Customer Success Manager"
+                    - option "Learning and Development Associate"
+                    - option "Strategic Growth Associate"
+                    - option "CM Operations Manager"
+                    - option "eLearning Developer and LMS Specialist"
+                    - option "Computer Network Systems Specialist"
+                    - option "Software Developer"
+                    - option "Sr. Manager, Agency Growth Team"
+                    - option "Agency Manager - APAC"
+                    - option "RPA Developer"
+                    - option "Front-End Lead"
+                    - option "Back-End Lead"
+                    - option "Back-End Developer"
+                    - option "QA Lead"
+                    - option "QA Automation Lead"
+                    - option "Head of Development, Global Cloud Team, Wizardsdev"
+                    - option "Creative Director"
+                    - option "Vice President of Custom Content Solutions"
+                    - option "Founder&CTO"
+                    - option "CS Team Supervisor"
+                    - option "Sr. Director, Global Client Success"
+                    - option "Junior In-House Counsel"
+                    - option "Senior CS Team Lead"
+                    - option "CS Training and Onboarding Specialist"
+                    - option "Director of Sales Operations"
+                    - option "GTM Lead, Marketing & Sales Enablement"
+                    - option "Full Stack Web Developer"
+                    - option "Growth Marketing Manager"
+                    - option "Targeted Display Campaign Coordinator"
+                    - option "Manager of QC Department"
+                    - option "DealDesk Team Lead"
+                    - option "Machine Learning Engineer"
+                    - option "In-House Сouncel"
+                    - option "Head of Lead Generation Operations"
+                    - option "DealDesk Expert"
+                    - option "Chief Operating Officer"
+                    - option "Executive Assistant"
+                    - option "Marketing Operations Specialist"
+                    - option "Vice President of INFUSE Health"
+                    - option "Manager, Client Relations & Strategy"
+                    - option "Director of Channel Marketing and Strategy"
+                    - option "Data Clerk"
+                    - option "Project Coordinator Assistant"
+                    - option "HealthCare Account Executive"
+                    - option "Sr. Demand Strategist"
+                    - option "Senior Campaing Coordinator"
+                    - option "Demand Strategist"
+                    - option "Director of Lead Generation"
+                    - option "Client Success Ops Team Supervisor"
+                    - option "Sr. Client Success Ops Expert"
+                    - option "Junior Business Intelligence Analyst"
+                    - option "Senior Manager - Demand Strategy"
+                    - option "Regional Director of Operations"
+                    - option "Global Director of Partnerships"
+                    - option "EMEA Senior Account Director"
+                    - option "Head of EMEA Agency Growth"
+                    - option "Head of Commercial Sales"
+                    - option "EMEA Senior Agency Manager"
+                    - option "DealDesk Supervisor"
+                    - option "Solutions Architect"
+                    - option "DealDesk Ops Associate"
+                    - option "HR Generalist"
+                    - option "Client Success Ops Expert"
+                    - option "Business Development Representative"
+                    - option "Sr. Business Development Representative"
+                    - option "Creative Team Lead"
+                    - option "Sr. Data Analyst"
+                    - option "Account Development Representative"
+                    - option "Senior In-House Council"
+                    - option "Agency Relations Manager"
+                    - option "Project Management Office Lead"
+                    - option "CS Ops Associate"
+                    - option "Product Manager"
+                    - option "Director of Account Strategy"
+                    - option "CS Team Lead"
+                    - option "Sr Account Director"
+                    - option "Sr Director of Demand Strategy"
+                    - option "IT Team Lead"
+                    - option "Presentation Designer"
+                    - option "Client Success Ops Team Lead"
+                    - option "Junior Project Coordinator"
+                    - option "Sr. Manager, Client Operations and Strategy"
+                    - option "Information Security Analyst"
+                    - option "Customer Support Technical Engineer"
+                    - option "Senior Manager Growth and Sales"
+                    - option "Field Marketing Specialist"
+                    - option "Customer Support Specialist"
+                    - option "Content Creation Process Manager"
+                    - option "Content Marketing Team Lead"
+                    - option "Learning Architect"
+                    - option "Client Success Coordinator"
+                    - option "Director of Sales & Agency Partnerships"
+                    - option "DealDesk Representative"
+                    - option "Program Manager, Demand Excellence"
+                    - option "Consultant"
+                    - option "Financial Analyst"
+                    - option "Motion Designer"
+                    - option "Python/ML Developer"
+                    - option "Procurement Specialist"
+                    - option "Operations Manager"
+                    - option "VP of Global Client Strategy"
+                    - option "MENA Senior Account Director"
+                    - option "Managing Editor"
+                    - option "Office Assistant"
+                    - option "VP of Global Client Success"
+                    - option "VP of Research & Custom Content"
+                    - option "Sales Proposal Writer"
+                    - option "Vyond Animator & Video Editor"
+                    - option "Graphic & Motion Designer"
+                    - option "L1 IT Support Specialist"
+                    - option "Team Lead Integrations"
+                    - option "Tech Lead"
+                    - option "Sr Expert, Client Relations & Strategy"
+                    - option "Agency Relations Specialist"
+                    - option "Script Developer"
+                    - option "Senior Wordpress Developer"
+                    - option "Business/System Analyst"
+                    - option "Manager, Agency Relations"
+                    - option "Sr Manager, Agency Relations"
+                    - option "Senior Back-End Developer"
+                    - option "Sales Support Specialist"
+                    - option "External Trainer"
+                    - option "Sr. Expert, Client Relations & Strategy"
+                    - option "CS Training & Development Team Lead"
+                    - option "Creatives Delivery Senior Specialist"
+                    - option "Creatives Delivery Associate"
+                    - option "Creatives Delivery Specialist"
+                    - option "Associate Creatives Delivery Manager"
+                    - option "Director, Demand Strategy and Growth"
+                    - option "General Counsel"
+                    - option "Junior Graphic Designer"
+                    - option "AI Engineer"
+                    - option "Travel Coordinator"
+                    - option "Senior CRM Administrator & Team Lead"
+                    - option "Sr. DealDesk Expert"
+                    - option "Sales Support, Lead Verification Specialist"
+                    - option "Product Lead"
+                    - option "VOIP specialist"
+                    - option "Content QA Analyst"
+                    - option "Director of Client Success Strategy & Innovation"
+                    - option "Sr CS Project & Training Expert"
+                    - option "Data Scientist"
+                    - option "Senior Team Lead"
+                    - option "Junior Prompt AI Design Engineer"
+                    - option "Campaign Associate"
+                    - option "IT Service Delivery Lead"
+                    - option "Embedded Software Engineer"
+                    - option "Senior Manager, Campaign Management Operations"
+                    - option "Director, Agency Relations"
+                    - option "Director of Procurement"
+                    - option "Chief Product Officer"
+                    - option "L3 IT Support Specialist"
+                    - option "L2 IT Support Specialist"
+                    - option "BI Data Processor"
+                    - option "Pipeline Growth Manager"
+                    - option "Project Management Office Coordinator"
+                    - option "Sr Director of Client Strategy"
+                    - option "Sr. Director of Strategic Accounts"
+                    - option "Channel Account Executive"
+                    - option "Channel SDR"
+                    - option "Head of EMEA Growth Sales"
+                    - option "Vice President of INFUSE Association"
+                    - option "HR Assistant"
+                    - option "VP of Commercial Demand"
+                    - option "Sr. Director, Client Strategy and Sales"
+                    - option "Partner Strategy & Solutions Director"
+                    - option "GTM Analyst, Marketing & Sales Enablement"
+                    - option "EMEA Account Manager"
+                    - option "SDR Leader"
+                    - option "Lead Product Manager"
+                    - option "Sr Account Manager"
+                    - option "AI Developer"
+                    - option "Sr Director of Account Strategy"
+                    - option "Head of Business Analysis and Data Analytics"
+                    - option "Manager, Client Operations & Strategy"
+                    - option "R&D Product Manager"
+                    - option "GTM Strategist"
+                    - option "Sr. GTM Strategist"
+                    - option "Senior Manager - GTM Strategy"
+                    - option "Director of Business Intelligence & Strategic Projects"
+                    - option "Functional Architect"
+                    - option "Data Consultant"
+                    - option "Senior Data Scientist / Senior Backend Developer"
+                    - option "Consultant/DS Engineer"
+                    - option "Client Success Manager"
+                    - option "Travel Team Manager"
+                    - option "VP of Business Development"
+                    - option "IT Support Specialist"
+                    - option "AI Researcher"
+                    - option "Senior Business Intelligence Developer"
+                    - option "HR Manager"
+                    - option "Interim Head of Engineering"
+                    - option "Sr. Growth Marketing Manager"
+                    - option "Chief Marketing Officer"
+                    - option "Sr. Content Marketing Manager"
+                    - option "Director, Client Ops & Strategy"
+                    - option "Process Trainer & OJT Lead"
+                    - option "Project Manager, Marketing Research Analyst"
+                    - option "Manager, BI Development & Operations"
+                    - option "Client Success Expert, Content Solutions"
+                    - option "Senior IT Support Specialist"
+                    - option "QA/Project Manager"
+                    - option "Python Developer"
+                    - option "GTM Engineer"
+                    - option "Vice President APAC"
+                    - option "Video Editor"
+                    - option "Senior EMEA Agency Manager"
+                    - option "Senior BI Developer & Technical Lead"
+                    - option "Sr. Client Success Representative"
+                    - option "Sr. Client Success Manager"
+                    - option "Media Coordinator"
+                    - option "n8n Workflow Specialist"
+                    - option "QA/Business Analyst"
+                    - option "Sr. Manager - Office Administration"
+                    - option "Sr. Manager - Quality"
+                    - option "Sr. Operation Manager"
+                    - option "Sr. Manager - Training"
+                    - option "Front End Software Developer"
+                    - option "Block Coordinator"
+                    - option "DealDesk Team Lead, North America"
+                    - option "Manager, Agency Relations & Strategy"
+                    - option "Team Manager, DealDesk"
+                - generic [ref=f2e63]:
+                  - generic [ref=f2e64]: Add new position
+                  - textbox [ref=f2e66]
+                - generic [ref=f2e67]:
+                  - generic [ref=f2e68]: PTO*
+                  - combobox [ref=f2e70] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "PTO" [selected]
+                    - option "Employee PTO"
+                    - option "No PTO/Holidays"
+                    - option "Holidays. No PTO"
+                    - option "India PTO"
+                - generic [ref=f2e71]:
+                  - generic [ref=f2e72]: Regional Holidays
+                  - combobox [ref=f2e74] [cursor=pointer]:
+                    - option "[not set]" [selected]
+                    - option "APAC"
+                    - 'option "AU: NSW"'
+                    - 'option "AU: Queensland"'
+                    - option "EMEA"
+                    - option "NAM"
+                    - option "No Holidays"
+                    - option "NZ"
+                    - option "Singapore"
+                    - option "Israel"
+                - generic [ref=f2e75]:
+                  - generic [ref=f2e76]: Time zone*
+                  - combobox [ref=f2e78] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "EEST"
+                    - option "EST" [selected]
+                    - option "GMT"
+                    - option "EET"
+                    - option "ACST"
+                    - option "AEST"
+                    - option "AKST"
+                    - option "AST"
+                    - option "AWST"
+                    - option "CAT"
+                    - option "CET"
+                    - option "CST"
+                    - option "EAT"
+                    - option "HAST"
+                    - option "MSK"
+                    - option "MST"
+                    - option "NST"
+                    - option "PST"
+                    - option "UTC"
+                    - option "WAT"
+                    - option "WET"
+                    - option "SGT"
+                    - option "IST"
+                - generic [ref=f2e79]:
+                  - generic [ref=f2e80]: Probation period (months)*
+                  - textbox [ref=f2e82]: "1"
+                - generic [ref=f2e83]:
+                  - generic [ref=f2e84]: Budget*
+                  - combobox [ref=f2e86] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "International"
+                    - option "US" [selected]
+                - generic [ref=f2e87]:
+                  - generic [ref=f2e88]: Security level
+                  - combobox [ref=f2e90] [cursor=pointer]:
+                    - option "[not set]" [selected]
+                    - option "Low"
+                    - option "High"
+                - generic [ref=f2e91]:
+                  - generic [ref=f2e92]: Payment type*
+                  - combobox [ref=f2e94] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "Payoneer" [selected]
+                    - option "Entrepreneur"
+                    - option "Direct"
+                    - option "Paypal"
+                    - option "Swift"
+                    - option "Wire transfer"
+                    - option "Paid via the Vendor"
+                    - option "ADP"
+                    - option "Deel"
+                    - option "Virtual Subsidiary"
+                    - option "Capital Ges"
+                    - option "Globalization Partners"
+                - generic [ref=f2e95]:
+                  - generic [ref=f2e96]: Type of Contract*
+                  - combobox [ref=f2e98] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "US Employee"
+                    - option "UK Employee"
+                    - option "US Contractor" [selected]
+                    - option "Non-US Contractor"
+                    - option "Spain Employee"
+                    - option "Indian Employee"
+                    - option "Israeli Employee"
+                    - option "APAC Employee"
+                    - option "UA Contractor"
+                    - option "INTL Employee"
+                - generic [ref=f2e99]:
+                  - generic [ref=f2e100]: Recruiter*
+                  - generic [ref=f2e105]:
+                    - link "Marina Smirnova" [ref=f2e107] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                      - generic [ref=f2e109]: Marina Smirnova
+                    - generic [ref=f2e112] [cursor=pointer]: change
+                - generic [ref=f2e113]:
+                  - generic [ref=f2e114]: Manager*
+                  - generic [ref=f2e119]:
+                    - link "Marina Smirnova" [ref=f2e121] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                      - generic [ref=f2e123]: Marina Smirnova
+                    - generic [ref=f2e126] [cursor=pointer]: change
+                - generic [ref=f2e127]:
+                  - generic [ref=f2e128]: Team Lead
+                  - generic [ref=f2e133]:
+                    - link "Marina Smirnova" [ref=f2e135] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                      - generic [ref=f2e137]: Marina Smirnova
+                    - generic [ref=f2e140] [cursor=pointer]: change
+                - generic [ref=f2e141]:
+                  - generic [ref=f2e142]: Main Team Lead
+                  - generic [ref=f2e147]:
+                    - link "Marina Smirnova" [ref=f2e149] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                      - generic [ref=f2e151]: Marina Smirnova
+                    - generic [ref=f2e154] [cursor=pointer]: change
+                - generic [ref=f2e155]:
+                  - generic [ref=f2e156]: HR*
+                  - generic [ref=f2e161]:
+                    - link "Marina Smirnova" [ref=f2e163] [cursor=pointer]:
+                      - /url: /company/personal/user/746/
+                      - generic [ref=f2e165]: Marina Smirnova
+                    - generic [ref=f2e168] [cursor=pointer]: change
+                - generic [ref=f2e169]:
+                  - generic [ref=f2e170]: Recruiting Source*
+                  - combobox [ref=f2e172] [cursor=pointer]:
+                    - option "[not set]"
+                    - option "Angelo Olpindo Galicia (the Phillipines)"
+                    - option "ApplyGateway"
+                    - option "Arc" [selected]
+                    - option "besplatka.ua (Ukraine)"
+                    - option "Blind"
+                    - option "Brazen"
+                    - option "Careerjet"
+                    - option "Clu"
+                    - option "Custom Ingestion API Integration"
+                    - option "Danjilene Perez (the Phillipines)"
+                    - option "Delucru.md (Moldova)"
+                    - option "Derek (Ghana)"
+                    - option "Djinni.co (CV)"
+                    - option "Djinni.co (posting Ad)"
+                    - option "Dou.eu"
+                    - option "Dou.ua"
+                    - option "ejob.az (Azerbaijan)"
+                    - option "Employee.ge (Georgia)"
+                    - option "Facebook"
+                    - option "GConnection"
+                    - option "GitHub Jobs"
+                    - option "Glassdoor"
+                    - option "Globy"
+                    - option "Grc.ua"
+                    - option "Gumtree.co.za (South Africa)"
+                    - option "happymonday.ua"
+                    - option "headhunter.ge (Georgia)"
+                    - option "headhunter.kg (Kyrgyzstan)"
+                    - option "headhunter (Other regions)"
+                    - option "Hellojob.az (Azerbaijan)"
+                    - option "hh.kz (Kazakhstan)"
+                    - option "hh.uz (Uzbekistan)"
+                    - option "hh1.az (Azerbaijan)"
+                    - option "HR Drone"
+                    - option "Hr.ge (Georgia)"
+                    - option "Indeed"
+                    - option "Indeed.com (sponsored Ad)"
+                    - option "Instagram.com"
+                    - option "Internal Applicant"
+                    - option "Intrro"
+                    - option "JobGet"
+                    - option "Jobs page on your website"
+                    - option "jobs.ua (Ukraine)"
+                    - option "jobsearch.az (Azerbaijan)"
+                    - option "Jobsinghana.com (Ghana)"
+                    - option "Jobstep"
+                    - option "Jooble.com"
+                    - option "Kula"
+                    - option "kz.jooble.org (Kazakhstan)"
+                    - option "kz.superjob.ru (Kazakhstan)"
+                    - option "Layboard.com"
+                    - option "Letter with invitation"
+                    - option "Levels fyi"
+                    - option "Linked Helper 2"
+                    - option "LinkedIn (Social Media)"
+                    - option "LinkedIn Limited Listing"
+                    - option "LinkedIn.com (sponsored Ad)"
+                    - option "Limitless Prospects LTD"
+                    - option "Monster.com (worldwide)"
+                    - option "Myjob.am (Armenia)"
+                    - option "Myjobs.ge (Georgia)"
+                    - option "Nofluffjobs.com"
+                    - option "Noon.ai"
+                    - option "Olx.ua"
+                    - option "olx.uz (Uzbekistan)"
+                    - option "Orgami"
+                    - option "Paraform"
+                    - option "Personal Outreach"
+                    - option "Rabota.kz (Kazakhstan)"
+                    - option "Rabota.md (Moldova)"
+                    - option "Rabota.ua"
+                    - option "Ramped"
+                    - option "Referral"
+                    - option "Rehire"
+                    - option "Responded to an ad on LinkedIn Limited Listing"
+                    - option "sample"
+                    - option "samplepartner"
+                    - option "Scalescout"
+                    - option "Scout Hires"
+                    - option "Secret Tel Aviv"
+                    - option "SmartRecruiters.com"
+                    - option "Success Moves"
+                    - option "Telegram channel"
+                    - option "ua.habooz (Ukraine)"
+                    - option "Uz.trud (Uzbekistan)"
+                    - option "Viber"
+                    - option "Waldo Labs Relay"
+                    - option "Walk In"
+                    - option "Wednesday Talent"
+                    - option "WhatsApp"
+                    - option "Work.ua"
+                    - option "X Hiring"
+                    - option "ZipRecruiter"
+                    - option "Cold Outreach"
+                    - option "LinkedIn"
+                    - option "Other"
+                - generic [ref=f2e173]:
+                  - generic [ref=f2e174]: Department Block*
+                  - generic [ref=f2e178]:
+                    - generic [ref=f2e179]:
+                      - generic [ref=f2e181]: Business Entity *
+                      - combobox [ref=f2e183]:
+                        - option "INFUSE" [selected]
+                        - option "Selling.com"
+                        - option "Other"
+                        - option "DemandFactor"
+                        - option "FortifyIQ"
+                        - option "InfuseB2B"
+                        - option "INKHUB"
+                    - generic [ref=f2e184]:
+                      - generic [ref=f2e186]: Department (HR) *
+                      - combobox [ref=f2e188]:
+                        - option "not selected"
+                        - option "Administration"
+                        - option "Client Success"
+                        - option "CM"
+                        - option "CAT" [selected]
+                        - option "DPO"
+                        - option "Content Curation"
+                        - option "Copywriting Team"
+                        - option "DBI"
+                        - option "DealDesk"
+                        - option "Finance"
+                        - option "Graphic Design"
+                        - option "HR"
+                        - option "INFUSE Academy"
+                        - option "INFUSE BI"
+                        - option "INFUSEFlow Support"
+                        - option "Intelligent Automation"
+                        - option "IT Support"
+                        - option "ListGen"
+                        - option "LV"
+                        - option "Management"
+                        - option "Marketing"
+                        - option "Creatives Delivery"
+                        - option "QA"
+                        - option "QC"
+                        - option "Sales Support"
+                        - option "Sales"
+                        - option "Sending Team"
+                        - option "Software Development"
+                        - option "Web Design"
+                        - option "Vendors"
+                        - option "Special Projects"
+                        - option "Targeted Display"
+                        - option "Design & Innovation Lab"
+                        - option "Lead Generation Operations"
+                        - option "BDR"
+                        - option "Sales Operations"
+                        - option "Agency Team"
+                        - option "Content Custom Solutions"
+                    - generic [ref=f2e189]:
+                      - generic [ref=f2e190]: Sub-Department
+                      - combobox [ref=f2e192]:
+                        - option "not selected"
+                    - generic [ref=f2e193]:
+                      - generic [ref=f2e194]: Teams/Specialties
+                      - listbox [ref=f2e198]:
+                        - option "not selected" [selected] [ref=f2e199]
+        - generic [ref=f2e203]:
+          - button "BACK" [disabled] [ref=f2e204]:
+            - generic [ref=f2e205]: BACK
+          - button "RUN" [disabled] [ref=f2e206]:
+            - generic [ref=f2e207]: RUN
+    - generic "Close" [ref=e700] [cursor=pointer]
+```

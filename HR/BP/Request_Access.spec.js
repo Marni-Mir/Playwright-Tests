@@ -1,19 +1,20 @@
-const { test, expect } = require('@playwright/test');
-const path = require('path');
-const { loginToSite } = require('../../helpers/devlogin.auth');
+const { test: base, expect } = require('@playwright/test');
+const { loginFixtures } = require('../../fixtures/login.fixture');
+const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
+
+const test = base.extend({
+    ...loginFixtures,
+    ...linksFixtures,
+});
 
 test.describe('Request Access BP test', () => {
     
     test.setTimeout(900000);
 
-    test('BP Request access', async ({ page }) => {
-            await loginToSite(page);
-
-            // 1. Читаем ссылки
-        let links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
+    test('BP Request access', async ({ loggedInPage: page, links }) => {
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке

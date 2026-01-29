@@ -1,10 +1,15 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
-const { test, expect } = require('@playwright/test');
-const path = require('path');
-const { loginToSite } = require('../../helpers/devlogin.auth');
+const { test: base, expect } = require('@playwright/test');
+const { loginFixtures } = require('../../fixtures/login.fixture');
+const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
+
+const test = base.extend({
+    ...loginFixtures,
+    ...linksFixtures,
+});
 
 test.describe('Ticket Dismiss TM test', () => {
     
@@ -13,10 +18,7 @@ test.describe('Ticket Dismiss TM test', () => {
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test('TM card test delete', async ({ page }) => {
-        await loginToSite(page);
-        // 1. Читаем ссылки
-        let links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
+    test('TM card test delete', async ({ loggedInPage: page, links }) => {
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке
@@ -41,6 +43,8 @@ test.describe('Ticket Dismiss TM test', () => {
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.forwardEmails).selectOption('No');
         // Нажимаем на кнопку Run
         await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.runButton).click();
+        //await page.waitForTimeout(6000);
+
         // Проверяем закрытие фрейма БП
         await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden();
         await page.reload();

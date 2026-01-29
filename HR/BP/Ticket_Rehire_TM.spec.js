@@ -1,9 +1,14 @@
-const { test, expect } = require('@playwright/test');
-const path = require('path');
-const { loginToSite } = require('../../helpers/devlogin.auth');
+const { test: base, expect } = require('@playwright/test');
+const { loginFixtures } = require('../../fixtures/login.fixture');
+const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
+
+const test = base.extend({
+    ...loginFixtures,
+    ...linksFixtures,
+});
 
 // --- ОБЪЕКТ ДАННЫХ ---
 const TEST_DATA = {
@@ -17,11 +22,7 @@ test.describe('Ticket Rehire TM test', () => {
     
     test.setTimeout(150000);
 
-    test('Ticket Rehire test', async ({ page }) => {
-            await loginToSite(page);
-
-            // Читаем ссылки
-            let links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
+    test('Ticket Rehire test', async ({ loggedInPage: page, links }) => {
             console.log('Target Link:', links['NewTM']);
             await page.goto(links['NewTM']);
 

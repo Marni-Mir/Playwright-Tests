@@ -1,19 +1,19 @@
-const { test, expect } = require('@playwright/test');
-const path = require('path');
-const { loginToSite } = require('../../helpers/devlogin.auth');
-const fs = require('fs');
-const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
+const { test: base, expect } = require('@playwright/test');
+const { loginFixtures } = require('../../fixtures/login.fixture');
+const { linksFixtures } = require('../../fixtures/links.fixture');
+const { SELECTORS_CATALOG } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
+
+const test = base.extend({
+    ...loginFixtures,
+    ...linksFixtures,
+});
 
 test.describe('Rehire TM test', () => {
     
     test.setTimeout(150000);
 
-    test('Ticket test flow', async ({ page }) => {
-        await loginToSite(page);
-
-            // Читаем ссылки
-            let links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
+    test('Ticket test flow', async ({ loggedInPage: page, links }) => {
             console.log('Target Link:', links['NewTM']);
             await page.goto(links['NewTM']);
             await page.waitForTimeout(2000);
@@ -86,8 +86,9 @@ test.describe('Rehire TM test', () => {
 
             await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.departments).selectOption('CAT');
 
-            await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.runButton).click({ timeout: 2000 });
-
+            await bpFrame.locator(SELECTORS_CATALOG.TeamMemberCard.BP.runButton).click();
+            await page.waitForTimeout(6000);
+            
              // Проверяем закрытие фрейма БП
             await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden({ timeout: 3000 });
             await page.reload();
