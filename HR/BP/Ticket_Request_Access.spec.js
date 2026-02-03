@@ -22,7 +22,7 @@ test.describe('Ticket Request Access test', () => {
     
     test.setTimeout(150000);
 
-    test('Ticket Request Access test', async ({ loggedInPage: page, links }) => {
+    test('Ticket Request Access test flow', async ({ loggedInPage: page, links }) => {
             console.log('Target Link:', links['NewTM']);
             await page.goto(links['NewTM']);
 

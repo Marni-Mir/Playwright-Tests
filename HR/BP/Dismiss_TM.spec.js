@@ -11,14 +11,14 @@ const test = base.extend({
     ...linksFixtures,
 });
 
-test.describe('Ticket Dismiss TM test', () => {
+test.describe('Dismiss TM test', () => {
     
     // Таймаут для всего теста
     test.setTimeout(120000);
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test('TM card test delete', async ({ loggedInPage: page, links }) => {
+    test('Dismiss TM test flow', async ({ loggedInPage: page, links }) => {
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке

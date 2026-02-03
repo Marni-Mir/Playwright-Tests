@@ -13,7 +13,7 @@ test.describe('Rehire TM test', () => {
     
     test.setTimeout(150000);
 
-    test('Ticket test flow', async ({ loggedInPage: page, links }) => {
+    test('Rehire TM test flow', async ({ loggedInPage: page, links }) => {
             console.log('Target Link:', links['NewTM']);
             await page.goto(links['NewTM']);
             await page.waitForTimeout(2000);

@@ -25,7 +25,7 @@ test.describe('On Hold TM test', () => {
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test('On Hold TM test', async ({ loggedInPage: page, links }) => {
+    test('On Hold TM test flow', async ({ loggedInPage: page, links }) => {
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке

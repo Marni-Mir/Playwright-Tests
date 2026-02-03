@@ -22,7 +22,7 @@ test.describe('Ticket Rehire TM test', () => {
     
     test.setTimeout(150000);
 
-    test('Ticket Rehire test', async ({ loggedInPage: page, links }) => {
+    test('Ticket Rehire test flow', async ({ loggedInPage: page, links }) => {
             console.log('Target Link:', links['NewTM']);
             await page.goto(links['NewTM']);
 

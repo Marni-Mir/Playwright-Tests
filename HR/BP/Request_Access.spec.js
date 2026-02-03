@@ -14,7 +14,7 @@ test.describe('Request Access BP test', () => {
     
     test.setTimeout(900000);
 
-    test('BP Request access', async ({ loggedInPage: page, links }) => {
+    test('BP Request access flow', async ({ loggedInPage: page, links }) => {
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке
