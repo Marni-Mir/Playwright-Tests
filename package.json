@@ -1,0 +1,29 @@
+{
+  "name": "pw",
+  "version": "1.0.0",
+  "description": "📚 Шпаргалка по основным командам\r Вот небольшой список, который тебе пригодится:",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npx playwright test --config ..\\playwright.config.js",
+    "test:order": "node run-tests.js",
+    "test:smoke": "node run-tests.js smoke",
+    "test:pto": "node run-tests.js pto",
+    "test:bp": "node run-tests.js bp",
+    "test:newtm": "node run-tests.js newtm",
+    "test:helpdesk": "node run-tests.js helpdesk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marni-Mir/Playwright-Tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marni-Mir/Playwright-Tests/issues"
+  },
+  "homepage": "https://github.com/Marni-Mir/Playwright-Tests#readme"
+}
