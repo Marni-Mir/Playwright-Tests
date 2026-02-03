@@ -8,13 +8,16 @@ const SELECTORS = {
 };
 
 const TEST_DATA = {
-    url: 'https://dev3.togetdone.com',
-    login: 'm.smirnova@infuseua.com',
-    password: 'MR2Jvd9o$B'
+    url: process.env.BASE_URL,
+    login: process.env.LOGIN,
+    password: process.env.PASSWORD
 };
 
 // 2. Сама функция
 async function loginToSite(page) {
+    if (!TEST_DATA.url || !TEST_DATA.login || !TEST_DATA.password) {
+        throw new Error('Missing BASE_URL/LOGIN/PASSWORD env vars.');
+    }
     // 3. 'goto' остается, но использует константу
     await page.goto(TEST_DATA.url);
 

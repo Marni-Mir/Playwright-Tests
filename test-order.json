@@ -1,0 +1,37 @@
+{
+  "smoke": [
+    "PTO/Compare_data.spec.js",
+    "PTO/Values_by_probation_period.spec.js",
+    "HR/BP/Dismiss_TM.spec.js"
+  ],
+  "pto": [
+    "PTO/Compare_data.spec.js",
+    "PTO/Default_days_by_years.spec.js",
+    "PTO/Values_by_probation_period.spec.js",
+    "PTO/Write-off_of_vacation_days.spec.js"
+  ],
+  "bp": [
+    "HR/BP/Required_Fields_BP.spec.js",
+    "HR/BP/Request_Access.spec.js",
+    "HR/BP/Ticket_Request_Access.spec.js",
+    "HR/BP/On_Hold.spec.js",
+    "HR/BP/Return'On_Hold'.spec.js",
+    "HR/BP/Dismiss_TM.spec.js",
+    "HR/BP/Ticket_Dismiss_TM.spec.js",
+    "HR/BP/Rehire_TM.spec.js",
+    "HR/BP/Ticket_Rehire_TM.spec.js"
+    
+  ],
+  "newtm": [
+  "HR/NewTM/New_TM.spec.js",
+  "HR/NewTM/Ticket_New_TM.spec.js"
+  ],
+  "newtm_disabled": [
+  "HR/NewTM/Delete_TM_Card.spec.js",
+  "HR/NewTM/Delete_Ticket.spec.js"
+  ],
+  "helpdesk": [
+    "HelpDesk/Create_Ticket_by_form.spec.js"
+  ]
+}
+
