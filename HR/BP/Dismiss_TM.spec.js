@@ -102,7 +102,11 @@ test.describe('Dismiss TM test', () => {
          console.log('Extracted Ticket ID:', ticketId);
  
          // 6. Переход в Helpdesk и поиск
-         await page.goto(links['Helpdesk']); 
+         const helpdeskUrl = process.env.HELPDESK_URL;
+        if (!helpdeskUrl) {
+            throw new Error('HELPDESK_URL не задан в .env файле');
+        }
+        await page.goto(helpdeskUrl);  
          
          // В Playwright клик и заполнение полей
          await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();

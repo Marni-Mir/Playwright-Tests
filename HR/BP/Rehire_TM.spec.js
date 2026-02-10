@@ -132,7 +132,11 @@ test.describe('Rehire TM test', () => {
          console.log('Extracted Ticket ID:', ticketId);
 
             // Проверяем создание тикета в Helpdesk
-            await page.goto(links['Helpdesk']);
+            const helpdeskUrl = process.env.HELPDESK_URL;
+        if (!helpdeskUrl) {
+            throw new Error('HELPDESK_URL не задан в .env файле');
+        }
+        await page.goto(helpdeskUrl); 
 
             // Настраиваем фильтр
             await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
