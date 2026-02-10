@@ -20,6 +20,7 @@ const SELECTORS = {
     firstName: 'input[name="UF_FIRST_NAME"]',
     lastName: 'input[name="UF_LAST_NAME"]',
     email: 'textarea[name="UF_CRM_1660816060"]',
+    officeType: 'div[data-cid="UF_CRM_1642785999097"]',
     personalEmail: 'input[name="UF_CRM_1642787372818[]"]',
     countryDropdown: 'div[data-cid="UF_COUNTRY_PERSONAL_LOCATION"]',
     dropdownItem: '.ui-selector-item', // Общий селектор для элемента списка
@@ -47,6 +48,7 @@ const TEST_DATA = {
     firstName: 'Test FName',
     lastName: 'LName',
     email: 'test@test.test',
+    officeType: 'Remote',
     personalEmail: 'ptest@test',
     country: 'Zimbabwe',
     date: '01/03/2023',
@@ -82,6 +84,9 @@ test.describe('Ticket New TM test', () => {
         await frame.locator(SELECTORS.firstName).fill(TEST_DATA.firstName);
         await frame.locator(SELECTORS.lastName).fill(TEST_DATA.lastName);
         await frame.locator(SELECTORS.email).fill(TEST_DATA.email);
+        // Выпадающий список "Office Type"
+        await frame.locator(SELECTORS.officeType).click();
+        await frame.locator(SELECTORS.dropdownItem, { hasText: TEST_DATA.officeType }).click();
         await frame.locator(SELECTORS.personalEmail).fill(TEST_DATA.personalEmail);
 
         // Выпадающий список "Country"
