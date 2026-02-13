@@ -43,6 +43,7 @@ const SELECTORS_CATALOG = {
         addUserLink: 'a[id^="add_user_UF_CRM_1631802843"]', // id кнопки начинается с...
         userSearchBar: '.feed-add-destination-inp', 
         saveUserButton: 'span[class= "ui-btn ui-btn-primary"]',
+        errorMessage: 'div[crm-entity-widget-content-error-text]', // ошибка при закрытии тикета при незаполненном Assignee
         taskLink: 'a[href*="/workgroups/group/86/tasks/task/view"]', // Ссылка на задачу
 
         // Поля редактирования
