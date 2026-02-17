@@ -23,19 +23,19 @@ test.describe('Ticket Dismiss TM test', () => {
     test.setTimeout(150000);
 
     test('Ticket Dismiss test flow', async ({ loggedInPage: page, links }) => {
-            console.log('Target Link:', links['NewTM']);
-            await page.goto(links['NewTM']);
-            await page.waitForTimeout(2000);
+        console.log('Target Link:', links['NewTM']);
+    // 1. Переходим по ссылке
+        await page.goto(links['NewTM']);
+        await page.waitForTimeout(2000);
 
-            // Работа с фреймом юзера
-            let frame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
-            await page.waitForTimeout(3000);
-            await expect(frame.locator('body')).toBeVisible({ timeout: 10000 });
+    // 2. Работа с фреймом юзера
+        let frame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
+        await page.waitForTimeout(3000);
+        await expect(frame.locator('body')).toBeVisible({ timeout: 10000 });
 
-            // Чтобы не было багов, нужно передать просто строку без регулярных выражений:
+        // Чтобы не было багов, нужно передать просто строку без регулярных выражений:
         const commentSearchText = 'Offboarding access';
         const commentLocator = frame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket(commentSearchText));
-
 
         let found = false;
         for (let i = 0; i < 15; i++) {
@@ -56,50 +56,94 @@ test.describe('Ticket Dismiss TM test', () => {
         const commentText = await commentLocator.innerText();
         console.log('Comment:', commentText);
         
-         // Извлечение ID из комментария
-         const ticketIdMatch = commentText.match(/\s*(\d+)/);
-         const ticketId = ticketIdMatch ? ticketIdMatch[1] : null;
-         if (!ticketId) {
-             console.log('Ticket ID not found');
-             throw new Error('Ticket ID not found in comment!');
-         }
-         console.log('Extracted Ticket ID:', ticketId);
+        // Извлечение ID из комментария
+        const ticketIdMatch = commentText.match(/\s*(\d+)/);
+        const ticketId = ticketIdMatch ? ticketIdMatch[1] : null;
+        if (!ticketId) {
+            console.log('Ticket ID not found');
+            throw new Error('Ticket ID not found in comment!');
+        }
+        console.log('Extracted Ticket ID:', ticketId);
  
-         // 6. Переход в Helpdesk и поиск
-         const helpdeskUrl = process.env.HELPDESK_URL;
-         if (!helpdeskUrl) {
-             throw new Error('HELPDESK_URL не задан в .env файле');
-         }
-         await page.goto(helpdeskUrl); 
-         
-         // В Playwright клик и заполнение полей
-         await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
-         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
-         
-         // Заполняем фильтр
-         const findField = page.locator(SELECTORS_CATALOG.Helpdesk.findField);
-         await findField.fill('id');     
- 
-         // Чекбокс ID
-         //const idCheckbox = page.locator(SELECTORS.idLabel);
-         // Проверяем класс или состояние checked
-         const isChecked = await page.locator(SELECTORS_CATALOG.Helpdesk.idLabel).isChecked().catch(() => false); 
-         
-         if (!isChecked) {
-             await isChecked.click();
-         }
- 
-         // Кнопка APPLY в фильтре
-         await page.locator(SELECTORS_CATALOG.Helpdesk.applyButton).first().click(); 
-         
-         // Ввод ID тикета
-         await page.locator(SELECTORS_CATALOG.Helpdesk.typeID).fill(ticketId);
-         await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterButton).click(); 
- 
-         // Открываем тикет (grid button -> view)
-         await page.locator(SELECTORS_CATALOG.Helpdesk.gridOpenButton).first().click();
-         await page.locator(SELECTORS_CATALOG.Helpdesk.viewDealOption).click(); 
- 
+    // 3. Переход в Helpdesk и поиск
+        const helpdeskUrl = process.env.HELPDESK_URL;
+        if (!helpdeskUrl) {
+            throw new Error('HELPDESK_URL не задан в .env файле');
+        }
+        await page.goto(helpdeskUrl); 
+        
+        // клик и заполнение полей
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
+        
+        // CASTOM-DASH
+        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
+        await findField.fill('id');
+        // Чекбокс ID
+        // Проверяем класс или состояние checked
+        // Создаем локатор для чекбокса
+        const idCheckbox = page.locator(SELECTORS_CATALOG.Helpdesk.customIdLabel);
+        // Ждем появления элемента
+        await expect(idCheckbox).toBeVisible({ timeout: 10000 });
+    
+        // Проверяем состояние чекбокса (через наличие класса main-ui-checked на родительском элементе)
+        const isChecked = await idCheckbox.evaluate((el) => {
+            return el.classList.contains('main-ui-checked'); // маркер в селекторе класс
+        }).catch(() => false);
+
+        if (!isChecked) {
+            // Кликаем на локатор чекбокса, а не на boolean значение
+            await idCheckbox.click();
+            console.log('Checkbox ID clicked');
+        } else {
+            console.log('The checkbox ID is already selected, no click required');
+        }
+
+        // Закрываем модальное окно выбора полей
+        await page.locator(SELECTORS_CATALOG.Helpdesk.closeFindFild).click(); 
+    
+        // Ввод ID тикета
+        await page.locator(SELECTORS_CATALOG.Helpdesk.typeID).fill(ticketId);
+
+        // Ждем, пока контейнер с кнопками фильтра появится
+        const filterButtonContainer = page.locator('.main-ui-filter-field-button-inner, .main-ui-filter-bottom-controls').first();
+        await expect(filterButtonContainer).toBeVisible({ timeout: 10000 }).catch(() => {
+            console.log('Filter button container not found, trying to find button directly...');
+        });
+        
+        // Ждем, пока кнопка поиска станет видимой и кликабельной
+        // Используем селектор из каталога (более гибкий - ищет кнопку с классом main-ui-filter-find)
+        // Ждем, пока кнопка поиска станет кликабельной
+        const searchButton = page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterButton);
+        await expect(searchButton).toBeVisible({ timeout: 10000 });
+        await expect(searchButton).toBeEnabled({ timeout: 5000 });
+        await searchButton.click(); 
+
+        // Открываем тикет через ID
+        const ticketLocator = page.locator(SELECTORS_CATALOG.Helpdesk.openTicketById(ticketId));
+        await ticketLocator.click(); 
+
+/*      // СТАРЫЙ РОДНОЙ ДАШБОРД
+        // Настраиваем фильтр
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.findField).fill('id');
+        // Чекбокс ID
+        const isChecked = await page.locator(SELECTORS_CATALOG.Helpdesk.idLabel).isChecked();
+        if (!isChecked) {
+            await page.locator('label[title="ID"]').click();
+        } else {
+            console.log('The checkbox ID is already selected, no click required');
+        }
+
+        await page.locator(SELECTORS_CATALOG.Helpdesk.applyButton).first().click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.typeID).fill(ticketId);
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterButton).click();
+
+        // Открываем тикет
+        await page.locator(SELECTORS_CATALOG.Helpdesk.gridOpenButton).first().click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.viewDealOption).click();
+*/
  /*        // Вариант открытия через ссылку (Direct URL navigation)
            const idMatch = commentText.match(/ID:\s*(\d+)/);
  
@@ -128,29 +172,29 @@ test.describe('Ticket Dismiss TM test', () => {
          throw new Error('Ticket ID not found in comment, cannot navigate via newURL');
          }
  */  
-         // 7. Работа со ВТОРЫМ фреймом (Ticket Frame)
-         // Здесь мы ищем фрейм заново. 
-         // Если это слайдер, он снова будет .side-panel-iframe, но скорее всего последний в DOM.
-         // Используем .last() или .nth(1). Так как в последствии придётся опять к нему обращаться тут используем first().
-         const ticketFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first(); // добавляем first() чтобы пользоваться этой инструкцией после открытия чек-листа
- 
-         // Ждем загрузки содержимого тикета
-         await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee)).toContainText('Assigned', { timeout: 15000 });
-         await page.waitForTimeout(5000);
-        
-         // Сохранение ссылки тикета в файл Links
-         const usersUrl = page.url();
-         console.log('Link for ticket:', usersUrl);
-         
-         // Обновляем JSON (синхронно, безопасно)
-         if (fs.existsSync(FILE_PATHS.linksJson)) {
-             links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
-         }
-         links['TicketDismissTM'] = usersUrl;
-         fs.writeFileSync(FILE_PATHS.linksJson, JSON.stringify(links, null, 2));
-         await page.waitForTimeout(15000);
+    // 4. Работа со ВТОРЫМ фреймом (Ticket Frame)
+        // Здесь мы ищем фрейм заново. 
+        // Если это слайдер, он снова будет .side-panel-iframe, но скорее всего последний в DOM.
+        // Используем .last() или .nth(1). Так как в последствии придётся опять к нему обращаться тут используем first().
+        const ticketFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first(); // добавляем first() чтобы пользоваться этой инструкцией после открытия чек-листа
 
-            // 8. Assignee (Назначение ответственного)
+        // Ждем загрузки содержимого тикета
+        await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee)).toContainText('Assigned', { timeout: 15000 });
+        await page.waitForTimeout(5000);
+    
+        // Сохранение ссылки тикета в файл Links
+        const usersUrl = page.url();
+        console.log('Link for ticket:', usersUrl);
+        
+        // Обновляем JSON (синхронно, безопасно)
+        if (fs.existsSync(FILE_PATHS.linksJson)) {
+            links = JSON.parse(fs.readFileSync(FILE_PATHS.linksJson, 'utf-8'));
+        }
+        links['TicketDismissTM'] = usersUrl;
+        fs.writeFileSync(FILE_PATHS.linksJson, JSON.stringify(links, null, 2));
+        await page.waitForTimeout(15000);
+
+        // Assignee (Назначение ответственного)
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee).click();
         await page.waitForTimeout(2000);
         // Ждем появления поля ввода/выбора юзера
@@ -168,11 +212,11 @@ test.describe('Ticket Dismiss TM test', () => {
         // Ждем, пока поле выбора юзера исчезнет !!!
         // Это гарантирует, что поп-ап закрылся и можно кликать дальше
         await expect(userInput).toBeHidden();
-       
-        // 9. Открытие Task (внутри тикета)
+    
+        // Открытие Task (внутри тикета)
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.taskLink).click();
 
-        // 10. Работа с ТРЕТЬИМ фреймом (Checklist)
+        // Работа с ТРЕТЬИМ фреймом (Checklist)
         // Теперь у нас открыто 2 слайдера. Нам нужен последний (второй)
         // nth(1) берет второй элемент (индекс с 0)
         const checkListFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1);
@@ -183,7 +227,7 @@ test.describe('Ticket Dismiss TM test', () => {
 
         // .all() возвращает массив локаторов 
         const checkboxes = await checkListFrame.locator(SELECTORS_CATALOG.TicketPanel.checklistPanel.checklistFlag).all();
-       
+        
         console.log('Checkboxes found:', checkboxes.length);
 
         for (const checkbox of checkboxes) {
@@ -204,24 +248,24 @@ test.describe('Ticket Dismiss TM test', () => {
         // Мы ищем iframe с индексом 1 (второй) и ждем, пока он пропадет
         await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden();
 
-        // 11. Возвращаемся к Ticket Frame (переменная ticketFrame все еще валидна)
+        // Возвращаемся к Ticket Frame (переменная ticketFrame все еще валидна)
         // Google / Azure account
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccountField).click();
 
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccount).fill(TEST_DATA.dataGoogleAcc);
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveFieldButton).click();
- 
+
         // Лицензии
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click();
         
         // Чекбоксы лицензий
-        // 1. Важный момент: нужно ждать, пока таб прогрузится.
+        // Важный момент: нужно ждать, пока таб прогрузится.
         await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTabContent)).toBeVisible();
         // Проверяем, есть ли чекбоксы лицензий на странице
         const checkboxLocator = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseCheckbox);
         const licenseCheckboxes = await checkboxLocator.all();
         console.log(`Found ${licenseCheckboxes.length} checkboxes`); // Для отладки
-        
+    
         if (licenseCheckboxes.length === 0) {
             console.log('No license checkboxes found, skipping license section and proceeding to deal closing.');
         } else {
@@ -241,7 +285,7 @@ test.describe('Ticket Dismiss TM test', () => {
             }
         }
 
-        // 12. Закрытие сделки (Close Deal)
+        // Закрытие сделки (Close Deal)
         // Ждём исчезновения нотификации
         const notifications = page.locator(SELECTORS_CATALOG.TicketPanel.notification);
         //const notification = page.locator('.main-ui-loader'); 
@@ -269,17 +313,17 @@ test.describe('Ticket Dismiss TM test', () => {
         const timeTrackerRow = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput); 
         await expect(timeTrackerRow).toBeHidden({ timeout: 15000 });
 
-         // Ждем завершения (исчезновения окна или появления статуса)
-         await page.waitForTimeout(3000);
+        // Ждем завершения (исчезновения окна или появления статуса)
+        await page.waitForTimeout(3000);
 
-        // ПРОВЕРКА ПО АТРИБУТУ.
+    // 5. ПРОВЕРКА ПО АТРИБУТУ.
         const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
         const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
         // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
         await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
         console.log('Test Passed: Deal is in closed stage with correct color');
 
-        // Скриншот успеха
+    // 6. Скриншот успеха
         await ScreenshotSuccess(page, 'Ticket_Dismiss_TM', 'New_TM_BP'); 
-      });
     });
+});
