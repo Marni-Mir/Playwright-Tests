@@ -158,11 +158,15 @@ test.describe('Ticket Validation', () => {
                 await expect(notifications).toHaveCount(0, { timeout: 5000 });
             } catch {
                 // Если есть нотификации, закрываем их
-                const firstNotification = notifications.first();
-                if (await firstNotification.isVisible().catch(() => false)) {
-                    await firstNotification.click();
-                    await page.waitForTimeout(5000);
+                const notificationCount = await notifications.count();
+                for (let i = 0; i < notificationCount; i++) {
+                    const notification = notifications.nth(i);
+                    if (await notification.isVisible().catch(() => false)) {
+                        await notification.click();
+                        await page.waitForTimeout(500); // Небольшая задержка между кликами
+                    }
                 }
+                await page.waitForTimeout(1000); // Даем время всем нотификациям закрыться
             }
             
             await page.waitForTimeout(1000);
@@ -363,7 +367,7 @@ test.describe('Ticket Validation', () => {
             
             if (errorText.trim() === TEST_DATA.requiredAssigneedText) {
                 foundCorrectErrorBox = true;
-                console.log(`✅ УСПЕХ ошибки для "без Assigned"`);
+                console.log(`✅ УСПЕХ ошибки в интерфейсе - текст соответствует ожидаемому`);
             } else {
                 console.log(`❌ Текст errorBox не соответствует ожидаемому. Получено: "${errorText.trim()}", Ожидалось: "${TEST_DATA.requiredAssigneedText}"`);
             }
@@ -391,8 +395,8 @@ test.describe('Ticket Validation', () => {
         
         console.log('✓ Error validation passed - ticket cannot be closed without checklist and other required fields');
 
-    // 6. Check 2. Добавляем assignee, пробуем закрыть БЕЗ чеклиста - должна быть ошибка
-        console.log('\n=== Test 2: Adding assignee, trying to close without checklist ===');
+    // 6. Check 2. Добавляем assignee, пробуем закрыть БЕЗ чеклиста, лицензий и G/A Acc - должна быть ошибка про лицензии
+        console.log('\n=== Test 2: Adding assignee, trying to close without licenses ===');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee).click();
         await page.waitForTimeout(2000);
         
@@ -413,7 +417,7 @@ test.describe('Ticket Validation', () => {
         await tryCloseAndCheckError(true, TEST_DATA.requiredLicensesText);
 
     // 7. Check 3. Прокликиваем лицензии, пробуем закрыть - должна появитьсяя ошибка
-        console.log('\n=== Test 3: Completing licenses, trying to close - should succeed ===');
+        console.log('\n=== Test 3: Completing licenses, trying to close w/o checklist ===');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click();
         
         await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseCheckbox).first()).toBeEnabled();
