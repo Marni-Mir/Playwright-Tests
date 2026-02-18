@@ -16,7 +16,11 @@ const TEST_DATA = {
     assigneeName: 'm.smirnova',
     dataGoogleAcc: 'Test@test.com',
     wonColor: '#7bd500',      // Ожидаемый цвет
-    colorAttribute: 'data-base-color' // Имя атрибута (техническая константа)
+    colorAttribute: 'data-base-color', // Имя атрибута (техническая константа)
+    requiredAssigneedText: `Access to this function was denied because there are fields unavailable to you. Please contact the administrator to get access and resolve the issue. Error`,
+    requiredChekListText: `You are attempting to close a task without completing all the checklist items. Please navigate to the checklist menu and go through all the required items.`,
+    requiredGoogleAccountText: (ticketId) => `Please fill in the field "Google / Azure account" in ticket #${ticketId}`, // Функция для текста ошибки без Google/Azure аккаунта
+    requiredLicensesText: `To complete this ticket, the employee must be issued all required licenses.` // Текст для ошибки без лицензий
 }
 
 test.describe('Ticket Validation', () => {
@@ -27,12 +31,13 @@ test.describe('Ticket Validation', () => {
     actionTimeout: 60000,
 
     test('Ticket validation test - should not close without required fields', async ({ loggedInPage: page, links }) => {
+
         console.log('Target Link:', links['NewTM']);
 
-        // Переходим по ссылке
+    // 1. Переходим по ссылке
         await page.goto(links['NewTM']);
         
-        // Работа с ПЕРВЫМ фреймом (User Side Panel)
+    // 2. Работа с ПЕРВЫМ фреймом (User Side Panel)
         const userFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
         await expect(userFrame.locator('body')).toBeVisible();
         
@@ -134,16 +139,19 @@ test.describe('Ticket Validation', () => {
         await page.locator(SELECTORS_CATALOG.Helpdesk.gridOpenButton).first().click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.viewDealOption).click(); 
 */
-
-        // Работа с фреймом тикета
+        
+    // 3. Работа с фреймом тикета
         const ticketFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
 
         // Ждем загрузки содержимого тикета
         await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee)).toContainText('Assigned', { timeout: 15000 });
         await page.waitForTimeout(3000);
 
-        // Вспомогательная функция для попытки закрытия и проверки ошибки
-        const tryCloseAndCheckError = async (expectedError = true) => {
+    // 4. Вспомогательная функция для попытки закрытия и проверки ошибки
+        const tryCloseAndCheckError = async (expectedError = true, expectedText) => {
+            if (!expectedText) {
+                throw new Error('expectedText must be provided');
+            }
             // Ждём исчезновения предыдущих нотификаций
             const notifications = page.locator(SELECTORS_CATALOG.TicketPanel.notification);
             try {
@@ -153,14 +161,14 @@ test.describe('Ticket Validation', () => {
                 const firstNotification = notifications.first();
                 if (await firstNotification.isVisible().catch(() => false)) {
                     await firstNotification.click();
-                    await page.waitForTimeout(500);
+                    await page.waitForTimeout(5000);
                 }
             }
             
             await page.waitForTimeout(1000);
             
             // Сохраняем текущий стейдж перед попыткой закрытия
-            const stageBefore = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute('data-id');
+            const stageBefore = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute(SELECTORS_CATALOG.CRM.Deal.dataStyle);
             
             // Пробуем закрыть тикет
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).click();
@@ -178,38 +186,67 @@ test.describe('Ticket Validation', () => {
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput).fill('1');
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.timeInput).fill('1');
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.commentTextarea).fill('TEST');
-
             await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveTimeButton).click();
+            await page.waitForTimeout(5000); // Даем время системе отобразить нотификации
             
             // Если ожидаем ошибку, проверяем наличие нотификации или сообщения об ошибке
             if (expectedError) {
-                // Проверяем наличие нотификации об ошибке
-                const errorNotification = page.locator(SELECTORS_CATALOG.TicketPanel.notification).first();
-                const hasErrorNotification = await errorNotification.isVisible({ timeout: 3000 }).catch(() => false);
+                // Проверяем наличие нотификаций об ошибке
+                const allNotifications = page.locator(SELECTORS_CATALOG.CRM.Deal.notificationText);
+                const notificationCount = await allNotifications.count();
+                let foundCorrectNotification = false;
+                
+                // Проверяем все нотификации, чтобы найти ту, которая содержит ожидаемый текст
+                if (notificationCount > 0) {
+                    for (let i = 0; i < notificationCount; i++) {
+                        const notification = allNotifications.nth(i);
+                        const isVisible = await notification.isVisible({ timeout: 1000 }).catch(() => false);
+                        if (isVisible) {
+                            const notificationText = await notification.textContent().catch(() => '');
+                            console.log(`Notification ${i + 1}: ${notificationText}`);
+                            
+                            // Если текст соответствует ожидаемому - это правильная нотификация
+                            if (notificationText.trim() === expectedText) {
+                                foundCorrectNotification = true;
+                                console.log(`✅ Найдена правильная нотификация с текстом ошибки`);
+                                await page.waitForTimeout(500);
+                                break;
+                            }
+                        }
+                    }
+                }
+                   
                 
                 // Также проверяем наличие сообщения об ошибке в интерфейсе
                 const errorBox = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.errorMessage);
                 const hasErrorBox = await errorBox.isVisible({ timeout: 2000 }).catch(() => false);
-                
-                // Если есть нотификация об ошибке, закрываем её и проверяем текст
-                if (hasErrorNotification) {
-                    const notificationText = await errorNotification.textContent().catch(() => '');
-                    console.log(`Error notification: ${notificationText}`);
-                    await errorNotification.click();
-                    await page.waitForTimeout(500);
-                }
+                let foundCorrectErrorBox = false;
                 
                 // Если есть сообщение об ошибке в интерфейсе
                 if (hasErrorBox) {
                     const errorText = await errorBox.textContent().catch(() => '');
                     console.log(`Error message: ${errorText}`);
+                    
+                    if (errorText.trim() === expectedText) {
+                        foundCorrectErrorBox = true;
+                        console.log(`✅ УСПЕХ ошибки в интерфейсе - текст соответствует ожидаемому`);
+                    } else {
+                        console.log(`❌ Текст errorBox не соответствует ожидаемому. Получено: "${errorText.trim()}", Ожидалось: "${expectedText}"`);
+                    }
+                } else {
+                    console.log(`ℹ️ ErrorBox не найден или не видим`);
+                }
+                
+                // Проверяем, что хотя бы один из способов показал правильную ошибку
+                if (!foundCorrectNotification && !foundCorrectErrorBox) {
+                    throw new Error(`Expected error notification or error box with text "${expectedText}", but neither was found with correct text`);
                 }
                 
                 //Перезагружаем страницу
                 await page.reload();
 
                 // Проверяем, что стейдж не изменился (тикет не закрылся)
-                const stageAfter = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute('data-id');
+                const stageAfter = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute(SELECTORS_CATALOG.CRM.Deal.dataStyle);
                 if (stageBefore !== stageAfter) {
                     throw new Error('Expected error but ticket stage changed - validation failed');
                 }
@@ -229,11 +266,11 @@ test.describe('Ticket Validation', () => {
                 const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
                 const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
                 await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
-                console.log('! Test Failed: Expected error but deal is in closed stage with correct color');
+                throw new Error('! Test Failed: Expected error but deal is in closed stage with correct color');
             }
         };
 
-        // 1. Пробуем закрыть БЕЗ assignee - появится поп-ап с выбором assignee
+    // 5. Check 1. Пробуем закрыть БЕЗ assignee - появится поп-ап с выбором assignee
         console.log('\n=== Test 1: Trying to close without assignee ===');
         
         // Ждём исчезновения предыдущих нотификаций
@@ -251,7 +288,7 @@ test.describe('Ticket Validation', () => {
         await page.waitForTimeout(1000);
         
         // Сохраняем текущий стейдж перед попыткой закрытия
-        const stageBefore = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute('data-id');
+        const stageBeforeCheck1 = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute(SELECTORS_CATALOG.CRM.Deal.dataStyle);
         
         // Пробуем закрыть тикет
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).click();
@@ -272,7 +309,7 @@ test.describe('Ticket Validation', () => {
         
         const userInputPopup = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.userSearchBar); 
         await expect(userInputPopup).toBeVisible({ timeout: 30000 });
-        await userInputPopup.fill(TEST_DATA.assigneeName, { delay: 100 });
+        await userInputPopup.fill(TEST_DATA.assigneeName, { delay: 1000 });
         await userInputPopup.press('Enter');
         
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveUserButton).click();
@@ -289,24 +326,55 @@ test.describe('Ticket Validation', () => {
             throw new Error('Expected error but time tracking popup appeared - validation failed');
         }
         
-        // Проверяем наличие ошибки
-        const errorNotification = page.locator(SELECTORS_CATALOG.TicketPanel.notification).first();
-        const hasErrorNotification = await errorNotification.isVisible({ timeout: 3000 }).catch(() => false);
+        // Проверяем наличие ошибки - проверяем все нотификации
+        const allNotifications = page.locator(SELECTORS_CATALOG.CRM.Deal.notificationText);
+        const notificationCount = await allNotifications.count();
+        let foundCorrectNotification = false;
+        
+        if (notificationCount > 0) {
+            for (let i = 0; i < notificationCount; i++) {
+                const notification = allNotifications.nth(i);
+                const isVisible = await notification.isVisible({ timeout: 1000 }).catch(() => false);
+                if (isVisible) {
+                    const notificationText = await notification.textContent().catch(() => '');
+                    console.log(`Notification ${i + 1}: ${notificationText}`);
+                    
+                    // Если текст соответствует ожидаемому - это правильная нотификация
+                    if (notificationText.trim() === TEST_DATA.requiredAssigneedText) {
+                        foundCorrectNotification = true;
+                        console.log(`✅ Найдена правильная нотификация с текстом ошибки`);
+                        break;
+                    }
+                }
+            }
+            
+            if (foundCorrectNotification) {
+                console.log(`✅ УСПЕХ нотификации для "без Assigned"`);
+            }
+        }
         
         const errorBox = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.errorMessage);
         const hasErrorBox = await errorBox.isVisible({ timeout: 2000 }).catch(() => false);
-        
-        if (hasErrorNotification) {
-            const notificationText = await errorNotification.textContent().catch(() => '');
-            console.log(`Error notification: ${notificationText}`);
-            await errorNotification.click();
-            await page.waitForTimeout(500);
-        }
+        let foundCorrectErrorBox = false;
         
         if (hasErrorBox) {
             const errorText = await errorBox.textContent().catch(() => '');
             console.log(`Error message: ${errorText}`);
+            
+            if (errorText.trim() === TEST_DATA.requiredAssigneedText) {
+                foundCorrectErrorBox = true;
+                console.log(`✅ УСПЕХ ошибки для "без Assigned"`);
+            } else {
+                console.log(`❌ Текст errorBox не соответствует ожидаемому. Получено: "${errorText.trim()}", Ожидалось: "${TEST_DATA.requiredAssigneedText}"`);
+            }
+        } else {
+            console.log(`ℹ️ ErrorBox не найден или не видим`);
         }
+        
+        // Проверяем, что хотя бы один из способов показал правильную ошибку
+        if (!foundCorrectNotification && !foundCorrectErrorBox) {
+            throw new Error(`Expected error notification or error box with text "${TEST_DATA.requiredAssigneedText}", but neither was found with correct text`);
+        }       
         
         // Закрываем поп-ап, если он еще открыт
         await page.keyboard.press('Escape');
@@ -316,14 +384,14 @@ test.describe('Ticket Validation', () => {
         await page.reload();
         
         // Проверяем, что стейдж не изменился (тикет не закрылся)
-        const stageAfter = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute('data-id');
-        if (stageBefore !== stageAfter) {
+        const stageAfter = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute(SELECTORS_CATALOG.CRM.Deal.dataStyle);
+        if (stageBeforeCheck1 !== stageAfter) {
             throw new Error('Expected error but ticket stage changed - validation failed');
         }
         
         console.log('✓ Error validation passed - ticket cannot be closed without checklist and other required fields');
 
-        // 2. Добавляем assignee, пробуем закрыть БЕЗ чеклиста - должна быть ошибка
+    // 6. Check 2. Добавляем assignee, пробуем закрыть БЕЗ чеклиста - должна быть ошибка
         console.log('\n=== Test 2: Adding assignee, trying to close without checklist ===');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee).click();
         await page.waitForTimeout(2000);
@@ -334,17 +402,43 @@ test.describe('Ticket Validation', () => {
         
         const userInput = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.userSearchBar); 
         await expect(userInput).toBeVisible({ timeout: 30000 });
-        await userInput.fill(TEST_DATA.assigneeName, { delay: 100 });
+        await userInput.fill(TEST_DATA.assigneeName, { delay: 1000 });
         await userInput.press('Enter');
 
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveUserButton).click();
         await expect(userInput).toBeHidden();
         await page.waitForTimeout(1000);
         
-        await tryCloseAndCheckError(true);
+        // Проверяем ошибку без лицензий - должен быть текст про лицензии
+        await tryCloseAndCheckError(true, TEST_DATA.requiredLicensesText);
 
-        // 3. Прокликиваем чеклист, пробуем закрыть - должна быть ошибка
-        console.log('\n=== Test 3: Completing checklist, trying to close without Google account ===');
+    // 7. Check 3. Прокликиваем лицензии, пробуем закрыть - должна появитьсяя ошибка
+        console.log('\n=== Test 3: Completing licenses, trying to close - should succeed ===');
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click();
+        
+        await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseCheckbox).first()).toBeEnabled();
+        const checkboxLocator = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseCheckbox);
+        await expect(checkboxLocator.first()).toBeVisible({ timeout: 15000 });
+        
+        const licenseCheckboxes = await checkboxLocator.all();
+        console.log(`Found ${licenseCheckboxes.length} checkboxes`);
+        
+        for (const box of licenseCheckboxes) {
+            const isChecked = await box.isChecked().catch(() => false); 
+            if (!isChecked) {
+                await box.click({ force: true });
+                await page.waitForTimeout(50); 
+            } else {
+                console.log('Checkbox already checked, skipping');
+            }
+        }
+        await page.waitForTimeout(1000);
+
+        // Проверяем ошибку без чек-листа - должен быть соответствующий текст
+        await tryCloseAndCheckError(true, TEST_DATA.requiredChekListText);
+
+    // 8. Check 4. Прокликиваем чеклист, пробуем закрыть без G/A Acc - должна быть ошибка
+        console.log('\n=== Test 4: Completing checklist, trying to close without Google account ===');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.taskLink).click();
 
         const checkListFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1);
@@ -366,40 +460,17 @@ test.describe('Ticket Validation', () => {
         await expect(page.locator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1)).toBeHidden();
         await page.waitForTimeout(1000);
         
-        await tryCloseAndCheckError(true);
+        // Проверяем ошибку без Google/Azure аккаунта - должен быть соответствующий текст
+        await tryCloseAndCheckError(true, TEST_DATA.requiredGoogleAccountText(ticketId));
 
-        // 4. Добавляем Google/Azure аккаунт, пробуем закрыть - должна быть ошибка
-        console.log('\n=== Test 4: Adding Google account, trying to close without licenses ===');
+    // 8. Check 5. Добавляем Google/Azure аккаунт, пробуем закрыть - должно закрыться
+        console.log('\n=== Test 5: Adding Google account, trying to close correctly ===');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccountField).click();
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccount).fill(TEST_DATA.dataGoogleAcc);
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveFieldButton).click();
         await page.waitForTimeout(1000);
         
-        await tryCloseAndCheckError(true);
-
-        // 5. Прокликиваем лицензии, пробуем закрыть - должно закрыться успешно
-        console.log('\n=== Test 5: Completing licenses, trying to close - should succeed ===');
-        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click();
-        
-        await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseCheckbox).first()).toBeEnabled();
-        const checkboxLocator = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseCheckbox);
-        await expect(checkboxLocator.first()).toBeVisible({ timeout: 15000 });
-        
-        const licenseCheckboxes = await checkboxLocator.all();
-        console.log(`Found ${licenseCheckboxes.length} checkboxes`);
-        
-        for (const box of licenseCheckboxes) {
-            const isChecked = await box.isChecked().catch(() => false); 
-            if (!isChecked) {
-                await box.click({ force: true });
-                await page.waitForTimeout(50); 
-            } else {
-                console.log('Checkbox already checked, skipping');
-            }
-        }
-        await page.waitForTimeout(1000);
-        
-        // 12. Закрытие сделки (Close Deal)
+    // 9. Закрытие сделки (Close Deal)
         // Ждём исчезновения нотификации
         const notifications = page.locator(SELECTORS_CATALOG.TicketPanel.notification);
         //const notification = page.locator('.main-ui-loader'); 
@@ -409,10 +480,12 @@ test.describe('Ticket Validation', () => {
 
         // Закрытие сделки   
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).click();
+        await page.waitForTimeout(5000);
 
         // Pop-up 1: Complete
         // Используем getByText для надежности
         completeBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.completePopupBtn).getByText('Complete');
+        await expect(completeBtn).toBeVisible({ timeout: 10000 });
         await completeBtn.click();
         console.log('Clicked Complete');
 
@@ -430,14 +503,14 @@ test.describe('Ticket Validation', () => {
          // Ждем завершения (исчезновения окна или появления статуса)
          await page.waitForTimeout(3000);
 
-        // ПРОВЕРКА ПО АТРИБУТУ.
+    // 10. ПРОВЕРКА ПО АТРИБУТУ.
         const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
         const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
         // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет
         await expect(colorElement).toHaveAttribute(TEST_DATA.colorAttribute, TEST_DATA.wonColor); 
         console.log('Test Passed: Deal is in closed stage with correct color');
         
-        // Скриншот успеха
+    // 11. Скриншот успеха
         await ScreenshotSuccess(page, 'Ticket_Validation_New_TM', 'New_TM_Validation_Test'); 
     });
 });
