@@ -20,19 +20,33 @@ const SELECTORS_CATALOG = {
      continueItem: 'text="Continue"',
      buttonBP: 'button[title="Run Workflow"]',
      colorIndicator: 'div[data-base-color]', // Для проверки стейджа сделки
+     dataStyle: 'div[data-style]', // Для проверки стейджа сделки. Текущий стиль стейджа
+     notificationText: 'div[class="ui-notification-manager-browser-text"]',
+     tabs: 'div[data-role="crm-item-detail-container"]',
+     // Кнопка More (универсальный селектор для разных сделок: deal_8_24 и deal_9_2)
+     moreButton: '[id^="crm_scope_detail_custom_deal_"][id$="_more_button"]'
     }
     },
 
     Helpdesk: {
         searchFilterBar: 'input[placeholder = "Filter and search"]',
         addField: '.main-ui-filter-field-add-item',
+        typeID: 'input[name="ID"]',
+        searchFilterButton: 'button.main-ui-filter-find', // Более гибкий селектор - ищет кнопку с классом main-ui-filter-find
+
+        // поля кастомного дашборда
+        castomFindField: 'input[class="ui-ctl-element main-ui-filter-popup-search-section-input"]',
+        customIdLabel: 'div[data-id="field_ID"]',
+        closeFindFild: 'span[class="popup-window-close-icon"]',
+        openTicketById:(text) => `.main-grid-cell-content:has-text("${text}")`,
+        // openTicketById: (text) => `text=/${text}/i`,
+
+        // поля в родном,старом дашборде
         findField: 'input[placeholder = "Find field"]',
         idLabel: 'label[title="ID"] input[type="checkbox"]',
         idLabelClick: 'label[title="ID"]', // Для клика на label
         //idCheckboxInput: 'input[id*="ID"]', // Частичное совпадение ID
         applyButton: 'button[class = "ui-btn ui-btn-primary"]',
-        typeID: 'input[name="ID"]',
-        searchFilterButton: 'button[class = "ui-btn ui-btn-primary ui-btn-icon-search main-ui-filter-field-button main-ui-filter-find"]', 
         gridOpenButton: 'a.main-grid-row-action-button',
         viewDealOption: 'span[title = "View deal"]'
     },
@@ -43,7 +57,7 @@ const SELECTORS_CATALOG = {
         addUserLink: 'a[id^="add_user_UF_CRM_1631802843"]', // id кнопки начинается с...
         userSearchBar: '.feed-add-destination-inp', 
         saveUserButton: 'span[class= "ui-btn ui-btn-primary"]',
-        errorMessage: 'div[crm-entity-widget-content-error-text]', // ошибка при закрытии тикета при незаполненном Assignee
+        errorMessage: 'div[class="crm-entity-widget-content-error-text"]', // ошибка при закрытии тикета при незаполненном Assignee
         taskLink: 'a[href*="/workgroups/group/86/tasks/task/view"]', // Ссылка на задачу
 
         // Поля редактирования
@@ -55,6 +69,7 @@ const SELECTORS_CATALOG = {
         licensesTab: '#crm_scope_detail_custom_deal_9_2_tab_licenses',
         licensesTabContent: 'div[data-tab-id="tab_licenses"]',
         licenseCheckbox: 'div[data-tab-id="tab_licenses"]  .ui-form-row input[type="checkbox"]',
+        licenseAdd: 'div.ui-form.ui-form-section:nth-of-type(1) button[title="Add"]',
 
         // Закрытие сделки
         notification: '.ui-notification-manager-browser-button-close', //'.ui-notification-manager-browser-content', 
@@ -70,7 +85,9 @@ const SELECTORS_CATALOG = {
         // Чек-лист (Внутри второго фрейма)
     checklistPanel: {
         checklistFlag: '.tasks-checklist-item-flag',
-        finishButton: 'span[data-action="COMPLETE"]'
+        finishButton: 'span[data-action="COMPLETE"]',
+        checklistMore: 'span[data-bx-id="task-view-b-open-menu"]',
+        checklistMoreDelete: 'div[class="menu-popup-items"] span[title="Delete"]'
     }
     },
 
@@ -86,6 +103,9 @@ const SELECTORS_CATALOG = {
     historyRecordLine: '.history-field--entity-record',
     historyRecordLabel: '.history-field--entity-record--field-label',
     historyRecordValue: '.history-field--entity-record--field-value',
+
+    // чекбоксы на вкладке Granted licenses
+    checkBoxGL: 'tr[class="main-grid-row main-grid-row-body"] input[type="checkbox"]',
 
     // PTO - General Info
     startDateGeneral: 'div[data-cid="UF_CRM_1631800544"] span[class="fields date field-item"]',
