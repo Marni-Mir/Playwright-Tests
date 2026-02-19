@@ -37,6 +37,7 @@ const SELECTORS = {
     managerLink: 'a[id^="add_user_UF_CRM_MANAGER"]',
     managerInput: '#bx-dest-internal-input-box input',
     budgetSelect: 'select[name="UF_CRM_1642787098616"]',
+    checkboxTest: 'input[type="checkbox"][name="UF_CRM_IS_TEST_CID"]',
     contractTypeSelect: 'select[name="UF_CRM_1657021210993"]',
     saveButton: 'body > div.ui-entity-wrap.crm-section-control-active > div > div.ui-entity-section.ui-entity-section-control-edit-mode > button',
 };
@@ -149,6 +150,9 @@ test.describe('Ticket New TM test', () => {
 
         // Budget <select>
         await frame.locator(SELECTORS.budgetSelect).selectOption(TEST_DATA.budgetValue);
+
+        // checkbox test
+        await frame.locator(SELECTORS.checkboxTest).click();
 
         // Type of Contract <select>
         await frame.locator(SELECTORS.contractTypeSelect).selectOption(TEST_DATA.contractTypeValue);
