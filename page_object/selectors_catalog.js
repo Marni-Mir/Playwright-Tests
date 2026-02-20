@@ -105,7 +105,7 @@ const SELECTORS_CATALOG = {
     historyRecordValue: '.history-field--entity-record--field-value',
 
     // чекбоксы на вкладке Granted licenses
-    checkBoxGL: 'tr[class="main-grid-row main-grid-row-body"] input[type="checkbox"]',
+    checkBoxGL: 'tr[class="main-grid-row main-grid-row-body"] label[for^="checkbox_lists_attached_crm"]',
 
     // PTO - General Info
     startDateGeneral: 'div[data-cid="UF_CRM_1631800544"] span[class="fields date field-item"]',

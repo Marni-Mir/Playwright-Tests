@@ -37,7 +37,7 @@ test.describe('Ticket Information Transmission', () => {
         // 2. Работа с ПЕРВЫМ фреймом (User Side Panel)
         let userFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
         await expect(userFrame.locator('body')).toBeVisible();
-/*        
+        
         const commentLocator = userFrame.locator(SELECTORS_CATALOG.TeamMemberCard.commentWithTicket('Created onboarding ticket for Helpdesk.'));
 
         let found = false;
@@ -238,7 +238,7 @@ test.describe('Ticket Information Transmission', () => {
     // 12. Переопределяем userFrame после возврата на первую вкладку
         userFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
         await expect(userFrame.locator('body')).toBeVisible({ timeout: 10000 });
-*/ 
+ 
     // 13. Открываем вкладку More в NewTM
         console.log('\n=== Opening More tab in NewTM ===');
         const moreTab = userFrame.locator(SELECTORS_CATALOG.CRM.Deal.moreButton);
@@ -250,9 +250,7 @@ test.describe('Ticket Information Transmission', () => {
         console.log('\n=== Opening GrantedLicenses tab ===');
         // Ждем, пока меню откроется - проверяем видимость любого элемента меню
         await expect(userFrame.locator(SELECTORS_CATALOG.CRM.Deal.menuPopupItems).first()).toBeVisible({ timeout: 5000 });
-        const grantedLicensesTab = userFrame.locator(SELECTORS_CATALOG.TeamMemberCard.generalCheckButton).getByText(/Granted licenses/i);
-        await grantedLicensesTab.first().hover();
-        await page.waitForTimeout(300);
+        const grantedLicensesTab = userFrame.locator(SELECTORS_CATALOG.CRM.Deal.menuPopupItems).getByText(/Granted licenses/i);
         await grantedLicensesTab.first().click();
         await page.waitForTimeout(2000);
         
@@ -265,21 +263,11 @@ test.describe('Ticket Information Transmission', () => {
         
         const licenseCheckboxes = await checkboxLocator.all();
         console.log(`Found ${licenseCheckboxes.length} checkboxes`);
-        
-        for (const box of licenseCheckboxes) {
-            const isChecked = await box.isChecked().catch(() => false); 
-            if (!isChecked) {
-                await box.click({ force: true });
-                await page.waitForTimeout(50); 
-            } else {
-                console.log('Checkbox already checked, skipping');
-            }
-        }
         await page.waitForTimeout(1000);
         if (licenseCheckboxes.length === addButtonLocators.length) {
-            console.log(`✓ Test Passed: all licenses added (${licenseCheckboxes.length} licenses)`);
+            console.log(`✅ Test Passed: all licenses added (${licenseCheckboxes.length} licenses)`);
         } else {
-            throw new Error(`! Test Failed: Count licenses in ticket (${addButtonLocators.length}) did not match with count licenses in TM card (${licenseCheckboxes.length})`);
+            throw new Error(`❌ Test Failed: Count licenses in ticket (${addButtonLocators.length}) did not match with count licenses in TM card (${licenseCheckboxes.length})`);
         }
 
     // 15. Скриншот успеха
