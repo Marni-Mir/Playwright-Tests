@@ -40,6 +40,9 @@ const SELECTORS_CATALOG = {
         closeFindFild: 'span[class="popup-window-close-icon"]',
         openTicketById:(text) => `.main-grid-cell-content:has-text("${text}")`,
         // openTicketById: (text) => `text=/${text}/i`,
+        row: 'tr[id^="row_body_"]', // :nth-child(2) - первая строка
+        checkBoxHD: 'td[class="main-grid-cell main-grid-cell-checkbox"]',
+        bulkAction: 'span[class^="bulk_item"]',
 
         // поля в родном,старом дашборде
         findField: 'input[placeholder = "Find field"]',
