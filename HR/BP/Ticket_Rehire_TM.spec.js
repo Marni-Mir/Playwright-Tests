@@ -71,9 +71,6 @@ test.describe('Ticket Rehire TM test', () => {
         // Настраиваем фильтр
         await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();
-        // клик и заполнение полей
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
-        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
         
         // CASTOM-DASH
         const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
@@ -124,8 +121,6 @@ test.describe('Ticket Rehire TM test', () => {
 
 /*      // СТАРЫЙ РОДНОЙ ДАШБОРД
         // Настраиваем фильтр
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
-        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.findField).fill('id');
         // Чекбокс ID
         const isChecked = await page.locator(SELECTORS_CATALOG.Helpdesk.idLabel).isChecked();

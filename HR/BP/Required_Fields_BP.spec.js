@@ -37,7 +37,7 @@ test.describe('Required Fields BP test', () => {
                 await BPbtn.waitFor();
                 await BPbtn.click();
                 
-                const bpSelector = `.ui-selector-item:has-text("${testCase.bpName}")`;
+                const bpSelector = `.ui-selector-item:has-text("${testCase.bpName}")`;  
                 const BP = frame.locator(bpSelector);
                 await BP.waitFor();
                 await BP.click();
@@ -55,7 +55,6 @@ test.describe('Required Fields BP test', () => {
                 const actualText = await errorContainer.innerText({ timeout: 10000 });
 
                 console.log('Полученный текст из БП:', actualText.trim());
-
                 
                     // Создаем директорию для скриншотов, если она не существует
                     const screenshotsDir = path.join(__dirname, '../../test-results/badtest');

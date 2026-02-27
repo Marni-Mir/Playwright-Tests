@@ -127,8 +127,6 @@ test.describe('Ticket New TM test', () => {
 
 /*      // СТАРЫЙ РОДНОЙ ДАШБОРД
         // Настраиваем фильтр
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
-        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.findField).fill('id');
         // Чекбокс ID
         const isChecked = await page.locator(SELECTORS_CATALOG.Helpdesk.idLabel).isChecked();
@@ -195,7 +193,7 @@ test.describe('Ticket New TM test', () => {
         links['TicketNewTM'] = usersUrl;
         fs.writeFileSync(FILE_PATHS.linksJson, JSON.stringify(links, null, 2));
         await page.waitForTimeout(15000);
-/*
+
         // Assignee (Назначение ответственного)
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee).click();
         await page.waitForTimeout(2000);
@@ -214,7 +212,7 @@ test.describe('Ticket New TM test', () => {
         // Ждем, пока поле выбора юзера исчезнет !!!
         // Это гарантирует, что поп-ап закрылся и можно кликать дальше
         await expect(userInput).toBeHidden();
-*/        
+        
         // Открытие Task (внутри тикета)
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.taskLink).click();
 

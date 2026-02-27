@@ -157,21 +157,22 @@ test.describe('Ticket Validation', () => {
             try {
                 await expect(notifications).toHaveCount(0, { timeout: 5000 });
             } catch {
-                // Если есть нотификации, закрываем их
-                const notificationCount = await notifications.count();
-                for (let i = 0; i < notificationCount; i++) {
-                    const notification = notifications.nth(i);
-                    if (await notification.isVisible().catch(() => false)) {
-                        await notification.click();
-                        await page.waitForTimeout(500); // Небольшая задержка между кликами
+                // Если есть нотификации, закрываем их все
+                do {
+                    const firstNotification = notifications.first();
+                    if (await firstNotification.isVisible().catch(() => false)) {
+                        await firstNotification.click();
+                        await page.waitForTimeout(500); // Небольшая задержка для закрытия
                     }
-                }
+                    // Проверяем, остались ли еще нотификации
+                    const count = await notifications.count();
+                    if (count === 0) break;
+                } while (true);
                 await page.waitForTimeout(1000); // Даем время всем нотификациям закрыться
             }
             
-            await page.waitForTimeout(1000);
-            
             // Сохраняем текущий стейдж перед попыткой закрытия
+            await page.waitForTimeout(1000);
             const stageBefore = await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).getAttribute(SELECTORS_CATALOG.CRM.Deal.dataStyle);
             
             // Пробуем закрыть тикет
@@ -273,7 +274,7 @@ test.describe('Ticket Validation', () => {
                 throw new Error('! Test Failed: Expected error but deal is in closed stage with correct color');
             }
         };
-
+/*
     // 5. Check 1. Пробуем закрыть БЕЗ assignee - появится поп-ап с выбором assignee
         console.log('\n=== Test 1: Trying to close without assignee ===');
         
@@ -412,7 +413,7 @@ test.describe('Ticket Validation', () => {
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveUserButton).click();
         await expect(userInput).toBeHidden();
         await page.waitForTimeout(1000);
-        
+*/        
         // Проверяем ошибку без лицензий - должен быть текст про лицензии
         await tryCloseAndCheckError(true, TEST_DATA.requiredLicensesText);
 

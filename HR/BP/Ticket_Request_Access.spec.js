@@ -68,6 +68,9 @@ test.describe('Ticket Request Access test', () => {
         }
         await page.goto(helpdeskUrl); 
 
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();  
+
         // CASTOM-DASH
         const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
         await findField.fill('id');
@@ -118,8 +121,6 @@ test.describe('Ticket Request Access test', () => {
 
 /*            // СТАРЫЙ РОДНОЙ ДАШБОРД
         // Настраиваем фильтр
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
-        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.findField).fill('id');
         // Чекбокс ID
         const isChecked = await page.locator(SELECTORS_CATALOG.Helpdesk.idLabel).isChecked();

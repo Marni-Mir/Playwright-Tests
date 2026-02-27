@@ -103,10 +103,56 @@ test.describe('Request Access BP test', () => {
         }
         await page.goto(helpdeskUrl);  
          
-         // В Playwright клик и заполнение полей
-         await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
-         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
-         
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
+        
+        // CASTOM-HD-DASH
+        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
+        await findField.fill('id');
+        // Чекбокс ID
+        const idCheckbox = page.locator(SELECTORS_CATALOG.Helpdesk.customIdLabel);
+        // Ждем появления элемента
+        await expect(idCheckbox).toBeVisible({ timeout: 10000 });
+    
+        // Проверяем состояние чекбокса (через наличие класса main-ui-checked на родительском элементе)
+        const isChecked = await idCheckbox.evaluate((el) => {
+            return el.classList.contains('main-ui-checked'); // маркер в селекторе класс
+        }).catch(() => false);
+
+        if (!isChecked) {
+            // Кликаем на локатор чекбокса, а не на boolean значение
+            await idCheckbox.click();
+            console.log('Checkbox ID clicked');
+        } else {
+            console.log('The checkbox ID is already selected, no click required');
+        }
+
+        // Закрываем модальное окно выбора полей
+        await page.locator(SELECTORS_CATALOG.Helpdesk.closeFindFild).click(); 
+    
+        // Ввод ID тикета
+        await page.locator(SELECTORS_CATALOG.Helpdesk.typeID).fill(ticketId);
+        // Ждем, пока контейнер с кнопками фильтра появится
+        const filterButtonContainer = page.locator('.main-ui-filter-field-button-inner, .main-ui-filter-bottom-controls').first();
+        await expect(filterButtonContainer).toBeVisible({ timeout: 10000 }).catch(() => {
+            console.log('Filter button container not found, trying to find button directly...');
+        });
+        
+        // Ждем, пока кнопка поиска станет видимой и кликабельной
+        // Используем селектор из каталога (более гибкий - ищет кнопку с классом main-ui-filter-find)
+        // Ждем, пока кнопка поиска станет кликабельной
+        const searchButton = page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterButton);
+        await expect(searchButton).toBeVisible({ timeout: 10000 });
+        await expect(searchButton).toBeEnabled({ timeout: 5000 });
+        await searchButton.click(); 
+
+        // Открываем тикет через ID
+        const ticketLocator = page.locator(SELECTORS_CATALOG.Helpdesk.openTicketById(ticketId));
+        await ticketLocator.click(); 
+        
+        /* // СТАРЫЙ ДАШБОРД
+        // В Playwright клик и заполнение полей
+                 
          // Заполняем фильтр
          const findField = page.locator(SELECTORS_CATALOG.Helpdesk.findField);
          await findField.fill('id');     
@@ -130,6 +176,7 @@ test.describe('Request Access BP test', () => {
          // Открываем тикет (grid button -> view)
          await page.locator(SELECTORS_CATALOG.Helpdesk.gridOpenButton).first().click();
          await page.locator(SELECTORS_CATALOG.Helpdesk.viewDealOption).click(); 
+         */
  
  /*        // Вариант открытия через ссылку (Direct URL navigation)
            const idMatch = commentText.match(/ID:\s*(\d+)/);
@@ -160,9 +207,9 @@ test.describe('Request Access BP test', () => {
          }
  */  
 
-            // Работа с фреймом тикета
-            const ticketFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
-            // Ждем загрузки содержимого тикета
+        // Работа с фреймом тикета
+        const ticketFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();
+        // Ждем загрузки содержимого тикета
          await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee)).toContainText('Assigned', { timeout: 15000 });
          await page.waitForTimeout(5000);
 
