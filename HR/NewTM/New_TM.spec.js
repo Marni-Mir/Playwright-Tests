@@ -1,13 +1,9 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
-const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../../fixtures/login.fixture');
+// Вход выполняется через сохранённое состояние (cookies + localStorage) из .auth (см. playwright.config.js, USER_AUTH_STATE)
+const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
-
-const test = base.extend({
-    ...loginFixtures,
-});
 
 // 2. === ХРАНИЛИЩЕ СЕЛЕКТОРОВ ===
 // Все DOM-селекторы собраны в одном месте.
@@ -39,7 +35,8 @@ const SELECTORS = {
     budgetSelect: 'select[name="UF_CRM_1642787098616"]',
     checkboxTest: 'input[type="checkbox"][name="UF_CRM_IS_TEST_CID"]',
     contractTypeSelect: 'select[name="UF_CRM_1657021210993"]',
-    saveButton: 'body > div.ui-entity-wrap.crm-section-control-active > div > div.ui-entity-section.ui-entity-section-control-edit-mode > button',
+    saveButton: '.ui-entity-section-control .ui-btn-success',
+    //'body > div.ui-entity-wrap.crm-section-control-active > div > div.ui-entity-section.ui-entity-section-control-edit-mode > button',
 };
 
 // 3. === ХРАНИЛИЩЕ ТЕСТОВЫХ ДАННЫХ ===
@@ -65,14 +62,36 @@ const TEST_DATA = {
 };
 
 // 5. 'describe' из Jest меняется на 'test.describe'
-test.describe('Ticket New TM test', () => {
+test.describe('New TM test', () => {
 
-    test('create team member test', async ({ loggedInPage: page }) => {
+    test('create team member test', async ({ page }) => {
         test.setTimeout(120000);
+        // BASE_URL из выбранного .env (ENV_FILE / playwright.config.js)
+        const baseUrl = process.env.BASE_URL;
+        if (!baseUrl) throw new Error('Задай BASE_URL в .env (или укажи ENV_FILE).');
+        await page.goto(baseUrl);
 
-        const teamMembersButton = page.locator(SELECTORS_CATALOG.CRM.teamMembersButton);
-        await expect(teamMembersButton).toBeVisible();
+        let teamMembersButton = page.locator(SELECTORS_CATALOG.CRM.teamMembersButton);
+
+        const waitForButton = async () => {
+            await expect(teamMembersButton).toBeVisible({ timeout: 10000 });
+            await expect(teamMembersButton).toBeEnabled({ timeout: 10000 });
+        };
+
+        try {
+            await waitForButton();
+        } catch {
+            await page.reload();
+            teamMembersButton = page.locator(SELECTORS_CATALOG.CRM.teamMembersButton);
+            await waitForButton();
+        }
+
+
+        await teamMembersButton.click({ trial: true }); // проверка, что кнопка кликабельна (без реального клика)
         await teamMembersButton.click();
+
+        // Скрываем верхнюю панель Битрикс (#bx-panel), если она есть
+        await page.addStyleTag({ content: '#bx-panel { display: none !important; }' });
               
         const createButton = page.locator(SELECTORS_CATALOG.CRM.createButton);
         await expect(createButton).toBeVisible();
@@ -85,14 +104,35 @@ test.describe('Ticket New TM test', () => {
         await frame.locator(SELECTORS.firstName).fill(TEST_DATA.firstName);
         await frame.locator(SELECTORS.lastName).fill(TEST_DATA.lastName);
         await frame.locator(SELECTORS.email).fill(TEST_DATA.email);
+
+        // Получаем объект Frame (не FrameLocator), чтобы вставить стиль внутрь iframe
+        const iframeElement = page.locator(SELECTORS.iframe).first();
+        const frameObject = await (await iframeElement.elementHandle()).contentFrame();
+        await frameObject.addStyleTag({ content: '.ui-entity-section-control { display: none !important; }' });
+
         // Выпадающий список "Office Type"
-        await frame.locator(SELECTORS.officeType).click();
-        await frame.locator(SELECTORS.dropdownItem, { hasText: TEST_DATA.officeType }).click();
+        const officeTypeInput = frame.locator(SELECTORS.officeType);
+        await officeTypeInput.click();
+        //Вводим текст с задержкой, чтобы сработал "живой поиск"
+        await officeTypeInput.pressSequentially(TEST_DATA.officeType, { delay: 150 });
+        // Ждем, пока выпадающий список появится на странице
+        const dropdownItem = frame.locator(SELECTORS.dropdownItem, { hasText: TEST_DATA.officeType }).first();
+        await dropdownItem.waitFor({ state: 'visible', timeout: 5000 });
+        await dropdownItem.click();
+        //await frame.getByText(TEST_DATA.officeType, { exact: true }).click({ trial: true });
+        //await frame.locator(SELECTORS.dropdownItem, { hasText: TEST_DATA.officeType }).click();
         await frame.locator(SELECTORS.personalEmail).fill(TEST_DATA.personalEmail);
 
         // Выпадающий список "Country"
-        await frame.locator(SELECTORS.countryDropdown).click();
-        await frame.locator(SELECTORS.dropdownItem, { hasText: TEST_DATA.country }).click();
+        const countryDropdown = frame.locator(SELECTORS.countryDropdown);
+        await countryDropdown.click();
+        //Вводим текст с задержкой, чтобы сработал "живой поиск"
+        await countryDropdown.pressSequentially(TEST_DATA.country, { delay: 150 });
+        // Ждем, пока элемент списка появится на странице
+        const countrydropdownItem = frame.locator(SELECTORS.dropdownItem, { hasText: TEST_DATA.country }).first();
+        await countrydropdownItem.waitFor({ state: 'visible', timeout: 5000 });
+        await countrydropdownItem.click();
+        //await frame.locator(SELECTORS.dropdownItem, { hasText: TEST_DATA.country }).click();
 
         // Даты
         await frame.locator(SELECTORS.startDate).fill(TEST_DATA.date);
@@ -106,9 +146,16 @@ test.describe('Ticket New TM test', () => {
         const jobLevelDropdown = frame.locator(SELECTORS.jobLevelDropdown);
         // Кликаем, чтобы открыть список
         await jobLevelDropdown.click();
-        // Вызываем .evaluate() у 'jobLevelDropdown' (это 'Locator', у него есть эта функция).
+        //Вводим текст с задержкой, чтобы сработал "живой поиск"
+        await jobLevelDropdown.pressSequentially(TEST_DATA.jobLevel, { delay: 150 });
+        // Ждем, пока элемент списка появится на странице
+        const jobLeveldropdownItem = frame.locator(SELECTORS.dropdownItem, { hasText: TEST_DATA.jobLevel }).first();
+        await jobLeveldropdownItem.waitFor({ state: 'visible', timeout: 5000 });
+        await jobLeveldropdownItem.click(); 
+
+    /*  Старый вариант выбора элемента из dropdown
+    // Вызываем .evaluate() у 'jobLevelDropdown' (это 'Locator', у него есть эта функция).
         // Код внутри evaluate() выполнится в браузере, найдет ВИДИМЫЙ
-        // элемент и кликнет по нему (как в Puppeteer).
         await jobLevelDropdown.evaluate((dropdownElement, data) => {
             // 'dropdownElement' — это просто 'точка входа', мы его не используем.
             // Нам важен 'document'.
@@ -130,6 +177,7 @@ test.describe('Ticket New TM test', () => {
                }
         }, { selector: SELECTORS.dropdownItem, text: TEST_DATA.jobLevel });
         // ^ Мы передаем наши константы внутрь 'evaluate'
+        */
 
         // Position <select>
         await frame.locator(SELECTORS.positionSelect).selectOption(TEST_DATA.positionValue);
@@ -145,7 +193,7 @@ test.describe('Ticket New TM test', () => {
         // Manager (HR)
         await frame.locator(SELECTORS.managerLink).click();
         const managerInput = frame.locator(SELECTORS.managerInput);
-        await managerInput.fill(TEST_DATA.managerName);
+        await managerInput.pressSequentially(TEST_DATA.managerName);
         await managerInput.press('Enter');
 
         // Budget <select>
@@ -156,6 +204,9 @@ test.describe('Ticket New TM test', () => {
 
         // Type of Contract <select>
         await frame.locator(SELECTORS.contractTypeSelect).selectOption(TEST_DATA.contractTypeValue);
+
+        // Возвращаем панель, чтобы нажать "Сохранить"
+        await frameObject.addStyleTag({ content: '.ui-entity-section-control { display: block !important; }' });
 
         // Нажимаем "Save"
         const saveButton = frame.locator(SELECTORS.saveButton);
