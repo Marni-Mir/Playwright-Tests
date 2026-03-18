@@ -1,11 +1,9 @@
 const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../../fixtures/login.fixture');
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const { SELECTORS_CATALOG } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
 
 const test = base.extend({
-    ...loginFixtures,
     ...linksFixtures,
 });
 
@@ -13,7 +11,7 @@ test.describe('Rehire TM test', () => {
     
     test.setTimeout(150000);
 
-    test('Rehire TM test flow', async ({ loggedInPage: page, links }) => {
+    test('Rehire TM test flow', async ({ page, links }) => {
             console.log('Target Link:', links['NewTM']);
             await page.goto(links['NewTM']);
             await page.waitForTimeout(2000);

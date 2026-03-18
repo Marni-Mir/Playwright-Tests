@@ -29,7 +29,7 @@ const SELECTORS_CATALOG = {
     },
 
     Helpdesk: {
-        searchFilterBar: 'input[placeholder = "Filter and search"]',
+        searchFilterBar: 'input[placeholder*= "search"]',
         addField: '.main-ui-filter-field-add-item',
         typeID: 'input[name="ID"]',
         searchFilterButton: 'button.main-ui-filter-find', // Более гибкий селектор - ищет кнопку с классом main-ui-filter-find
@@ -37,6 +37,9 @@ const SELECTORS_CATALOG = {
         // поля кастомного дашборда
         castomFindField: 'input[class="ui-ctl-element main-ui-filter-popup-search-section-input"]',
         customIdLabel: 'div[data-id="field_ID"]',
+        // Поле "ID of TM" в фильтре (в попапе — элемент списка; в спеке использовать .filter({ hasText: 'ID of TM' }))
+        customIdOfTMListItem: 'div.main-ui-filter-field-list-item',
+        idOfTMFilterRow: 'div.main-ui-filter-field',
         closeFindFild: 'span[class="popup-window-close-icon"]',
         openTicketById:(text) => `.main-grid-cell-content:has-text("${text}")`,
         // openTicketById: (text) => `text=/${text}/i`,

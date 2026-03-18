@@ -1,12 +1,10 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
 const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../fixtures/login.fixture');
 const { linksFixtures } = require('../fixtures/links.fixture');
 const { SELECTORS_CATALOG } = require('../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../helpers/screenshotSuccess');
 
-const test = base.extend({
-    ...loginFixtures,
+const test = base.extend({  
     ...linksFixtures,
 });
 
@@ -15,7 +13,7 @@ test.describe('PTO values by probation period Tests', () => {
     // Таймаут для всего теста
     test.setTimeout(900000);
 
-    test('Test_Values_by_probation_period', async ({ loggedInPage: page, links }) => {
+    test('Test_Values_by_probation_period', async ({ page, links }) => {
         let allErrors = []; // Массив для сбора ошибок
 
         try {

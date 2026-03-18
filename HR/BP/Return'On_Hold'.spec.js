@@ -9,11 +9,11 @@ const test = base.extend({
     ...linksFixtures,
 });
 
-test.describe('Rehire TM test', () => {
+test.describe('Return On_Hold TM test', () => {
     
     test.setTimeout(150000);
 
-    test('Rehire TM test flow', async ({ loggedInPage: page, links }) => {
+    test('Return On_Hold TM test flow', async ({ loggedInPage: page, links }) => {
             console.log('Target Link:', links['NewTM']);
             await page.goto(links['NewTM']);
             await page.waitForTimeout(2000);

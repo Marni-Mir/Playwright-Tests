@@ -1,13 +1,12 @@
 // Импортируем 'test' и 'expect' из Playwright
+// Вход выполняется через сохранённое состояние (cookies + localStorage) из .auth (см. playwright.config.js, USER_AUTH_STATE)
 const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../../fixtures/login.fixture');
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
 
 const test = base.extend({
-    ...loginFixtures,
     ...linksFixtures,
 });
 
@@ -26,11 +25,10 @@ test.describe('Ticket New TM test', () => {
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test('Ticket test flow', async ({ loggedInPage: page, links }) => {
+    test('Ticket test flow', async ({ page, links}) => {
         console.log('Target Link:', links['NewTM']);
-
     // 1. Переходим по ссылке
-        await page.goto(links['NewTM']);
+    await page.goto(links['NewTM']);
         
     // 2. Работа с ПЕРВЫМ фреймом (User Side Panel)
         const userFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();

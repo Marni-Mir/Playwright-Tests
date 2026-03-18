@@ -1,6 +1,5 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
 const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../fixtures/login.fixture');
 const { linksFixtures } = require('../fixtures/links.fixture');
 const { SELECTORS_CATALOG } = require('../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../helpers/screenshotSuccess');
@@ -9,7 +8,6 @@ const { formatDate } = require('../helpers/formatDate');
 const { escape } = require('querystring');
 
 const test = base.extend({
-    ...loginFixtures,
     ...linksFixtures,
 });
 
@@ -18,7 +16,7 @@ test.describe('PTO Write-off of vacation days Tests', () => {
     // Таймаут для всего теста
     test.setTimeout(900000);
 
-    test('Write-off of vacation days', async ({ loggedInPage: page, links }) => {
+    test('Write-off of vacation days', async ({ page, links }) => {
         let allErrors = []; // Массив для сбора ошибок
         console.log('Target Link:', links['NewTM']);
 

@@ -1,13 +1,12 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
+// Вход выполняется через сохранённое состояние (cookies + localStorage) из .auth (см. playwright.config.js, USER_AUTH_STATE)
 const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../fixtures/login.fixture');
 const { linksFixtures } = require('../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../helpers/screenshotSuccess');
 
 const test = base.extend({
-    ...loginFixtures,
     ...linksFixtures,
 });
 
@@ -26,7 +25,7 @@ test.describe('Ticket Information Transmission', () => {
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test('Ticket information transmission test', async ({ loggedInPage: page, links }) => {
+    test('Ticket information transmission test', async ({ page, links }) => {
 
         console.log('Target Link:', links['NewTM']);
 
@@ -152,7 +151,7 @@ test.describe('Ticket Information Transmission', () => {
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccountField).click();
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccount).fill(TEST_DATA.dataGoogleAcc);
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveFieldButton).click();
-        await helpdeskPage.waitForTimeout(1000);
+        await ticketFrame.waitForNavigation({ timeout: 30000, waitUntil: 'domcontentloaded' });
 
     // 8. Удаляем чек-лист
         console.log('\n=== Test 4: Deleting checklist ===');

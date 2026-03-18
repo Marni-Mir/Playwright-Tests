@@ -1,23 +1,22 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
+// Вход выполняется через сохранённое состояние (cookies + localStorage) из .auth (см. playwright.config.js, USER_AUTH_STATE)   
 const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../../fixtures/login.fixture');
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const { SELECTORS_CATALOG } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
 
 const test = base.extend({
-    ...loginFixtures,
     ...linksFixtures,
 });
 
-test.describe('Ticket New TM test', () => {
+test.describe('Delete TM Card test', () => {
     
     // Таймаут для всего теста
     test.setTimeout(120000);
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test('TM card test delete', async ({ loggedInPage: page, links }) => {
+    test('TM card test delete', async ({ page, links }) => {
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке

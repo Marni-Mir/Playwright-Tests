@@ -1,24 +1,22 @@
+// Вход выполняется через сохранённое состояние (cookies + localStorage) из .auth (см. playwright.config.js, USER_AUTH_STATE)
 const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../../fixtures/login.fixture');
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
 
 const test = base.extend({
-    ...loginFixtures,
     ...linksFixtures,
 });
 
 test.describe('Request Access BP test', () => {
     
-    test.setTimeout(900000);
+    test.setTimeout(90000);
 
-    test('BP Request access flow', async ({ loggedInPage: page, links }) => {
+    test('BP Request access flow', async ({ page, links}) => {
         console.log('Target Link:', links['NewTM']);
-
-        // 2. Переходим по ссылке
-        await page.goto(links['NewTM']);
+    // 1. Переходим по ссылке
+    await page.goto(links['NewTM']);
         
         // 3. Работа с ПЕРВЫМ фреймом 
         let frame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).first();

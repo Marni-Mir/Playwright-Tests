@@ -1,12 +1,10 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
 const { test: base, expect } = require('@playwright/test');
-const { loginFixtures } = require('../../fixtures/login.fixture');
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const { SELECTORS_CATALOG } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
 
 const test = base.extend({
-    ...loginFixtures,
     ...linksFixtures,
 });
 
@@ -25,7 +23,7 @@ test.describe('On Hold TM test', () => {
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
     actionTimeout: 60000,
 
-    test('On Hold TM test flow', async ({ loggedInPage: page, links }) => {
+    test('On Hold TM test flow', async ({ page, links }) => {
         console.log('Target Link:', links['NewTM']);
 
         // 2. Переходим по ссылке
