@@ -1,4 +1,5 @@
 const { test: base, expect } = require('@playwright/test');
+const { loginViaApi } = require('../../helpers/apiAuth'); // Вход выполняется через API
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
@@ -11,13 +12,18 @@ const test = base.extend({
 // --- ОБЪЕКТ ДАННЫХ ---
 const TEST_DATA = {
     assigneeName: 'm.smirnova',
+    assigneeChoose: /smirnova/i, // Ищем вне зависимости от регистра
     dataGoogleAcc: 'Test@test.com',
     wonColor: '#7bd500',      // Ожидаемый цвет
     colorAttribute: 'data-base-color' // Имя атрибута (техническая константа)
 }
 
 test.describe('Ticket Rehire TM test', () => {
-    
+    test.beforeEach(async ({ context }) => {
+        // Говорим хелперу: "Если куки уже есть от предыдущего теста — не обновляй их!"
+        // forceNewSession: false - не обновлять куки (по умолчанию true, можно не прописывать флаг)
+        await loginViaApi(context, { forceNewSession: false }); 
+    });
     test.setTimeout(150000);
 
     test('Ticket Rehire test flow', async ({ page, links }) => {
@@ -67,11 +73,12 @@ test.describe('Ticket Rehire TM test', () => {
         await page.goto(helpdeskUrl); 
 
         // Настраиваем фильтр
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await expect(page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first()).toBeVisible({ timeout: 10000 });
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first().click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();
         
         // CASTOM-DASH
-        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
+        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.customFindField);
         await findField.fill('id');
         // Чекбокс ID
         // Проверяем класс или состояние checked
@@ -191,7 +198,7 @@ test.describe('Ticket Rehire TM test', () => {
         const userInput = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.userSearchBar); 
         await expect(userInput).toBeVisible({ timeout: 30000 });
         await userInput.fill(TEST_DATA.assigneeName, { delay: 100 });
-        await userInput.press('Enter');
+        await ticketFrame.locator(SELECTORS_CATALOG.Passim.chooseUser).getByText(TEST_DATA.assigneeChoose).click();
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveUserButton).click();
         // Ждем, пока поле выбора юзера исчезнет !!!
         // Это гарантирует, что поп-ап закрылся и можно кликать дальше
@@ -288,9 +295,14 @@ test.describe('Ticket Rehire TM test', () => {
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput).fill('1');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.timeInput).fill('1');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.commentTextarea).fill('TEST');
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.rootCauseInput).fill('TEST');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveTimeButton).click({ timeout: 5000 });
 
     // 5. ПРОВЕРКА ПО АТРИБУТУ.
+        // Ждем, пока окно тайм-трекера исчезнет
+        const timeTrackerRow = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput); 
+        await expect(timeTrackerRow).toBeHidden({ timeout: 15000 });
+        
         const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);
         const colorElement = closeStageBtn.locator(SELECTORS_CATALOG.CRM.Deal.colorIndicator);
         // Передаем ДВА аргумента: имя атрибута и ожидаемый цвет

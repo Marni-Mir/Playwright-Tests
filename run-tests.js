@@ -2,6 +2,16 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+// Подгружаем .env (по ENV_FILE): читаем файл вручную и выставляем process.env (надёжно в Docker при монтировании файла)
+const envFile = process.env.ENV_FILE || '.env.dev2';
+const envPath = envFile.startsWith('/') ? envFile : path.resolve(__dirname, envFile);
+if (fs.existsSync(envPath)) {
+  const raw = fs.readFileSync(envPath, 'utf8');
+  const dotenv = require('dotenv');
+  const parsed = dotenv.parse(raw);
+  Object.assign(process.env, parsed);
+}
+
 // Читаем файл с порядком тестов
 const orderFile = path.join(__dirname, 'test-order.json');
 const order = JSON.parse(fs.readFileSync(orderFile, 'utf-8'));
@@ -31,6 +41,35 @@ const testFiles = order[category];
 console.log(`🚀 Запускаю ${testFiles.length} тестов из категории "${category}"...\n`);
 console.log('ℹ️  Retry настроен в Playwright (2 попытки при падении теста)\n');
 
+// Обновляем auth перед прогоном (чтобы куки не были просрочены)
+const skipAuthRefresh = process.env.SKIP_AUTH_REFRESH === '1' || process.env.SKIP_AUTH_REFRESH === 'true';
+if (!skipAuthRefresh) {
+  console.log('🔄 Обновляю auth (логин и сохранение cookies в .auth/auth.json)...\n');
+  const authEnv = { ...process.env };
+  if (!authEnv.ENV_FILE) authEnv.ENV_FILE = '.env.dev2';
+  try {
+    execSync(
+      'npx playwright test Auth/login.auth.spec.ts --project=auth --workers=1',
+      { stdio: 'inherit', cwd: __dirname, timeout: 120000, env: authEnv }
+    );
+    console.log('✅ Auth обновлён.\n');
+  } catch (authError) {
+    console.error('\n❌ Не удалось обновить auth. Проверь BASE_URL, LOGIN, PASSWORD в .env и доступность сервера.');
+    console.error('   Чтобы пропустить обновление auth, запусти: $env:SKIP_AUTH_REFRESH="1"; node run-tests.js ' + category + '\n');
+    process.exit(1);
+  }
+}
+
+// Папка для blob-отчётов (потом merge-reports соберёт их в один HTML)
+const blobReportDir = path.join(__dirname, 'blob-report');
+if (fs.existsSync(blobReportDir)) {
+  for (const name of fs.readdirSync(blobReportDir)) {
+    fs.rmSync(path.join(blobReportDir, name), { recursive: true });
+  }
+} else {
+  fs.mkdirSync(blobReportDir, { recursive: true });
+}
+
 // Запускаем тесты последовательно
 let passed = 0;
 let failed = 0;
@@ -48,16 +87,16 @@ for (let i = 0; i < testFiles.length; i++) {
     
     try {
       execSync(
-        `npx playwright test ${file} --config ..\\playwright.config.js --workers=1 --reporter=list,html`,
+        `npx playwright test ${file} --workers=1`,
         { 
           stdio: 'inherit',
           cwd: __dirname,
           timeout: 1800000, // 30 минут на тест
           env: {
             ...process.env,
-            // Отключаем автоматическое открытие HTML-отчёта (CI режим)
-            // Playwright retry будет работать автоматически (настроен в конфиге)
-            CI: 'true'
+            CI: 'true',
+            BLOB_INDEX: String(i),
+            PWTEST_BLOB_DO_NOT_REMOVE: '1'
           }
         }
       );
@@ -108,12 +147,26 @@ console.log('\n' + '='.repeat(50));
 console.log(`📊 Итого: ${passed} успешно, ${failed} провалено из ${testFiles.length}`);
 console.log('='.repeat(50));
 
-// Собираем и открываем HTML-отчёт после завершения всех тестов
-console.log('\n📊 Итоговый HTML-отчёт:\n');
-console.log('   Все результаты сохранены в: PW/test-results/');
+// Собираем blob-отчёты в один HTML (если был хотя бы один запуск)
+const totalRuns = passed + failed;
+if (totalRuns > 0) {
+  try {
+    console.log('\n📋 Собираю единый HTML-отчёт из всех прогонов...');
+    execSync(
+      'npx playwright merge-reports blob-report --config playwright.merge.config.js',
+      { stdio: 'inherit', cwd: __dirname }
+    );
+    console.log('   Готово.\n');
+  } catch (mergeError) {
+    console.log('\n   ⚠️  Не удалось собрать merge-отчёт (можно открыть отдельные blob в blob-report/).\n');
+  }
+}
+
+console.log('📊 Итоговый HTML-отчёт:\n');
+console.log('   Все результаты сохранены в: test-results/');
 console.log('   Для просмотра полного HTML-отчёта со всеми результатами запусти:');
-console.log('   npx playwright show-report');
-console.log('\n   Эта команда соберёт отчёт из всех test-results и покажет все тесты.\n');
+console.log('   npx playwright show-report playwright-report');
+console.log('\n   Эта команда откроет отчёт, собранный из всех прогонов.\n');
 
 // Выходим с кодом ошибки, если были провалы
 if (failed > 0) {

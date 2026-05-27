@@ -1,60 +1,122 @@
-📚 Шпаргалка по основным командам
-Вот небольшой список, который тебе пригодится:
+# Запуск автотестов Playwright
 
-1. Запустить ВСЕ тесты
-Эта команда найдет все файлы .spec.js в твоем проекте и запустит их.
+**Эта папка — корень проекта.** Открой её в Cursor/VS Code как корень и работай из неё.
 
-Bash
+## 1) Требования
+- Node.js 18+ (или 20+)
 
-npx playwright test
-Так как мы в playwright.config.js указали headless: false, ты увидишь, как откроются окна браузеров.
+## 2) Установка зависимостей
+Из корня проекта (папка PW):
+```
+npm install
+```
 
-2. Запустить тест в ОДНОМ браузере
-По умолчанию, конфиг запускает тесты во всех projects (chromium, firefox, webkit). Чтобы запустить только в Chrome:
+## 3) Установка браузеров Playwright
+```
+npx playwright install
+```
 
-Bash
+## 4) Окружение
+По умолчанию используется файл `.env.dev2`. Создай его по образцу `.env.dev` (BASE_URL, LOGIN, PASSWORD).
 
-npx playwright test --project=chromium
-(Или firefox, или webkit)
+Если нужен другой файл окружения:
+```
+# PowerShell
+$env:ENV_FILE=".env.dev"
+# CMD
+set ENV_FILE=.env.dev
+```
+Затем: `npm test`. Сбросить: `Remove-Item Env:ENV_FILE` (PowerShell).
 
-3. Принудительно запустить с интерфейсом
-Если ты когда-нибудь вернешь в конфиге headless: true, но захочешь посмотреть один запуск "вживую", используй флаг --headed:
+## 5) Запуск тестов
 
-Bash
+При запуске по коллекциям (`test:smoke`, `test:pto` и т.д.) **перед тестами автоматически выполняется обновление auth**: логин и сохранение cookies/localStorage в `.auth/auth.json`. Так куки не успевают протухнуть.
 
-npx playwright test firstTest.spec.js --headed
-📊 Как посмотреть ОТЧЁТ (!!!)
-Это одна из лучших функций Playwright. После каждого запуска (даже если тест упал), ты можешь открыть интерактивный HTML-отчет.
+Запуск по коллекциям (порядок в `test-order.json`):
+```
+npm run test:order
+npm run test:smoke
+npm run test:pto
+npm run test:bp
+npm run test:newtm
+npm run test:helpdesk
 
-Выполни в терминале:
+```
 
-Bash
+Пропустить обновление auth (если уже залогинен и файл свежий):
+```
+# PowerShell
+$env:SKIP_AUTH_REFRESH="1"; npm run test:pto // "0" - обновление auth
+```
 
-npx playwright show-report
-У тебя в браузере откроется страница со всеми шагами, скриншотами (если тест упал) и логами.
+Базовый запуск:
+```
+npm test
+```
 
-🕵️‍♀️ Как посмотреть СУПЕР-ОТЧЁТ (Trace)
-Помнишь, мы включили trace: 'retain-on-failure'?
+## 6) Отчёт
+HTML-отчёт сохраняется в `playwright-report/`.
+Открыть отчёт:
+```
+npx playwright show-report playwright-report
+```
 
-Если тест упадет, Playwright создаст файл trace.zip в папке test-results. Чтобы посмотреть его, просто перетащи этот .zip файл на страницу HTML-отчета, которую ты открыла командой выше.
-(или просто перетащи этот zip на сайт trace.playwright.dev)
+## 7) Запуск в Docker
 
-Либо можно открыть его отдельной командой:
+Сборка образа:
+```
+docker build -t pw-tests .
+```
 
-Bash
+Запуск по умолчанию (категория `smoke`):
+```
+docker run --rm --ipc=host pw-tests
+```
 
-npx playwright show-trace test-results/имя-твоего-трейс-файла.zip
-Ты увидишь запись каждого действия, состояние DOM до и после, и что именно пошло не так. Это просто магия для отладки.
+Окружение (BASE_URL, LOGIN, PASSWORD) берётся из **файла** `.env.dev2` — его нужно монтировать в контейнер через `-v`. Раздел "Environment variables" в Docker Desktop заполнять не нужно. Запускай из **корня проекта** (где лежит `.env.dev2`).
 
-Чтобы не мучиться с Ctrl + C, попробуй запускать тесты в режиме UI Mode. Это намного удобнее:
-npx playwright test --ui
+**Короткий запуск** (скрипт подставляет образ, монтирование и .env):
+```
+.\run-docker.ps1 scheme
+.\run-docker.ps1 pto
+.\run-docker.ps1
+```
+Через npm (категория после `--`):
+```
+npm run docker -- scheme
+npm run docker -- pto
+```
 
-Ручное ограничение Воркеров для параллельного запуска нескольких автотестов.
-// playwright.config.js
-module.exports = defineConfig({
-  // ...
-  workers: 4, // Запускать не более 4 тестов одновременно
-  // ...
-});
+Полная команда (если нужна вручную):
 
-// ✓
+**PowerShell:**
+```
+docker run --rm --ipc=host -e ENV_FILE=.env.dev2 -v "${PWD}\.env.dev2:/app/.env.dev2" -v "${PWD}\.auth:/app/.auth" pw-tests node run-tests.js pto
+```
+
+**CMD (Windows):**
+```
+docker run --rm --ipc=host -e ENV_FILE=.env.dev2 -v "%cd%\.env.dev2:/app/.env.dev2" -v "%cd%\.auth:/app/.auth" pw-tests node run-tests.js pto
+```
+
+Категории: `smoke`, `pto`, `bp`, `newtm`, `helpdesk`, `validationhd`, `scheme` (см. `test-order.json`).
+
+В Docker для обновления auth нужен доступный из контейнера BASE_URL (не localhost). Для Jenkins/CI см. **JENKINS.md** — что передать DevOps для настройки пайплайна.
+
+- `--ipc=host` уменьшает риск падений Chromium в контейнере.
+- Внутри контейнера тесты идут в headless-режиме (CI).
+- Скрипт `run-docker.ps1` монтирует в контейнер ещё `playwright-report`, `test-results`, `blob-report` — отчёт после прогона в Docker сохраняется в папке проекта, и `npx playwright show-report playwright-report` покажет именно его.
+
+**Пересборка образа** (после изменений в Dockerfile или коде):
+```
+docker build -t pw-tests .
+```
+Полная пересборка без кэша: `docker build --no-cache -t pw-tests .`
+
+Если при сборке ошибка `parent snapshot ... does not exist` — почисти кэш и собери заново:
+```
+docker builder prune -af
+docker build --no-cache -t pw-tests .
+```
+
+**Где что лежит:** Dockerfile — в корне проекта (`PW/Dockerfile`). Собранный образ хранится в Docker Desktop (не в папке проекта). Список образов: `docker images`. Удалить образ: `docker rmi pw-tests`.

@@ -68,14 +68,14 @@ test.describe('Ticket Information Transmission', () => {
             throw new Error('HELPDESK_URL не задан в .env файле');
         }
         await helpdeskPage.goto(helpdeskUrl);
-        await helpdeskPage.waitForTimeout(2000);
+        await expect(helpdeskPage.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first()).toBeVisible({ timeout: 10000 });
         
     // 4. Работаем с Helpdesk во второй вкладке
-        await helpdeskPage.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await helpdeskPage.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first().click();
         await helpdeskPage.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
         
         // CASTOM-HD-DASH
-        const findField = helpdeskPage.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
+        const findField = helpdeskPage.locator(SELECTORS_CATALOG.Helpdesk.customFindField);
         await findField.fill('id');
         // Чекбокс ID
         // Проверяем класс или состояние checked
@@ -144,14 +144,13 @@ test.describe('Ticket Information Transmission', () => {
 
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveUserButton).click();
         await expect(userInput).toBeHidden();
-        await helpdeskPage.waitForTimeout(1000);
 
     // 7. Добавляем Google/Azure аккаунт
         console.log('\n=== Test 5: Adding Google account ===');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccountField).click();
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.googleAccount).fill(TEST_DATA.dataGoogleAcc);
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveFieldButton).click();
-        await ticketFrame.waitForNavigation({ timeout: 30000, waitUntil: 'domcontentloaded' });
+        await helpdeskPage.waitForLoadState('domcontentloaded', { timeout: 30000 });
 
     // 8. Удаляем чек-лист
         console.log('\n=== Test 4: Deleting checklist ===');
@@ -159,17 +158,18 @@ test.describe('Ticket Information Transmission', () => {
 
         const checkListFrame = helpdeskPage.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1);
         await expect(checkListFrame.locator(SELECTORS_CATALOG.TicketPanel.checklistPanel.checklistMore).first()).toBeVisible({ timeout: 15000 });
-        await checkListFrame.locator(SELECTORS_CATALOG.TicketPanel.checklistPanel.checklistMore).click();
+        await checkListFrame.locator(SELECTORS_CATALOG.TicketPanel.checklistPanel.checklistMore).click({ timeout: 15000 });
         await checkListFrame.locator(SELECTORS_CATALOG.TicketPanel.checklistPanel.checklistMoreDelete).click();
-        await helpdeskPage.waitForTimeout(5000);
+        await expect(helpdeskPage.locator(SELECTORS_CATALOG.Passim.sidePanelIframe)).toHaveCount(1, { timeout: 15000 });
 
     // 9. Назначаем лицензии в тикете
         console.log('\n=== Assigning licenses in ticket ===');
-        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click();
-        await helpdeskPage.waitForTimeout(2000);
+        await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab)).toBeVisible({ timeout: 15000 });
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click({ timeout: 2000 });
         
         // Кликаем на все кнопки Add, пока они есть (кнопка исчезает после клика)
         const addButtonLocator = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licenseAdd);
+        await expect(addButtonLocator.first()).toBeVisible({ timeout: 15000 });
         const addButtonLocators = await addButtonLocator.all();
         
         // Кликаем на все видимые кнопки Add
@@ -200,8 +200,6 @@ test.describe('Ticket Information Transmission', () => {
 
         // Закрытие сделки   
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).click();
-        await helpdeskPage.waitForTimeout(5000);
-
         // Pop-up 1: Complete
         // Используем getByText для надежности
         let completeBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.completePopupBtn).getByText('Complete');
@@ -213,7 +211,7 @@ test.describe('Ticket Information Transmission', () => {
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput).fill('1');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.timeInput).fill('1');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.commentTextarea).fill('TEST');
-        
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.rootCauseInput).fill('TEST');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveTimeButton).click();
 
         // Ждем, пока окно тайм-трекера исчезнет

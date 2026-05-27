@@ -46,7 +46,15 @@ test.describe('Dashboard view', () => {
         const ticketLocator = firstRow.locator(SELECTORS_CATALOG.Helpdesk.openTicketById('')).nth(2);
         const idText = await ticketLocator.innerText(); // для проверки, можно убрать если не нужно будет
         console.log('ticket id = ', idText); // для проверки, можно убрать если не нужно будет
-        await ticketLocator.click();
+
+        // Клик по ссылке с открытием в новой вкладке и переходом в неё
+        const [newPage] = await Promise.all([
+            page.context().waitForEvent('page'),
+            ticketLocator.click({ button: 'middle' }) // "middle" обычно открывает ссылку в новой вкладке
+        ]);
+        await newPage.bringToFront();
+        page = newPage; // Переопределяем page на новую открытую вкладку, чтобы работать с тикетом дальше
+
 
         // Ждём появления iframe (слайдер тикета)
         await page.waitForSelector(SELECTORS_CATALOG.Passim.sidePanelIframe, { state: 'attached', timeout: 20000 });
@@ -54,7 +62,8 @@ test.describe('Dashboard view', () => {
         await expect(newFrame.locator('body')).toBeVisible({ timeout: 15000 });
 
         // Ждем загрузки содержимого тикета
-        await expect(newFrame.getByText('Assigned')).waitFor({sate: 'visible'});  //expect(newFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee))
+        await newFrame.getByText('Assigned').waitFor({state: 'visible', timeout: 60000 });
+        await expect(newFrame.getByText('Assigned')).toBeVisible({ timeout: 10000 }); //expect(newFrame.locator(SELECTORS_CATALOG.TicketPanel.stageAssignee))
         console.log('expect Assigned');
 
         // Проверяем URL страницы тикета

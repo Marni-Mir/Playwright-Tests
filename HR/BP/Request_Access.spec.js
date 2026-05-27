@@ -1,5 +1,6 @@
 // Вход выполняется через сохранённое состояние (cookies + localStorage) из .auth (см. playwright.config.js, USER_AUTH_STATE)
 const { test: base, expect } = require('@playwright/test');
+const { loginViaApi } = require('../../helpers/apiAuth'); // Вход выполняется через API
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
@@ -10,7 +11,11 @@ const test = base.extend({
 });
 
 test.describe('Request Access BP test', () => {
-    
+    test.beforeEach(async ({ context }) => {
+        // Говорим хелперу: "Если куки уже есть от предыдущего теста — не обновляй их!"
+        // forceNewSession: false - не обновлять куки (по умолчанию true, можно не прописывать флаг)
+        await loginViaApi(context, { forceNewSession: false }); 
+    });
     test.setTimeout(90000);
 
     test('BP Request access flow', async ({ page, links}) => {
@@ -100,12 +105,13 @@ test.describe('Request Access BP test', () => {
             throw new Error('HELPDESK_URL не задан в .env файле');
         }
         await page.goto(helpdeskUrl);  
+        await expect(page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first()).toBeVisible({ timeout: 10000 });
          
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first().click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
         
         // CASTOM-HD-DASH
-        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
+        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.customFindField);
         await findField.fill('id');
         // Чекбокс ID
         const idCheckbox = page.locator(SELECTORS_CATALOG.Helpdesk.customIdLabel);
@@ -127,8 +133,13 @@ test.describe('Request Access BP test', () => {
 
         // Закрываем модальное окно выбора полей
         await page.locator(SELECTORS_CATALOG.Helpdesk.closeFindFild).click(); 
+        await page.locator(SELECTORS_CATALOG.Helpdesk.resetFilter).click();
+        await expect(page.locator('.main-grid-table-fade')).toBeHidden({ timeout: 10000 });
+        await expect(page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first()).toBeVisible({ timeout: 10000 });
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first().click();
     
         // Ввод ID тикета
+        await expect(page.locator(SELECTORS_CATALOG.Helpdesk.typeID)).toBeVisible({ timeout: 10000 });
         await page.locator(SELECTORS_CATALOG.Helpdesk.typeID).fill(ticketId);
         // Ждем, пока контейнер с кнопками фильтра появится
         const filterButtonContainer = page.locator('.main-ui-filter-field-button-inner, .main-ui-filter-bottom-controls').first();

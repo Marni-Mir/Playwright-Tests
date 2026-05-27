@@ -1,5 +1,6 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
 const { test: base, expect } = require('@playwright/test');
+const { loginViaApi } = require('../../helpers/apiAuth'); // Вход выполняется через API
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const { SELECTORS_CATALOG } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
@@ -17,7 +18,11 @@ const TEST_DATA = {
 }
 
 test.describe('On Hold TM test', () => {
-    
+    test.beforeEach(async ({ context }) => {
+        // Говорим хелперу: "Если куки уже есть от предыдущего теста — не обновляй их!"
+        // forceNewSession: false - не обновлять куки (по умолчанию true, можно не прописывать флаг)
+        await loginViaApi(context, { forceNewSession: false }); 
+    });
     // Таймаут для всего теста
     test.setTimeout(120000);
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)

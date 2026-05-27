@@ -5,7 +5,7 @@ import * as path from 'path';
 const SELECTORS = {
   loginInput: 'input[type="text"], input[type="email"]',
   passwordInput: 'input[type="password"]',
-  loginButton: 'input[type="submit"], input[value="Log In"]',
+  loginButton: 'input[type="submit"], input[value="Log In"]', //'.ui-btn-success', //'input[type="submit"], input[value="Log In"]',
 };
 
 test.describe('Login and save auth', () => {

@@ -35,7 +35,13 @@ test.describe('PTO Default days by years Tests', () => {
             const TimeMonitoring = frame.locator(SELECTORS_CATALOG.TeamMemberCard.PTO.timeMonitoringTab);
             await TimeMonitoring.scrollIntoViewIfNeeded();
             await TimeMonitoring.click();
-            await page.waitForTimeout(3000);
+            // Проверяем, что style на активной вкладке либо отсутствует, либо является пустой строкой
+            const styleValue = await TimeMonitoring.getAttribute('style');
+            // В неактивной вкладке style="opacity: 0; display: none; transform: translateX(100%);", а в активной — style либо отсутствует, либо пустая строка
+            expect(
+                !styleValue ||
+                styleValue.trim() === ""
+            ).toBeTruthy();
 
             // 5. Получаем Start Date - Time Of Monitoring
             const StartDateSel = frame.locator(SELECTORS_CATALOG.TeamMemberCard.PTO.startDateToM).first();

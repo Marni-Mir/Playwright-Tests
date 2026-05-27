@@ -70,11 +70,12 @@ test.describe('Ticket Validation', () => {
         }
         await page.goto(helpdeskUrl); 
         
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await expect(page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first()).toBeVisible({ timeout: 10000 });
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first().click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
         
         // CASTOM-HD-DASH
-        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
+        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.customFindField);
         await findField.fill('id');
         // Чекбокс ID
         // Проверяем класс или состояние checked

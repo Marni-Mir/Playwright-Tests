@@ -1,4 +1,5 @@
 const { test: base, expect } = require('@playwright/test');
+const { loginViaApi } = require('../../helpers/apiAuth'); // Вход выполняется через API
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const { SELECTORS_CATALOG } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
@@ -8,7 +9,11 @@ const test = base.extend({
 });
 
 test.describe('Rehire TM test', () => {
-    
+    test.beforeEach(async ({ context }) => {
+        // Говорим хелперу: "Если куки уже есть от предыдущего теста — не обновляй их!"
+        // forceNewSession: false - не обновлять куки (по умолчанию true, можно не прописывать флаг)
+        await loginViaApi(context, { forceNewSession: false }); 
+    });
     test.setTimeout(150000);
 
     test('Rehire TM test flow', async ({ page, links }) => {
@@ -136,12 +141,14 @@ test.describe('Rehire TM test', () => {
         }
         await page.goto(helpdeskUrl); 
 
+        await expect(page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first()).toBeVisible({ timeout: 10000 });
+
             // Настраиваем фильтр
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first().click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();
         
         // CASTOM-DASH
-        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
+        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.customFindField);
         await findField.fill('id');
         // Чекбокс ID
         // Проверяем класс или состояние checked

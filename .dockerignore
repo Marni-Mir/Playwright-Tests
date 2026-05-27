@@ -1,0 +1,29 @@
+# Игнор как в .gitignore
+node_modules/
+npm-debug.log*
+test-results/
+playwright-report/
+blob-report/
+*.png
+*.jpg
+*.jpeg
+test-screenshots/
+*.log
+.DS_Store
+Thumbs.db
+playwright/.cache/
+.auth/
+
+# Не копировать в образ (подставляются при запуске через -v или -e)
+.env
+.env.*
+*.env
+
+# Репозиторий и лишнее
+.git/
+.gitignore
+.dockerignore
+Dockerfile
+*.md
+.vscode/
+.idea/

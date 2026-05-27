@@ -1,19 +1,22 @@
 {
   "name": "pw",
   "version": "1.0.0",
-  "description": "📚 Шпаргалка по основным командам\r Вот небольшой список, который тебе пригодится:",
+  "description": "Playwright автотесты",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "npx playwright test --config ..\\playwright.config.js",
+    "test": "npx playwright test",
     "test:order": "node run-tests.js",
+    "docker": "powershell -NoProfile -File run-docker.ps1",
     "test:smoke": "node run-tests.js smoke",
     "test:pto": "node run-tests.js pto",
     "test:bp": "node run-tests.js bp",
     "test:newtm": "node run-tests.js newtm",
-    "test:helpdesk": "node run-tests.js helpdesk"
+    "test:helpdesk": "node run-tests.js helpdesk",
+    "test:validationhd": "node run-tests.js validationhd",
+    "test:scheme": "node run-tests.js scheme"
   },
   "repository": {
     "type": "git",
@@ -25,5 +28,10 @@
   "bugs": {
     "url": "https://github.com/Marni-Mir/Playwright-Tests/issues"
   },
-  "homepage": "https://github.com/Marni-Mir/Playwright-Tests#readme"
+  "homepage": "https://github.com/Marni-Mir/Playwright-Tests#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1",
+    "dotenv": "^17.2.3"
+  }
 }

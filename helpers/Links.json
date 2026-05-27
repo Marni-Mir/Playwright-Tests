@@ -1,8 +1,7 @@
 {
-  "Helpdesk": "https://dev3.togetdone.com/crm/deal/category/9/",
-  "NewTM": "https://dev3.togetdone.com/crm/deal/details/91872/",
-  "TicketNewTM": "https://dev3.togetdone.com/crm/deal/details/91883/",
-  "TicketRequestAccessTM": "https://dev3.togetdone.com/crm/deal/details/91894/",
-  "TicketDismissTM": "https://dev3.togetdone.com/crm/deal/details/91900/",
+  "NewTM": "https://dev3.togetdone.com/crm/deal/details/99199/",
+  "TicketNewTM": "https://dev3.togetdone.com/crm/deal/details/99200/?return=%2Fdashboard%2Fhd%2F",
+  "TicketRequestAccessTM": "https://dev3.togetdone.com/crm/deal/details/99173/?return=%2Fdashboard%2Fhd%2F",
+  "TicketDismissTM": "https://dev2.togetdone.com/crm/deal/details/97659/",
   "TicketRehireTM": "https://dev3.togetdone.com/crm/deal/category/9/"
 }

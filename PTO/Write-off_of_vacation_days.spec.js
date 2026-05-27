@@ -111,7 +111,7 @@ test.describe('PTO Write-off of vacation days Tests', () => {
         await page.waitForTimeout(3000);
 
         // 10. Аппрув внутри тикета
-        const timeOffFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1);
+        let timeOffFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe).nth(1);
         await expect(timeOffFrame.locator('body')).toBeVisible({ timeout: 10000 });
             
         const TimeOffApprove = timeOffFrame.locator(SELECTORS_CATALOG.TeamMemberCard.PTO.timeOffStageClose);
@@ -122,13 +122,19 @@ test.describe('PTO Write-off of vacation days Tests', () => {
                 
         await timeOffFrame.locator(SELECTORS_CATALOG.TeamMemberCard.PTO.timeOffApprove).click();
         await page.waitForTimeout(3000);
-        await page.keyboard.press('Escape');    
+
+        const TimeOffTicketUrl = page.url();
+        console.log('Time Off ticket url:', TimeOffTicketUrl);
+
+        await page.keyboard.press('Escape');  
+        await expect(timeOffFrame.locator('body')).toBeHidden();
 
         // 11. Переходим на вкладку Time Monitoring 
         await frame.locator(SELECTORS_CATALOG.TeamMemberCard.PTO.timeMonitoringTab).click();
 
         // Получаем Start Date - Time Of Monitoring
         const StartDateSel = frame.locator(SELECTORS_CATALOG.TeamMemberCard.PTO.startDateToM).first();
+        await expect(StartDateSel).toBeVisible();
         await StartDateSel.scrollIntoViewIfNeeded();
         let StartDateToMText = await StartDateSel.last().evaluate((div) => div.lastChild.textContent.trim());
         console.log('StartDateToM:', StartDateToMText.trim());
@@ -201,6 +207,21 @@ test.describe('PTO Write-off of vacation days Tests', () => {
             await setBalanceDate(date, label);
             await checkPaidValues(label, expectedPaid);
         }
+
+         // Удаляем time off тикет
+         await page.goto(TimeOffTicketUrl);
+         timeOffFrame = page.frameLocator(SELECTORS_CATALOG.Passim.sidePanelIframe);
+         await expect(timeOffFrame.locator('body')).toBeVisible({ timeout: 10000 });
+         await expect(timeOffFrame.getByRole('button').filter({ hasText: /^$/ })).first().toBeVisible();
+         await timeOffFrame.getByRole('button').filter({ hasText: /^$/ }).first().click();
+         await expect (timeOffFrame.locator(SELECTORS_CATALOG.CRM.Deal.menuPopupItems)).toBeVisible();
+         console.log('загружен попап')
+         await timeOffFrame.getByText(/Delete/).nth(1).click(); // ищет элемент, текст которого содержит "Delete"    
+         await timeOffFrame.getByText('Yes').click();
+         await expect(timeOffFrame.locator('body')).toBeHidden();
+         await page.goto(TimeOffTicketUrl);
+         await expect (timeOffFrame.getByText('Item was deleted, or the URL is incorrect.')).toBeVisible();
+         console.log('Time Off ticket deleted');
 
         // Блок сбора ошибок
         if (allErrors.length > 0) {

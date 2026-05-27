@@ -1,5 +1,6 @@
 // Вход выполняется через сохранённое состояние (cookies + localStorage) из .auth (см. playwright.config.js, USER_AUTH_STATE)
 const { test: base, expect } = require('@playwright/test');
+const { loginViaApi } = require('../../helpers/apiAuth'); // Вход выполняется через API
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
@@ -12,13 +13,18 @@ const test = base.extend({
 // --- ОБЪЕКТ ДАННЫХ ---
 const TEST_DATA = {
     assigneeName: 'm.smirnova',
+    assigneeChoose: /smirnova/i, // Ищем вне зависимости от регистра
     dataGoogleAcc: 'Test@test.com',
     wonColor: '#7bd500',      // Ожидаемый цвет
     colorAttribute: 'data-base-color' // Имя атрибута (техническая константа)
 }
 
 test.describe('Ticket Request Access test', () => {
-    
+    test.beforeEach(async ({ context }) => {
+        // Говорим хелперу: "Если куки уже есть от предыдущего теста — не обновляй их!"
+        // forceNewSession: false - не обновлять куки (по умолчанию true, можно не прописывать флаг)
+        await loginViaApi(context, { forceNewSession: false }); 
+    });
     test.setTimeout(150000);
 
     test('Ticket Request Access test flow', async ({ page, links}) => {
@@ -66,12 +72,13 @@ test.describe('Ticket Request Access test', () => {
             throw new Error('HELPDESK_URL не задан в .env файле');
         }
         await page.goto(helpdeskUrl); 
+        await expect(page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first()).toBeVisible({ timeout: 10000 });
 
-        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+        await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first().click();
         await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click();  
 
         // CASTOM-DASH
-        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.castomFindField);
+        const findField = page.locator(SELECTORS_CATALOG.Helpdesk.customFindField);
         await findField.fill('id');
         // Чекбокс ID
         // Проверяем класс или состояние checked
@@ -193,7 +200,7 @@ test.describe('Ticket Request Access test', () => {
         const userInput = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.userSearchBar); 
         await expect(userInput).toBeVisible({ timeout: 30000 });
         await userInput.fill(TEST_DATA.assigneeName, { delay: 100 });
-        await userInput.press('Enter');
+        await ticketFrame.locator(SELECTORS_CATALOG.Passim.chooseUser).getByText(TEST_DATA.assigneeChoose).click();
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveUserButton).click();
         // Ждем, пока поле выбора юзера исчезнет !!!
         // Это гарантирует, что поп-ап закрылся и можно кликать дальше
@@ -211,8 +218,7 @@ test.describe('Ticket Request Access test', () => {
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.licensesTab).click({ timeout: 15000 });
         // Закрываем тикет кликаем стейдж - Close Deal
         // Наводим мышь на стейдж Close Deal, чтобы она стала видимой
-        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).hover();
-        await page.waitForTimeout(300);
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).hover({ timeout: 300 });
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose).click({ timeout: 15000 });
 
         // Прокликиваем всё для закрытия
@@ -226,7 +232,9 @@ test.describe('Ticket Request Access test', () => {
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput).fill('1');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.timeInput).fill('1');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.commentTextarea).fill('TEST');
+        await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.rootCauseInput).fill('TEST');
         await ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.saveTimeButton).click({ timeout: 5000 });
+        await expect(ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.hoursInput)).toBeHidden({ timeout: 15000 });
 
     // 4. ПРОВЕРКА ПО АТРИБУТУ.
         const closeStageBtn = ticketFrame.locator(SELECTORS_CATALOG.TicketPanel.stageClose);

@@ -5,9 +5,12 @@ const SELECTORS_CATALOG = {
     // Общие
     Passim:{
     sidePanelIframe: '.side-panel-iframe',
+    chooseUser:'.bx-finder-box-tabs-content-cell',
     },
 
     CRM:{
+    CRMButton: 'span[data-role="item-text"]:has-text("CRM")',
+    funnelButton: 'button[data-toolbar-collapsed-icon="ui-btn-icon-funnel"]',
     teamMembersButton: '#bx_left_menu_4129730737 > a',
     createButton: '#uiToolbarContainer > div.ui-toolbar-after-title-buttons > div > a',
     deletedMessage: 'text="Deal was deleted, or the URL is incorrect."',
@@ -18,28 +21,31 @@ const SELECTORS_CATALOG = {
      menuPopupItems: 'div[class = "menu-popup-items"]',
      deleteItem: 'text="Delete"',
      continueItem: 'text="Continue"',
-     buttonBP: 'button[title="Run Workflow"]',
+     buttonBP:'button[title="Run Workflow"]', // старый селектор // '#crm_entity_bp_starter' новый селектор
      colorIndicator: 'div[data-base-color]', // Для проверки стейджа сделки
      dataStyle: 'div[data-style]', // Для проверки стейджа сделки. Текущий стиль стейджа
      notificationText: 'div[class="ui-notification-manager-browser-text"]',
      tabs: 'div[data-role="crm-item-detail-container"]',
      // Кнопка More (универсальный селектор для разных сделок: deal_8_24 и deal_9_2)
-     moreButton: '[id^="crm_scope_detail_custom_deal_"][id$="_more_button"]'
+     moreButton: '[id^="crm_scope_detail_custom_deal_"][id$="_more_button"]',
+     timeline: '.crm-entity-stream-container-list'
     }
     },
 
     Helpdesk: {
-        searchFilterBar: 'input[placeholder*= "search"]',
+        searchFilterBar: 'input[placeholder*= "search"]', //.first() - нужен первый элемент
+        menuFilter: 'div[class="main-ui-filter-field-container-list"]',
         addField: '.main-ui-filter-field-add-item',
         typeID: 'input[name="ID"]',
         searchFilterButton: 'button.main-ui-filter-find', // Более гибкий селектор - ищет кнопку с классом main-ui-filter-find
+        resetFilter: 'span.main-ui-filter-reset',
 
         // поля кастомного дашборда
-        castomFindField: 'input[class="ui-ctl-element main-ui-filter-popup-search-section-input"]',
+        customFindField: 'input[class="ui-ctl-element main-ui-filter-popup-search-section-input"]',
         customIdLabel: 'div[data-id="field_ID"]',
         // Поле "ID of TM" в фильтре (в попапе — элемент списка; в спеке использовать .filter({ hasText: 'ID of TM' }))
         customIdOfTMListItem: 'div.main-ui-filter-field-list-item',
-        idOfTMFilterRow: 'div.main-ui-filter-field',
+        idOfTMFilterRow: 'div [class*= "main-ui-filter-wield-with-label"]',
         closeFindFild: 'span[class="popup-window-close-icon"]',
         openTicketById:(text) => `.main-grid-cell-content:has-text("${text}")`,
         // openTicketById: (text) => `text=/${text}/i`,
@@ -86,6 +92,7 @@ const SELECTORS_CATALOG = {
         hoursInput: '.time-tracker-row input[name="hours"]',
         timeInput: '.time-tracker-row input[name="time"]',
         commentTextarea: '.time-tracker-row textarea[name="comment"]',
+        rootCauseInput: 'input[name="UF_CRM_ROOT_CAUSE"]',
         saveTimeButton: 'span.ui-btn.ui-btn-primary',
 
         // Чек-лист (Внутри второго фрейма)
@@ -127,6 +134,7 @@ const SELECTORS_CATALOG = {
     typeOfTimeOffSelect: 'span[id^=UF_CRM_28_TYPE_OF_TIME_OFF_value]',  // id начинается с ...
     timeOffStageClose: 'div[data-stage-id="final"]',
     timeOffApprove: '.popup-window-buttons button[class="ui-btn ui-btn-success"]',
+    // timeOffTicketGear: getByRole('button').filter({ hasText: /^$/ }), //'button[class="ui-btn ui-btn-light-border ui-btn-icon-setting ui-btn-themes"]', // гаечка для удаления тайм офф тикета
     
     // PTO - Time Monitoring
     timeMonitoringTab: '#crm_scope_detail_custom_deal_8_24_tab_time_monitoring',

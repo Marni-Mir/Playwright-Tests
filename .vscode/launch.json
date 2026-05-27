@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Playwright: текущий файл",
+      "program": "${workspaceFolder}/node_modules/@playwright/test/cli.js",
+      "args": ["test", "${relativeFile}", "--config=playwright.config.js"],
+      "cwd": "${workspaceFolder}",
+      "env": { "ENV_FILE": ".env.dev2" },
+      "console": "integratedTerminal"
+    }
+  ]
+}

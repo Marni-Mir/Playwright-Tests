@@ -1,5 +1,6 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
 const { test: base, expect } = require('@playwright/test');
+const { loginViaApi } = require('../../helpers/apiAuth'); // Вход выполняется через API
 const { linksFixtures } = require('../../fixtures/links.fixture');
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
@@ -10,7 +11,11 @@ const test = base.extend({
 });
 
 test.describe('Dismiss TM test', () => {
-    
+    test.beforeEach(async ({ context }) => {
+        // Говорим хелперу: "Если куки уже есть от предыдущего теста — не обновляй их!"
+        // forceNewSession: false - не обновлять куки (по умолчанию true, можно не прописывать флаг)
+        await loginViaApi(context, { forceNewSession: false }); 
+    });
     // Таймаут для всего теста
     test.setTimeout(120000);
     // Увеличим таймаут поиска элементов (по дефолту 30 сек, ставим 60)
@@ -107,7 +112,8 @@ test.describe('Dismiss TM test', () => {
         await page.goto(helpdeskUrl);  
          
          // В Playwright клик и заполнение полей
-         await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).click();
+         await expect(page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first()).toBeVisible({ timeout: 10000 });
+         await page.locator(SELECTORS_CATALOG.Helpdesk.searchFilterBar).first().click();
          await page.locator(SELECTORS_CATALOG.Helpdesk.addField).click(); 
          
          // Заполняем фильтр

@@ -1,6 +1,7 @@
 // 1. Импортируем 'test' и 'expect' из Playwright
 // Вход выполняется через сохранённое состояние (cookies + localStorage) из .auth (см. playwright.config.js, USER_AUTH_STATE)
-const { test, expect } = require('@playwright/test');
+const { test, expect, request } = require('@playwright/test');
+const { loginViaApi } = require('../../helpers/apiAuth'); // Вход выполняется через API
 const fs = require('fs');
 const { SELECTORS_CATALOG, FILE_PATHS } = require('../../page_object/selectors_catalog');
 const { ScreenshotSuccess } = require('../../helpers/screenshotSuccess');
@@ -30,8 +31,10 @@ const SELECTORS = {
     ptoDropdown: 'div[data-name="UF_DEAL_HR_PTO"] span[class="main-ui-select-name"]',
     dropdownMenuItem: 'span.menu-popup-item-text', // селектор одной позиции списка
     probationPeriod: 'input[name="UF_CRM_1657638843517"]',
-    managerLink: 'a[id^="add_user_UF_CRM_MANAGER"]',
-    managerInput: '#bx-dest-internal-input-box input',
+    managerLink: 'a[id^="add_user_UF_CRM_MANAGER"]', // старый селектор
+    addButton: '.ui-tag-selector-add-button-caption',
+    //managerLink: 'div[data-cid="UF_CRM_MANAGER"]', // новый селектор
+    managerInput: '#bx-dest-internal-input-box input',// 'input[type="text"]', // '#bx-dest-internal-input-box input', // старый селектор
     budgetSelect: 'select[name="UF_CRM_1642787098616"]',
     checkboxTest: 'input[type="checkbox"][name="UF_CRM_IS_TEST_CID"]',
     contractTypeSelect: 'select[name="UF_CRM_1657021210993"]',
@@ -64,6 +67,13 @@ const TEST_DATA = {
 // 5. 'describe' из Jest меняется на 'test.describe'
 test.describe('New TM test', () => {
 
+    test.beforeEach(async ({ context }) => {
+        
+        // Говорим хелперу: "Если куки уже есть от предыдущего теста — не обновляй их!"
+        // forceNewSession: false - не обновлять куки (по умолчанию true, можно не прописывать флаг)
+        await loginViaApi(context, { forceNewSession: false }); 
+    });
+
     test('create team member test', async ({ page }) => {
         test.setTimeout(120000);
         // BASE_URL из выбранного .env (ENV_FILE / playwright.config.js)
@@ -71,7 +81,19 @@ test.describe('New TM test', () => {
         if (!baseUrl) throw new Error('Задай BASE_URL в .env (или укажи ENV_FILE).');
         await page.goto(baseUrl);
 
-        let teamMembersButton = page.locator(SELECTORS_CATALOG.CRM.teamMembersButton);
+        const crmButton = page.locator(SELECTORS_CATALOG.CRM.CRMButton);
+        await expect(crmButton).toBeVisible();
+        await crmButton.click();
+
+        const funnelButton = page.locator(SELECTORS_CATALOG.CRM.funnelButton);
+        await expect(funnelButton).toBeVisible();
+        await funnelButton.click();
+
+        const HRButton = page.locator(SELECTORS_CATALOG.CRM.Deal.menuPopupItems, { hasText: 'HR (Team member)' });
+        await expect(HRButton).toBeVisible({ timeout: 10000 });
+        await HRButton.click();
+
+    /*    let teamMembersButton = page.locator(SELECTORS_CATALOG.CRM.teamMembersButton);
 
         const waitForButton = async () => {
             await expect(teamMembersButton).toBeVisible({ timeout: 10000 });
@@ -89,7 +111,7 @@ test.describe('New TM test', () => {
 
         await teamMembersButton.click({ trial: true }); // проверка, что кнопка кликабельна (без реального клика)
         await teamMembersButton.click();
-
+*/
         // Скрываем верхнюю панель Битрикс (#bx-panel), если она есть
         await page.addStyleTag({ content: '#bx-panel { display: none !important; }' });
               
@@ -101,6 +123,7 @@ test.describe('New TM test', () => {
         const frame = page.frameLocator(SELECTORS.iframe);
 
         // Заполняем поля, используя данные из TEST_DATA
+        await frame.locator(SELECTORS.firstName).waitFor({ state: 'visible', timeout: 120000 });
         await frame.locator(SELECTORS.firstName).fill(TEST_DATA.firstName);
         await frame.locator(SELECTORS.lastName).fill(TEST_DATA.lastName);
         await frame.locator(SELECTORS.email).fill(TEST_DATA.email);
@@ -140,6 +163,7 @@ test.describe('New TM test', () => {
 
         // <select> dropdowns
         await frame.locator(SELECTORS.businessEntitySelect).selectOption(TEST_DATA.businessEntityValue);
+        await frame.locator(SELECTORS.departmentSelect).waitFor({ state: 'visible', timeout: 30000 });
         await frame.locator(SELECTORS.departmentSelect).selectOption(TEST_DATA.departmentValue);
 
         // Кастомный 'JobLevel' dropdown
@@ -191,7 +215,9 @@ test.describe('New TM test', () => {
         await frame.locator(SELECTORS.probationPeriod).fill(TEST_DATA.probationMonths);
 
         // Manager (HR)
-        await frame.locator(SELECTORS.managerLink).click();
+        //await frame.locator(SELECTORS.managerLink).locator(SELECTORS.addButton).click();
+        await frame.locator(SELECTORS.managerLink).click(); // старый селектор
+        //const managerInput = frame.locator(SELECTORS.managerLink).locator(SELECTORS.managerInput);
         const managerInput = frame.locator(SELECTORS.managerInput);
         await managerInput.pressSequentially(TEST_DATA.managerName);
         await managerInput.press('Enter');
